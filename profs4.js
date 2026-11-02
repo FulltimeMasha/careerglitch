@@ -23,165 +23,165 @@
    feature-default, because seat strings nest ('associate ai product
    manager' contains 'ai product manager'). */
 (function(){
-  var NEXT_AIPM = 'THE FULL REPORT — $5, OR FREE WHEN YOU SHARE: the six seats scored filter by filter — the evals proof the quality seat screens for, the three program doors priced, and the exact bridge in from data scientist and business analyst. We re-check these verdicts by June 2027 — or sooner if a quarterly scan shows the evals line stalling or the junior door widening. Next map: product manager — the huge plain title this check deliberately does not claim.';
+  var NEXT_AIPM = 'THE FULL REPORT — $5, OR FREE WHEN YOU SHARE: all six jobs, checked step by step. What evals proof the quality job wants. What the three beginner programs cost. And the exact way in from data scientist or business analyst. We re-check this by June 2027. Sooner if evals jobs slow down or more beginner jobs open. Next check: product manager — the big plain title this check does not cover.';
   function inject(){
     if (typeof PROFS === 'undefined' || PROFS.aipm) return;
     PROFS.aipm = {
       title: 'AI Product Manager',
-      kick: 'The top pay in tech. The title is not the job.',
+      kick: 'The top pay in tech. But the title alone isn\'t the job.',
       count: '42',
-      srcWhat: 'live job postings (BLS counts no product managers)',
-      srcLine: 'Postings opened 1 Nov 2026 · BLS Employment Projections 2025–35 — nearest occupations only, labeled as proxies',
+      srcWhat: 'real job posts (the government doesn\'t count product managers)',
+      srcLine: 'Job posts opened 1 Nov 2026 · BLS Employment Projections 2025–35 (government job numbers) — only the closest jobs, marked as stand-ins',
       code: 'SHIP',
-      tail: 'Three programs hire beginners. The other postings want years.',
+      tail: 'Three programs hire beginners. Other job posts want years.',
       next: NEXT_AIPM
     };
-    COFACTS.aipm = ['<b>20 of 26</b> postings that state a years number ask for <span class="pink">5+ years</span> of product work — the screen is years, not a diploma.', 'In <span class="pink">10 of 42</span> postings, the core job is <span class="pink">evals</span> — building the tests that grade the AI’s answers.', 'The <span class="pink">median pay band</span> across the postings that print one is <span class="pink">$204,500</span> — and the official statistics do not count this job at all.'];
+    COFACTS.aipm = ['<b>20 of 26</b> job posts that name a number ask for <span class="pink">5+ years</span> of product work. They check years, not a diploma.', 'In <span class="pink">10 of 42</span> job posts, the main job is <span class="pink">evals</span>. That means building tests that grade the AI’s answers.', 'The <span class="pink">middle pay</span> in job posts that show pay is <span class="pink">$204,500</span>. And the government doesn\'t count this job at all.'];
     SEATS.platpm = {
       prof: 'aipm',
       label: 'Platform / model PM',
-      head: 'PLATFORM / MODEL PM — <span class="pink">YES</span>. THE DEEPEST PAY IN THE SCAN.',
+      head: 'PLATFORM / MODEL PM — <span class="pink">YES</span>. THE HIGHEST PAY WE FOUND.',
       facts: [
-        ['Posted pay', 'OpenAI <span class="pink">$347K–$490K</span> · Google Group PM <span class="pink">$214K–$320K</span> · Voyager <span class="pink">$225K–$275K</span>'],
-        ['The screen', 'Voyager asks <span class="pink">10+ years</span> of product work, 5+ owning platforms · Google asks <span class="pink">10 years</span> and five shipped products'],
-        ['The work', 'You own what the model platform can do — its abilities, its cost, and every team that builds on it']
+        ['The pay', 'OpenAI <span class="pink">$347K–$490K</span> · Google Group PM <span class="pink">$214K–$320K</span> · Voyager <span class="pink">$225K–$275K</span>'],
+        ['What they check', 'Voyager asks <span class="pink">10+ years</span> of product work, 5+ running platforms · Google asks <span class="pink">10 years</span> and five shipped products'],
+        ['The work', 'You own what the AI platform can do. Its skills, its cost, and every team that builds on it']
       ],
-      door: 'What to do: you are in a YES seat if you have owned a technical platform or shipped model-facing work — the Full Report sequences that proof.',
-      short: 'Platform / model PM is the money seat. OpenAI posts $347K–$490K for it, and the screen is a decade of technical product work.'
+      door: 'What to do: this is a YES job for you if you ran a tech platform or shipped AI-facing work. The Full Report shows the steps to prove it.',
+      short: 'Platform / model PM is the money job. OpenAI pays $347K–$490K. They want about ten years of tech product work.'
     };
     SEATS.evalpm = {
       prof: 'aipm',
       label: 'Evals / AI quality PM',
-      head: 'EVALS / AI QUALITY PM — <span class="pink">YES</span>. THE SEAT EATING THE PROFESSION.',
+      head: 'EVALS / AI QUALITY PM — <span class="pink">YES</span>. THIS JOB IS TAKING OVER.',
       facts: [
-        ['The work', 'You build the tests — called evals — that grade the AI’s answers, and you decide what is good enough to ship'],
-        ['The job, in their words', 'LinkedIn: “own quality end to end” · Humana: golden sets, live evals, the <span class="pink">hallucination rate</span> — how often the model states false things with confidence'],
-        ['Posted pay', 'LinkedIn <span class="pink">$155K–$253K</span> · Glean AI Quality <span class="pink">$160K–$240K</span> · Humana <span class="pink">$151.6K–$208.4K</span>']
+        ['The work', 'You build tests (called evals) that grade the AI’s answers. Then you decide if it\'s good enough to launch'],
+        ['The job, in their own words', 'LinkedIn: “own quality end to end” · Humana: golden sets, live evals, the <span class="pink">hallucination rate</span> (how often the AI says false things like they\'re true)'],
+        ['The pay', 'LinkedIn <span class="pink">$155K–$253K</span> · Glean AI Quality <span class="pink">$160K–$240K</span> · Humana <span class="pink">$151.6K–$208.4K</span>']
       ],
-      door: 'What to do: you are in a YES seat if you can build a test set and defend a grade — the Full Report sequences one eval set → hand-graded answers → your own automated grader.',
-      short: 'Evals PM is a good choice. In 10 of 42 postings this grading work is the whole job, and it posts $151K–$253K.'
+      door: 'What to do: this is a YES job for you if you can build a test set and explain your grades. The Full Report shows the steps: one test set → grade answers by hand → build your own auto-grader.',
+      short: 'Evals PM is a good choice. In 10 of 42 job posts, grading AI is the whole job. It pays $151K–$253K.'
     };
     SEATS.featpm = {
       prof: 'aipm',
       label: 'AI feature PM',
-      head: 'AI FEATURE PM — <span class="pink">YES</span>. THE AI TITLE ALONE IS A NO.',
+      head: 'AI FEATURE PM — <span class="pink">YES</span>. BUT JUST HAVING “AI” IN THE TITLE IS A NO.',
       facts: [
-        ['The size', '<span class="pink">17 of 42</span> postings — the biggest seat in the scan'],
-        ['Posted pay', 'Adobe <span class="pink">$125.8K–$239.7K</span> · Microsoft Copilot <span class="pink">$119.8K–$274.8K</span> · lowest senior floor <span class="pink">$117,000</span>'],
-        ['The trap', 'Two postings in our scan wear an AI title and name <span class="pink">no AI work</span> in their text — ordinary coordination is the part AI drafts now']
+        ['How many jobs', '<span class="pink">17 of 42</span> job posts — the most common job we found'],
+        ['The pay', 'Adobe <span class="pink">$125.8K–$239.7K</span> · Microsoft Copilot <span class="pink">$119.8K–$274.8K</span> · lowest senior pay <span class="pink">$117,000</span>'],
+        ['The trap', 'Two job posts have AI in the title but <span class="pink">no AI work</span> in the text. Plain organizing work is what AI can do now']
       ],
-      door: 'What to do: you are in a YES seat if you shipped one AI feature and can grade its answers — the Full Report shows how an ordinary PM seat becomes this one.',
-      short: 'AI feature PM is a good choice — the biggest seat, 17 of 42 postings. The version that never touches the model is the trap inside it.'
+      door: 'What to do: this is a YES job for you if you shipped one AI feature and can grade its answers. The Full Report shows how a normal PM job turns into this one.',
+      short: 'AI feature PM is a good choice. It\'s the most common job: 17 of 42 job posts. The trap: a version that never touches the AI.'
     };
     SEATS.entpm = {
       prof: 'aipm',
       label: 'Enterprise / agent deployment PM',
-      head: 'ENTERPRISE / AGENT DEPLOYMENT PM — <span class="pink">YES</span>. DOMAIN IS THE MOAT.',
+      head: 'ENTERPRISE / AGENT DEPLOYMENT PM — <span class="pink">YES</span>. KNOWING THE INDUSTRY PROTECTS YOU.',
       facts: [
-        ['The work', 'You take AI agents — software that does tasks on its own — into real companies: law firms, hospitals, insurers'],
-        ['Posted pay', 'Harvey staff agent PM <span class="pink">$213.6K–$300K</span> · Harvey plain PM <span class="pink">$149.5K–$202.5K</span>, open to product <span class="pink">or engineering</span> pasts at 2–4+ years'],
-        ['The screen', 'Knowing the customer’s real work: one employer screens on <span class="pink">first-hand investment-research experience</span> instead of a years number']
+        ['The work', 'You bring AI agents (software that does tasks by itself) into real companies: law firms, hospitals, insurers'],
+        ['The pay', 'Harvey staff agent PM <span class="pink">$213.6K–$300K</span> · Harvey plain PM <span class="pink">$149.5K–$202.5K</span>, open to people from product <span class="pink">or engineering</span> with 2–4+ years'],
+        ['What they check', 'Knowing the customer’s real work. One company asks for <span class="pink">hands-on investment-research experience</span> instead of years']
       ],
-      door: 'What to do: you are in a YES seat if you know one industry’s real work and can ship into it — the Full Report sequences the domain proof.',
-      short: 'Enterprise agent PM is a good choice. Agents are going into law, health and finance, and the seat pays for domain knowledge, $149K–$300K.'
+      door: 'What to do: this is a YES job for you if you know one industry’s real work and can build for it. The Full Report shows how to prove it.',
+      short: 'Enterprise agent PM is a good choice. Agents are going into law, health and finance. This job pays for knowing the industry: $149K–$300K.'
     };
     SEATS.growpm = {
       prof: 'aipm',
       label: 'Growth AI PM',
-      head: 'GROWTH AI PM — <span class="pink">YES</span>. SMALL SEAT, SENIOR PRICE.',
+      head: 'GROWTH AI PM — <span class="pink">YES</span>. FEW JOBS, SENIOR PAY.',
       facts: [
-        ['The size', '<span class="pink">3 of 42</span> postings — small, and honest about it'],
-        ['Posted pay', 'Anthropic B2B Growth <span class="pink">$275K–$305K</span> at <span class="pink">6–10 years</span> · API Growth asks <span class="pink">6+ years</span>, most of them in growth'],
-        ['The screen', 'Experiments — trying version A against version B — are named in only <span class="pink">3 of 42</span> postings in the whole scan; <span class="pink">2 of the 3</span> are growth seats']
+        ['How many jobs', '<span class="pink">3 of 42</span> job posts. Small, and that\'s OK'],
+        ['The pay', 'Anthropic B2B Growth <span class="pink">$275K–$305K</span> for <span class="pink">6–10 years</span> · API Growth asks <span class="pink">6+ years</span>, mostly in growth'],
+        ['What they check', 'Experiments (testing version A against version B) show up in only <span class="pink">3 of 42</span> job posts. <span class="pink">2 of the 3</span> are growth jobs']
       ],
-      door: 'What to do: you are in a YES seat if you already run growth on a real product and can read a funnel in numbers — the Full Report sequences it.',
-      short: 'Growth AI PM is a good choice for people who already do growth. It is 3 of 42 postings, posts $275K–$305K, and screens at 6–10 years.'
+      door: 'What to do: this is a YES job for you if you already grow a real product and can read the numbers. The Full Report shows the steps.',
+      short: 'Growth AI PM is a good choice if you already do growth. It\'s 3 of 42 job posts. It pays $275K–$305K and wants 6–10 years.'
     };
     SEATS.apmpm = {
       prof: 'aipm',
       label: 'APM / entry AI PM',
-      head: 'APM / ENTRY AI PM — <span class="pink">NO</span> AS A PLAN. THE DOOR IS THREE PROGRAMS.',
+      head: 'APM / ENTRY AI PM — <span class="pink">NO</span> AS A PLAN. THE WAY IN IS THREE PROGRAMS.',
       facts: [
-        ['The three doors', 'Addepar Early Career, <span class="pink">0–2 years</span> of any work, <span class="pink">$83K–$130K</span> · Databricks new-grad APM, a <span class="pink">CS degree</span> required, <span class="pink">$133K–$150K</span> · Square’s 12-month APM rotation'],
-        ['The wall', '<span class="pink">20 of 26</span> postings that state a number ask <span class="pink">5+ years</span> · no posting hires a zero-experience, non-CS candidate outside a named program'],
-        ['The price', 'Aiming at the title from zero costs <span class="pink">≈$100K and 1–2 years</span> — the adjacent job pays while it builds the years this scan screens for']
+        ['The three ways in', 'Addepar Early Career, <span class="pink">0–2 years</span> of any work, <span class="pink">$83K–$130K</span> · Databricks new-grad APM, needs a <span class="pink">CS degree</span>, <span class="pink">$133K–$150K</span> · Square’s 12-month APM program'],
+        ['The wall', '<span class="pink">20 of 26</span> job posts that name a number ask <span class="pink">5+ years</span> · outside these programs, nobody hires with zero experience and no CS degree'],
+        ['The price', 'Going for the title from zero costs <span class="pink">≈$100K and 1–2 years</span>. A nearby job pays you while you build those years']
       ],
-      door: 'What to do instead: apply to a program if you fit its screen — or take an adjacent seat (analyst, data, support, engineering) whose years convert, and enter from year two.',
-      short: 'Entry AI PM is a bad plan as an open-market search: 3 beginner postings of 42, all programs. The programs themselves are real doors, $83K–$150K.'
+      door: 'What to do instead: apply to a program if you fit what it asks. Or take a nearby job (analyst, data, support, engineering). Those years count. Then move over in year two.',
+      short: 'Entry AI PM is a bad plan if you just search job sites. Only 3 of 42 job posts take beginners, and all are programs. The programs are real ways in: $83K–$150K.'
     };
     GRIDS.aipm = {
       head: 'AI PRODUCT MANAGER IS A YES. THE TITLE IS NOT THE JOB.',
-      sub: 'The words “AI product manager” cover six different jobs. They do not share a verdict:',
-      corner: 'OpenAI posts $347,000–$490,000 for a plain-titled PM. The trap is at the other end: of 42 real postings we opened, 3 take beginners — and all 3 are named programs.',
-      short: '“AI product manager” is six different jobs. Platform, evals, feature, enterprise and growth seats are good choices, posting $117K–$490,000. The beginner version barely exists: 3 of 42 postings, all programs. Product manager without the AI is a different profession — it has no check yet.',
+      sub: '“AI product manager” means six different jobs. Each one gets its own answer:',
+      corner: 'OpenAI pays $347,000–$490,000 for a plain PM title. The catch is at the bottom: of 42 real job posts we opened, only 3 take beginners. All 3 are special programs.',
+      short: '“AI product manager” is six different jobs. Platform, evals, feature, enterprise and growth are good choices. They pay $117K–$490,000. The beginner version barely exists: 3 of 42 job posts, all programs. Product manager without AI is a different job. We haven\'t checked it yet.',
       rows: [
-        ['Platform / model PM', 'YES', 'deepest pay in the scan · OpenAI posts $347K–$490K', 'platpm'],
-        ['Evals / AI quality PM', 'YES', 'evals are the whole job in 10 of 42 postings', 'evalpm'],
-        ['AI feature PM', 'YES', 'the biggest seat · 17 of 42 postings', 'featpm'],
-        ['Enterprise / agent deployment PM', 'YES', 'agents into law, health, finance · $149K–$300K', 'entpm'],
-        ['Growth AI PM', 'YES', 'experiments are the screen · posts $275K–$305K', 'growpm'],
-        ['APM / entry AI PM', 'NO · AS A PLAN', '3 beginner postings of 42 · all three are programs', 'apmpm'],
-        ['OTHER MAP', 'Data Scientist — a different profession', 'models & degrees · its own check (VECTOR) · the bridge here is evals + one shipped AI feature', 'datascientist']
+        ['Platform / model PM', 'YES', 'highest pay we found · OpenAI pays $347K–$490K', 'platpm'],
+        ['Evals / AI quality PM', 'YES', 'evals are the whole job in 10 of 42 job posts', 'evalpm'],
+        ['AI feature PM', 'YES', 'the most common job · 17 of 42 job posts', 'featpm'],
+        ['Enterprise / agent deployment PM', 'YES', 'agents for law, health, finance · $149K–$300K', 'entpm'],
+        ['Growth AI PM', 'YES', 'experiments matter most · pays $275K–$305K', 'growpm'],
+        ['APM / entry AI PM', 'NO · AS A PLAN', '3 beginner job posts of 42 · all three are programs', 'apmpm'],
+        ['OTHER MAP', 'Data Scientist — a different profession', 'models & degrees · its own check (VECTOR) · the way over: evals + one AI feature you shipped', 'datascientist']
       ]
     };
     QUOTES.aipm = {
       q: 'Evals are how we measure how good or bad that middle box – the product – is performing.',
-      by: 'Aman Khan, Director of Product at Arize AI (Behind the Craft interview, Jan 2025 — the work claim only; every market fact on this card is from the 2026 scan)',
+      by: 'Aman Khan, Director of Product at Arize AI (Behind the Craft interview, Jan 2025 — about the work only; all job market facts here are from the 2026 check)',
       url: 'https://creatoreconomy.so/p/ai-skill-that-will-define-your-pm-career-aman-khan'
     };
-    GV11.aipm = {hook: 'AI PM posts $490K. Entry is three programs.', conf: 'Medium', next: NEXT_AIPM};
+    GV11.aipm = {hook: 'AI PM pays $490K. Beginners get in through three programs.', conf: 'Medium', next: NEXT_AIPM};
     V11.platpm = {
-      hook: 'The top pay has no “senior” in its title.',
+      hook: 'The top pay doesn\'t even say “senior” in the title.',
       conf: 'Medium',
       step: {
-        student: 'First step, as a student: learn how models are served and priced — platform seats screen on technical depth, not on certificates.',
-        early: 'First step, early in: own one model-facing surface where you are — an API, an internal tool — and write down its cost and its failure kinds.',
-        mid: 'First step, at 3–5 years: own an evaluation framework for one model surface. That is the platform seat’s senior proof.',
-        senior: 'First step, at 5+ years: price the platforms you owned — OpenAI posts $347K–$490K for this seat’s judgment.'
+        student: 'First step, as a student: learn how AI models run and what they cost. Platform jobs check how deep your tech skills go, not certificates.',
+        early: 'First step, early in: own one AI-facing part of your work, like an API or an internal tool. Write down what it costs and how it breaks.',
+        mid: 'First step, at 3–5 years: own the testing for one AI part. That\'s the senior proof for platform jobs.',
+        senior: 'First step, at 5+ years: put a price on the platforms you ran. OpenAI pays $347K–$490K for this kind of judgment.'
       },
       next: NEXT_AIPM
     };
     V11.evalpm = {
-      hook: 'Evals are the job in 10 of 42.',
+      hook: 'Evals are the whole job in 10 of 42.',
       conf: 'Medium',
       step: {
-        student: 'First step, as a student: build a tiny test set for a chatbot you use — 20 questions, right answers written down. That file is this seat in miniature.',
-        early: 'First step, early in: grade 50 real answers from your product’s AI feature by hand and write the failure kinds. Hand grades come before automated ones.',
-        mid: 'First step, at 3–5 years: own quality end to end on one feature — eval set, rubric, and the ship decision. That sentence is a real posting’s first line.',
-        senior: 'First step, at 5+ years: price the quality systems you built — this seat posts $151K–$253K for defended grades.'
+        student: 'First step, as a student: build a tiny test for a chatbot you use. 20 questions, with the right answers written down. That file is this job in mini size.',
+        early: 'First step, early in: grade 50 real answers from your product’s AI by hand. Write down how it fails. Hand grading comes before auto-grading.',
+        mid: 'First step, at 3–5 years: own quality for one feature, start to finish. Test set, grading rules, and the launch decision. That\'s the first line of a real job post.',
+        senior: 'First step, at 5+ years: put a price on the quality systems you built. This job pays $151K–$253K for grades you can explain.'
       },
       next: NEXT_AIPM
     };
     V11.featpm = {
-      hook: 'The biggest seat. The title alone is a no.',
+      hook: 'The most common job. “AI” in the title alone is a no.',
       conf: 'Medium',
       step: {
-        student: 'First step, as a student: take one app you use daily and write which of its features an AI could do — and how you would know it did it well.',
-        early: 'First step, early in: ship one AI feature, however small, in your current product — and grade its answers yourself.',
-        mid: 'First step, at 3–5 years: put an eval set on your main AI feature. That is the line between this seat’s YES version and its trap.',
-        senior: 'First step, at 5+ years: price the shipped features and their quality numbers — feature seats post to $274,800 for exactly that.'
+        student: 'First step, as a student: pick one app you use daily. Write which features an AI could do. And how you\'d know it did them well.',
+        early: 'First step, early in: ship one AI feature in your current product, even a small one. Grade its answers yourself.',
+        mid: 'First step, at 3–5 years: add a test set to your main AI feature. That\'s what separates the YES version of this job from the trap.',
+        senior: 'First step, at 5+ years: put a price on your shipped features and their quality numbers. These jobs pay up to $274,800 for exactly that.'
       },
       next: NEXT_AIPM
     };
     V11.entpm = {
-      hook: 'Agents into real companies. Domain is the moat.',
+      hook: 'Agents for real companies. Knowing the industry protects you.',
       conf: 'Medium',
       step: {
-        student: 'First step, as a student: learn one industry’s real paperwork — legal, health or finance. This seat screens on the domain before the model.',
-        early: 'First step, early in: sit with real users of one workflow and write where an agent would break it. Deployment truth beats demos.',
-        mid: 'First step, at 3–5 years: run one deployment end to end — pilot, failure list, fix. Regulated customers grade their agents; be the one holding the grades.',
-        senior: 'First step, at 5+ years: price the deployments you shipped — Harvey posts $213.6K–$300K for this seat’s record.'
+        student: 'First step, as a student: learn one industry’s real paperwork: legal, health or finance. This job checks that before AI skills.',
+        early: 'First step, early in: sit with real users of one task. Write where an agent would break it. Real use beats a demo.',
+        mid: 'First step, at 3–5 years: run one launch start to finish: test, list what broke, fix it. Strict industries grade their agents. Be the one with the grades.',
+        senior: 'First step, at 5+ years: put a price on the launches you shipped. Harvey pays $213.6K–$300K for this kind of record.'
       },
       next: NEXT_AIPM
     };
     V11.growpm = {
-      hook: 'Experiments are the screen. The seat is senior.',
+      hook: 'Experiments matter most. This is a senior job.',
       conf: 'Medium',
       step: {
-        student: 'First step, as a student: learn funnels before models — this seat reads sign-ups and conversion, not model papers.',
-        early: 'First step, early in: run one honest A/B test on anything real and write the call you made from it.',
-        mid: 'First step, at 3–5 years: own a growth number on an AI product — activation or conversion — and be able to show the experiments behind it.',
-        senior: 'First step, at 5+ years: price the growth record — Anthropic posts $275K–$305K at 6–10 years for it.'
+        student: 'First step, as a student: learn funnels before AI. A funnel shows how many people sign up and then pay. This job reads that, not AI papers.',
+        early: 'First step, early in: run one honest A/B test on something real. Write down what you decided from it.',
+        mid: 'First step, at 3–5 years: own one growth number on an AI product, like sign-ups that stick or sales. Be ready to show the tests behind it.',
+        senior: 'First step, at 5+ years: put a price on your growth record. Anthropic pays $275K–$305K for 6–10 years of it.'
       },
       next: NEXT_AIPM
     };
@@ -189,18 +189,18 @@
       hook: 'Three programs hire beginners. Nobody else does.',
       conf: 'Medium',
       step: {
-        student: 'First step, as a student: pick which program screen you can pass — a CS degree (Databricks), new-grad timing (Square), or 0–2 years of any work (Addepar) — and aim at that screen.',
-        early: 'First step, early in: if a program is not open to you, take the adjacent seat whose years convert — analyst, data, support, engineering — and ship one AI feature inside it.',
-        mid: 'First step, at 3–5 years: you are past this door — aim at the evals or feature seat; your years are the screen they actually read.',
-        senior: 'First step, at 5+ years: this seat is behind you. Price the seat above it — the median band midpoint in our scan is $204,500.'
+        student: 'First step, as a student: pick the program you can get into: a CS degree (Databricks), fresh graduate (Square), or 0–2 years of any work (Addepar). Aim at that one.',
+        early: 'First step, early in: if no program fits you, take a nearby job whose years count: analyst, data, support, engineering. Ship one AI feature there.',
+        mid: 'First step, at 3–5 years: you\'re past the beginner stage. Aim at the evals or feature job. Your years are what they look at.',
+        senior: 'First step, at 5+ years: you\'re past this job. Aim at the one above it. The middle pay in our check is $204,500.'
       },
       next: NEXT_AIPM
     };
     PROF_STEPS.aipm = {
-      student: 'First step, as a student: aim at a program’s screen, not at the title — the three beginner doors ask for a CS degree, new-grad timing, or 0–2 years of any work.',
-      early: 'First step, early in: ship one AI feature where you are and grade its answers — that proof is what the 1–3-year doors read.',
-      mid: 'First step, at 3–5 years: own quality on one AI feature — build its eval set. Evals are the core job in 10 of 42 postings.',
-      senior: 'First step, at 5+ years: price the seat, not the title — platform posts to $490,000 and the median band midpoint is $204,500.'
+      student: 'First step, as a student: aim at what a program asks for, not the title. The three beginner ways in want a CS degree, fresh graduate, or 0–2 years of any work.',
+      early: 'First step, early in: ship one AI feature where you work and grade its answers. Jobs asking 1–3 years look for that proof.',
+      mid: 'First step, at 3–5 years: own quality on one AI feature. Build its test set. Evals are the main job in 10 of 42 job posts.',
+      senior: 'First step, at 5+ years: price the job, not the title. Platform pays up to $490,000. The middle pay is $204,500.'
     };
     SEAT_RULES.unshift(
       [['ai quality', 'evals product manager', 'evaluation product manager', 'ai evals', 'ai evaluation pm'], 'evalpm'],
@@ -230,7 +230,7 @@
   stateFact = function (prof, code, name) {
     if (!name) return '';
     if (prof === 'aipm') {
-      return 'Your state: no license decides what an AI product manager earns in ' + name + ' — there is no license for this work, and the official statistics do not even count this job. What moves the pay is the seat and the city: the same profession posts $83,000 at an entry program and $347,000–$490,000 at a frontier lab, and several big-tech bands print a higher range for the San Francisco Bay Area and New York metro.';
+      return 'Your state: no license decides AI product manager pay in ' + name + '. There\'s no license for this work. The government doesn\'t even count this job. Pay depends on the job type and the city. The same job pays $83,000 in a beginner program and $347,000–$490,000 at a top AI lab. Some big tech companies pay more in the San Francisco Bay Area and New York.';
     }
     return _sfAipm(prof, code, name);
   };
