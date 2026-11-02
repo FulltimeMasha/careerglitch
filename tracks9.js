@@ -64,8 +64,8 @@ Object.assign(DOORS, {
 });
 
 GRIDINFO.aipm = {
-  head: 'This job comes in 6 different kinds.',
-  short: 'An AI product manager decides what an AI app (like a chatbot) should do, and makes sure it works well. Six different jobs hide under this one name. The best pay goes to people who run the AI “under the hood” and to people who check if the AI answers correctly. The most openings are for adding AI to normal apps. Beginners are rarely hired: there are only 3 starter programs.'
+  head: 'Your shortcut to becoming an AI product manager.',
+  short: 'This usually takes years of study. We read 42 real job posts and kept only what actually gets people hired. We cut the extra courses and certificates. Do one step at a time — you will get the job faster and aim for the top 1% from day one.'
 };
 
 TRACKS.aipm = [
@@ -260,8 +260,8 @@ Object.assign(DOORS_RU, {
 });
 
 GRIDINFO_RU.aipm = {
-  head: 'У этой профессии 6 разных вариантов.',
-  short: 'AI-продакт-менеджер решает, что должна уметь программа с AI (например, чат-бот), и следит, чтобы она работала хорошо. Под этим названием прячутся 6 разных работ. Больше всего платят тем, кто отвечает за сам AI «под капотом», и тем, кто проверяет, правильно ли AI отвечает. Больше всего вакансий — у тех, кто добавляет AI в обычные приложения. Новичков почти не берут: есть всего 3 программы для начинающих.'
+  head: 'Ваш короткий путь в AI-продакт-менеджеры.',
+  short: 'Обычно на это уходят годы учёбы. Мы прочитали 42 настоящие вакансии и оставили только то, за что реально берут на работу. Лишние курсы и сертификаты убрали. Делайте по одному шагу — так вы дойдёте до работы быстрее и сразу будете целиться в топ 1%.'
 };
 
 DOORSTEP_RU.prof.aipm = {
@@ -315,4 +315,4 @@ Object.assign(BIGGOALS_RU, {
   growpm: 'Большая цель: PM роста AI-продукта, где доказательство — это эксперименты. Платят $275K–$305K.',
   apmpm: 'Большая цель: ко второму году попасть в программу или на соседнюю работу. Расти честно, ступенька за ступенькой.'
 });
-BIGGOAL_PROF_RU.aipm = 'Ваша цель — работа AI-продакт-менеджера, которую вы выбрали сами. Платят от $117K до $490K в год. Сертификаты для этого не нужны. Нужно показать, что вы уже делали: добавили AI в приложение и проверили, правильно ли он отвечает.';
+BIGGOAL_PROF_RU.aipm = 'Стать AI-продакт-менеджером из топ 1%. Такие люди получают до $490K в год (обычный старт — от $117K). Дойти туда можно без лишней учёбы: только шаги, за которые реально платят.';
