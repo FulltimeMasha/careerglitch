@@ -1,0 +1,8 @@
+progress 50 / 295
+progress 100 / 295
+progress 150 / 295
+progress 200 / 295
+progress 250 / 295
+uploads complete. fails: []
+deployment: dpl_7Y8w9gndtn7Y25brmCjPKrXXaztM | state: INITIALIZING
+DONE

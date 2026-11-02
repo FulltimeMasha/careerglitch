@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PathCheck — Forecast Track Record</title>
+<meta name="description" content="Every PathCheck forecast, scored in public. We don't delete the misses.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<meta name="theme-color" content="#FFEEF5">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Instrument+Sans:wght@400;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFCF6; --ink:#17122B; --ink2:#3a2b4d; --mut:#7a7285;
+  --pink:#FF8CBE; --hot:#F92A82; --deep:#c2185b;
+  --blush:#FFD8EA; --soft:#FFEEF5; --butter:#F0E6CF;
+  --line:#eedfe8; --green:#12805f;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;color:var(--ink);
+  font-family:'Instrument Sans',system-ui,sans-serif;font-size:17px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  background:linear-gradient(180deg,#FFFCF6 0%,#FFF3F8 46%,#FFEEF5 78%,#FFE3F0 100%);
+  background-attachment:fixed;overflow-x:hidden;
+}
+h1,h2{font-family:'Outfit',sans-serif}
+.topbar{display:flex;align-items:center;padding:20px 24px;max-width:1100px;margin:0 auto}
+.logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.logo .heart{color:var(--hot)}
+.logo .by{font-family:'DM Mono',monospace;font-weight:400;font-size:11px;letter-spacing:.14em;color:var(--mut);margin-left:8px;text-transform:uppercase}
+.wrap{max-width:760px;margin:0 auto;padding:2vh 20px 8vh}
+.kicker{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin-bottom:10px}
+h1{font-size:clamp(30px,6.4vw,44px);font-weight:900;line-height:1.08;letter-spacing:-.02em}
+h1 .hl{background:linear-gradient(transparent 62%,var(--blush) 62%)}
+.brandline{margin-top:14px;font-size:18px;color:var(--ink2);line-height:1.5}
+.counters{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 6px}
+.counter{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.04em;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 15px}
+.counter b{font-family:'Outfit',sans-serif}
+.counter.prog{border-color:var(--pink);background:var(--soft)}
+.frow{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:20px 20px 17px;margin-top:16px;box-shadow:0 14px 34px rgba(23,18,43,.05)}
+.frow .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.fid{font-family:'DM Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--ink);color:#fff;border-radius:8px;padding:4px 9px}
+.fcluster{font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--deep)}
+.status{margin-left:auto;font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.06em;background:var(--butter);color:var(--ink);border-radius:999px;padding:4px 11px;white-space:nowrap}
+.thesis{font-family:'Outfit',sans-serif;font-weight:700;font-size:18.5px;line-height:1.35}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px;font-family:'DM Mono',monospace;font-size:12px;color:var(--mut);letter-spacing:.02em}
+.falsi{margin-top:11px;font-size:14.5px;color:var(--ink2);line-height:1.55;border-top:1.5px dashed var(--line);padding-top:11px}
+.falsi b{color:var(--deep)}
+.backline{margin-top:30px;text-align:center}
+.backline a{color:var(--deep);font-weight:600}
+footer{text-align:center;padding:10px 20px 34px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--mut)}
+footer .heart{color:var(--hot)}
+footer a{color:var(--deep)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="logo" href="/">Path<span style="color:var(--deep)">Check</span> <span class="heart">♥</span><span class="by">by Career Glitch</span></a>
+</div>
+
+<div class="wrap">
+  <div class="kicker">Forecast track record</div>
+  <h1>Every forecast we publish, <span class="hl">scored in public</span>.</h1>
+  <p class="brandline">Every forecast we publish, scored in public. We don't delete the misses. Each thesis below carries the evidence that would prove it wrong — and the date we come back to check.</p>
+
+  <div class="counters">
+    <span class="counter">Proven: <b>0</b></span>
+    <span class="counter">Busted: <b>0</b></span>
+    <span class="counter prog">In progress: <b>22</b></span>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-L1</span><span class="fcluster">Legal</span><span class="status">In progress</span></div>
+    <p class="thesis">By 2028, first-year hiring at US firms of 500+ lawyers will run at least 10% below the Class-of-2025 level (6,588 seats), because firms are replacing the junior task layer with AI workflows and experienced lateral hires instead of training classes.</p>
+    <div class="meta"><span>Published: Oct 30, 2026</span><span>Review: September 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> NALP reports Class of 2027 or Class of 2028 entry hiring at 500+ firms at or above the Class-of-2025 level.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-L2</span><span class="fcluster">Legal</span><span class="status">In progress</span></div>
+    <p class="thesis">By 2028, platform-owned legal employers (Arizona ABS entities and PE-backed MSOs) will hold a visibly larger share of volume-practice operations — personal-injury intake, review, processing — because private capital is buying the standardized operations layer that Rule 5.4 used to keep inside firms.</p>
+    <div class="meta"><span>Published: Oct 30, 2026</span><span>Review: June 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> MSO/ABS deal flow collapses, or CA/CO-style fee-sharing bans spread to 10+ states and Arizona's licensed-ABS count stalls or falls.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-C1</span><span class="fcluster">Accounting / CPA</span><span class="status">In progress</span></div>
+    <p class="thesis">By 2028, a majority of US states will license CPAs through a 120-credit + 2-years-experience route, because the licensed-signer shortage forces states to trade the license's scarcity for pipeline volume.</p>
+    <div class="meta"><span>Published: Oct 30, 2026</span><span>Review: January 2028</span></div>
+    <p class="falsi"><b>We're wrong if:</b> enacted 120+2-style routes stall below 40 states by Dec 31, 2027, or early-adopting states repeal them.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-C2</span><span class="fcluster">Accounting / CPA</span><span class="status">In progress</span></div>
+    <p class="thesis">By 2029, staff-level accounting postings will name AI platforms the way they now name NetSuite, because the AI requirement is entering hiring disguised as platform names (today: a named AI tool in 1 of 52 postings) — and firms buy leverage for signers, not preparers.</p>
+    <div class="meta"><span>Published: Oct 30, 2026</span><span>Review: October 2028</span></div>
+    <p class="falsi"><b>We're wrong if:</b> a 2028 recount of staff postings still names an AI tool in fewer than 5% of listings.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-N1</span><span class="fcluster">Nursing</span><span class="status">In progress</span></div>
+    <p class="thesis">By 2028, travel RN pay will compress toward staff bands, because 70.7% of hospitals are budgeting agency use down (NSI 2026) while RN vacancy holds under 10% — the post-COVID travel premium was a shortage artifact, not a wage level.</p>
+    <div class="meta"><span>Published: Oct 30, 2026</span><span>Review: April 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> the travel median rises back above $2,300/wk and holds for two consecutive quarters, or NSI's next survey shows hospitals reversing agency cuts.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-N2</span><span class="fcluster">Nursing</span><span class="status">In progress</span></div>
+    <p class="thesis">By 2029, the generalist FNP's pay edge over a senior specialty RN will keep shrinking in restricted-practice metros, because NP program output keeps growing into productivity-pay platform seats while psych and acute-care pay stays gated by certification and experience.</p>
+    <div class="meta"><span>Published: Oct 30, 2026</span><span>Review: October 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> FNP starting bands in major metros rise faster than senior specialty-RN bands in a posting recount.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-F1</span><span class="fcluster">Finance / FP&amp;A</span><span class="status">In progress</span></div>
+    <p class="thesis">By 2028, a majority of top-money FP&amp;A postings will name an AI workflow or agent tool as an explicit requirement, because CFO agent deployment is funded and climbing (13% deployed today, Coupa 2026; 41% of CFOs expect agents to deliver the biggest AI return) — and hiring follows the deployment.</p>
+    <div class="meta"><span>Published: Oct 30, 2026</span><span>Review: October 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> a 2027 recount of top-money FP&amp;A postings still shows AI-named requirements in fewer than 25% of listings.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-F2</span><span class="fcluster">Finance / FP&amp;A</span><span class="status">In progress</span></div>
+    <p class="thesis">By 2028, entry-level analyst postings will still run at least 15% below their 2025 level, because firms keep absorbing junior reporting tasks with AI while hiring experience at a 3:1 ratio — the rung does not grow back on its own.</p>
+    <div class="meta"><span>Published: Oct 30, 2026</span><span>Review: June 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> BambooHR/Revelio-class data shows entry analyst postings recovering to 2025 levels.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-A1</span><span class="fcluster">Business / Data Analyst</span><span class="status">In progress</span></div>
+    <p class="thesis">By the June 2027 re-scan, at least 1 in 4 analyst postings in our scan will name a specific AI tool (Copilot, Claude, ChatGPT, a BI copilot) — because the requirement entered analyst postings in 2026 and is spreading from the newest ones (today: 6 of 46, 13%).</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: June 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> two consecutive quarterly scans stay under 20% naming a specific AI tool.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-A2</span><span class="fcluster">Business / Data Analyst</span><span class="status">In progress</span></div>
+    <p class="thesis">Through 2027, analytics-engineering postings will keep a posted floor at or above $96K while junior reporting-analyst bands stay at or under $75K at the top — the seat gap does not close, because the model layer is what AI reads and the reporting layer is what AI drafts.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: October 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> a quarterly re-scan finds junior reporting bands topping $85K, or analytics-engineering posting floors below $90K.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-D1</span><span class="fcluster">Data Analyst</span><span class="status">In progress</span></div>
+    <p class="thesis">By the June 2027 re-scan, at least 1 in 4 data-side analyst postings in our scan will name a specific AI tool (Copilot, Claude, ChatGPT, a BI copilot) — because the requirement entered data postings in 2026 and is spreading from the newest ones (today: 2 of 24 named, in the split scan of Nov 1, 2026).</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: June 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> two consecutive quarterly scans stay under 20% naming a specific AI tool.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-D2</span><span class="fcluster">Data Analyst</span><span class="status">In progress</span></div>
+    <p class="thesis">Through 2027, analytics-engineering postings will keep a posted floor at or above $96K while junior reporting-analyst bands stay at or under $75K at the top — the seat gap does not close, because the model layer is what AI reads and the reporting layer is what AI drafts.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: October 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> a quarterly re-scan finds junior reporting bands topping $85K, or analytics-engineering posting floors below $90K.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-B1</span><span class="fcluster">Business Analyst</span><span class="status">In progress</span></div>
+    <p class="thesis">By the June 2027 re-scan, at least 1 in 3 business-side postings in our scan will name a specific AI tool — because the requirement entered business-analyst postings in 2026, and one employer (SanDisk) already makes it a requirement with a job section of its own (today: 4 of 22 named, in the split scan of Nov 1, 2026).</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: June 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> two consecutive quarterly scans stay under 25% naming a specific AI tool.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-B2</span><span class="fcluster">Business Analyst</span><span class="status">In progress</span></div>
+    <p class="thesis">Through 2027, the business seat gap holds: generalist business-analyst bands top out at or under $95K while strategy &amp; operations analyst postings keep a floor at or above $96K — because one job's product is a document and the other's is a decision.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: October 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> a quarterly re-scan finds a generalist BA band topping $110K, or strategy &amp; operations floors below $90K.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-AI1</span><span class="fcluster">AI Content Creator</span><span class="status">In progress</span></div>
+    <p class="thesis">By June 2027, TikTok's AI-generated-content viewer control will have left "testing" status and shipped as a standard feature — because the labeled supply it manages passed 3 billion videos in July 2026, and the dial is the platform's answer to it.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: June 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> TikTok's own posts still describe the control as a test in June 2027, or the control has been withdrawn.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-AI2</span><span class="fcluster">AI Content Creator</span><span class="status">In progress</span></div>
+    <p class="thesis">Collabstr's next annual report will put the average paid human UGC video below $154 — because AI production keeps repricing the human deliverable it competes with (a finished AI clip already costs about $1–11 to make).</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: on the next Collabstr report</span></div>
+    <p class="falsi"><b>We're wrong if:</b> the next report's average paid UGC rate is $154 or higher.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-AI3</span><span class="fcluster">AI Content Creator</span><span class="status">In progress</span></div>
+    <p class="thesis">Through December 2027, no AI-run streamer other than Neuro-sama will reach 1 million Twitch followers — because the category's one success is a custom software system built and co-performed by a programmer since 2022, not a format a newcomer can copy.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: December 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> a second AI-run streamer passes 1 million Twitch followers before the end of 2027.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-S1</span><span class="fcluster">Content Creator — Staff</span><span class="status">In progress</span></div>
+    <p class="thesis">By November 1, 2027, in a repeat scan of 40 comparable US staff content-creator postings, at least 25% (10 of 40) will name specific AI tools — up from 2 of 40 on November 1, 2026 — and the share requiring on-camera presence or in-person capture will not have fallen below 25% (13 of 40 today). The staff creator splits into a trusted face and an AI production system underneath.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: November 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> on the re-scan, AI-tool naming stays under 25%, or presence-required falls under 25%.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-S2</span><span class="fcluster">Content Creator — Staff</span><span class="status">In progress</span></div>
+    <p class="thesis">In the same November 1, 2027 re-scan, the median posted salary midpoint for US staff content-creator roles will be at or above $80,000 — up from ≈$77,000 in the November 1, 2026 scan of 40 postings.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: November 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> the re-scan's median posting midpoint comes in below $80,000.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-HA1</span><span class="fcluster">Healthcare Administrator</span><span class="status">In progress</span></div>
+    <p class="thesis">By the June 2027 re-scan of this package, at least 1 in 3 revenue-cycle postings will name automation or analytics in the job itself — up from 3 of 10 revenue-cycle postings (4 of 43 overall) in the November 1, 2026 scan — because the seat's own vendors and employers are already selling and hiring exactly that.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: June 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> the re-scan finds fewer than 1 in 3 revenue-cycle postings naming automation or analytics.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-HA2</span><span class="fcluster">Healthcare Administrator</span><span class="status">In progress</span></div>
+    <p class="thesis">Through October 2027, long-term care administrator postings will keep requiring the state licence in at least 7 of 8 postings, and no posted band will start below $90,000 — because the licence is a law in every state (BLS), not a hiring fashion.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: October 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> the October 2027 re-scan finds the licence required in fewer than 7 of 8 postings, or any band starting below $90,000.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-DS1</span><span class="fcluster">Data Scientist</span><span class="status">In progress</span></div>
+    <p class="thesis">By the June 2027 re-scan, at least 1 in 2 data-scientist postings in our scan names LLM or Generative AI work. Today: 17 of 42 (two in five).</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: June 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> two consecutive quarterly scans stay under 45% of postings naming LLM/GenAI work.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-DS2</span><span class="fcluster">Data Scientist</span><span class="status">In progress</span></div>
+    <p class="thesis">Through 2027, the junior door does not widen: postings open to a bachelor’s degree with 0–2 years and no master’s screen stay at or under 6 of ~40 in our quarterly scans. Today: 3 of 42.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: October 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> a quarterly scan finds 10+ of ~40 postings open to a bachelor’s with 0–2 years and no master’s screen.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-PM1</span><span class="fcluster">AI Product Manager</span><span class="status">In progress</span></div>
+    <p class="thesis">By the June 2027 re-scan, at least 1 in 3 AI product manager postings names evals — building the tests that grade the AI’s answers — as core work. Today: 10 of 42.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: June 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> two consecutive quarterly scans find evals as core work in fewer than 30% of postings.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-PM2</span><span class="fcluster">AI Product Manager</span><span class="status">In progress</span></div>
+    <p class="thesis">Through 2027, AI PM postings open to beginners outside named entry programs stay at or under 2 of ~40 in our quarterly scans. Today: 0 of 42 outside programs (3 of 42 are programs themselves).</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: October 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> a quarterly scan finds 5+ of ~40 postings open to a zero-experience, non-CS candidate outside a named program.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-TD1</span><span class="fcluster">Truck Driver · autonomy rollout</span><span class="status">In progress</span></div>
+    <p class="thesis">By December 31, 2027, at least two companies besides Aurora run regular commercial driverless Class 8 service — freight paid, no safety driver — on public US interstate lanes. (Kodiak and Torc are the named candidates; both are targets today, not services.)</p>
+    <div class="meta"><span>Published: November 1, 2026</span><span>Review: January 2028</span><span>Package: Truck Driver (HAUL)</span></div>
+    <p class="falsi"><b>We're wrong if:</b> on December 31, 2027, Aurora is still the only company running commercial driverless Class 8 highway service in the US.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-TD2</span><span class="fcluster">Truck Driver · tanker &amp; hazmat</span><span class="status">In progress</span></div>
+    <p class="thesis">Through December 31, 2029, hazmat and tanker freight in the US still moves with a human driver on every load — no commercial driverless hazmat or tanker operation launches, and federal driverless relief stays closed to hazmat, as the October 7, 2026 FMCSA exemption wrote it.</p>
+    <div class="meta"><span>Published: November 1, 2026</span><span>First review: October 2027</span><span>Package: Truck Driver (HAUL)</span></div>
+    <p class="falsi"><b>We're wrong if:</b> any company launches commercial driverless hazmat or tanker operations in the US, or FMCSA extends ADS exemptions or rules to hazmat freight, before the end of 2029.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-MH1</span><span class="fcluster">Mental Health Counselor</span><span class="status">In progress</span></div>
+    <p class="thesis">By December 2027, at least 10 US states in total will have enacted laws restricting AI-provided therapy or AI mental-health chatbots — because the first three (Illinois, Nevada, Utah, all in 2025) wrote the licensed human into the law, and the liability cases against unlicensed AI “care” keep arriving.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: December 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> fewer than 10 states have enacted such laws by December 31, 2027, or Illinois or Nevada repeals its 2025 law.</p>
+  </div>
+
+  <div class="frow">
+    <div class="top"><span class="fid">F-MH2</span><span class="fcluster">Mental Health Counselor</span><span class="status">In progress</span></div>
+    <p class="thesis">By December 2027, at least 20 states will be live issuing Counseling Compact privileges to practice — up from 11 live in October 2026, with 39 states and DC already enacted — because the compact is this profession’s only portability machine and its data system is already running.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: December 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> fewer than 20 states are shown as live on the Counseling Compact’s own map by December 31, 2027.</p>
+  </div>
+  <div class="frow">
+    <div class="top"><span class="fid">F-EL1</span><span class="fcluster">Electrician</span><span class="status">In progress</span></div>
+    <p class="thesis">By 2028, at least one state that today caps apprentice supervision at 1:1 will loosen the ratio toward 2:1 or more for commercial work — because BLS counts about 72,700 electrician openings a year against a training pipe the ratio itself caps, and the bottleneck becomes a law-reform fight.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: December 2028</span></div>
+    <p class="falsi"><b>We're wrong if:</b> no 1:1-ratio state has loosened its apprentice ratio by the end of 2028, or openings fall sharply in the next BLS outlook.</p>
+  </div>
+  <div class="frow">
+    <div class="top"><span class="fid">F-EL2</span><span class="fcluster">Electrician</span><span class="status">In progress</span></div>
+    <p class="thesis">Through 2027, posted data-center and industrial journeyman bands keep a premium of $10 an hour or more over residential bands in the same metros — because every AI data center is a small power plant that licensed hands must wire, and the apprentice pipe cannot widen fast enough to close the gap.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: December 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> a repeat scan finds the data-center/industrial premium under $10 an hour in most metros, or the postings stop naming the license.</p>
+  </div>
+  <div class="frow">
+    <div class="top"><span class="fid">F-HV1</span><span class="fcluster">HVAC Technician</span><span class="status">In progress</span></div>
+    <p class="thesis">At the November 2028 re-scan, commercial controls (BAS) postings will still out-pay residential service postings — the specialty premium holds, because every smart building and data center needs a human standing in front of the machine, and the systems keep getting smarter faster than the workforce does.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: November 2028</span></div>
+    <p class="falsi"><b>We're wrong if:</b> the re-scan finds controls bands at or below residential service bands, or the postings stop naming platforms and experience.</p>
+  </div>
+  <div class="frow">
+    <div class="top"><span class="fid">F-HV2</span><span class="fcluster">HVAC Technician</span><span class="status">In progress</span></div>
+    <p class="thesis">Through 2027, private-equity platforms keep their 2025 pace in HVAC deals (39 of 77 first-half-2025 transactions were PE deals, Capstone Partners) — the roll-up does not slow before it reaches the electrical trade at the same intensity.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: December 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> annual HVAC deal counts with PE buyers fall by half or more from the 2025 pace in Capstone or PitchBook reporting.</p>
+  </div>
+  <div class="frow">
+    <div class="top"><span class="fid">F-PL1</span><span class="fcluster">Plumber</span><span class="status">In progress</span></div>
+    <p class="thesis">At the November 2028 re-scan, the licensed-journeyman premium in service postings still holds: licensed service seats post $100K+ bands while unlicensed entry stays at chain apprenticeships — because the license, not the truck, is what the market is short of.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: November 2028</span></div>
+    <p class="falsi"><b>We're wrong if:</b> the re-scan finds licensed and unlicensed service bands within 10% of each other, or top service postings stop naming the license.</p>
+  </div>
+  <div class="frow">
+    <div class="top"><span class="fid">F-PL2</span><span class="fcluster">Plumber</span><span class="status">In progress</span></div>
+    <p class="thesis">By the end of 2027, at least one major private-equity platform publicly drops pure-commission pay for licensed plumbers in tight labor markets — because it cannot hire licenses it refuses to guarantee, while guaranteed competitors post $110K–$130K for the same hands.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: December 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> no major platform has moved licensed plumbers to guaranteed floors by December 2027 and pure-commission postings are unchanged.</p>
+  </div>
+  <div class="frow">
+    <div class="top"><span class="fid">F-CY1</span><span class="fcluster">Cybersecurity</span><span class="status">In progress</span></div>
+    <p class="thesis">The beginner share keeps shrinking: US cybersecurity postings accepting 0–2 years of experience fall below 12% of postings that state years.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: November 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> a comparable postings study (AKA Security method or CyberSeek/Lightcast data) shows the 0–2-years share at or above 12% — the Oct 2026 baseline was 13.6%, the 2024 level 18.3%.</p>
+  </div>
+  <div class="frow">
+    <div class="top"><span class="fid">F-CY2</span><span class="fcluster">Cybersecurity</span><span class="status">In progress</span></div>
+    <p class="thesis">AI becomes a door requirement: at least 1 in 3 entry-level US cybersecurity postings names AI-tool experience.</p>
+    <div class="meta"><span>Published: Nov 1, 2026</span><span>Review: December 2027</span></div>
+    <p class="falsi"><b>We're wrong if:</b> a comparable postings study shows entry-level postings naming AI-tool experience below 25% — the Oct 2026 baseline was 20.4%.</p>
+  </div>
+
+  <p class="backline"><a href="/">← Back to the free PathCheck</a></p>
+</div>
+
+<footer>PathCheck <span class="heart">♥</span> by Career Glitch — <a href="/">pathcheck-cg.vercel.app</a></footer>
+
+</body>
+</html>
