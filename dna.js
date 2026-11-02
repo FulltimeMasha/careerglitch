@@ -21,13 +21,13 @@
 
 /* ---------- the 7 strands (founder order) ---------- */
 var DNA_STRANDS = [
-  {id:'craft',      icon:'🛠️', name:'Craft',                   nameRu:'Ремесло',                    short:'Craft',      shortRu:'Ремесло'},
-  {id:'background', icon:'🏅', name:'Experience & credentials', nameRu:'Опыт и знаки',               short:'Experience', shortRu:'Опыт'},
+  {id:'craft',      icon:'🛠️', name:'Craft',                   nameRu:'Мастерство',                 short:'Craft',      shortRu:'Мастерство'},
+  {id:'background', icon:'🏅', name:'Experience & credentials', nameRu:'Опыт и документы',               short:'Experience', shortRu:'Опыт'},
   {id:'proof',      icon:'📁', name:'Proof',                    nameRu:'Доказательства',             short:'Proof',      shortRu:'Доказательства'},
-  {id:'voice',      icon:'🎤', name:'Voice',                    nameRu:'Голос',                      short:'Voice',      shortRu:'Голос'},
+  {id:'voice',      icon:'🎤', name:'Voice',                    nameRu:'Умение заявить о себе',                      short:'Voice',      shortRu:'Голос'},
   {id:'niche',      icon:'🎯', name:'Niche',                    nameRu:'Ниша',                       short:'Niche',      shortRu:'Ниша'},
-  {id:'network',    icon:'🤝', name:'Network',                  nameRu:'Сеть',                       short:'Network',    shortRu:'Сеть'},
-  {id:'ai',         icon:'🤖', name:'AI leverage',              nameRu:'AI-рычаг',                   short:'AI leverage', shortRu:'AI-рычаг'}
+  {id:'network',    icon:'🤝', name:'Network',                  nameRu:'Полезные знакомства',        short:'Network',    shortRu:'Знакомства'},
+  {id:'ai',         icon:'🤖', name:'AI as your helper',        nameRu:'Помощь от AI',               short:'AI help', shortRu:'AI'}
 ];
 
 /* Helix rows: pairs she named; Background sits alone at the center. */
@@ -201,251 +201,251 @@ var DNA_QUEST_TAGS = {
 
 /* ---------- STRAND GOALS — profession level (the floor), EN ---------- */
 var DNA_GOALS = {
-  cybersecurity: {'craft':'Your craft goal: sort real alerts fast and right — in a home lab first, then on the job, until the investigation work is yours.', 'background':'Your background goal: real IT time plus Security+ — the two things the door in our scan of 35 postings actually accepts.', 'proof':'Your proof goal: a lab log and three incident reports in plain English that a hiring manager can read in five minutes.', 'voice':'Your voice goal: explain one attack a week in plain words, in public, so people learn your name before you apply.', 'niche':'Your niche goal: one specialty chosen on purpose — SOC, detection, cloud or offensive work — never “cybersecurity” in general.', 'network':'Your network goal: working analysts and hiring managers in your specialty who know your name before you need the job.', 'ai':'Your AI goal: use AI tools to sort and draft faster than the analyst next to you — 20.4% of entry postings already ask for it, and the share doubles fast.'},
-  electrician: {'craft':'Your craft goal: clean, code-true work at speed — conduit, panels and troubleshooting a foreman trusts without re-checking. Craft is what the $45–$65/hr service postings are buying.', 'background':'Your signs goal: the journeyman license (named in 24 of 36 postings), then the master license. Apprentice card first — unregistered hours do not count.', 'proof':'Your proof goal: an hours log split by work type — commercial, industrial, service, residential — covering your 8,000 hours. The mix you can prove decides your next seat.', 'voice':'Your voice goal: be known by the foremen and shop owners in your metro. In a shortage, the calls go to names people already know.', 'niche':'Your niche goal: one specialty the postings pay extra for — data-center work, EV charging, solar + storage, generators or controls wiring.', 'network':'Your network goal: know your JATC or program, your local\'s hall and two contractors who hire at the next level up. Windows open once a year; people hear first.', 'ai':'Your AI goal: own the trade\'s tech layer — read the drawings and models (BIM) the prefab shop builds from, and be the journeyman who can check the model against the wall.'},
-  hvac: {'craft':'Your craft goal: diagnosis a service manager trusts — find the fault, prove it, fix it once. That record is what commercial postings at $35–$45/hr are buying.', 'background':'Your signs goal: EPA 608 Universal first (named in 13 of 27 postings), state license where your state has one, NATE in your specialty after the hours.', 'proof':'Your proof goal: a system log — type, tonnage, fault, fix — long enough to prove 2+ years of real diagnosis. It is the resume commercial shops actually read.', 'voice':'Your voice goal: be the tech homeowners and building managers ask for by name. Named techs choose their shops; anonymous techs take quotas.', 'niche':'Your niche goal: one specialty — commercial service, refrigeration, or controls. The scan\'s top bands all sit inside a specialty, none at the general door.', 'network':'Your network goal: know two commercial contractors and one controls shop before you need them. The crossing from residential is made through people, not postings.', 'ai':'Your AI goal: own the smart layer — one BAS platform (building automation: the software that runs a building\'s systems) learned properly, plus the remote-monitoring tools that dispatch you.'},
-  plumber: {'craft':'Your craft goal: diagnosis and clean work a master signs without re-doing — leaks found, not guessed; joints that pass inspection the first time.', 'background':'Your signs goal: the journeyman license (named in every top posting in the scan), then the master. Registered hours from day one — the license is the asset.', 'proof':'Your proof goal: an hours log split by work type across the whole apprenticeship, plus one priced certificate — backflow testing is the classic.', 'voice':'Your voice goal: be the plumber the neighborhood names. In service work, the named tech gets the calls the platforms have to buy.', 'niche':'Your niche goal: one branch chosen on purpose — guaranteed service, commercial, or the industrial pipefitting branch at $40.64–$54/hr posted.', 'network':'Your network goal: know your UA local or association chapter, two masters who hire, and your state board\'s rule changes before they surprise you.', 'ai':'Your AI goal: own the tools that raise a licensed tech\'s day — sewer cameras, press tools, and the dispatch software\'s data about your own work. The software works for whoever reads it.'},
+  cybersecurity: {'craft':'Your craft goal: sort real alerts fast and right. Practice in a home lab first, then on the job. In the end, investigations become your work.', 'background':'Your experience goal: real IT work time plus Security+. We checked 35 job posts. These two things are what get you in.', 'proof':'Your proof goal: a lab log and three incident reports in plain English. A hiring manager should read them in five minutes.', 'voice':'Your voice goal: explain one attack a week, in plain words, in public. Then people know your name before you apply.', 'niche':'Your niche goal: pick one specialty on purpose. SOC (watching for attacks), finding attacks, cloud, or hacking with permission. Never “cybersecurity” in general.', 'network':'Your network goal: know working analysts and hiring managers in your specialty. They should know your name before you need the job.', 'ai':'Your AI goal: use AI tools to sort and write faster than others. 20.4% of beginner job posts already ask for it. That share doubles fast.'},
+  electrician: {'craft':'Your craft goal: clean, fast work that follows the code (the wiring rules). Conduit, panels, finding faults — a foreman trusts it without re-checking. Service job posts pay $45–$65/hr for this.', 'background':'Your experience goal: the journeyman license (named in 24 of 36 job posts). Then the master license. Get your apprentice card first. Hours without it do not count.', 'proof':'Your proof goal: an hours log split by work type. Commercial, industrial, service, residential — all your 8,000 hours. The mix you can prove decides your next job.', 'voice':'Your voice goal: be known by foremen and shop owners in your city. When workers are short, they call names they know.', 'niche':'Your niche goal: one specialty that job posts pay extra for. Data centers, EV charging, solar + storage, generators or controls wiring.', 'network':'Your network goal: know your JATC (apprentice school) or program, your union hall, and two contractors who hire one level up. Spots open once a year. Connected people hear first.', 'ai':'Your AI goal: own the tech side of the trade. Read the drawings and models (BIM, a digital model of the building) the prefab shop uses. Be the journeyman who checks the model against the wall.'},
+  hvac: {'craft':'Your craft goal: diagnosis a service manager trusts. Find the fault, prove it, fix it once. Commercial job posts pay $35–$45/hr for that record.', 'background':'Your experience goal: EPA 608 Universal first (a refrigerant permit; named in 13 of 27 job posts). Then the state license, if your state has one. After the hours, NATE (a tech certificate) in your specialty.', 'proof':'Your proof goal: a log of systems — type, tonnage, fault, fix. It should prove 2+ years of real diagnosis. Commercial shops read this log like a resume.', 'voice':'Your voice goal: be the tech homeowners and building managers ask for by name. Known techs choose their shops. Unknown techs chase sales quotas.', 'niche':'Your niche goal: one specialty — commercial service, refrigeration, or controls. All the top pay ranges we found are in a specialty. None are general jobs.', 'network':'Your network goal: know two commercial contractors and one controls shop early. You move up from home jobs through people, not job posts.', 'ai':'Your AI goal: own the smart tech. Learn one BAS platform (software that runs a building’s systems) properly. Also learn the remote-monitoring tools that send you out.'},
+  plumber: {'craft':'Your craft goal: work a master signs without redoing it. Find leaks, don’t guess. Joints pass inspection the first time.', 'background':'Your experience goal: the journeyman license (named in every top job post we found). Then the master license. Register your hours from day one. The license is your main asset.', 'proof':'Your proof goal: an hours log by work type for your whole apprenticeship. Plus one certificate people pay for — backflow testing is the classic.', 'voice':'Your voice goal: be the plumber your neighborhood knows by name. In service work, known techs get the calls. Platforms have to pay for those calls.', 'niche':'Your niche goal: pick one branch on purpose. Guaranteed service, commercial, or industrial pipefitting. Pipefitting job posts pay $40.64–$54/hr.', 'network':'Your network goal: know your UA local (the plumbers’ union) or association chapter. Know two masters who hire. Watch your state board’s rule changes, so they don’t surprise you.', 'ai':'Your AI goal: own the tools that make a licensed tech’s day better. Sewer cameras, press tools, and the dispatch software’s data on your work. The software helps whoever reads it.'},
 law: {
-  craft:'Your craft goal: learn to make good business decisions on real work. This is the #1 people skill named in top postings — 7+ of 25 name it. Under it sits Office / 365, learned program by program.',
-  background:'Your signs goal: get the degree and papers that senior jobs check for — a bachelor’s degree (19 of 21 senior postings), a paralegal certificate (14 of 21), and CIPP/US, the privacy certificate, if you go into privacy (3 of 3).',
-  proof:'Your proof goal: proof on paper of time you saved — one AI workflow, with the time it took before and the time it takes after, written down. That is the proof top postings describe.',
+  craft:'Your craft goal: learn to make good business decisions on real work. Top job posts name this people skill #1 — 7+ of 25. Under it: Office / 365, one program at a time.',
+  background:'Your experience goal: the papers senior jobs check. A bachelor’s degree (19 of 21 senior job posts). A paralegal certificate (14 of 21). CIPP/US (a privacy certificate) if you go into privacy (3 of 3).',
+  proof:'Your proof goal: show on paper the time you saved. Take one AI workflow. Write down the time before and after. Top job posts ask for this proof.',
   voice:'Your voice goal: let employers see your specialty. Share your verdict card and your results in your practice area where hiring managers read.',
   niche:'Your niche goal: pick ONE practice area and go deep. Senior jobs start at 5+ years in a single area. The top level asks for 10+.',
-  network:'Your network goal: aim at the firms that pay well for specialists — Gibson Dunn pays $150K–$200K, and Cooley pays $135,200–$176,800.',
-  ai:'Your AI goal: learn to run the main tools of your track — Relativity, Carta, iManage — and build one AI workflow. 7 of 25 attorney postings ask for AI skill in plain words.'
+  network:'Your network goal: aim at firms that pay specialists well. Gibson Dunn pays $150K–$200K. Cooley pays $135,200–$176,800.',
+  ai:'Your AI goal: learn the main tools of your track — Relativity, Carta, iManage. Build one AI workflow. 7 of 25 attorney job posts ask for AI skills directly.'
 },
 cpa: {
-  craft:'Your craft goal: learn the main U.S. accounting rules (GAAP) for real — ASC 606, 842, 718 — and Excel past the basics. Staff jobs check for pivot tables and VLOOKUP in 8 of 8 postings.',
-  background:'Your signs goal: a bachelor’s degree (52 of 52 postings) → the CPA exam → the license, by your state’s cheapest route: 120 credits + 2 years where your state allows it.',
-  proof:'Your proof goal: the one page good postings check for — a process you made better, with the hours it took before and the hours after — plus one piece of proof for your niche.',
-  voice:'Your voice goal: become the person whose name means one specialty. Share your verdict and your proof where controllers and partners read.',
-  niche:'Your niche goal: ONE industry, deep. Top pay bands name theirs: factory cost accounting, SaaS revenue, pass-through entities, and rich HNW clients.',
-  network:'Your network goal: working at an accounting firm first opens the FDD door — 11 postings outside public accounting ask for a firm background in plain words.',
-  ai:'Your AI goal: own the systems — NetSuite (18 of 52 postings), Workiva for SEC reporting, and part of the automation that closes the books. Be the systems person.'
+  craft:'Your craft goal: really learn GAAP (the U.S. accounting rules) — ASC 606, 842, 718. Learn Excel past the basics. 8 of 8 staff job posts check for pivot tables and VLOOKUP.',
+  background:'Your experience goal: a bachelor’s degree (52 of 52 job posts) → the CPA exam → the license. Take your state’s cheapest route: 120 credits + 2 years, where allowed.',
+  proof:'Your proof goal: one page that good job posts look for. A process you improved, with hours before and after. Plus one proof piece for your niche.',
+  voice:'Your voice goal: be the person known for one specialty. Share your verdict and proof where controllers and partners read.',
+  niche:'Your niche goal: ONE industry, deep. Top pay ranges name theirs: factory cost accounting, SaaS revenue, pass-through firms (taxed through owners), rich clients (HNW).',
+  network:'Your network goal: start at an accounting firm. It opens the way into FDD (checking firms before a sale). 11 job posts outside firms ask for firm experience directly.',
+  ai:'Your AI goal: own the systems. NetSuite (18 of 52 job posts), Workiva for SEC reports, and some of the month-end automation. Be the systems person.'
 },
 nurse: {
-  craft:'Your craft goal: reach charge-nurse level and lead the shift. The assistant nurse manager posting pays $61.91–$97.72/hr, and charge-nurse experience is named as the door into that job.',
-  background:'Your signs goal: get the RN license the cheap way, which 16 of 16 postings ask for. Take the ADN at $5,472, and keep BLS (15 of 16) and ACLS (10 of 16) current.',
-  proof:'Your proof goal: build a resume that shows proof of your specialty. It should list your years in the specialty and your certificates, confirmed line by line.',
-  voice:'Your voice goal: let charge nurses and managers see your specialty. Share your verdict card, because the money follows the specialty.',
-  niche:'Your niche goal: pick ONE specialty, such as ICU, ED, or OR, by month 18–24. Experienced specialty nurses get sign-on bonuses of $10K–$25K.',
-  network:'Your network goal: choose a residency by the career ladder it gives you, not by the first pay. In their first year, 22.7% of new RNs leave (NSI), and a structured residency protects you.',
-  ai:'Your AI goal: become your unit’s AI superuser. Only about 10% of nurses are at that level, and that top tier stands out at hiring (McKinsey).'
+  craft:'Your craft goal: reach charge-nurse level and lead the shift. The assistant nurse manager job post pays $61.91–$97.72/hr. Charge-nurse experience is the way into that job.',
+  background:'Your experience goal: get the RN license the cheap way. 16 of 16 job posts ask for it. Take the ADN (short nursing degree) at $5,472. Keep BLS (basic life support, 15 of 16) and ACLS (advanced, 10 of 16) current.',
+  proof:'Your proof goal: a resume that proves your specialty. List your years in it and your certificates. Each line should be confirmed.',
+  voice:'Your voice goal: let charge nurses and managers see your specialty. Share your verdict card. The money follows the specialty.',
+  niche:'Your niche goal: pick ONE specialty by month 18–24: ICU (intensive care), ED (emergency) or OR (surgery). Experienced specialty nurses get $10K–$25K sign-on bonuses.',
+  network:'Your network goal: choose a residency (first-year training program) by its career ladder, not first pay. 22.7% of new RNs leave in year one (NSI). A structured residency protects you.',
+  ai:'Your AI goal: become your unit’s AI expert. Only about 10% of nurses get there. That top group stands out at hiring (McKinsey).'
 },
 fin: {
-  craft:'Your craft goal: learn SQL deeply (31 of 40 postings) and modeling past the basic level, then own one unit’s forecast from start to finish.',
-  background:'Your signs goal: a bachelor’s degree in a numbers field, and no CFA, because jobs require it in 0 of 40 postings. Spend on what the postings name.',
-  proof:'Your proof goal: two dashboards for business reports (BI) on real data, plus one page of proof: a report you automated, with the hours and the error rate before and after.',
-  voice:'Your voice goal: be the unit’s person out loud. Show your forecast and your variance (plan versus result) in their operations reviews.',
-  niche:'Your niche goal: aim for the hybrid and partner seats. The plain “analyst” pool is shrinking (−21%). A hybrid seat posts $138K–$180,600, and a partner seat posts up to $276,250.',
-  network:'Your network goal: from day one in the new seat, be the unit’s person. Join their operations reviews and own their forecast.',
-  ai:'Your AI goal: learn one planning platform deeply (Anaplan: 15 of 40 postings) and build one real Python automation that people actually use.'
+  craft:'Your craft goal: learn SQL (the database language) deeply — 31 of 40 job posts. Learn modeling past the basics. Then own one team’s forecast from start to finish.',
+  background:'Your experience goal: a bachelor’s degree in a numbers field. Skip the CFA: 0 of 40 job posts require it. Spend on what job posts name.',
+  proof:'Your proof goal: two BI dashboards (business reports) on real data. Plus one proof page: a report you automated. Show hours and error rate before and after.',
+  voice:'Your voice goal: be the team’s finance person, out loud. Show your forecast and variance (plan vs. result) at their operations reviews.',
+  niche:'Your niche goal: aim for hybrid and partner roles. Plain “analyst” jobs are shrinking (−21%). Hybrid roles pay $138K–$180,600. Partner roles pay up to $276,250.',
+  network:'Your network goal: from day one in the new role, be the team’s person. Join their operations reviews. Own their forecast.',
+  ai:'Your AI goal: learn one planning platform deeply (Anaplan: 15 of 40 job posts). Build one real Python automation that people actually use.'
 },
 creator: {
-  craft:'Your craft goal: learn to run the whole loop alone — idea, filming, editing, posting. This is the studio-of-one standard the staff postings describe: one person does the whole job. The postings name Premiere in 21 of 40 and CapCut in 15 of 40.',
-  background:'Your signs goal: keep your market file fresh. Your market file holds the pay bands, the tools and the AI tools named in fresh staff postings, and you check it again every quarter. There is no license in this profession, so this file is your record of proof.',
-  proof:'Your proof goal: build a portfolio where every piece carries its numbers — views, how long people watched, and CTR, the share of people who clicked. 22 of 40 staff postings ask for the portfolio. It is your diploma.',
-  voice:'Your voice goal: be findable as a maker. Publish breakdowns of your own content in public, with the numbers. Hiring managers hire creators they have already seen thinking.',
-  niche:'Your niche goal: own one seat and one industry — the face seat, the paid-ads desk, or a niche that brands pay extra for. Every posting above $100K in our scan adds a scarce half — a rare skill — like one of these.',
-  network:'Your network goal: know the hiring managers and the staff creators in your niche before you need the job — and be known by them.',
-  ai:'Your AI goal: lead the AI tools for captions, variants and first cuts, and judge what they make. Only 2 of 40 postings name AI tools today, and your judgment stays the product that no tool can be named for.'
+  craft:'Your craft goal: run the whole loop alone — idea, filming, editing, posting. Staff job posts want one person who does it all. Premiere is named in 21 of 40, CapCut in 15 of 40.',
+  background:'Your experience goal: keep your market file fresh. It lists pay ranges, tools and AI tools from new staff job posts. Check it every quarter. This job has no license, so this file is your proof.',
+  proof:'Your proof goal: a portfolio where every piece shows its numbers. Views, watch time, and CTR (the share who clicked). 22 of 40 staff job posts ask for a portfolio. It is your diploma.',
+  voice:'Your voice goal: be easy to find as a maker. Post breakdowns of your own content, with numbers. Managers hire creators whose thinking they’ve already seen.',
+  niche:'Your niche goal: own one role and one industry. Be the on-camera face, the paid-ads person, or a niche brands pay extra for. Every job post above $100K we found adds a rare skill like these.',
+  network:'Your network goal: know hiring managers and staff creators in your niche before you need a job. Make sure they know you too.',
+  ai:'Your AI goal: lead the AI tools for captions, versions and first cuts. Judge what they make. Only 2 of 40 job posts name AI tools today. Your judgment is what they pay for — no tool replaces it.'
 },
 analyst: {
-  craft:'Your craft goal: SQL, the database language, at working level (43 of 46 postings), Python for analysis (18 of 46), and one experiment run from start to finish.',
-  background:'Your signs goal: no license is needed in this market. We check your place again every quarter against new job postings. In one check, the number of postings that named AI tools rose to 6 of 46.',
-  proof:'Your proof goal: one dashboard, a report with charts, that helps a decision. Name who opened it and what they decided, and one decision you changed, with numbers.',
-  voice:'Your voice goal: start with a decision you changed, not a dashboard you built. Working with the people who will use the work is the main duty named in all 7 strategy & operations postings.',
-  niche:'Your niche goal: choose your job on purpose. The six jobs on this map post $51K to $300K for the same word, “analyst”.',
-  network:'Your network goal: apply by name to jobs where you help decide, and know the people who make decisions: product analyst, analytics engineer, and strategy & operations.',
-  ai:'Your AI goal: use AI tools yourself (named in 6 of 46 postings), automate one report that repeats, and show the steps: AI wrote the draft, and you checked it.'
+  craft:'Your craft goal: SQL (the database language) at working level (43 of 46 job posts). Python for analysis (18 of 46). One experiment run from start to finish.',
+  background:'Your experience goal: no license is needed here. We recheck your field every quarter against new job posts. In one check, posts naming AI tools rose to 6 of 46.',
+  proof:'Your proof goal: one dashboard (a report with charts) that helps a decision. Say who opened it and what they decided. Add one decision you changed, with numbers.',
+  voice:'Your voice goal: lead with a decision you changed, not a dashboard you built. All 7 strategy & operations job posts name one main duty. It is working with the people who use your work.',
+  niche:'Your niche goal: choose your job on purpose. The six jobs on this map pay $51K to $300K. All are called “analyst”.',
+  network:'Your network goal: apply by name to jobs where you help decide. Know the decision makers. Aim at product analyst, analytics engineer, strategy & operations.',
+  ai:'Your AI goal: use AI tools yourself (named in 6 of 46 job posts). Automate one repeating report. Show the steps: AI drafted it, you checked it.'
 },
 dataanalyst: {
-  craft:'Your craft goal: SQL, the database language, at working level (24 of 24 data job postings), Python for analysis (15 of 24), and one experiment run from start to finish.',
-  background:'Your signs goal: no license is needed in this market. In official United States job statistics (BLS), this work sits under data scientists, with median pay of $120,230 and growth of +35%. We check your place again every quarter against new postings.',
-  proof:'Your proof goal: one dashboard, a report with charts, that helps a decision, with who opened it and what they decided, and one experiment you ran from start to finish.',
-  voice:'Your voice goal: show in public how you work with AI. Share one analysis where AI wrote the first draft and you checked it, and make your checking easy to see.',
-  niche:'Your niche goal: choose your job on purpose. The four jobs on this map post $60K to $300K, even though their titles overlap and sound alike.',
-  network:'Your network goal: apply by name to jobs where you help decide, and know the people who make decisions: product analyst and analytics engineer.',
-  ai:'Your AI goal: use AI tools yourself (named in 2 of 24 data job postings today, and that number is moving), automate one repeating report, and show your steps.'
+  craft:'Your craft goal: SQL (the database language) at working level (24 of 24 data job posts). Python for analysis (15 of 24). One experiment run from start to finish.',
+  background:'Your experience goal: no license is needed here. Official U.S. job stats (BLS) count this as data scientist work. Median pay is $120,230, growth is +35%. We recheck your field every quarter against new job posts.',
+  proof:'Your proof goal: one dashboard (a report with charts) that helps a decision. Say who opened it and what they decided. Add one experiment you ran from start to finish.',
+  voice:'Your voice goal: show in public how you work with AI. Share one analysis: AI wrote the first draft, you checked it. Make your checking easy to see.',
+  niche:'Your niche goal: choose your job on purpose. The four jobs on this map pay $60K to $300K. Their titles sound alike, but the jobs differ.',
+  network:'Your network goal: apply by name to jobs where you help decide. Know the decision makers. Aim at product analyst and analytics engineer.',
+  ai:'Your AI goal: use AI tools yourself. Today 2 of 24 data job posts name them, and that number is changing. Automate one repeating report. Show your steps.'
 },
 businessanalyst: {
-  craft:'Your craft goal: Excel past the basics (7 of 7 junior postings), SQL, the database language, to working knowledge (19 of 22), and one process mapped and improved, with the number.',
-  background:'Your signs goal: no license runs this market — the official home for this work is management analysts at the BLS, the US labor statistics office: median $101,860, +10% growth, about 94,100 openings a year.',
-  proof:'Your proof goal: write up one decision you pushed for as a one-page brief — what you decided, the number behind it, and what you asked for — and one process you improved, with the time it saved.',
-  voice:'Your voice goal: start with a decision you changed, not a document you wrote. Working with managers and teams is listed as the core duty in all 7 strategy & operations postings.',
-  niche:'Your niche goal: pick your job type on purpose. The two jobs on this map post $51K to $194K under one title.',
-  network:'Your network goal: know the people who make the decisions. Working with managers and top executives is the core duty in 7 of 7 strategy & operations postings.',
-  ai:'Your AI goal: use AI tools yourself in the document work (named in 4 of 22 business-side postings), and automate one repetitive task while you still check its results.'
+  craft:'Your craft goal: Excel past the basics (7 of 7 junior job posts). SQL (the database language) at working level (19 of 22). Map and improve one process, with the number.',
+  background:'Your experience goal: no license is needed here. BLS (the U.S. labor stats office) files this work under management analysts. Median $101,860, +10% growth, about 94,100 openings a year.',
+  proof:'Your proof goal: write one decision you pushed for as a one-page brief. What you decided, the number behind it, what you asked for. Add one process you improved, with time saved.',
+  voice:'Your voice goal: lead with a decision you changed, not a document you wrote. All 7 strategy & operations job posts name one core duty: working with managers and teams.',
+  niche:'Your niche goal: pick your job type on purpose. The two jobs on this map pay $51K to $194K. They share one title.',
+  network:'Your network goal: know the people who make decisions. 7 of 7 strategy & operations job posts name one core duty: working with managers and top bosses.',
+  ai:'Your AI goal: use AI tools yourself for document work (named in 4 of 22 business job posts). Automate one repeating task. Still check its results.'
 },
 aicreator: {
-  craft:'Your craft goal: direct every piece yourself — your angle, your performance, your decisions. Work that a prompt can rebuild without you pays $0.',
-  background:'Your signs goal: no license exists here. Your standing is rule-following you can prove: labels on every platform, and no AI testimonial the FTC (the US trade regulator) would call fake.',
-  proof:'Your proof goal: a price list with two paid deliveries on it, and a before-and-after pair — the same ad filmed by a person and made by AI.',
-  voice:'Your voice goal: a real face, or a name a client can call. In this niche, people trusting you starts with being able to check who you are.',
-  niche:'Your niche goal: pick ONE named job — a real face with AI helpers for one topic, or AI video for one kind of brand. “AI content” in general is not a job.',
-  network:'Your network goal: a client list you own, plus creators you swap tests with. Reach on a platform is only rented from the platform; the list is yours.',
-  ai:'Your AI goal: run the whole process yourself — write the script, generate, edit and label it — in under an hour a piece, and dub it into a second language when a client needs it (the tools cover 175 languages).'
+  craft:'Your craft goal: direct every piece yourself — your angle, your delivery, your choices. If a prompt can remake your work without you, it pays $0.',
+  background:'Your experience goal: there is no license here. Your standing is proof that you follow the rules. Label AI content on every platform. No fake AI reviews the FTC (the US trade regulator) would flag.',
+  proof:'Your proof goal: a price list with two paid jobs on it. Plus a before-and-after pair: the same ad shot by a person and made by AI.',
+  voice:'Your voice goal: a real face, or a name a client can call. In this niche, trust starts when people can check who you are.',
+  niche:'Your niche goal: pick ONE clear job. A real face with AI helpers for one topic. Or AI video for one kind of brand. “AI content” in general is not a job.',
+  network:'Your network goal: a client list you own, plus creators you swap tests with. Platform reach is only rented. Your list is yours.',
+  ai:'Your AI goal: run the whole process yourself — script, generate, edit, label. Under an hour per piece. Dub it into a second language if a client needs it (the tools cover 175 languages).'
 },
 healthadmin: {
   craft:'Your craft goal: run a real operation — a budget, a building and a staff — and show the numbers it produced.',
-  background:'Your background goal: hold the exact paper your seat checks — the degree, the certificate, or the state licence — and nothing extra.',
-  proof:'Your proof goal: collect results an outsider checked — a budget you moved, a survey you passed, a queue you fixed.',
+  background:'Your experience goal: have the exact paper your job checks — the degree, the certificate, or the state licence. Nothing extra.',
+  proof:'Your proof goal: collect results someone outside checked. A budget you moved, an inspection you passed, a queue you fixed.',
   voice:'Your voice goal: be the administrator who explains the numbers plainly — to owners, to doctors, to your own team.',
-  niche:'Your niche goal: one seat, chosen on purpose — hospital, practice, nursing home or payer work. Never "healthcare admin in general."',
-  network:'Your network goal: know the people who hire and check this work — system executives, practice owners, surveyors, fellowship directors.',
-  ai:'Your AI goal: own the automation in your building — the prior-authorisation flow, the schedule, the denials queue — instead of feeding it by hand.'
+  niche:'Your niche goal: one job, picked on purpose — hospital, practice, nursing home or insurer. Never "healthcare admin in general."',
+  network:'Your network goal: know who hires and checks this work. Health system bosses, practice owners, inspectors, fellowship directors.',
+  ai:'Your AI goal: own the automation where you work. Insurance approvals, the schedule, the denied-claims list. Run it instead of feeding it by hand.'
 },
 datascientist: {
-  craft:'Your craft goal: Python, SQL and statistics at working level, plus one model shipped end to end — modeling is named in 33 of 42 postings.',
-  background:'Your background goal: the degree your seat actually screens for — a master’s or PhD is required or preferred in 16 of 42 postings — and no degree bought past that line.',
-  proof:'Your proof goal: three projects a stranger can read in five minutes — a model, an experiment, one AI project with its score kept.',
-  voice:'Your voice goal: write-ups a manager can act on — every analysis ends with the decision it feeds, in plain words.',
-  niche:'Your niche goal: ONE seat, named — product, core, ML, or research — picked from the postings, not from a course catalog.',
-  network:'Your network goal: people who can name a decision your work changed — product partners, hiring managers, one community in your seat.',
-  ai:'Your AI goal: run the AI as a collaborator and keep the check — one shipped AI project, with how you verified its output written down.'
+  craft:'Your craft goal: Python, SQL and statistics at working level. Plus one model built and shipped end to end. 33 of 42 job posts name modeling.',
+  background:'Your experience goal: the degree your job really checks for. 16 of 42 job posts require or prefer a master’s or PhD. Don’t buy degrees past that.',
+  proof:'Your proof goal: three projects a stranger can read in five minutes. A model, an experiment, and one AI project with its score.',
+  voice:'Your voice goal: write-ups a manager can act on. End every analysis with the decision it supports, in plain words.',
+  niche:'Your niche goal: ONE named role — product, core, ML, or research. Pick it from job posts, not a course list.',
+  network:'Your network goal: people who can name a decision your work changed. Product partners, hiring managers, one community in your field.',
+  ai:'Your AI goal: use AI as a helper, but keep checking it. Ship one AI project. Write down how you checked its output.'
 },
 truckdriver: {
-  craft:'You can run any load put behind you — securement, tanker surge, doubles in wind — and your pre-trip catches what others miss.',
-  background:'Class A CDL with the full letter stack (H, N, T), TWIC, a current medical card and a record with nothing to explain.',
-  proof:'A file that speaks first: clean inspections, employer letters, your best-week numbers — miles, pay, nights home.',
-  voice:'Other drivers know your name from the groups and the CB of today — your word on lanes and carriers carries weight.',
-  niche:'One seat, chosen on purpose — local LTL, tanker, heavy haul or your own truck — never "whatever dispatch sends".',
-  network:'Dispatchers, safety managers and two carriers who would hire you this week, plus your school and union or OOIDA contacts.',
-  ai:'You watch the driverless map like weather: you know which lanes went driverless this quarter and what that does to your seat.'
+  craft:'You can haul any load — securing it, tanker surge, doubles in wind. Your pre-trip check catches what others miss.',
+  background:'Class A CDL with all the endorsements (H, N, T), TWIC (port ID card), a current medical card. And a record with nothing to explain.',
+  proof:'A file that speaks for you: clean inspections, employer letters, your best-week numbers — miles, pay, nights home.',
+  voice:'Other drivers know your name from the groups — today’s CB radio. Your word on routes and carriers matters.',
+  niche:'One job, picked on purpose — local LTL (smaller shared loads), tanker, heavy haul or your own truck. Never "whatever dispatch sends".',
+  network:'Dispatchers, safety managers and two carriers who would hire you this week. Plus your school, union or OOIDA (owner-operator group) contacts.',
+  ai:'Watch the driverless map like weather. Know which routes went driverless this quarter. Know what that means for your job.'
 },
 counselor: {
-  craft:'Your craft goal: one specialty with a named method, done well — CBT, DBT, EMDR or motivational interviewing, the words the postings themselves print.',
-  background:'Your signs goal: the full license — a 60-credit master’s your board accepts, 2,000–3,000 supervised hours logged, and the NCE or NCMHCE passed. Thirty of 44 postings ask for that license.',
-  proof:'Your proof goal: a license file with no gaps — practicum and internship hours (100 + 600), supervised hours logged weekly, and your own copy of every log.',
-  voice:'Your voice goal: be the counselor other professionals name — share your verdict and your specialty where psychiatrists, doctors and school counselors can see it. Referrals are this profession’s advertising.',
-  niche:'Your niche goal: ONE population and ONE method, deep — trauma, couples, teens, or addiction at the licensed level. The practice postings at $75,000–$135,000 are bought with a specialty, not with general listening.',
-  network:'Your network goal: a referral list that fills your week — psychiatrists, primary-care doctors, school counselors and past supervisors, plus the Counseling Compact map (11 states live) when you are ready to widen it.',
-  ai:'Your AI goal: let AI carry the paperwork layer — notes and first drafts in your record system (Epic, Netsmart Avatar, AthenaOne appear in postings) — and keep the therapy itself human, because in Illinois and Nevada the law now requires exactly that split.'
+  craft:'Your craft goal: one specialty with a named method, done well. CBT, DBT, EMDR (therapy methods) or motivational interviewing — the words job posts use.',
+  background:'Your experience goal: the full license. A 60-credit master’s your board accepts. 2,000–3,000 supervised hours logged. The NCE or NCMHCE exam passed. Thirty of 44 job posts ask for that license.',
+  proof:'Your proof goal: a license file with no gaps. Practicum and internship hours (100 + 600). Supervised hours logged every week. Your own copy of every log.',
+  voice:'Your voice goal: be the counselor other pros recommend. Share your verdict and specialty where psychiatrists, doctors and school counselors see it. Referrals are this job’s advertising.',
+  niche:'Your niche goal: ONE group and ONE method, deep — trauma, couples, teens, or addiction at licensed level. Practice job posts pay $75,000–$135,000 for a specialty, not general listening.',
+  network:'Your network goal: a referral list that fills your week. Psychiatrists, family doctors, school counselors, past supervisors. Later, the Counseling Compact map (a deal between states; 11 states live) to widen it.',
+  ai:'Your AI goal: let AI do the paperwork — notes and first drafts in your records system (Epic, Netsmart Avatar, AthenaOne appear in job posts). Keep the therapy itself human. In Illinois and Nevada the law now requires that split.'
 }
 };
 
 /* ---------- STRAND GOALS — profession level, RU (digits identical) ---------- */
 var DNA_GOALS_RU = {
-  cybersecurity: {'craft':'Ваша цель по ремеслу: разбирать настоящие оповещения быстро и верно — сначала в домашней лаборатории, потом на работе, пока расследования не станут вашей работой.', 'background':'Ваша цель по багажу: реальное время в IT плюс Security+ — две вещи, которые дверь в нашем разборе 35 вакансий принимает на самом деле.', 'proof':'Ваша цель по доказательствам: журнал лаборатории и три отчёта об инцидентах простым английским, которые менеджер по найму прочитает за пять минут.', 'voice':'Ваша цель по голосу: объяснять одну атаку в неделю простыми словами и публично, чтобы ваше имя узнали до вашего отклика.', 'niche':'Ваша цель по нише: одна специальность, выбранная осознанно, — SOC (мониторинг атак), поиск атак, облачная защита или атаки с разрешения; никогда не «кибербезопасность вообще».', 'network':'Ваша цель по сети: работающие аналитики и менеджеры по найму в вашей специальности, которые знают ваше имя до того, как вам понадобится работа.', 'ai':'Ваша цель по ИИ-рычагу: использовать инструменты ИИ, чтобы разбирать и писать быстрее аналитика рядом с вами, — 20,4% начальных вакансий уже просят это, и доля растёт быстро.'},
-  electrician: {'craft':'Ваша цель по ремеслу: чистая работа по правилам (code — свод правил электромонтажа) и быстро — трубы, щиты и поиск неисправностей, которые прораб доверяет без перепроверки. Именно за ремесло платят сервисные вакансии по $45–$65/hr.', 'background':'Ваша цель по знакам: лицензия подмастерья (journeyman — лицензия электрика, который может работать сам; её называют в 24 из 36 вакансий), потом лицензия мастера (master). Сначала карта ученика — незарегистрированные часы не засчитываются.', 'proof':'Ваша цель по доказательствам: журнал часов по видам работ — коммерческая, промышленная, сервисная, жилая — на все ваши 8,000 часов. Состав, который вы можете доказать, решает ваше следующее место.', 'voice':'Ваша цель по голосу: пусть прорабы и владельцы фирм в вашем городе знают ваше имя. При нехватке людей звонят тем, кого уже знают.', 'niche':'Ваша цель по нише: одна специализация, за которую вакансии платят сверху, — работа в дата-центрах, зарядка электромобилей (EV), солнечные системы с батареями, генераторы или проводка систем управления (controls).', 'network':'Ваша цель по сети: знайте ваш комитет ученичества (JATC) или программу, зал вашего профсоюза (local) и двух подрядчиков, которые нанимают на уровень выше. Окна открываются раз в год; люди узнают первыми.', 'ai':'Ваша цель по AI: владейте техническим слоем ремесла — читайте чертежи и модели (BIM — цифровая модель здания), по которым работает цех заготовок (prefab), и будьте подмастерьем, который сверяет модель со стеной.'},
-  hvac: {'craft':'Ваша цель по ремеслу: диагностика, которой доверяет менеджер сервиса, — найти неисправность, доказать её, починить с первого раза. Именно за эту репутацию коммерческие вакансии платят $35–$45/hr.', 'background':'Ваша цель по знакам: сначала EPA 608 Universal (федеральный сертификат на хладагент, все типы; назван в 13 из 27 вакансий), лицензия штата, где она есть, и NATE (отраслевой сертификат техника) по вашей специализации после наработки часов.', 'proof':'Ваша цель по доказательствам: журнал систем — тип, тоннаж, неисправность, ремонт — достаточно длинный, чтобы доказать 2+ года настоящей диагностики. Это резюме, которое коммерческие фирмы действительно читают.', 'voice':'Ваша цель по голосу: будьте техником, которого домовладельцы и управляющие зданиями просят по имени. Техников с именем выбирают фирмы сами; безымянные берут планы продаж.', 'niche':'Ваша цель по нише: одна специализация — коммерческий сервис, холодильное оборудование (refrigeration) или автоматика зданий (controls). Все верхние вилки скана стоят внутри специализации, ни одна — у общей двери.', 'network':'Ваша цель по сети: знайте двух коммерческих подрядчиков и одну фирму по автоматике до того, как они вам понадобятся. Переход из жилого сектора делается через людей, а не через вакансии.', 'ai':'Ваша цель по AI: владейте умным слоем — одна платформа BAS (building automation — программа, которая управляет системами здания), выученная по-настоящему, плюс инструменты удалённого мониторинга, которые вас направляют.'},
-  plumber: {'craft':'Ваша цель по ремеслу: диагностика и чистая работа, которую мастер подписывает без переделки, — протечки найдены, а не угаданы; соединения проходят проверку с первого раза.', 'background':'Ваша цель по знакам: лицензия подмастерья (journeyman — лицензия, с которой сантехник работает сам; названа в каждой топовой вакансии скана), потом мастера (master). Зарегистрированные часы с первого дня — лицензия и есть актив.', 'proof':'Ваша цель по доказательствам: журнал часов по видам работ на всё ученичество, плюс один сертификат с ценой — проверка обратных клапанов (backflow) — классика.', 'voice':'Ваша цель по голосу: будьте сантехником, которого район называет по имени. В сервисной работе техник с именем получает вызовы, которые платформам приходится покупать.', 'niche':'Ваша цель по нише: одна ветвь, выбранная осознанно, — гарантированный сервис, коммерческая работа или промышленная ветвь монтажа труб (pipefitting) по опубликованным $40.64–$54/hr.', 'network':'Ваша цель по сети: знайте ваш местный профсоюз UA или отделение ассоциации, двух мастеров, которые нанимают, и изменения правил board вашего штата до того, как они вас удивят.', 'ai':'Ваша цель по AI: владейте инструментами, которые поднимают день лицензированного техника, — камеры для труб, пресс-инструменты и данные программы диспетчеризации (dispatch software) о вашей собственной работе. Программа работает на того, кто её читает.'},
+  cybersecurity: {'craft':'Ваша цель по ремеслу: быстро и верно разбирать настоящие тревоги. Сначала тренируйтесь дома, потом на работе. В итоге расследования станут вашей работой.', 'background':'Ваша цель по опыту: реальный опыт в IT плюс Security+. Мы разобрали 35 вакансий. Берут именно с этими двумя вещами.', 'proof':'Ваша цель по доказательствам: журнал лаборатории и три отчёта об атаках простым английским. Менеджер по найму должен прочитать их за пять минут.', 'voice':'Ваша цель по голосу: раз в неделю публично объясняйте одну атаку простыми словами. Так ваше имя узнают ещё до отклика.', 'niche':'Ваша цель по нише: одна специальность, выбранная сознательно. SOC (слежка за атаками), поиск атак, защита облака или взлом с разрешения. Не «кибербезопасность вообще».', 'network':'Ваша цель по сети: знакомые аналитики и менеджеры по найму в вашей специальности. Пусть знают ваше имя до того, как вам понадобится работа.', 'ai':'Ваша цель по AI: с инструментами ИИ разбирать и писать быстрее коллег. Это уже просят 20,4% вакансий для новичков. И доля быстро растёт.'},
+  electrician: {'craft':'Ваша цель по ремеслу: чистая и быстрая работа по code (правилам электромонтажа). Трубы, щиты, поиск неисправностей — так, чтобы прораб не перепроверял. За это сервисные вакансии платят $45–$65/hr.', 'background':'Ваша цель по опыту: лицензия journeyman (электрик, который работает сам; её просят 24 из 36 вакансий). Потом лицензия master (мастер). Сначала получите карту ученика. Часы без неё не считаются.', 'proof':'Ваша цель по доказательствам: журнал часов по видам работ. Коммерческая, промышленная, сервисная, жилая — все ваши 8,000 часов. Что вы докажете, то и решит вашу следующую работу.', 'voice':'Ваша цель по голосу: пусть прорабы и владельцы фирм в вашем городе знают вас по имени. Когда людей не хватает, звонят знакомым.', 'niche':'Ваша цель по нише: одна специализация, за которую платят больше. Дата-центры, зарядки для электромобилей (EV), солнечные панели с батареями, генераторы или проводка систем управления (controls).', 'network':'Ваша цель по сети: знайте свой JATC (школу учеников) или программу, свой профсоюз (local) и двух подрядчиков, которые берут на уровень выше. Набор открывается раз в год. Первыми узнают те, у кого есть связи.', 'ai':'Ваша цель по AI: владейте техникой своего ремесла. Читайте чертежи и модели (BIM — цифровая модель здания), по которым работает цех заготовок (prefab). Будьте тем, кто сверяет модель со стеной.'},
+  hvac: {'craft':'Ваша цель по ремеслу: диагностика, которой доверяет менеджер сервиса. Найти поломку, доказать её, починить с первого раза. За это коммерческие вакансии платят $35–$45/hr.', 'background':'Ваша цель по опыту: сначала EPA 608 Universal (допуск к работе с хладагентом; его просят 13 из 27 вакансий). Потом лицензия штата, если она там есть. После наработки часов — NATE (сертификат техника) по специализации.', 'proof':'Ваша цель по доказательствам: журнал систем — тип, мощность (тоннаж), поломка, ремонт. Он должен доказать 2+ года настоящей диагностики. Коммерческие фирмы читают его как резюме.', 'voice':'Ваша цель по голосу: будьте техником, которого клиенты и управляющие зданиями зовут по имени. Известные техники сами выбирают фирму. Безымянные гонятся за планом продаж.', 'niche':'Ваша цель по нише: одна специализация — коммерческий сервис, холодильное оборудование (refrigeration) или автоматика зданий (controls). Все самые высокие зарплаты — внутри специализаций. Общие вакансии столько не платят.', 'network':'Ваша цель по сети: заранее знайте двух коммерческих подрядчиков и одну фирму по автоматике. Из работы по домам переходят через людей, а не через вакансии.', 'ai':'Ваша цель по AI: освойте умную технику. Выучите как следует одну платформу BAS (программа, которая управляет системами здания). Плюс программы удалённого мониторинга, которые шлют вас на вызовы.'},
+  plumber: {'craft':'Ваша цель по ремеслу: работа, которую мастер подписывает без переделки. Протечки находите, а не угадываете. Соединения проходят проверку с первого раза.', 'background':'Ваша цель по опыту: лицензия journeyman (с ней сантехник работает сам; её просят все лучшие вакансии). Потом лицензия master (мастер). Регистрируйте часы с первого дня. Лицензия — ваш главный капитал.', 'proof':'Ваша цель по доказательствам: журнал часов по видам работ за всё ученичество. Плюс один сертификат, за который платят. Классика — проверка обратных клапанов (backflow).', 'voice':'Ваша цель по голосу: будьте сантехником, которого район знает по имени. В сервисе вызовы идут знакомым мастерам. Платформам такие вызовы приходится покупать.', 'niche':'Ваша цель по нише: одна ветвь, выбранная сознательно. Гарантийный сервис, коммерческая работа или промышленный монтаж труб (pipefitting). За монтаж труб платят $40.64–$54/hr.', 'network':'Ваша цель по сети: знайте местный профсоюз UA или отделение ассоциации и двух мастеров, которые нанимают. Следите за правилами board (совета) вашего штата, чтобы они не застали врасплох.', 'ai':'Ваша цель по AI: освойте инструменты, которые облегчают день техника с лицензией. Камеры для труб, пресс-инструменты и данные диспетчерской программы о вашей работе. Программа работает на того, кто её читает.'},
 law: {
-  craft:'Ваша цель по ремеслу: умение здраво судить о работе на реальных задачах (business judgment). Это фраза №1 среди личных качеств (soft skills) в топ-вакансиях — её называют 7+ из 25. Под ней — Office / 365, программа за программой.',
-  background:'Ваша цель по знакам: бумаги, которые проверяют опытные вакансии, — бакалавр (bachelor’s, 19 из 21), сертификат помощника юриста (paralegal, 14 из 21) и сертификат CIPP/US по приватности, если идёте в неё (3 из 3).',
-  proof:'Ваша цель по доказательствам: доказательство сэкономленного времени на бумаге — один процесс с ИИ, где записано время «до» и время «после». Именно такое доказательство описывают топ-вакансии.',
+  craft:'Ваша цель по ремеслу: научиться здраво решать рабочие вопросы (business judgment). В топ-вакансиях это личное качество №1 — его называют 7+ из 25. А под ним — Office / 365, программа за программой.',
+  background:'Ваша цель по опыту: документы, которые проверяют на старших позициях. Бакалавр (bachelor’s, 19 из 21). Сертификат помощника юриста (paralegal, 14 из 21). CIPP/US (сертификат по защите данных), если идёте в эту тему (3 из 3).',
+  proof:'Ваша цель по доказательствам: покажите на бумаге, сколько времени сэкономили. Один процесс с ИИ: время «до» и «после». Именно это ищут топ-вакансии.',
   voice:'Ваша цель по голосу: пусть работодатели видят вашу специализацию. Делитесь карточкой вердикта и результатами по вашей области там, где читают менеджеры, которые нанимают людей.',
-  niche:'Ваша цель по нише: ОДНА область практики — и глубоко в неё. Работы для опытных начинаются с 5+ лет в одной области. Верхний уровень просит 10+.',
-  network:'Ваша цель по сети: цельтесь в фирмы, которые хорошо платят специалистам, — Gibson Dunn платит $150K–$200K, Cooley платит $135,200–$176,800.',
-  ai:'Ваша цель по AI: главные программы вашего направления — Relativity, Carta, iManage — и один собранный процесс с ИИ. 7 из 25 вакансий юристов просят навык ИИ прямыми словами.'
+  niche:'Ваша цель по нише: ОДНА область права — и вглубь. Старшие позиции начинаются с 5+ лет в одной области. Верхний уровень просит 10+.',
+  network:'Ваша цель по сети: цельтесь в фирмы, которые хорошо платят специалистам. Gibson Dunn платит $150K–$200K. Cooley платит $135,200–$176,800.',
+  ai:'Ваша цель по AI: освойте главные программы вашего направления — Relativity, Carta, iManage. Соберите один процесс с ИИ. 7 из 25 вакансий юристов прямо просят навык ИИ.'
 },
 cpa: {
-  craft:'Ваша цель по ремеслу: правила учёта США (GAAP) по-настоящему — ASC 606, 842, 718 — и Excel дальше базы. Вакансии рядовых бухгалтеров (staff) проверяют pivot tables и VLOOKUP в 8 из 8.',
-  background:'Ваша цель по знакам: диплом бакалавра (bachelor’s, 52 из 52 вакансий) → экзамен CPA → лицензия, по самому дешёвому маршруту вашего штата: 120 учебных кредитов (credits) + 2 года, где ваш штат позволяет.',
-  proof:'Ваша цель по доказательствам: та одна страница, которую ищут хорошие вакансии, — процесс, который вы улучшили, с часами «до» и «после», — плюс одна работа-доказательство по вашей нише.',
-  voice:'Ваша цель по голосу: станьте человеком, чьё имя значит одну специализацию. Делитесь вердиктом и своими доказательствами там, где читают контролёры и партнёры.',
-  niche:'Ваша цель по нише: ОДНА индустрия, глубоко. Верхние вилки — свои: учёт затрат в производстве, выручка по подписке (SaaS), фирмы с налогом через владельцев (pass-through), богатые клиенты (HNW).',
-  network:'Ваша цель по сети: прошлое в работе на клиентов в фирме (public accounting) открывает дверь в проверку перед покупкой (FDD) — 11 вакансий вне её просят опыт в фирме прямыми словами.',
-  ai:'Ваша цель по AI: владейте системами — NetSuite (18 из 52 вакансий), Workiva для отчётности на биржу (SEC reporting) и часть автоматизации закрытия периода. Станьте системным человеком.'
+  craft:'Ваша цель по ремеслу: по-настоящему знать правила учёта США (GAAP) — ASC 606, 842, 718. И Excel дальше базы. Вакансии рядовых бухгалтеров (staff) проверяют pivot tables и VLOOKUP — 8 из 8.',
+  background:'Ваша цель по опыту: диплом бакалавра (bachelor’s, 52 из 52 вакансий) → экзамен CPA → лицензия. Идите самым дешёвым путём вашего штата: 120 учебных кредитов + 2 года, если штат позволяет.',
+  proof:'Ваша цель по доказательствам: одна страница, которую ищут хорошие вакансии. Процесс, который вы улучшили, с часами «до» и «после». Плюс одна работа-доказательство по вашей нише.',
+  voice:'Ваша цель по голосу: пусть ваше имя связывают с одной специализацией. Делитесь вердиктом и доказательствами там, где их читают контролёры и партнёры.',
+  niche:'Ваша цель по нише: ОДНА отрасль, глубоко. Лучше всего платят в таких: учёт затрат на производстве, выручка по подписке (SaaS), фирмы с налогом через владельцев (pass-through), богатые клиенты (HNW).',
+  network:'Ваша цель по сети: начните в бухгалтерской фирме (public accounting). Это открывает путь в FDD — проверку компаний перед покупкой. 11 вакансий вне таких фирм прямо просят этот опыт.',
+  ai:'Ваша цель по AI: владейте системами — NetSuite (18 из 52 вакансий), Workiva для отчётов на биржу (SEC reporting). Плюс часть автоматизации закрытия месяца. Станьте главным по системам.'
 },
 nurse: {
-  craft:'Ваша цель по ремеслу: уровень старшей медсестры смены (charge nurse) — вести смену. Вакансия помощника менеджера (assistant nurse manager) платит $61.91–$97.72/hr, и опыт старшей медсестры назван её дверью.',
-  background:'Ваша цель по знакам: лицензия медсестры (RN) дешёвым путём, её просят в 16 из 16 вакансий. Короткая программа на медсестру (ADN) стоит $5,472. Держите действующими сертификаты базовой помощи при остановке сердца (BLS, 15 из 16) и расширенной помощи (ACLS, 10 из 16).',
-  proof:'Ваша цель по доказательствам: сделать резюме, которое показывает доказательства по вашей специальности. В нём должны быть ваши годы в специальности и ваши сертификаты, подтверждённые строка за строкой.',
-  voice:'Ваша цель по голосу: пусть старшие медсёстры смены (charge nurses) и менеджеры видят вашу специальность. Делитесь карточкой вердикта, потому что деньги следуют за специальностью.',
-  niche:'Ваша цель по нише: ОДНА специальность — реанимация (ICU), приёмное отделение (ED) или операционная (OR) — к месяцу 18–24. Опытные медсёстры специальностей получают бонусы при найме $10K–$25K.',
-  network:'Ваша цель по сети: выбирайте программу первого года работы (резидентуру) по лестнице, а не по первой зарплате. 22.7% новых медсестёр с лицензией уходят в первый год (NSI). Такая резидентура вас защищает.',
-  ai:'Ваша цель по AI: станьте в своём отделении тем, кто лучше всех умеет работать с ИИ. Таких медсестёр — только около 10%. Этот верхний уровень заметен при найме (McKinsey).'
+  craft:'Ваша цель по ремеслу: дорасти до старшей медсестры смены (charge nurse) и вести смену. Помощнику менеджера (assistant nurse manager) платят $61.91–$97.72/hr. Путь туда — опыт старшей медсестры.',
+  background:'Ваша цель по опыту: лицензия медсестры (RN) дешёвым путём. Её просят 16 из 16 вакансий. Короткая программа (ADN) стоит $5,472. Держите действующими BLS (базовая реанимация, 15 из 16) и ACLS (расширенная, 10 из 16).',
+  proof:'Ваша цель по доказательствам: резюме, которое доказывает вашу специальность. Годы в специальности и сертификаты — каждая строка подтверждена.',
+  voice:'Ваша цель по голосу: пусть старшие медсёстры (charge nurses) и менеджеры видят вашу специальность. Делитесь карточкой вердикта. Деньги идут за специальностью.',
+  niche:'Ваша цель по нише: ОДНА специальность к месяцу 18–24 — реанимация (ICU), приёмное (ED) или операционная (OR). Опытные медсёстры получают при найме бонус $10K–$25K.',
+  network:'Ваша цель по сети: выбирайте резидентуру (программу первого года) по карьерной лестнице, а не по первой зарплате. 22.7% новых медсестёр уходят в первый год (NSI). Хорошая резидентура вас защищает.',
+  ai:'Ваша цель по AI: станьте в отделении главным по ИИ. Таких медсестёр всего около 10%. Их замечают при найме (McKinsey).'
 },
 fin: {
-  craft:'Ваша цель по ремеслу: глубоко выучить язык запросов к данным (SQL), он нужен в 31 из 40 вакансий, и строить модели выше базового уровня. Потом ведите прогноз одного подразделения от начала до конца.',
-  background:'Ваша цель по знакам: бакалавр (bachelor’s) в числовой области и никакого сертификата аналитика (CFA): его требуют в 0 из 40 вакансий. Тратьте на то, что называют вакансии.',
-  proof:'Ваша цель по доказательствам: сделать два дашборда для бизнес-отчётов (BI) на настоящих данных и одну страницу доказательства: отчёт, который вы автоматизировали, с часами и уровнем ошибок «до» и «после».',
-  voice:'Ваша цель по голосу: станьте вслух человеком подразделения по финансам. Показывайте на их рабочих обзорах (ops reviews) прогноз и разницу плана и факта (variance).',
-  niche:'Ваша цель по нише: места гибрида (hybrid) и партнёра (partner). Обычный пул «аналитик» (analyst) сжимается (−21%). Гибрид публикует $138K–$180,600, а партнёр — до $276,250.',
-  network:'Ваша цель по сети: с первого дня на новом месте станьте человеком подразделения. Ходите на их рабочие обзоры (ops reviews) и ведите их прогноз сами.',
-  ai:'Ваша цель по AI: глубоко освоить одну платформу планирования (Anaplan: 15 из 40 вакансий) и сделать одну настоящую автоматизацию на Python, доведённую до работы.'
+  craft:'Ваша цель по ремеслу: глубоко выучить SQL (язык запросов к данным) — он нужен в 31 из 40 вакансий. Строить модели выше базы. Потом вести прогноз одного отдела от начала до конца.',
+  background:'Ваша цель по опыту: бакалавр (bachelor’s) в области с цифрами. CFA (сертификат аналитика) не нужен: его требуют 0 из 40 вакансий. Тратьте только на то, что просят вакансии.',
+  proof:'Ваша цель по доказательствам: два дашборда (BI — бизнес-отчёты) на настоящих данных. Плюс одна страница: отчёт, который вы автоматизировали. С часами и ошибками «до» и «после».',
+  voice:'Ваша цель по голосу: станьте в отделе главным по финансам — и пусть это слышат. Показывайте на их встречах (ops reviews) прогноз и разницу плана и факта.',
+  niche:'Ваша цель по нише: роли гибрида (hybrid) и партнёра (partner). Просто «аналитиков» (analyst) становится меньше (−21%). Гибриду платят $138K–$180,600, партнёру — до $276,250.',
+  network:'Ваша цель по сети: с первого дня на новой работе станьте своим в отделе. Ходите на их встречи (ops reviews) и ведите их прогноз.',
+  ai:'Ваша цель по AI: глубоко освоить одну платформу планирования (Anaplan: 15 из 40 вакансий). И сделать одну автоматизацию на Python, которой правда пользуются.'
 },
 creator: {
-  craft:'Ваша цель по ремеслу: научиться вести весь цикл в одиночку — идея, съёмка, монтаж, публикация. Это стандарт «студии в одном лице», который описывают вакансии в штат: один человек делает всю работу. Вакансии называют Premiere в 21 из 40, а CapCut — в 15 из 40.',
-  background:'Ваша цель по знакам: держите ваш рыночный файл свежим. В нём лежат вилки оплаты, инструменты и инструменты ИИ, названные в свежих вакансиях в штат, и вы проверяете его заново каждый квартал. Лицензии в этой профессии нет, поэтому этот файл — ваша запись доказательств.',
-  proof:'Ваша цель по доказательствам: соберите портфолио, где каждая работа несёт свои цифры — просмотры, как долго люди смотрели, и CTR, долю людей, которые кликнули. Портфолио просят 22 из 40 вакансий в штат. Оно и есть ваш диплом.',
-  voice:'Ваша цель по голосу: будьте находимы как автор. Публикуйте разборы своего контента открыто, с цифрами. Нанимающие менеджеры берут креаторов, которых они уже видели думающими.',
-  niche:'Ваша цель по нише: владейте одним местом и одной отраслью — местом лица, столом платной рекламы или нишей, за которую бренды платят сверху. Каждая вакансия выше $100K в нашем скане добавляет такую дефицитную половину — редкий навык.',
-  network:'Ваша цель по сети: знайте нанимающих менеджеров и штатных креаторов вашей ниши до того, как вам понадобится работа, — и будьте известны им.',
-  ai:'Ваша цель по ИИ: ведите инструменты ИИ для подписей, вариантов и первых монтажей — и судите то, что они делают. Конкретные инструменты сегодня называют только 2 из 40 вакансий, а ваше суждение остаётся продуктом, вместо которого инструмент не назовут.'
+  craft:'Ваша цель по ремеслу: делать всё в одиночку — идея, съёмка, монтаж, публикация. Вакансии в штат ищут человека, который делает всё сам. Premiere называют 21 из 40, CapCut — 15 из 40.',
+  background:'Ваша цель по опыту: держите свой рыночный файл свежим. В нём — сколько платят и какие инструменты (и AI тоже) просят новые вакансии в штат. Проверяйте его каждый квартал. Лицензии в профессии нет, так что этот файл — ваше доказательство.',
+  proof:'Ваша цель по доказательствам: портфолио, где у каждой работы есть цифры. Просмотры, сколько смотрели, и CTR — доля тех, кто кликнул. Портфолио просят 22 из 40 вакансий в штат. Это ваш диплом.',
+  voice:'Ваша цель по голосу: пусть вас легко найти как автора. Публикуйте открытые разборы своего контента с цифрами. Нанимают тех, чьи мысли уже видели.',
+  niche:'Ваша цель по нише: одна роль и одна отрасль. Лицо в кадре, платная реклама или ниша, за которую бренды доплачивают. Каждая найденная нами вакансия выше $100K требует такой редкий навык.',
+  network:'Ваша цель по сети: знайте нанимающих менеджеров и штатных авторов вашей ниши заранее. И пусть они знают вас.',
+  ai:'Ваша цель по AI: ведите AI-инструменты для подписей, вариантов и черновых монтажей. И оценивайте, что они сделали. Сегодня инструменты называют только 2 из 40 вакансий. Платят за ваш вкус — его не заменит никакой инструмент.'
 },
 analyst: {
-  craft:'Ваша цель по ремеслу: язык запросов к базам данных (SQL) на рабочем уровне (43 из 46 вакансий), язык Python для анализа (18 из 46) и один эксперимент, проведённый от начала до конца.',
-  background:'Ваша цель по знакам: на этом рынке лицензия не нужна. Ваше место проверяют заново каждый квартал по новым вакансиям. За время одной проверки число вакансий, где назвали инструменты ИИ, выросло до 6 из 46.',
-  proof:'Ваша цель по доказательствам: один отчёт с графиками, который помогает принять решение, с записью, кто его открыл и что он решил, и одно решение, которое вы изменили, рассказанное с цифрами.',
-  voice:'Ваша цель по голосу: начинайте с решения, которое вы изменили, а не с отчёта, который вы сделали. Работа с людьми, которым нужен результат, — главная обязанность во всех 7 вакансиях стратегии и операций (strategy & operations).',
-  niche:'Ваша цель по нише: выбирайте работу обдуманно. Шесть работ на этой карте платят от $51K до $300K, хотя все они называются одним словом «analyst».',
-  network:'Ваша цель по сети: подавайтесь на места решений по именам и знайте людей, которые принимают решения: аналитик продукта (product analyst), инженер данных (analytics engineer) и стратегия и операции (strategy & operations).',
-  ai:'Ваша цель по AI: пользуйтесь инструментами ИИ сами (они названы в 6 из 46 вакансий), сделайте один повторяющийся отчёт автоматическим и покажите шаги работы: ИИ написал черновик, а вы проверили.'
+  craft:'Ваша цель по ремеслу: SQL (язык запросов к базам данных) на рабочем уровне (43 из 46 вакансий). Python для анализа (18 из 46). И один эксперимент от начала до конца.',
+  background:'Ваша цель по опыту: лицензия здесь не нужна. Мы каждый квартал сверяем вашу сферу с новыми вакансиями. За одну проверку число вакансий с AI-инструментами выросло до 6 из 46.',
+  proof:'Ваша цель по доказательствам: один отчёт с графиками, который помогает принять решение. Запишите, кто его открыл и что решил. И одно решение, которое вы изменили, — с цифрами.',
+  voice:'Ваша цель по голосу: начинайте с решения, которое вы изменили, а не с отчёта. Во всех 7 вакансиях стратегии и операций (strategy & operations) главное — работа с людьми, которым нужен результат.',
+  niche:'Ваша цель по нише: выбирайте работу осознанно. Шесть работ на этой карте платят от $51K до $300K. А называются все одинаково — «analyst».',
+  network:'Ваша цель по сети: подавайтесь на работы, где вы помогаете решать. Знайте тех, кто решает. Цели: product analyst (аналитик продукта), analytics engineer (инженер данных), strategy & operations (стратегия и операции).',
+  ai:'Ваша цель по AI: сами пользуйтесь инструментами ИИ (их называют 6 из 46 вакансий). Автоматизируйте один повторяющийся отчёт. Покажите шаги: ИИ написал черновик, вы проверили.'
 },
 dataanalyst: {
-  craft:'Ваша цель по ремеслу: язык запросов к базам данных (SQL) на рабочем уровне (24 из 24 вакансий по данным), язык Python для анализа (15 из 24) и один эксперимент, проведённый от начала до конца.',
-  background:'Ваша цель по знакам: лицензия на этом рынке не нужна. Официальная статистика труда США (BLS) относит эту работу к учёным по данным (data scientists): медиана $120,230, рост +35%. Ваше место перепроверяют каждый квартал по новым вакансиям.',
-  proof:'Ваша цель по доказательствам: один отчёт с графиками, который помогает принять решение, с записью, кто его открыл и что он решил, и один эксперимент, проведённый вами от начала до конца.',
-  voice:'Ваша цель по голосу: публично показывайте, как вы работаете с ИИ. Поделитесь одним анализом, где ИИ написал черновик, а вы его проверили, и покажите саму проверку.',
-  niche:'Ваша цель по нише: выбирайте работу обдуманно. Четыре работы на этой карте платят от $60K до $300K, хотя их названия похожи и пересекаются.',
-  network:'Ваша цель по сети: подавайтесь по именам на работы, где помогают решать, и знайте людей, которые решают: аналитик продукта (product analyst), инженер данных (analytics engineer).',
-  ai:'Ваша цель по AI: пользуйтесь инструментами ИИ сами (названы в 2 из 24 вакансий по данным сегодня — это число сейчас движется), автоматизируйте один повторяющийся отчёт и покажите шаги.'
+  craft:'Ваша цель по ремеслу: SQL (язык запросов к базам данных) на рабочем уровне (24 из 24 вакансий по данным). Python для анализа (15 из 24). И один эксперимент от начала до конца.',
+  background:'Ваша цель по опыту: лицензия здесь не нужна. Официальная статистика США (BLS) относит эту работу к data scientists. Медиана $120,230, рост +35%. Мы каждый квартал сверяем вашу сферу с новыми вакансиями.',
+  proof:'Ваша цель по доказательствам: один отчёт с графиками, который помогает принять решение. Запишите, кто его открыл и что решил. И один эксперимент, проведённый вами от начала до конца.',
+  voice:'Ваша цель по голосу: открыто показывайте, как работаете с ИИ. Поделитесь одним анализом: черновик написал ИИ, а вы проверили. Покажите саму проверку.',
+  niche:'Ваша цель по нише: выбирайте работу осознанно. Четыре работы на этой карте платят от $60K до $300K. Названия у них похожи, но работы разные.',
+  network:'Ваша цель по сети: подавайтесь на работы, где вы помогаете решать. Знайте тех, кто решает. Цели: product analyst (аналитик продукта), analytics engineer (инженер данных).',
+  ai:'Ваша цель по AI: сами пользуйтесь инструментами ИИ. Сегодня их называют 2 из 24 вакансий по данным, и число меняется. Автоматизируйте один повторяющийся отчёт. Покажите шаги.'
 },
 businessanalyst: {
-  craft:'Ваша цель по ремеслу: Excel глубже базы (7 из 7 вакансий для начинающих), язык запросов к базам данных (SQL) на рабочем уровне (19 из 22) и один описанный и улучшенный процесс с цифрой.',
-  background:'Ваша цель по знакам: лицензии в этом рынке нет — официально эта работа числится у бюро статистики труда США (BLS) как аналитики по управлению (management analysts): медиана $101,860, рост +10%, около 94,100 вакансий в год.',
-  proof:'Ваша цель по доказательствам: одно решение, которое вы продвинули, записанное как короткая записка на одну страницу — что вы решили, какая цифра за этим стоит и что вы просили, — и одно улучшение процесса со сэкономленным временем.',
-  voice:'Ваша цель по голосу: начинайте с решения, которое вы изменили, а не с документа, который вы написали. Работа с руководителями и командами — главная обязанность во всех 7 вакансиях стратегии и операций (strategy & operations).',
+  craft:'Ваша цель по ремеслу: Excel глубже базы (7 из 7 вакансий для новичков). SQL (язык запросов к базам данных) на рабочем уровне (19 из 22). И один процесс, описанный и улучшенный, с цифрой.',
+  background:'Ваша цель по опыту: лицензии здесь нет. Бюро статистики труда США (BLS) относит эту работу к management analysts. Медиана $101,860, рост +10%, около 94,100 вакансий в год.',
+  proof:'Ваша цель по доказательствам: одно решение, которое вы продвинули, на одной странице. Что решили, какая цифра за этим и что просили. И одно улучшение процесса — сколько времени сэкономили.',
+  voice:'Ваша цель по голосу: начинайте с решения, которое вы изменили, а не с документа. Во всех 7 вакансиях стратегии и операций (strategy & operations) главное — работа с руководителями и командами.',
   niche:'Ваша цель по нише: выберите вид работы осознанно. Два вида работы на этой карте платят от $51K до $194K под одним названием.',
-  network:'Ваша цель по сети: знайте людей, которые принимают решения. Работа с руководителями и их командами — главная обязанность в 7 из 7 вакансий стратегии и операций (strategy & operations).',
-  ai:'Ваша цель по AI: сами пользуйтесь инструментами искусственного интеллекта в работе с документами (они названы в 4 из 22 вакансий со стороны бизнеса) и автоматизируйте одну повторяющуюся задачу, но сами проверяйте результат.'
+  network:'Ваша цель по сети: знайте людей, которые принимают решения. В 7 из 7 вакансий стратегии и операций (strategy & operations) главное — работа с руководителями и их командами.',
+  ai:'Ваша цель по AI: сами пользуйтесь ИИ в работе с документами (его называют 4 из 22 бизнес-вакансий). Автоматизируйте одну повторяющуюся задачу. Но результат проверяйте сами.'
 },
 aicreator: {
-  craft:'Ваша цель по ремеслу: сами режиссируйте каждую работу — ваш взгляд, ваша подача, ваше решение. Работа, которую запрос к ИИ (промпт) пересоберёт без вас, стоит $0.',
-  background:'Ваша цель по знакам: лицензии здесь нет. Ваше положение — это соблюдение правил, которое можно доказать: пометки на каждой платформе и ни одного отзыва, созданного ИИ, который комиссия по торговле США (FTC) назвала бы подделкой.',
-  proof:'Ваша цель по доказательствам: список ваших цен с двумя оплаченными работами и пара «до/после» — та же реклама, снятая человеком и сделанная с помощью ИИ.',
+  craft:'Ваша цель по ремеслу: сами режиссируйте каждую работу — ваш взгляд, ваша подача, ваши решения. Работа, которую промпт (запрос к ИИ) повторит без вас, стоит $0.',
+  background:'Ваша цель по опыту: лицензии здесь нет. Ваша репутация — правила, которые вы точно соблюдаете. Помечайте ИИ-контент на каждой платформе. И ни одного ИИ-отзыва, который FTC (торговый регулятор США) назвал бы фальшивым.',
+  proof:'Ваша цель по доказательствам: прайс-лист с двумя оплаченными работами. И пара «до/после»: та же реклама, снятая человеком и сделанная ИИ.',
   voice:'Ваша цель по голосу: настоящее лицо или имя, по которому клиент может вам позвонить. В этой нише доверие начинается с того, что вас можно проверить.',
-  niche:'Ваша цель по нише: ОДНА выбранная работа — настоящее лицо с командой ИИ-помощников для одной темы или ИИ-видео для одного вида брендов. «ИИ-контент» вообще — не работа.',
-  network:'Ваша цель по сети: ваш собственный список клиентов и создатели контента, с которыми вы обмениваетесь тестами. Охват на платформах вы только арендуете; список — ваш.',
-  ai:'Ваша цель по AI: ведите весь процесс сами — сценарий, создание, монтаж, пометка — меньше часа на одну работу, и дублируйте на второй язык, когда клиенту нужно (инструменты покрывают 175 языков).'
+  niche:'Ваша цель по нише: ОДНА понятная работа. Настоящее лицо с ИИ-помощниками на одну тему. Или ИИ-видео для одного типа брендов. «ИИ-контент» вообще — это не работа.',
+  network:'Ваша цель по сети: свой список клиентов и авторы, с которыми вы обмениваетесь тестами. Охват на платформе — только аренда. Список — ваш.',
+  ai:'Ваша цель по AI: весь процесс сами — сценарий, генерация, монтаж, пометка. Меньше часа на одну работу. Если клиенту нужно, озвучьте на второй язык (инструменты знают 175 языков).'
 },
 healthadmin: {
-  craft:'Ваша цель по ремеслу: вести настоящую операцию — бюджет, здание и персонал — и показывать цифры, которые она дала.',
-  background:'Ваша цель по образованию и знакам: иметь ровно тот документ, который проверяет ваше место, — диплом, сертификат или лицензию штата — и ничего лишнего.',
-  proof:'Ваша цель по доказательствам: собирать результаты, которые проверил посторонний, — бюджет, который вы сдвинули, инспекцию, которую вы прошли, очередь, которую вы починили.',
+  craft:'Ваша цель по ремеслу: управлять настоящим делом — бюджетом, зданием и персоналом. И показывать цифры результата.',
+  background:'Ваша цель по опыту: ровно тот документ, который проверяют на вашей работе, — диплом, сертификат или лицензия штата. Ничего лишнего.',
+  proof:'Ваша цель по доказательствам: результаты, которые проверил кто-то со стороны. Бюджет, который вы сдвинули. Инспекция, которую прошли. Очередь, которую наладили.',
   voice:'Ваша цель по голосу: быть администратором, который объясняет цифры простыми словами — владельцам, врачам и своей команде.',
-  niche:'Ваша цель по нише: одно место, выбранное осознанно, — больница, практика, дом престарелых или страховая. Никогда «администратор здравоохранения вообще».',
-  network:'Ваша цель по сети: знать людей, которые нанимают на эту работу и проверяют её, — руководителей систем, владельцев практик, инспекторов, директоров программ fellowship.',
-  ai:'Ваша цель по AI-рычагу: владеть автоматизацией в своём здании — потоком согласований, расписанием, очередью отказов — вместо того чтобы кормить её вручную.'
+  niche:'Ваша цель по нише: одна работа, выбранная осознанно, — больница, частная практика, дом престарелых или страховая. Не «администратор здравоохранения вообще».',
+  network:'Ваша цель по сети: знайте тех, кто нанимает и проверяет эту работу. Руководители больничных сетей, владельцы практик, инспекторы, директора программ fellowship (стажировки после учёбы).',
+  ai:'Ваша цель по AI: управляйте автоматизацией у себя на работе. Согласования со страховой, расписание, очередь отказов. Не кормите её вручную.'
 },
 datascientist: {
-  craft:'Ваша цель по ремеслу: Python, SQL и статистика на рабочем уровне, плюс одна модель, отправленная от начала до конца — работа с моделями названа в 33 из 42 вакансий.',
-  background:'Ваша цель по опыту и знакам: диплом, который ваше место правда проверяет, — магистратура или PhD требуются или предпочитаются в 16 из 42 вакансий — и ни одного диплома, купленного сверх этой строки.',
-  proof:'Ваша цель по доказательствам: три проекта, которые незнакомец прочитает за пять минут, — модель, эксперимент, один AI-проект с сохранённой оценкой.',
-  voice:'Ваша цель по голосу: тексты, по которым менеджер может действовать, — каждый анализ заканчивается решением, которое он питает, простыми словами.',
-  niche:'Ваша цель по нише: ОДНО место, названное, — product, core, ML или research — выбранное по вакансиям, а не по каталогу курсов.',
-  network:'Ваша цель по сети: люди, которые могут назвать решение, изменённое вашей работой, — партнёры по продукту, нанимающие менеджеры, одно сообщество в вашем месте.',
-  ai:'Ваша цель по AI: ведите AI как соавтора и сохраняйте проверку — один отправленный AI-проект, с записанным способом, как вы проверяли его вывод.'
+  craft:'Ваша цель по ремеслу: Python, SQL и статистика на рабочем уровне. Плюс одна модель, доведённая до запуска. Работу с моделями называют 33 из 42 вакансий.',
+  background:'Ваша цель по опыту: тот диплом, который на вашей работе правда проверяют. Магистратуру или PhD требуют или хотят 16 из 42 вакансий. Лишних дипломов не покупайте.',
+  proof:'Ваша цель по доказательствам: три проекта, которые незнакомый человек поймёт за пять минут. Модель, эксперимент и один AI-проект с его оценкой.',
+  voice:'Ваша цель по голосу: тексты, по которым менеджер может действовать. Каждый анализ заканчивайте решением — простыми словами.',
+  niche:'Ваша цель по нише: ОДНА названная роль — product, core, ML или research. Выбирайте по вакансиям, а не по каталогу курсов.',
+  network:'Ваша цель по сети: люди, которые могут назвать решение, изменённое вашей работой. Партнёры по продукту, менеджеры по найму, одно сообщество в вашей сфере.',
+  ai:'Ваша цель по AI: работайте с ИИ как с помощником, но проверяйте его. Запустите один AI-проект. Запишите, как вы проверяли его ответы.'
 },
 truckdriver: {
-  craft:'Вы можете вести любой груз, который вам дали: крепление, качка цистерны, двойные прицепы на ветру, — а ваш предрейсовый осмотр ловит то, что другие пропускают.',
-  background:'CDL класса A с полным набором букв (H, N, T), карта TWIC, действующая медкарта и история, в которой нечего объяснять.',
-  proof:'Папка, которая говорит первой: чистые проверки, письма работодателей, числа вашей лучшей недели — мили, оплата, ночи дома.',
-  voice:'Другие водители знают ваше имя по группам и по сегодняшнему аналогу CB-радио — ваше слово о маршрутах и перевозчиках имеет вес.',
-  niche:'Одно место, выбранное нарочно: городской LTL, цистерна, тяжёлые перевозки или свой грузовик, — и никогда «что диспетчер пришлёт».',
-  network:'Диспетчеры, менеджеры по безопасности и два перевозчика, которые наняли бы вас на этой неделе, плюс контакты вашей школы и профсоюза или OOIDA (ассоциация владельцев-водителей).',
-  ai:'Вы следите за картой беспилотных трасс как за погодой: знаете, какие маршруты ушли беспилотникам в этом квартале и что это делает с вашим местом.'
+  craft:'Вы везёте любой груз: крепление, раскачка цистерны, двойные прицепы на ветру. Ваш осмотр перед рейсом замечает то, что другие пропускают.',
+  background:'CDL класса A со всеми отметками (H, N, T), карта TWIC (пропуск в порты), действующая медкарта. И история, в которой нечего объяснять.',
+  proof:'Папка, которая говорит за вас: чистые проверки, письма работодателей, цифры вашей лучшей недели — мили, оплата, ночи дома.',
+  voice:'Другие водители знают вас по группам — это нынешнее CB-радио. Ваше слово о маршрутах и перевозчиках имеет вес.',
+  niche:'Одна работа, выбранная сознательно: местный LTL (сборные грузы), цистерна, тяжёлые грузы или свой грузовик. Не «что диспетчер пришлёт».',
+  network:'Диспетчеры, менеджеры по безопасности и два перевозчика, которые взяли бы вас на этой неделе. Плюс контакты школы, профсоюза или OOIDA (ассоциация водителей-владельцев).',
+  ai:'Следите за картой беспилотных грузовиков как за погодой. Знайте, какие маршруты ушли беспилотникам в этом квартале. И что это значит для вашей работы.'
 },
 counselor: {
-  craft:'Ваша цель по ремеслу: одна специальность с названным методом, сделанная хорошо, — CBT (когнитивно-поведенческая терапия), DBT (диалектическая поведенческая терапия), EMDR (метод работы с травмой) или мотивационное интервью — слова, которые печатают сами вакансии.',
-  background:'Ваша цель по знакам: полная лицензия — магистратура на 60 кредитов, которую принимает ваш совет штата (board), от 2,000 до 3,000 записанных часов под супервизией и сданный экзамен NCE или NCMHCE. Эту лицензию просят 30 из 44 вакансий.',
-  proof:'Ваша цель по доказательствам: лицензионное дело без дыр — часы практикума и интернатуры (100 + 600), часы под супервизией, записанные каждую неделю, и ваша собственная копия каждого журнала.',
-  voice:'Ваша цель по голосу: будьте консультантом, которого называют другие профессионалы, — делитесь вердиктом и специальностью там, где это видят психиатры, врачи и школьные консультанты. Направления — реклама этой профессии.',
-  niche:'Ваша цель по нише: ОДНА группа клиентов и ОДИН метод, глубоко, — травма, пары, подростки или зависимости на лицензированном уровне. Вакансии практики по $75,000–$135,000 покупаются специальностью, а не общим умением слушать.',
-  network:'Ваша цель по сети: список направлений, который заполняет вашу неделю, — психиатры, врачи первичного звена, школьные консультанты и прошлые супервизоры, — плюс карта Counseling Compact (соглашения штатов; 11 штатов работают), когда вы готовы её расширить.',
-  ai:'Ваша цель по AI: отдайте AI бумажный слой — записи и первые черновики в вашей системе записей (Epic, Netsmart Avatar, AthenaOne встречаются в вакансиях) — и держите саму терапию человеческой, потому что в Иллинойсе и Неваде закон теперь требует именно такого деления.'
+  craft:'Ваша цель по ремеслу: одна специальность с названным методом, освоенным хорошо. CBT (когнитивно-поведенческая терапия), DBT (диалектическая поведенческая), EMDR (работа с травмой) или мотивационное интервью — так пишут в вакансиях.',
+  background:'Ваша цель по опыту: полная лицензия. Магистратура на 60 кредитов, которую принимает совет штата (board). От 2,000 до 3,000 часов под супервизией. Сданный экзамен NCE или NCMHCE. Эту лицензию просят 30 из 44 вакансий.',
+  proof:'Ваша цель по доказательствам: дело для лицензии без пробелов. Часы практикума и интернатуры (100 + 600). Часы под супервизией, записанные каждую неделю. И своя копия каждого журнала.',
+  voice:'Ваша цель по голосу: будьте консультантом, которого советуют коллеги. Делитесь вердиктом и специальностью там, где их видят психиатры, врачи и школьные консультанты. Направления — главная реклама в этой профессии.',
+  niche:'Ваша цель по нише: ОДНА группа клиентов и ОДИН метод, глубоко. Травма, пары, подростки или зависимости — на уровне лицензии. Практики платят $75,000–$135,000 за специальность, а не за умение просто слушать.',
+  network:'Ваша цель по сети: те, кто направляет к вам клиентов и заполняет вашу неделю. Психиатры, семейные врачи, школьные консультанты, бывшие супервизоры. Позже — карта Counseling Compact (соглашение штатов; работает в 11 штатах), чтобы расшириться.',
+  ai:'Ваша цель по AI: отдайте ИИ бумажную работу — записи и черновики в вашей системе (в вакансиях встречаются Epic, Netsmart Avatar, AthenaOne). Саму терапию оставьте человеку. В Иллинойсе и Неваде этого теперь требует закон.'
 }
 };
 
@@ -454,12 +454,12 @@ counselor: {
    These two seats carry a background goal of their own in the package:
    the NP door and the CRNA door are license-shaped, unlike the floor. */
 var DNA_SEAT_GOALS = {
-  np: { background:'Your signs goal: the NP board certificate in your specialty, the state NP license, and the DEA permit for controlled drugs. Psych NP postings pay $200K–$257K, and the license is worth most in Full Practice states (27 + DC), where an NP works fully alone.' },
-  crna: { background:'Your signs goal: for a CRNA, the doctorate is the license itself, and the median pay is $236,590. Everywhere else, do not pay extra for a DNP degree, because top postings require it in 0 of 16.' }
+  np: { background:'Your experience goal: the NP (nurse practitioner) board certificate in your specialty, the state NP license, and the DEA permit for controlled drugs. Psych NP job posts pay $200K–$257K. The license is worth most in Full Practice states (27 + DC). There an NP works fully alone.' },
+  crna: { background:'Your experience goal: for a CRNA (nurse anesthetist), the doctorate is the license itself. Median pay is $236,590. For other roles, don’t pay extra for a DNP degree. Top job posts require it in 0 of 16.' }
 };
 var DNA_SEAT_GOALS_RU = {
-  np: { background:'Ваша цель по знакам: сертификат медсестры-практика по специальности (NP board certification), лицензия штата (NP) и разрешение на контролируемые лекарства (DEA). Психиатрическая медсестра-практик (psych NP) платит $200K–$257K, а лицензия дороже всего там, где практика полностью самостоятельна (Full Practice, 27 + DC).' },
-  crna: { background:'Ваша цель по знакам: для медсестры-анестезиста (CRNA) докторская степень — это сама лицензия, а медианная оплата — $236,590. Везде ещё не переплачивайте за программу (DNP): топовые вакансии требуют её в 0 из 16.' }
+  np: { background:'Ваша цель по опыту: сертификат медсестры-практика (NP board certification) по специальности, лицензия штата (NP) и разрешение DEA на контролируемые лекарства. Психиатрическим NP (psych NP) платят $200K–$257K. Лицензия ценнее всего там, где NP работает полностью сам (Full Practice, 27 + DC).' },
+  crna: { background:'Ваша цель по опыту: для медсестры-анестезиста (CRNA) докторская степень — и есть лицензия. Медианная оплата — $236,590. В остальных случаях не переплачивайте за DNP (докторскую программу): лучшие вакансии требуют её в 0 из 16.' }
 };
 
 /* ===== AI PRODUCT MANAGER — DNA tags + goals (Nov 1 2026).
@@ -477,36 +477,36 @@ Object.assign(DNA_QUEST_TAGS, {
   'aipm-q6':'proof', 'aipm-q7':'network', 'aipm-q8':'voice', 'aipm-q9':'proof', 'aipm-q10':'niche'
 });
 DNA_GOALS.aipm = {
-  craft:'Your craft goal: the product judgment the postings screen for — you decide what the AI feature should do, and you can say why, in plain words a user understands.',
-  background:'Your background goal: years of product work at the level your seat posts — 20 of 26 postings that state a number ask 5+ years — plus technical fluency. No certificate substitutes; only 2 of 42 postings demand a CS degree.',
-  proof:'Your proof goal: shipped AI features and one eval set with its scores — the file the evals seat screens for, and the thing a resume bullet cannot fake.',
-  voice:'Your voice goal: write the quality page and the failure notes in plain words — the PM whose writing makes a model’s behavior legible to a whole company.',
-  niche:'Your niche goal: ONE seat, named — platform, evals, feature, enterprise, or growth — picked from the postings, never “AI PM in general.”',
-  network:'Your network goal: the people who hire and judge this work — hiring managers, model teams, enterprise customers — met through shipped work, not applications.',
-  ai:'Your AI goal: run the eval loop — test set, hand grades, automated grading checked against them — so the model’s quality is your system, not your hope.'
+  craft:'Your craft goal: product judgment, which job posts check for. You decide what the AI feature should do. You can explain why, in words a user gets.',
+  background:'Your experience goal: years of product work at your job’s level. 20 of 26 job posts that give a number ask 5+ years. Plus tech know-how. No certificate replaces it. Only 2 of 42 job posts demand a CS degree.',
+  proof:'Your proof goal: shipped AI features and one set of evals (tests that check AI answers) with scores. Evals jobs check for this. A resume line can’t fake it.',
+  voice:'Your voice goal: write the quality page and failure notes in plain words. Be the PM whose writing helps the whole company understand the model.',
+  niche:'Your niche goal: ONE named role — platform, evals, feature, enterprise, or growth. Pick it from job posts. Never “AI PM in general.”',
+  network:'Your network goal: people who hire and judge this work — hiring managers, model teams, enterprise customers. Meet them through shipped work, not applications.',
+  ai:'Your AI goal: run the evals loop — test set, hand grades, auto-grading checked against them. Then model quality is your system, not your hope.'
 };
 DNA_GOALS_RU.aipm = {
-  craft:'Ваша цель по ремеслу: продуктовое суждение, которое проверяют вакансии, — вы решаете, что AI-функция должна делать, и можете сказать почему, — простыми словами, которые понимает пользователь.',
-  background:'Ваша цель по опыту и знакам: годы продуктовой работы на уровне, который публикует ваше место, — 20 из 26 вакансий с числом просят 5+ лет, — плюс техническая грамотность. Ни один сертификат не заменяет; только 2 из 42 вакансий требуют диплом по компьютерным наукам.',
-  proof:'Ваша цель по доказательствам: отправленные AI-функции и один набор evals с его оценками — файл, который проверяет место evals, и то, что строка в резюме не подделает.',
-  voice:'Ваша цель по голосу: пишите страницу качества и заметки об ошибках простыми словами — PM, чьё письмо делает поведение модели понятным всей компании.',
-  niche:'Ваша цель по нише: ОДНО место, названное, — platform, evals, feature, enterprise или growth — выбранное по вакансиям, никогда «AI PM вообще».',
-  network:'Ваша цель по сети: люди, которые нанимают на эту работу и судят её, — нанимающие менеджеры, команды моделей, корпоративные клиенты, — встреченные через отправленную работу, а не отклики.',
-  ai:'Ваша цель по AI-рычагу: ведите цикл evals — тестовый набор, ручные оценки, автоматическая оценка, сверенная с ними, — чтобы качество модели было вашей системой, а не вашей надеждой.'
+  craft:'Ваша цель по ремеслу: продуктовое чутьё, которое проверяют вакансии. Вы решаете, что должна делать AI-функция. И объясняете почему — словами, понятными пользователю.',
+  background:'Ваша цель по опыту: годы продуктовой работы на уровне вашей роли. 20 из 26 вакансий, где есть число, просят 5+ лет. Плюс понимание техники. Сертификат это не заменит. Диплом по компьютерным наукам требуют только 2 из 42 вакансий.',
+  proof:'Ваша цель по доказательствам: запущенные AI-функции и один набор evals (тестов, которые проверяют ответы AI) с оценками. Именно это смотрят на роли evals. Строкой в резюме это не подделать.',
+  voice:'Ваша цель по голосу: пишите страницу качества и заметки об ошибках простыми словами. Станьте PM, после текстов которого вся компания понимает поведение модели.',
+  niche:'Ваша цель по нише: ОДНА названная роль — platform, evals, feature, enterprise или growth. Выбирайте по вакансиям. Никогда не «AI PM вообще».',
+  network:'Ваша цель по сети: люди, которые нанимают и оценивают эту работу. Менеджеры по найму, команды моделей, корпоративные клиенты. Знакомьтесь через готовую работу, а не через отклики.',
+  ai:'Ваша цель по AI: ведите цикл evals — тестовый набор, ручные оценки, автооценка, сверенная с ними. Тогда качество модели — ваша система, а не надежда.'
 };
 Object.assign(DNA_SEAT_GOALS, {
-  platpm: { background:'Your signs goal: for platform, the sign is a decade of technical product work — Voyager asks 10+ years, 5+ owning platforms. No certificate prints that line.' },
-  evalpm: { background:'Your signs goal: for evals, the sign is a defended grade — a test set you built and scores you can justify. No course sells it; the postings name the work, not a credential.' },
-  featpm: { background:'Your signs goal: for feature, the sign is shipped AI features with years behind them — Microsoft asks 5+ years and a computer-science or engineering degree, “or equivalent experience.”' },
-  entpm: { background:'Your signs goal: for enterprise, the sign is the domain itself — one employer screens on first-hand investment-research experience, and Harvey takes product or engineering pasts at 2–4+ years.' },
-  growpm: { background:'Your signs goal: for growth, the sign is years inside growth work — Anthropic asks 6–10 years, its API seat 6+ with most of them in growth. Experiments run are the credential.' },
-  apmpm: { background:'Your signs goal: for the program door, the signs are three named screens — a CS degree (Databricks), new-grad timing (Square), or 0–2 years of any work (Addepar). Outside them, no sign exists yet.' }
+  platpm: { background:'Your experience goal: platform roles need ten years of technical product work. Voyager asks 10+ years, 5+ owning platforms. No certificate gives you that.' },
+  evalpm: { background:'Your experience goal: for evals, show grades you can defend. A test set you built, and scores you can explain. No course sells this. Job posts name the work, not a certificate.' },
+  featpm: { background:'Your experience goal: for feature roles, shipped AI features plus years of work. Microsoft asks 5+ years and a computer-science or engineering degree, “or equivalent experience.”' },
+  entpm: { background:'Your experience goal: for enterprise, know the industry itself. One employer checks for hands-on investment-research experience. Harvey takes 2–4+ years in product or engineering.' },
+  growpm: { background:'Your experience goal: for growth, years in growth work. Anthropic asks 6–10 years; its API role asks 6+, mostly in growth. Experiments you ran are your credential.' },
+  apmpm: { background:'Your experience goal: beginner programs have three named checks. A CS degree (Databricks), new-grad timing (Square), or 0–2 years of any work (Addepar). Outside these, no clear check exists yet.' }
 });
 Object.assign(DNA_SEAT_GOALS_RU, {
-  platpm: { background:'Ваша цель по знакам: для platform знак — десятилетие технической продуктовой работы: Voyager просит 10+ лет, 5+ из них — владение платформами. Ни один сертификат эту строку не печатает.' },
-  evalpm: { background:'Ваша цель по знакам: для evals знак — защищённая оценка: тестовый набор, который вы построили, и баллы, которые вы можете обосновать. Ни один курс это не продаёт; вакансии называют работу, а не документ.' },
-  featpm: { background:'Ваша цель по знакам: для feature знак — отправленные AI-функции с годами за ними: Microsoft просит 5+ лет и диплом по компьютерным наукам или инженерии «или равный опыт».' },
-  entpm: { background:'Ваша цель по знакам: для enterprise знак — сама отрасль: один работодатель проверяет личный опыт инвестиционных исследований, а Harvey принимает прошлое в продукте или инженерии на 2–4+ годах.' },
-  growpm: { background:'Ваша цель по знакам: для growth знак — годы внутри работы роста: Anthropic просит 6–10 лет, его место API — 6+, из них большинство в росте. Проведённые эксперименты — это и есть документ.' },
-  apmpm: { background:'Ваша цель по знакам: для двери программ знаки — три названных экрана: диплом по компьютерным наукам (Databricks), сроки выпускника (Square) или 0–2 года любой работы (Addepar). Вне их знака пока нет.' }
+  platpm: { background:'Ваша цель по опыту: для platform нужно десять лет технической продуктовой работы. Voyager просит 10+ лет, из них 5+ — с платформами. Никакой сертификат этого не даст.' },
+  evalpm: { background:'Ваша цель по опыту: для evals — оценки, которые вы можете защитить. Тестовый набор, который вы сделали, и баллы, которые можете объяснить. Курс этого не продаст. Вакансии смотрят на работу, а не на документ.' },
+  featpm: { background:'Ваша цель по опыту: для feature — запущенные AI-функции и годы опыта. Microsoft просит 5+ лет и диплом по компьютерным наукам или инженерии «или равный опыт».' },
+  entpm: { background:'Ваша цель по опыту: для enterprise важна сама отрасль. Один работодатель проверяет личный опыт в инвестиционных исследованиях. Harvey берёт людей с опытом в продукте или инженерии от 2–4+ лет.' },
+  growpm: { background:'Ваша цель по опыту: для growth — годы в работе над ростом. Anthropic просит 6–10 лет, на роль API — 6+, в основном в росте. Ваши эксперименты — это и есть документ.' },
+  apmpm: { background:'Ваша цель по опыту: у программ для новичков три проверки. Диплом по компьютерным наукам (Databricks), недавний выпуск (Square) или 0–2 года любой работы (Addepar). Других проверок пока нет.' }
 });
