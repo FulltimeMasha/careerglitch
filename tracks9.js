@@ -65,7 +65,7 @@ Object.assign(DOORS, {
 
 GRIDINFO.aipm = {
   head: 'Your shortcut to becoming an AI product manager.',
-  short: 'This usually takes years of study. We read 42 real job posts and kept only what actually gets people hired. We cut the extra courses and certificates. Do one step at a time — you will get the job faster and aim for the top 1% from day one.'
+  short: 'Right now AI is changing everything. It will take over many jobs, and people feel lost about what to learn. This path usually takes years. We read 42 real job posts and kept only what actually gets people hired today, in the age of AI. We cut the extra courses and certificates. Do one step at a time — you will get the job faster and aim for the top 1% from day one.'
 };
 
 TRACKS.aipm = [
@@ -261,7 +261,7 @@ Object.assign(DOORS_RU, {
 
 GRIDINFO_RU.aipm = {
   head: 'Ваш короткий путь в AI-продакт-менеджеры.',
-  short: 'Обычно на это уходят годы учёбы. Мы прочитали 42 настоящие вакансии и оставили только то, за что реально берут на работу. Лишние курсы и сертификаты убрали. Делайте по одному шагу — так вы дойдёте до работы быстрее и сразу будете целиться в топ 1%.'
+  short: 'Сейчас время AI. Многие работы он заберёт, и люди растеряны: непонятно, чему учиться. Обычно на этот путь уходят годы. Мы прочитали 42 настоящие вакансии и оставили только то, за что реально берут на работу уже сегодня, в эпоху AI. Лишние курсы и сертификаты убрали. Делайте по одному шагу — так вы дойдёте до работы быстрее и сразу будете целиться в топ 1%.'
 };
 
 DOORSTEP_RU.prof.aipm = {
