@@ -426,7 +426,7 @@ document.getElementById('pState').addEventListener('input', function(){
     [' Your Full Report unlocks free when ', ' '],
     ['1 person completes their own Path Check', 'Share it \u2014 and your Full Report is free.'],
     [' through it \u2014 not a repost, a finished check.', ' The share itself is enough \u2014 nobody has to finish a check first.'],
-    ['Pilot link — it has your name, so finished checks count for you.', 'Pilot link \u2014 it carries your name.'],
+    ['Pilot link — it has your name, so finished checks count for you.', 'Your own link \u2014 it carries your name.'],
     [' Share your personal link from the verdict card. When 1 person finishes a check through it, your report unlocks.', ' Share your verdict card. Sharing it makes your Full Report free. That’s all!'],
     ['OR FREE WHEN 1 PERSON COMPLETES A CHECK VIA YOUR LINK', 'OR FREE WHEN YOU SHARE THIS CARD']
   ];
@@ -459,8 +459,8 @@ document.getElementById('pState').addEventListener('input', function(){
     var s0 = gel('s0');
     if (!s0 || gel('efEmail')) return;
     s0.innerHTML =
-      '<div class="q-kicker">Your Path Check \u2014 start here</div>' +
-      '<div class="q-title">Where you are. Where you\u2019re headed.</div>' +
+      '<div class="q-kicker">Your path \u2014 start here</div>' +
+      '<div class="q-title">Your job now. The job you want.</div>' +
       '<label class="fl" for="efEmail" style="margin-top:0">Your email</label>' +
       '<input class="txt" id="efEmail" type="email" autocomplete="email" placeholder="you@example.com">' +
       '<label class="fl" for="efNow">You work as \u2026 now</label>' +
@@ -468,9 +468,9 @@ document.getElementById('pState').addEventListener('input', function(){
       '<label class="fl" for="efWant">You want to become \u2026</label>' +
       '<input class="txt" id="efWant" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="controller \u00B7 registered nurse \u00B7 product analyst\u2026">' +
       '<p class="fineprint" id="efErr" style="color:var(--deep);display:none"></p>' +
-      '<div class="check-nav"><button class="backlink" onclick="backHome()">\u2190 back</button><button class="btn" id="efGo" type="button">Get my result \u2665</button></div>' +
-      '<p class="fineprint">Your mini check lands in this inbox. Your path opens under this email \u2014 no password.</p>' +
-      '<div class="readyline"><span class="rl-lab">Deep checks ready now:</span>' +
+      '<div class="check-nav"><button class="backlink" onclick="backHome()">\u2190 back</button><button class="btn" id="efGo" type="button">Show my path \u2665</button></div>' +
+      '<p class="fineprint">Your short check comes to this inbox. Your path opens with this email \u2014 no password.</p>' +
+      '<div class="readyline"><span class="rl-lab">Full checks ready now:</span>' +
       '<div class="chips">' +
       '<button class="chip" onclick="pickChip(\'law\')">Law</button>' +
       '<button class="chip" onclick="pickChip(\'cpa\')">Accounting &amp; CPA</button>' +
@@ -527,8 +527,8 @@ document.getElementById('pState').addEventListener('input', function(){
     var email = gel('efEmail').value.trim();
     var now = gel('efNow').value.trim();
     var want = gel('efWant').value.trim();
-    if (!EMAIL_RE.test(email)){ efError('Please add a valid email \u2014 your mini check lands there.'); gel('efEmail').focus(); return; }
-    if (!now && !want){ efError('Tell us at least one: what you work as now \u2014 or what you want to become.'); return; }
+    if (!EMAIL_RE.test(email)){ efError('Please add a valid email \u2014 your short check goes there.'); gel('efEmail').focus(); return; }
+    if (!now && !want){ efError('Tell us at least one: your job now \u2014 or the job you want.'); return; }
     /* Founder model (Nov 1, 2026): THE TARGET IS THE SUBJECT.
        We do not research and never verdict the job the person works
        now. Whenever "want to become" is filled, the match, the
@@ -574,12 +574,12 @@ document.getElementById('pState').addEventListener('input', function(){
       postLead(payload).then(function(j){
         finishSave(j.lead_id);
       }).catch(function(){
-        btn.disabled = false; btn.textContent = 'Get my result \u2665';
+        btn.disabled = false; btn.textContent = 'Show my path \u2665';
         efError('That didn\u2019t save \u2014 check the email and try again.');
       });
     });
     function finishSave(leadId){
-      btn.disabled = false; btn.textContent = 'Get my result \u2665';
+      btn.disabled = false; btn.textContent = 'Show my path \u2665';
       EF.leadId = leadId;
       /* pathBtn also writes pathcheck_lead_id — on the dedupe path
          that write is what re-points this browser at the person's
@@ -605,7 +605,7 @@ document.getElementById('pState').addEventListener('input', function(){
     if (form) form.style.display = 'none';
     var ok = gel(pre + 'Ok');
     if (ok){
-      ok.innerHTML = '<span class="ok">You\u2019re in \u2713</span> \u2014 your mini check is on its way to <b>' + esc(EF.email) + '</b>. This email is your key: your path opens under it \u2014 no password.' + EF.pathHTML;
+      ok.innerHTML = '<span class="ok">You\u2019re in \u2713</span> \u2014 your short check is on its way to <b>' + esc(EF.email) + '</b>. This email is your key: your path opens with it \u2014 no password.' + EF.pathHTML;
       ok.style.display = 'block';
     }
     var l2 = gel('shareLink2'), l3 = gel('shareLink3');
@@ -635,9 +635,9 @@ document.getElementById('pState').addEventListener('input', function(){
     gel('wlForm').style.display = 'none';
     gel('wlDone').style.display = 'block';
     var echo = gel('efWlEcho');
-    if (echo){ echo.innerHTML = 'Research started \u2014 the verdict lands in <b>' + esc(EF.email) + '</b>.'; echo.style.display = 'block'; }
+    if (echo){ echo.innerHTML = 'Research started \u2014 your path comes to <b>' + esc(EF.email) + '</b>.'; echo.style.display = 'block'; }
     var wp = gel('wlPath');
-    if (wp && EF.leadId) wp.innerHTML = '<a class="btn" href="/app#' + EF.leadId + '" style="text-decoration:none">Track the research →</a><p class="fineprint" style="margin-top:8px">Your dashboard follows this job while we research it. It opens your track when the verdict is ready.</p>';
+    if (wp && EF.leadId) wp.innerHTML = '<a class="btn" href="/app#' + EF.leadId + '" style="text-decoration:none">Track the research →</a><p class="fineprint" style="margin-top:8px">Your dashboard follows this job while we research it. It opens your path when the answer is ready.</p>';
     var b = gel('efTarget7');
     if (b){ var h = targetHTML(); b.innerHTML = h; b.style.display = h ? 'block' : 'none'; }
     show('s7', 5);
@@ -1149,7 +1149,7 @@ if (typeof document !== 'undefined' && typeof document.write === 'function') {
    'pathcheck_lang'. When it says 'ru' the button speaks Russian,
    and a storage event flips it live. ===== */
 (function(){
-  var LABEL = { en: 'Become top 1% in your niche \u2192', ru: '\u0421\u0442\u0430\u0442\u044c \u0442\u043e\u043f 1% \u0432 \u0441\u0432\u043e\u0435\u0439 \u043d\u0438\u0448\u0435 \u2192' };
+  var LABEL = { en: 'Become top 1% in your field \u2192', ru: '\u0421\u0442\u0430\u0442\u044c \u0442\u043e\u043f 1% \u0432 \u0441\u0432\u043e\u0435\u0439 \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u0438 \u2192' };
   function lang(){
     try { return localStorage.getItem('pathcheck_lang') === 'ru' ? 'ru' : 'en'; }
     catch(e){ return 'en'; }
@@ -1168,7 +1168,7 @@ if (typeof document !== 'undefined' && typeof document.write === 'function') {
     bar = document.createElement('div');
     bar.id = 'pcTopBtnBar';
     bar.setAttribute('role', 'navigation');
-    bar.setAttribute('aria-label', 'Become top 1% in your niche');
+    bar.setAttribute('aria-label', 'Become top 1% in your field');
     link = document.createElement('a');
     link.href = '/app';
     link.textContent = LABEL[lang()];

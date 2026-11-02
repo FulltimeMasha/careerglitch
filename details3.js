@@ -5,22 +5,22 @@
 var STEP_DETAILS = (typeof STEP_DETAILS !== "undefined" && STEP_DETAILS) || {};
 Object.assign(STEP_DETAILS, {
  "ban-g1": {
-  "what": "Learn Excel past the basics. Work on pivot tables, lookups and macros. A pivot table sums up a big table in one view. A macro is a small recorded automation — you record steps once and Excel repeats them.",
-  "whatRu": "Выучите Excel глубже базового. Работайте со сводными таблицами, поисками по таблицам и макросами. Сводная таблица сводит большую таблицу в один вид. Макрос — это маленькая записанная автоматизация: вы записываете шаги один раз, и Excel повторяет их.",
+  "what": "Learn Excel beyond the basics: pivot tables, lookups and macros. A pivot table turns a big table into one short summary. A macro records your clicks once, then Excel repeats them for you. With ChatGPT or Claude as a tutor, this takes evenings, not a semester.",
+  "whatRu": "Выучите Excel глубже базового: сводные таблицы, поиск по таблицам и макросы. Сводная таблица сжимает большую таблицу в короткую сводку. Макрос запоминает ваши действия, а потом Excel повторяет их сам. С ChatGPT или Claude в роли учителя это займёт вечера, а не семестр.",
   "how": [
-   "Take one real table from your work and build a pivot table from it",
+   "Take one real table from your work and build a pivot table from it. Stuck? Ask ChatGPT or Claude to explain each click",
    "Use a lookup to pull a value from another table into your sheet",
    "Record one short macro for a task you repeat in Excel",
    "Save the file so you can show the pivot, the lookup and the macro"
   ],
   "howRu": [
-   "Возьмите одну настоящую таблицу из своей работы и постройте из неё сводную таблицу",
-   "Используйте поиск по таблице, чтобы подтянуть значение из другой таблицы в ваш лист",
+   "Возьмите одну настоящую таблицу из своей работы и постройте из неё сводную таблицу. Застряли — попросите ChatGPT или Claude объяснить каждый шаг",
+   "Подтяните значение из другой таблицы в свой лист с помощью поиска по таблице",
    "Запишите один короткий макрос для задачи, которую вы повторяете в Excel",
-   "Сохраните файл, чтобы можно было показать сводную таблицу, поиск и макрос"
+   "Сохраните файл, чтобы показать сводную таблицу, поиск и макрос"
   ],
-  "why": "Excel is in 7 of 7 junior business-analyst job posts. Every junior job uses it.",
-  "whyRu": "Excel есть в 7 из 7 вакансий junior business analyst. Он нужен на любой работе для новичков.",
+  "why": "Excel is in 7 of 7 beginner business-analyst job posts. Without it you don't pass the first filter. Learn it fast with AI and you're already ahead.",
+  "whyRu": "Excel есть в 7 из 7 вакансий для начинающих бизнес-аналитиков. Без него не пройти даже первый отбор. Выучите его быстро с AI — и вы уже впереди.",
   "links": [
    {
     "t": "Microsoft Support — Create a PivotTable to analyze worksheet data",
@@ -29,22 +29,22 @@ Object.assign(STEP_DETAILS, {
   ]
  },
  "ban-g2": {
-  "what": "Learn SQL well enough to use it at work. SQL is the language for asking a database for data. Then you can check data yourself. You won’t wait for someone else’s report.",
-  "whatRu": "Выучите SQL так, чтобы пользоваться им в работе. SQL — язык, на котором просят данные у базы данных. Тогда вы проверите данные сами. Не придётся ждать чужой отчёт.",
+  "what": "Learn SQL well enough to use it at work. SQL is the language for asking a database for data. Then you check data yourself and don't wait for someone else's report. AI can explain any query line by line, so you learn much faster than before.",
+  "whatRu": "Выучите SQL так, чтобы пользоваться им в работе. SQL — язык, на котором просят данные у базы данных. Тогда вы проверите данные сами. Не придётся ждать чужой отчёт. AI объяснит любой запрос по строчкам — так учиться намного быстрее.",
   "how": [
    "Learn the SELECT query — the query that reads data from a table",
    "Practise filtering and sorting the results you get back",
-   "Practise joining two tables together in one query",
+   "Practise joining two tables together in one query. Ask an AI chat to check your query and explain mistakes",
    "Answer a real work question with a query and save the result"
   ],
   "howRu": [
    "Выучите запрос SELECT — он читает данные из таблицы",
    "Потренируйтесь фильтровать и сортировать результаты",
-   "Попрактикуйтесь соединять две таблицы в одном запросе",
+   "Попрактикуйтесь соединять две таблицы в одном запросе. Попросите AI проверить запрос и объяснить ошибки",
    "Ответьте запросом на настоящий вопрос по работе и сохраните результат"
   ],
-  "why": "SQL is in 19 of 22 business job posts.",
-  "whyRu": "SQL нужен в 19 из 22 бизнес-вакансий.",
+  "why": "SQL is in 19 of 22 business job posts. With it you find answers yourself in minutes. That alone puts you ahead of most applicants.",
+  "whyRu": "SQL нужен в 19 из 22 вакансий в бизнесе. С ним вы сами находите ответы за минуты. Уже это ставит вас впереди большинства кандидатов.",
   "links": [
    {
     "t": "Microsoft Learn — Query and modify data with Transact-SQL",
@@ -53,8 +53,8 @@ Object.assign(STEP_DETAILS, {
   ]
  },
  "ban-g3": {
-  "what": "Pick your job on purpose. One title hides two jobs: the document job and the decision job. Write down which one your skills fit today.",
-  "whatRu": "Выберите свою работу осознанно. Под одним названием — две работы: с документами и с решениями. Запишите, к какой подходят ваши навыки сейчас.",
+  "what": "Choose your job on purpose. One title covers two jobs. In one you prepare documents. In the other you help bosses decide. AI already writes many documents. Write down which job fits your skills today.",
+  "whatRu": "Выберите работу осознанно. Под одним названием — две разные работы. В одной вы готовите документы. В другой помогаете руководству принимать решения. Документы AI уже пишет во многом сам. Запишите, какая работа подходит вашим навыкам сейчас.",
   "how": [
    "Write the two job types on one page: documents and decisions",
    "List your current skills under the job they fit best",
@@ -65,10 +65,10 @@ Object.assign(STEP_DETAILS, {
    "Напишите на одной странице две работы: документы и решения",
    "Разнесите свои навыки под ту работу, которой они подходят",
    "Отметьте работу, к которой подходят ваши навыки сейчас",
-   "Сохраните страницу — по ней вы потом сверите оплату и будете подаваться"
+   "Сохраните страницу — по ней вы потом сверите оплату и будете откликаться"
   ],
-  "why": "Under one title, these two jobs pay $51K to $194K.",
-  "whyRu": "Под одним названием эти две работы платят от $51K до $194K.",
+  "why": "Under one title, these two jobs pay $51K to $194K. AI is taking over the document part. Decisions stay with people — and they pay the most.",
+  "whyRu": "Под одним названием эти две работы платят от $51K до $194K. Работу с документами всё больше забирает AI. Решения остаются за людьми — и за них платят больше всего.",
   "links": [
    {
     "t": "BLS Occupational Outlook Handbook — Management Analysts",
@@ -77,8 +77,8 @@ Object.assign(STEP_DETAILS, {
   ]
  },
  "ban-g4": {
-  "what": "Use AI tools yourself, in your document work. The tools are Copilot, ChatGPT and Claude. Try them on real documents you already write. Check every draft yourself.",
-  "whatRu": "Пользуйтесь AI-инструментами сами, в работе с документами. Это Copilot, ChatGPT и Claude. Пробуйте их на настоящих документах, которые вы уже пишете. Каждый черновик проверяйте сами.",
+  "what": "Use AI tools in your own document work: Copilot, ChatGPT and Claude. Try them on real documents you already write. Always check every draft yourself.",
+  "whatRu": "Пользуйтесь AI сами, когда пишете документы: Copilot, ChatGPT и Claude. Пробуйте на настоящих документах, которые вы уже пишете. Каждый черновик проверяйте сами.",
   "how": [
    "Pick one document you write again and again",
    "Draft it once with an AI tool, then edit the draft yourself",
@@ -91,8 +91,8 @@ Object.assign(STEP_DETAILS, {
    "Запишите, где инструмент ошибся и что пришлось исправить",
    "Сохраните версии «до» и «после» — это доказательство работы"
   ],
-  "why": "4 of 22 business job posts name an AI tool. One employer, SanDisk, requires it.",
-  "whyRu": "4 из 22 бизнес-вакансий называют AI-инструмент. Один работодатель, SanDisk, его требует.",
+  "why": "4 of 22 business job posts name an AI tool. One employer, SanDisk, requires it. AI now writes the analyst's first drafts. The analyst who checks and fixes them keeps the job.",
+  "whyRu": "4 из 22 вакансий в бизнесе называют AI-инструмент. Один работодатель, SanDisk, его требует. Черновики аналитика теперь пишет AI. Работу сохраняет тот аналитик, кто умеет их проверять и править.",
   "links": [
    {
     "t": "Atlassian — Jira Tutorials: Learn Agile With Jira",
@@ -115,8 +115,8 @@ Object.assign(STEP_DETAILS, {
    "Нарисуйте шаги по порядку и отметьте медленный шаг",
    "Измените этот шаг, замерьте процесс снова и запишите новую цифру"
   ],
-  "why": "Process improvement shows up as its own job: business process reengineering.",
-  "whyRu": "Улучшение процессов — это отдельная работа в вакансиях: business process reengineering.",
+  "why": "Making work faster is a job of its own. Job posts call it business process reengineering. A before-and-after number proves you can do it. AI can map the steps with you in an hour.",
+  "whyRu": "Ускорять работу — это отдельная профессия. В вакансиях она называется business process reengineering (перестройка рабочих процессов). Цифры «до» и «после» доказывают, что вы это умеете. AI поможет расписать шаги за час.",
   "links": [
    {
     "t": "PMI — Professional in Business Analysis (PMI-PBA) Certification",
@@ -130,7 +130,7 @@ Object.assign(STEP_DETAILS, {
  },
  "ban-p2": {
   "what": "Automate one repeating task with an AI workflow. Pick a document or status report you make often. Set it up so the draft makes itself. Your job is to check it.",
-  "whatRu": "Автоматизируйте одну повторяющуюся задачу с помощью AI. Выберите документ или отчёт о статусе, который делаете часто. Настройте так, чтобы черновик готовился сам. Ваша работа — проверить его.",
+  "whatRu": "Отдайте AI одну повторяющуюся задачу. Выберите документ или отчёт о ходе работ, который делаете часто. Настройте так, чтобы черновик готовился сам. Ваша работа — проверить его.",
   "how": [
    "Pick one document or status report that repeats",
    "Write the steps you follow each time, in order",
@@ -138,13 +138,13 @@ Object.assign(STEP_DETAILS, {
    "Check the draft, fix what is wrong, and save the finished version"
   ],
   "howRu": [
-   "Выберите один документ или отчёт о статусе, который повторяется",
+   "Выберите один документ или отчёт о ходе работ, который повторяется",
    "Запишите шаги, которые вы делаете каждый раз, по порядку",
    "Настройте всё так, чтобы черновик делался за вас",
    "Проверьте черновик, исправьте неверное и сохраните готовую версию"
   ],
-  "why": "One job post names this part of the job word for word: “AI, Automation & Process Innovation.”",
-  "whyRu": "Одна вакансия так и называет этот раздел: «AI, Automation & Process Innovation».",
+  "why": "One job post names this part of the job word for word: “AI, Automation & Process Innovation.” AI will take this routine from analysts anyway. Be the analyst who runs it, not the one it replaces.",
+  "whyRu": "Одна вакансия так и называет этот раздел: «AI, Automation & Process Innovation» (AI, автоматизация и новые процессы). Эту рутину у аналитиков AI всё равно заберёт. Будьте тем, кто им управляет, а не тем, кого он заменит.",
   "links": [
    {
     "t": "Atlassian — Jira Tutorials: Learn Agile With Jira",
@@ -153,8 +153,8 @@ Object.assign(STEP_DETAILS, {
   ]
  },
  "ban-p3": {
-  "what": "Write up one decision you pushed for, on one page. This page is called a brief. It makes your case. It has three parts: the decision, the number and the ask.",
-  "whatRu": "Опишите на одной странице одно решение, которого вы добились. Такая страница называется бриф. Она доказывает вашу правоту. В ней три части: решение, цифра и просьба.",
+  "what": "Write up one decision you pushed for, on one page. The page makes your case. It has three parts: the decision, the number and the ask. We'll call it your decision page.",
+  "whatRu": "Опишите на одной странице одно решение, которого вы добились. Эта страница доказывает, что вы были правы. В ней три части: решение, цифра и просьба. Дальше будем звать её «страница решения».",
   "how": [
    "Pick one decision your work helped to make",
    "Write the decision in one line — what was decided",
@@ -167,8 +167,8 @@ Object.assign(STEP_DETAILS, {
    "Добавьте цифру, на которой оно держалось",
    "В конце — просьба: что вам было нужно от других. Не больше одной страницы"
   ],
-  "why": "To move from document work to decision work, you need one decision you can show.",
-  "whyRu": "Чтобы уйти из работы с документами в работу с решениями, нужно одно решение, которое можно показать.",
+  "why": "To move from documents to decisions, you need one decision you can show. That move is where the pay jumps. And AI can't make that decision for you.",
+  "whyRu": "Чтобы перейти от документов к решениям, нужно одно решение, которое можно показать. Именно на этом переходе растёт зарплата. И это решение AI за вас не примет.",
   "links": [
    {
     "t": "PMI — Professional in Business Analysis (PMI-PBA) Certification",
@@ -181,22 +181,22 @@ Object.assign(STEP_DETAILS, {
   ]
  },
  "ban-p4": {
-  "what": "Rebuild one regular report for stakeholders in a BI tool. A BI tool turns data into charts and dashboards — here, Power BI or Tableau. Stakeholders are people who make decisions using your work.",
-  "whatRu": "Пересоберите один регулярный отчёт для стейкхолдеров в BI-инструменте. BI-инструмент превращает данные в графики и дашборды — здесь Power BI или Tableau. Стейкхолдеры — люди, которые принимают решения по вашей работе.",
+  "what": "Rebuild one regular report in Power BI or Tableau. These tools turn data into charts that update themselves. Make it for the people who decide based on your work. Both tools now have AI helpers that build a first chart for you.",
+  "whatRu": "Переделайте один регулярный отчёт в Power BI или Tableau. Эти программы превращают данные в графики, которые обновляются сами. Делайте отчёт для тех, кто принимает решения по вашей работе. В обеих программах уже есть AI-помощники для первого графика.",
   "how": [
-   "Pick one stakeholder report you send again and again",
-   "Pull the numbers for it yourself in the BI tool",
+   "Pick one report for decision-makers that you send again and again",
+   "Pull the numbers for it yourself in Power BI or Tableau",
    "Build the same report there, with the same numbers",
-   "Share the BI version instead of the old file"
+   "Share the new version instead of the old file"
   ],
   "howRu": [
-   "Выберите один отчёт для стейкхолдеров, который вы отправляете снова и снова",
-   "Достаньте цифры для него сами в BI-инструменте",
+   "Выберите один отчёт для руководства, который вы отправляете снова и снова",
+   "Достаньте цифры для него сами в Power BI или Tableau",
    "Постройте там тот же отчёт, с теми же цифрами",
-   "Отправляйте BI-версию вместо старого файла"
+   "Отправляйте новую версию вместо старого файла"
   ],
-  "why": "9 of 22 business job posts name or require a BI tool.",
-  "whyRu": "9 из 22 бизнес-вакансий называют или требуют BI-инструмент.",
+  "why": "9 of 22 business job posts name or require a BI tool like these. One live report shows your skill in seconds. It beats any course certificate.",
+  "whyRu": "9 из 22 вакансий в бизнесе называют или требуют такую программу. Один живой отчёт показывает навык за секунды. Это сильнее любого сертификата курсов.",
   "links": [
    {
     "t": "Microsoft Learn — Training for Power BI",
@@ -209,22 +209,22 @@ Object.assign(STEP_DETAILS, {
   ]
  },
  "ban-k1": {
-  "what": "Apply to decision jobs by their names. Search and apply for strategy & operations roles. Don’t stick only to plain “business analyst” jobs.",
-  "whatRu": "Подавайтесь на работу с решениями по её названиям. Ищите роли strategy & operations и подавайтесь. Не ограничивайтесь обычными вакансиями «business analyst».",
+  "what": "Apply to decision jobs by their real names. Search for strategy & operations roles. Don’t stick only to plain “business analyst” jobs.",
+  "whatRu": "Откликайтесь на работу с решениями по её настоящему названию. Ищите вакансии strategy & operations (стратегия и операции). Не ограничивайтесь обычными вакансиями «бизнес-аналитик».",
   "how": [
    "Search job boards for the words strategy & operations",
    "Read the whole job post, not just the title",
-   "Check if the main duty is decisions and work with stakeholders",
-   "Apply with the decision brief you wrote earlier"
+   "Check if the main duty is decisions and work with decision-makers",
+   "Apply with the decision page you wrote earlier"
   ],
   "howRu": [
    "Ищите на сайтах вакансий слова strategy & operations",
    "Читайте вакансию целиком, а не только название",
-   "Проверьте, что главное в работе — решения и общение со стейкхолдерами",
-   "Подавайтесь с брифом решения, который вы уже написали"
+   "Проверьте, что главное в работе — решения и общение с руководством",
+   "Откликайтесь со страницей решения, которую вы уже написали"
   ],
-  "why": "Plain “business analyst” jobs pay for documents. Strategy jobs pay for decisions.",
-  "whyRu": "Обычные вакансии «business analyst» платят за документы. Вакансии strategy платят за решения.",
+  "why": "Plain “business analyst” jobs pay for documents — the part AI does more of each year. Strategy jobs pay for decisions, and they pay more. The right search words are your shortest way up.",
+  "whyRu": "Обычные вакансии «бизнес-аналитик» платят за документы — а их всё больше пишет AI. Вакансии по стратегии платят за решения, и платят больше. Верные слова в поиске — ваш самый короткий путь наверх.",
   "links": [
    {
     "t": "BLS Occupational Outlook Handbook — Management Analysts",
@@ -234,21 +234,21 @@ Object.assign(STEP_DETAILS, {
  },
  "ban-k2": {
   "what": "In interviews, start with a decision you changed. Don’t start with a dashboard you built. Tell the decision first, then show the work behind it.",
-  "whatRu": "На собеседовании начинайте с решения, которое вы изменили. Не начинайте с дашборда, который построили. Сначала решение, потом работа за ним.",
+  "whatRu": "На собеседовании начинайте с решения, которое вы изменили. Не начинайте с панели графиков, которую построили. Сначала решение, потом работа за ним.",
   "how": [
    "Prepare your one decision as a short spoken story",
    "Say the decision first, in one line",
    "Then say the number and what you did",
-   "Practise saying it out loud before the interview"
+   "Practise saying it out loud before the interview. An AI chat can play the interviewer"
   ],
   "howRu": [
    "Подготовьте своё решение как короткий рассказ вслух",
    "Сначала скажите решение, одной фразой",
    "Затем скажите цифру и что вы сделали",
-   "Потренируйтесь говорить это вслух перед собеседованием"
+   "Потренируйтесь говорить это вслух перед собеседованием. AI может сыграть интервьюера"
   ],
-  "why": "In all 7 strategy & operations job posts, the main duty is work with stakeholders.",
-  "whyRu": "Во всех 7 вакансиях strategy & operations главная обязанность — работа со стейкхолдерами.",
+  "why": "In all 7 strategy & operations job posts, the main duty is working with decision-makers. Lead with a decision and you sound like one of them.",
+  "whyRu": "Во всех 7 вакансиях по стратегии главное — работа с руководством. Начнёте с решения — и сразу звучите как свой.",
   "links": [
    {
     "t": "PMI — Professional in Business Analysis (PMI-PBA) Certification",
@@ -258,21 +258,21 @@ Object.assign(STEP_DETAILS, {
  },
  "ban-k3": {
   "what": "Some job posts ask for years in consulting or banking. If you don’t have them, use proof from your own job. Bring one decision you changed, with numbers. Defend it like a case study.",
-  "whatRu": "Некоторые вакансии просят годы в консалтинге или банке. Если их нет, покажите доказательство из своей работы. Принесите одно решение, которое вы изменили, с цифрами. Защищайте его как кейс.",
+  "whatRu": "Некоторые вакансии просят годы в консалтинге или банке. Если их нет, покажите доказательство из своей работы. Принесите одно решение, которое вы изменили, с цифрами. Защищайте его, как на экзамене.",
   "how": [
-   "Take your one-page decision brief",
+   "Take your decision page",
    "Learn its numbers so you can say them by heart",
-   "Prepare answers for hard questions about the decision",
+   "Prepare answers for hard questions. Ask an AI chat to fire tough questions at you",
    "In the interview, present it and defend it step by step"
   ],
   "howRu": [
-   "Возьмите свой бриф решения на одну страницу",
-   "Выучите его цифры, чтобы называть их наизусть",
-   "Подготовьте ответы на трудные вопросы о решении",
-   "На собеседовании расскажите о нём и защищайте шаг за шагом"
+   "Возьмите свою страницу решения",
+   "Выучите её цифры, чтобы называть их наизусть",
+   "Подготовьте ответы на трудные вопросы. Попросите AI задать вам самые неудобные",
+   "На собеседовании расскажите о решении и защищайте его шаг за шагом"
   ],
-  "why": "Google asks 4 years of consulting or strategy, plus 2 years of SQL.",
-  "whyRu": "Google просит 4 года консалтинга или стратегии плюс 2 года SQL.",
+  "why": "Google asks 4 years of consulting or strategy, plus 2 years of SQL. A strong decision with numbers can stand in for those years. That's your shortcut.",
+  "whyRu": "Google просит 4 года консалтинга или стратегии плюс 2 года SQL. Сильное решение с цифрами может заменить эти годы. Это и есть ваш короткий путь.",
   "links": [
    {
     "t": "Microsoft Learn — Query and modify data with Transact-SQL",
@@ -299,8 +299,8 @@ Object.assign(STEP_DETAILS, {
    "Если предложение на уровне работы с документами, дело в работе, а не в вас",
    "Опирайтесь на эти цифры, когда говорите об оплате"
   ],
-  "why": "Document jobs pay $51K–$95K. Strategy & operations pays $96K–$177K. The one exception, a job that owns systems, pays $129,840–$194,760.",
-  "whyRu": "Работа с документами платит $51K–$95K. Strategy & operations — $96K–$177K. Одно исключение, работа, которая отвечает за системы, — $129,840–$194,760.",
+  "why": "Document jobs pay $51K–$95K. Strategy & operations pays $96K–$177K. The one exception, a job that runs company systems, pays $129,840–$194,760. Know this and you won't settle for the low end.",
+  "whyRu": "Работа с документами платит $51K–$95K. Работа по стратегии — $96K–$177K. Одно исключение — работа, которая отвечает за системы компании: $129,840–$194,760. Зная это, вы не согласитесь на нижнюю планку.",
   "links": [
    {
     "t": "BLS Occupational Outlook Handbook — Management Analysts",
@@ -310,7 +310,7 @@ Object.assign(STEP_DETAILS, {
  },
  "ban-k5": {
   "what": "Redo this checklist every quarter, with new job posts. A quarter is three months. Read new job posts for your job. Check what they ask for now.",
-  "whatRu": "Проходите этот чек-лист заново каждый квартал по свежим вакансиям. Квартал — это три месяца. Читайте новые вакансии на вашу работу. Смотрите, что в них требуют сейчас.",
+  "whatRu": "Проходите этот список заново каждый квартал по свежим вакансиям. Квартал — это три месяца. Читайте новые вакансии на вашу работу. Смотрите, что в них требуют сейчас.",
   "how": [
    "Set a date three months from now",
    "On that date, read new job posts for your job",
@@ -323,8 +323,8 @@ Object.assign(STEP_DETAILS, {
    "Посчитайте, сколько из них называют AI-инструмент",
    "Обновите страницу своей работы, если требования поменялись"
   ],
-  "why": "In a short time, AI tools went from not mentioned to named in 4 of 22 business job posts.",
-  "whyRu": "За короткое время AI-инструменты прошли путь от «нигде» до 4 из 22 бизнес-вакансий.",
+  "why": "In a short time, AI tools went from not mentioned to named in 4 of 22 business job posts. AI is changing what analysts are hired for. A quick check keeps you learning only what pays.",
+  "whyRu": "За короткое время AI-инструменты прошли путь от «нигде» до 4 из 22 вакансий в бизнесе. AI меняет то, за что берут аналитиков. Короткая проверка — и вы учите только то, за что платят.",
   "links": [
    {
     "t": "BLS Occupational Outlook Handbook — Management Analysts",
@@ -335,22 +335,22 @@ Object.assign(STEP_DETAILS, {
 });
 Object.assign(STEP_DETAILS, {
  "aic-g1": {
-  "what": "First, pick your role on paper. A role here is the kind of job you choose inside this title. Write it down before you make anything: a real face with an AI crew, or AI video sold to brands.",
-  "whatRu": "Сначала выберите свою роль на бумаге. Роль — это вид работы внутри этого названия. Запишите её до того, как что-то делать: живой человек в кадре с AI-командой или AI-видео на продажу брендам.",
+  "what": "First, pick your role on paper. A role is the kind of work you do under this title. Two kinds pay: you on camera with AI helpers, or AI videos made for brands. Write yours down before you make anything.",
+  "whatRu": "Сначала выберите свою роль на бумаге. Роль — это вид работы под этим названием. Платят два вида: вы сами в кадре с AI-помощниками или AI-видео на заказ для брендов. Запишите свою роль до первого видео.",
   "how": [
-   "On paper, write the two roles that pay: a real face with an AI crew, and AI video sold to brands",
-   "Next to them, write the three NO roles: the persona, the mass channel and the solo AI streamer",
+   "On paper, write the two roles that pay: you on camera with AI helpers, and AI video made for brands",
+   "Next to them, write the three NO roles: a made-up AI character, a mass channel and a solo AI streamer",
    "Pick one paying role and write why it fits you",
    "Check every later step against that role only"
   ],
   "howRu": [
-   "Запишите на бумаге две роли, которые платят: живой человек с AI-командой и AI-видео для брендов",
-   "Рядом запишите три роли NO: персона, массовый канал и AI-стример в одиночку",
+   "Запишите на бумаге две роли, которые платят: вы в кадре с AI-помощниками и AI-видео для брендов",
+   "Рядом запишите три роли NO: выдуманный AI-персонаж, массовый канал и AI-стример в одиночку",
    "Выберите одну роль, которая платит, и напишите, почему она вам подходит",
    "Сверяйте каждый следующий шаг только с этой ролью"
   ],
-  "why": "Two roles pay: a real face with an AI crew, and AI video sold to brands. The persona, the mass channel and the solo AI streamer are NO.",
-  "whyRu": "Платят две роли: живой человек с AI-командой и AI-видео для брендов. Персона, массовый канал и AI-стример в одиночку — NO.",
+  "why": "Two roles pay: you on camera with AI helpers, and AI video made for brands. A made-up AI character, a mass channel and a solo AI streamer are NO. AI made video cheap for everyone. Only these two roles still earn — skip the rest and save months.",
+  "whyRu": "Платят две роли: вы в кадре с AI-помощниками и AI-видео для брендов. Выдуманный персонаж, массовый канал и AI-стример в одиночку — NO. AI сделал видео дешёвым для всех. Зарабатывают только эти две роли — не тратьте месяцы на остальное.",
   "links": [
    {
     "t": "YouTube channel monetization policies — YouTube Help",
@@ -359,8 +359,8 @@ Object.assign(STEP_DETAILS, {
   ]
  },
  "aic-g2": {
-  "what": "Learn the label rules before your first post. A label tells viewers the content is made by AI. Each platform has its own label. Realistic AI without a label gets punished everywhere.",
-  "whatRu": "Выучите правила пометок до первой публикации. Пометка говорит зрителям, что это сделал AI. У каждой платформы своя пометка. За реалистичный AI без пометки наказывают везде.",
+  "what": "Learn the AI label rules before your first post. A label tells viewers a video was made with AI. Each platform has its own label. Realistic AI with no label gets punished everywhere.",
+  "whatRu": "До первой публикации выучите правила пометок. Пометка говорит зрителю: это сделал AI. У каждой соцсети своя пометка. За реалистичный AI без пометки наказывают везде.",
   "how": [
    "On YouTube, learn the tool for marking realistic AI content before you upload",
    "On TikTok, know that TikTok labels AI content it finds by itself",
@@ -373,8 +373,8 @@ Object.assign(STEP_DETAILS, {
    "На Meta узнайте про пометку «AI info» в Facebook, Instagram и Threads",
    "Запишите три правила там, где будете видеть их перед каждой публикацией"
   ],
-  "why": "Every platform punishes one mistake: realistic AI with no label.",
-  "whyRu": "Все платформы наказывают за одну ошибку: реалистичный AI без пометки.",
+  "why": "Every platform punishes one mistake: realistic AI with no label. Learn the rule first and your channel stays safe.",
+  "whyRu": "Все соцсети наказывают за одну ошибку: реалистичный AI без пометки. Выучите правило заранее — и ваш канал в безопасности.",
   "links": [
    {
     "t": "Disclosing use of GenAI content — YouTube Help",
@@ -387,7 +387,7 @@ Object.assign(STEP_DETAILS, {
   ]
  },
  "aic-g3": {
-  "what": "Learn the FTC rule by heart. The FTC is the US agency for fair trade. The rule is simple: your AI can present, show and entertain. It can’t give a testimonial — praise for a product — as if it lived through it.",
+  "what": "Learn the FTC rule by heart. The FTC is the US agency for fair trade. The rule is simple: your AI can present, show and entertain. It can’t praise a product as if it used it.",
   "whatRu": "Выучите правило FTC наизусть. FTC — это ведомство США, которое следит за честной торговлей. Правило простое: ваш AI может представлять, показывать и развлекать. Но он не может хвалить товар, будто сам им пользовался.",
   "how": [
    "Write the rule down: present, show, entertain — yes; a review from lived experience — no",
@@ -399,15 +399,15 @@ Object.assign(STEP_DETAILS, {
    "Запишите правило: представлять, показывать, развлекать — да; отзыв «из личного опыта» — нет",
    "Сверяйте каждый сценарий с этим правилом до съёмки",
    "Убирайте каждую фразу, где AI говорит, что пользовался, носил или чувствовал что-то как человек",
-   "Фейковый AI-отзыв — это запрещённый фейковый отзыв, а не мелкая хитрость"
+   "Поддельный AI-отзыв — это запрещённый поддельный отзыв, а не мелкая хитрость"
   ],
-  "why": "A fake AI review is a banned fake review. There are fines for each one.",
-  "whyRu": "Фейковый AI-отзыв — это запрещённый фейковый отзыв. За каждый — штраф.",
+  "why": "A fake AI review is a banned fake review. There are fines for each one. Brands pick creators who keep them out of trouble.",
+  "whyRu": "Поддельный AI-отзыв — это запрещённый поддельный отзыв. За каждый — штраф. Бренды выбирают тех, кто не подставит их под штраф.",
   "links": []
  },
  "aic-g4": {
   "what": "Set up your tools once. Pick one tool that makes video, one editor and one voice tool. Then stop. Tools are not the skill — your judgment is.",
-  "whatRu": "Соберите инструменты один раз. Выберите один инструмент, который делает видео, один редактор и один для голоса. И остановитесь. Навык — не инструменты, а ваш вкус и решения.",
+  "whatRu": "Соберите инструменты один раз. Выберите одну программу, которая делает видео, один редактор и одну программу для голоса. И остановитесь. Навык — не в программах, а в вашем вкусе и решениях.",
   "how": [
    "Choose one video-making tool and pay only for that one",
    "Choose one editor to finish every video in",
@@ -420,8 +420,8 @@ Object.assign(STEP_DETAILS, {
    "Выберите один инструмент для голоса",
    "Сложите, сколько это стоит в месяц, и перестаньте искать новые инструменты"
   ],
-  "why": "All the tools cost about $29–60 a month in total. The tools are not the skill.",
-  "whyRu": "Все инструменты вместе — около $29–60 в месяц. Навык — не в инструментах.",
+  "why": "All the tools cost about $29–60 a month in total. The tools are not the skill. Stop shopping and start making — that's the fastest way in.",
+  "whyRu": "Все инструменты вместе — около $29–60 в месяц. Навык — не в инструментах. Хватит выбирать, начинайте делать — так быстрее всего.",
   "links": [
    {
     "t": "Pricing plans — HeyGen",
@@ -442,10 +442,10 @@ Object.assign(STEP_DETAILS, {
    "Сделайте первое видео от начала до конца своим способом",
    "Запишите рядом, сколько минут оно заняло",
    "Повторяйте, пока не будет 10 готовых видео",
-   "Сохраните список минут — это первая строка вашего прайса"
+   "Сохраните список минут — это первая строка вашего списка цен"
   ],
-  "why": "Your speed is the first line of your price list.",
-  "whyRu": "Ваша скорость — первая строка вашего прайса.",
+  "why": "Your speed is the first line of your price list. Faster videos mean more orders and more money.",
+  "whyRu": "Ваша скорость — первая строка вашего списка цен. Чем быстрее вы делаете, тем больше заказов и денег.",
   "links": []
  },
  "aic-p2": {
@@ -463,8 +463,8 @@ Object.assign(STEP_DETAILS, {
    "Проверьте, что это то же видео, а не новое",
    "Продавайте обе языковые версии как один заказ"
   ],
-  "why": "The tools cover 175 languages and dialects. One face, two markets.",
-  "whyRu": "Инструменты знают 175 языков и диалектов. Одно лицо — два рынка.",
+  "why": "The tools cover 175 languages and dialects. One face, two markets. One piece of work, two paychecks.",
+  "whyRu": "Инструменты знают 175 языков и диалектов. Одно лицо — два рынка. Одна работа — два заработка.",
   "links": [
    {
     "t": "Pricing plans (175 languages and dialects) — HeyGen",
@@ -474,7 +474,7 @@ Object.assign(STEP_DETAILS, {
  },
  "aic-p3": {
   "what": "Make a one-page price list. Base it on two real numbers. First: what a brand pays for a video by a human. Second: what a raw AI clip costs to make. Your price goes between them.",
-  "whatRu": "Сделайте прайс на одну страницу. Опирайтесь на два настоящих числа. Первое: сколько бренд платит за видео с человеком. Второе: сколько стоит сделать сырой AI-клип. Ваша цена — между ними.",
+  "whatRu": "Сделайте список цен на одну страницу. Опирайтесь на два настоящих числа. Первое: сколько бренд платит за видео с человеком. Второе: сколько стоит сделать сырой AI-клип. Ваша цена — между ними.",
   "how": [
    "At the top, write the human-video price and the raw AI clip cost",
    "Under them, put your speed from your 10 finished videos",
@@ -485,10 +485,10 @@ Object.assign(STEP_DETAILS, {
    "Вверху напишите цену видео с человеком и цену сырого AI-клипа",
    "Под ними — ваша скорость по 10 готовым видео",
    "Поставьте цену между ними: за ваш вкус, объём и скорость",
-   "Уложите весь прайс в одну страницу"
+   "Уложите весь список цен в одну страницу"
   ],
-  "why": "A brand pays $154 for a video by a human. A raw AI clip costs about $1–11 to make.",
-  "whyRu": "Бренд платит $154 за видео с человеком. Сырой AI-клип стоит около $1–11.",
+  "why": "A brand pays $154 for a video by a human. A raw AI clip costs about $1–11 to make. Price in between: the brand saves, and you earn well.",
+  "whyRu": "Бренд платит $154 за видео с человеком. Сырой AI-клип стоит около $1–11. Цена между ними — и бренду выгодно, и вы хорошо зарабатываете.",
   "links": [
    {
     "t": "Pricing plans — HeyGen",
@@ -498,7 +498,7 @@ Object.assign(STEP_DETAILS, {
  },
  "aic-p4": {
   "what": "Get two paying clients, or two paid orders from brands. This niche has no license and no exam board. Paid work is the only proof that counts. So get two done.",
-  "whatRu": "Найдите двух платящих клиентов или два оплаченных заказа от брендов. В этой нише нет лицензии и экзаменов. Оплаченная работа — единственное доказательство, которое считается. Сделайте два таких заказа.",
+  "whatRu": "Найдите двух платящих клиентов или два оплаченных заказа от брендов. В этой работе нет лицензии и экзаменов. Оплаченная работа — единственное доказательство, которое считается. Сделайте два таких заказа.",
   "how": [
    "Show your 10 finished videos and your price list to a brand or agency",
    "Take the first paid order and finish it",
@@ -511,13 +511,13 @@ Object.assign(STEP_DETAILS, {
    "Возьмите второй оплаченный заказ и доделайте его",
    "Сохраните оба как доказательство для следующего клиента"
   ],
-  "why": "In this niche, paid work is the only proof that counts. No license, no union, no exam board.",
-  "whyRu": "В этой нише считается только оплаченная работа. Ни лицензии, ни профсоюза, ни экзаменов.",
+  "why": "In this niche, paid work is the only proof that counts. No license, no union, no exam board. So no years of school: two paid orders and you're in.",
+  "whyRu": "Здесь считается только оплаченная работа. Ни лицензии, ни профсоюза, ни экзаменов. Значит, годы учёбы не нужны: два оплаченных заказа — и вы в деле.",
   "links": []
  },
  "aic-p5": {
   "what": "Keep a label cheat sheet for each platform you post on. It’s one page: what needs a label there, and where. Update it before you post, not after a problem.",
-  "whatRu": "Ведите шпаргалку по пометкам для каждой платформы, где публикуетесь. Это одна страница: что там надо помечать и где. Обновляйте её до публикации, а не после проблем.",
+  "whatRu": "Ведите шпаргалку по пометкам для каждой соцсети, где публикуетесь. Это одна страница: что там надо помечать и где. Обновляйте её до публикации, а не после проблем.",
   "how": [
    "Make one page per platform you post on",
    "On it, write what needs a label on that platform, and where the label goes",
@@ -525,13 +525,13 @@ Object.assign(STEP_DETAILS, {
    "Check the sheet before every client order"
   ],
   "howRu": [
-   "Сделайте по одной странице на каждую платформу, где публикуетесь",
-   "Напишите на ней, что на этой платформе надо помечать и где ставить пометку",
+   "Сделайте по одной странице на каждую соцсеть, где публикуетесь",
+   "Напишите на ней, что в этой соцсети надо помечать и где ставить пометку",
    "Если клиенты рекламируются в Нью-Йорке, добавьте правило: реклама с AI-актёром должна это указывать",
    "Проверяйте шпаргалку перед каждой сдачей заказа"
   ],
-  "why": "Since June 2026, New York law says ads with an AI performer must say so. This matters if your clients advertise there.",
-  "whyRu": "С июня 2026 закон Нью-Йорка требует: реклама с AI-актёром должна это указывать. Это важно, если ваши клиенты рекламируются там.",
+  "why": "Since June 2026, New York law says ads with an AI performer must say so. This matters if your clients advertise there. Clients stay with a creator they can trust.",
+  "whyRu": "С июня 2026 закон Нью-Йорка требует: реклама с AI-актёром должна это указывать. Это важно, если ваши клиенты рекламируются там. Клиенты остаются с тем, кому доверяют.",
   "links": [
    {
     "t": "Disclosing use of GenAI content — YouTube Help",
@@ -545,7 +545,7 @@ Object.assign(STEP_DETAILS, {
  },
  "aic-k1": {
   "what": "Sell the result, not the tool. Offer brands tests and results: many tested hooks for the price of one filmed video. A hook is the opening that makes a viewer stop scrolling. Brands never buy “AI content” as such.",
-  "whatRu": "Продавайте результат, а не инструмент. Предлагайте брендам тесты и результаты: много проверенных хуков по цене одного снятого видео. Хук — это начало видео, на котором зритель останавливается. Бренды не покупают «AI-контент» как таковой.",
+  "whatRu": "Продавайте результат, а не инструмент. Предлагайте брендам проверки: много вариантов начала видео по цене одного снятого ролика. Начало — первые секунды, на которых зритель перестаёт листать. Бренды не покупают «AI-контент» как таковой.",
   "how": [
    "Pitch tested hooks, not AI videos",
    "Show how many hooks the brand gets for the price of one filmed video",
@@ -553,18 +553,18 @@ Object.assign(STEP_DETAILS, {
    "Take the tool names out of your offer — the tool is not the product"
   ],
   "howRu": [
-   "Предлагайте проверенные хуки, а не AI-видео",
-   "Покажите, сколько хуков бренд получает по цене одного снятого видео",
-   "Назовите, что получает бренд: тесты, которые можно запустить",
+   "Предлагайте проверенные начала видео, а не AI-видео",
+   "Покажите, сколько вариантов начала бренд получает по цене одного снятого видео",
+   "Назовите, что получает бренд: проверки, которые можно запустить",
    "Уберите из предложения названия инструментов — продаёте не инструмент"
   ],
-  "why": "Brands buy tests and results. They never buy “AI content”.",
-  "whyRu": "Бренды покупают тесты и результат. «AI-контент» они не покупают никогда.",
+  "why": "Brands buy tests and results. They never buy “AI content”. Sell results and you don't drown among cheap AI clips.",
+  "whyRu": "Бренды покупают проверки и результат. «AI-контент» они не покупают никогда. Продаёте результат — и не тонете среди дешёвых AI-клипов.",
   "links": []
  },
  "aic-k2": {
   "what": "Set prices by the market, never per clip. Sell only retainers and packages. A retainer is a fixed fee for ongoing work. If you only compete on price per clip, prices just keep falling.",
-  "whatRu": "Ставьте цену по рынку, а не за клип. Продавайте только ретейнеры и пакеты. Ретейнер — это постоянная плата за постоянную работу. Если соревноваться только ценой за клип, цена всё падает и падает.",
+  "whatRu": "Ставьте цену по рынку, а не за клип. Продавайте только пакеты и ежемесячную оплату. Ежемесячная оплата — постоянная сумма за постоянную работу. Если соревноваться только ценой за клип, цена всё падает и падает.",
   "how": [
    "Stop giving a price for a single clip",
    "Make packages a brand can buy as a set",
@@ -574,7 +574,7 @@ Object.assign(STEP_DETAILS, {
   "howRu": [
    "Перестаньте называть цену за один клип",
    "Соберите пакеты, которые бренд может купить целиком",
-   "Предложите ретейнер за постоянную работу",
+   "Предложите ежемесячную оплату за постоянную работу",
    "Сравнивайте каждую цену с рынком, а не с самым дешёвым предложением за клип"
   ],
   "why": "Job sites with cheap overseas workers list this job at $4 an hour. The price per video drops as low as $1. So sell packages, not single clips.",
@@ -588,7 +588,7 @@ Object.assign(STEP_DETAILS, {
  },
  "aic-k3": {
   "what": "Build what you own. That’s a client list, an email list, and fans who follow you, not the tool. Tools and labels change. What you own is the only thing that grows.",
-  "whatRu": "Стройте то, что принадлежит вам. Это список клиентов, email-рассылка и аудитория, которая идёт за вами, а не за инструментом. Инструменты и пометки меняются. Расти будет только то, что ваше.",
+  "whatRu": "Стройте то, что принадлежит вам. Это список клиентов, рассылка писем и люди, которые идут за вами, а не за инструментом. Инструменты и пометки меняются. Расти будет только то, что ваше.",
   "how": [
    "Keep a client list with every client you have worked for",
    "Start an email list and point your audience at it",
@@ -597,17 +597,17 @@ Object.assign(STEP_DETAILS, {
   ],
   "howRu": [
    "Ведите список всех клиентов, для кого вы работали",
-   "Начните email-рассылку и зовите туда свою аудиторию",
+   "Начните рассылку писем и зовите туда своих зрителей",
    "В постах делайте так, чтобы люди шли за вами как за человеком",
    "С каждым заказом понемногу растите то, что ваше"
   ],
-  "why": "Tool prices and platform labels change every quarter. What you own is the only thing that grows.",
-  "whyRu": "Цены инструментов и пометки платформ меняются каждый квартал. Расти будет только то, что ваше.",
+  "why": "Tool prices and platform labels change every quarter. What you own is the only thing that grows. AI tools come and go; your clients stay.",
+  "whyRu": "Цены инструментов и пометки соцсетей меняются каждый квартал. Расти будет только то, что ваше. AI-программы приходят и уходят, а клиенты остаются.",
   "links": []
  },
  "aic-k4": {
   "what": "Check again every quarter. Every 3 months, look again at tool prices, label rules and your income split. The split is how much money comes from clients and how much from platforms.",
-  "whatRu": "Проверяйте всё каждый квартал. Раз в 3 месяца смотрите заново цены инструментов, правила пометок и откуда ваш доход: сколько денег от клиентов, а сколько от платформ.",
+  "whatRu": "Проверяйте всё каждый квартал. Раз в 3 месяца смотрите заново цены инструментов, правила пометок и откуда ваш доход: сколько денег от клиентов, а сколько от соцсетей.",
   "how": [
    "Write down the current tool prices again",
    "Read the label rules again on every platform you use",
@@ -616,12 +616,12 @@ Object.assign(STEP_DETAILS, {
   ],
   "howRu": [
    "Запишите заново текущие цены инструментов",
-   "Перечитайте правила пометок на каждой платформе, которую вы используете",
-   "Сложите деньги клиентов и деньги платформ отдельно",
+   "Перечитайте правила пометок в каждой соцсети, где вы публикуетесь",
+   "Сложите деньги клиентов и деньги соцсетей отдельно",
    "Поставьте дату на проверке — правила здесь из 2026 года, и они изменятся"
   ],
-  "why": "The rules on this track are from 2026, and they will change.",
-  "whyRu": "Правила здесь из 2026 года, и они изменятся.",
+  "why": "The rules on this track are from 2026, and they will change. AI video tools change fastest of all. A short check keeps you ahead of people who stopped looking.",
+  "whyRu": "Правила здесь из 2026 года, и они изменятся. AI-программы для видео меняются быстрее всего. Короткая проверка — и вы впереди тех, кто перестал следить.",
   "links": [
    {
     "t": "Disclosing use of GenAI content — YouTube Help",

@@ -22,7 +22,7 @@
    (tanker, flatbed, owner-operator, local, regional) before the
    generic long-haul seat, because "otr" text co-occurs with them. */
 (function(){
-  var NEXT_TRK = 'THE FULL REPORT — $5, OR FREE WHEN YOU SHARE: all six jobs, checked step by step. Which routes driverless trucks really run today. What each license add-on pays. And honest owner-operator math with real numbers. We re-check this by April 2027. Sooner if a second company starts driverless highway trucks, or the rules open up to hazmat.';
+  var NEXT_TRK = 'THE FULL REPORT — $5, OR FREE WHEN YOU SHARE: your safest route through all six jobs, step by step. Which routes driverless trucks really run today. What each license add-on pays you. And honest owner-operator math with real numbers. We re-check this by April 2027. Sooner if a second company starts driverless highway trucks, or the rules open up to hazmat.';
   function inject(){
     if (typeof PROFS === 'undefined' || PROFS.truckdriver) return;
     PROFS.truckdriver = {
@@ -36,18 +36,18 @@
       next: NEXT_TRK
     };
     COFACTS.truckdriver = [
-      'On <span class="pink">May 1, 2025</span>, a truck with <span class="pink">nobody in the cab</span> started hauling paid freight between Dallas and Houston. By January 2026 the same company had logged <span class="pink">250,000 driverless miles</span>.',
-      'The US has <span class="pink">2,221,200</span> heavy truck drivers. Middle pay is <span class="pink">$58,640</span>. The <span class="pink">top 10%</span> earn over <span class="pink">$79,380</span>. One title. Six different jobs.',
-      'In <span class="pink">October 2026</span> the government wrote its first rule for driverless trucks. It <span class="pink">left hazmat out of it</span>. Robots get some jobs. The law keeps people in others.'
+      'AI already drives trucks. On <span class="pink">May 1, 2025</span>, a truck with <span class="pink">nobody in the cab</span> started hauling paid freight between Dallas and Houston. By January 2026 it had logged <span class="pink">250,000 driverless miles</span>.',
+      'The US has <span class="pink">2,221,200</span> heavy truck drivers. Middle pay is <span class="pink">$58,640</span>. The <span class="pink">top 10%</span> earn over <span class="pink">$79,380</span>. One license, six different jobs. Pick the safe one.',
+      'In <span class="pink">October 2026</span> the government wrote its first rule for driverless trucks. It <span class="pink">left hazmat out of it</span>. So robots get some driving jobs. The law keeps people in others.'
     ];
-    SEATS.otr = { prof: 'truckdriver', label: 'Long-haul OTR',
-      head: 'LONG-HAUL OTR — <span class="pink">NO</span> AS YOUR LONG-TERM JOB.',
+    SEATS.otr = { prof: 'truckdriver', label: 'Long-haul (weeks on the road)',
+      head: 'LONG-HAUL (WEEKS ON THE ROAD) — <span class="pink">NO</span> AS YOUR LONG-TERM JOB.',
       facts: [
         ['Robot trucks are already here', 'Driverless trucks haul <span class="pink">paid loads</span> between Dallas and Houston since <span class="pink">May 1, 2025</span>. First in the US (Aurora)'],
         ['The miles', '<span class="pink">250,000 driverless miles</span> by January 2026, on five southern routes. The longest is about <span class="pink">1,000 miles</span>. That\'s more than a person may legally drive in a day'],
         ['What job posts pay', 'Big-company long-haul pays about <span class="pink">$960–$1,250 a week</span> in the job posts we read. You get home every 2–3 weeks']
       ],
-      door: 'What to do instead: treat long-haul as a 12-month savings year, not forever. One clean year, get your license add-ons, then move to local, tanker or flatbed.',
+      door: 'What to do instead: use long-haul as a 12-month savings year, not forever. One clean year, get your license add-ons, then move to local, tanker or flatbed. Your CDL keeps its value.',
       short: 'Long-haul is the risky job. Driverless trucks already haul paid loads on its Texas routes. And it pays middle money for about 300 nights a year away.',
       next: NEXT_TRK };
     SEATS.regional = { prof: 'truckdriver', label: 'Regional (home weekly)',
@@ -60,15 +60,15 @@
       door: 'What to do: this is a YES job. Stay and keep your record clean. Watch the Radar: if your route shows up on a driverless list, start planning your move that week.',
       short: 'Regional is a good bet. Home weekly, pay close to long-haul, and robot trucks start on long-haul routes first.',
       next: NEXT_TRK };
-    SEATS.local = { prof: 'truckdriver', label: 'Local & LTL city (home daily)',
-      head: 'LOCAL & LTL CITY — <span class="pink">YES</span>.',
+    SEATS.local = { prof: 'truckdriver', label: 'Local city driving (home daily)',
+      head: 'LOCAL CITY DRIVING (HOME DAILY) — <span class="pink">YES</span>.',
       facts: [
-        ['The pay', 'LTL city drivers (many small loads) earn <span class="pink">$30.35–$36.01 an hour</span>. And sleep at home every night'],
+        ['The pay', 'City drivers who deliver many small loads earn <span class="pink">$30.35–$36.01 an hour</span>. And sleep at home every night'],
         ['Getting in', 'These job posts ask <span class="pink">1 year of experience</span> plus three add-ons on your license: <span class="pink">doubles/triples, hazmat, tanker</span>'],
         ['The work itself', 'Stops, docks, customers, loads you handle yourself. <span class="pink">City driving all day</span>. No robot truck does this anywhere']
       ],
-      door: 'What to do: this is a YES job. Not here yet? This is what your first year is for: 12 clean months, three license add-ons, then apply with your record in hand.',
-      short: 'Local city driving is a good bet. $30 to $36 an hour, home daily. The work is stops and customers, not straight highway.',
+      door: 'What to do: this is a YES job. Not here yet? Your first year is the shortcut: 12 clean months, three license add-ons, then apply with your record in hand.',
+      short: 'Local city driving is a good bet. $30 to $36 an hour, home daily. The work is stops and customers. Robot trucks can\'t do that.',
       next: NEXT_TRK };
     SEATS.tanker = { prof: 'truckdriver', label: 'Tanker & hazmat',
       head: 'TANKER & HAZMAT — <span class="pink">YES</span>. THE LAW KEEPS A PERSON HERE.',
@@ -77,8 +77,8 @@
         ['The human check', 'A <span class="pink">TSA background check</span> ($85.25) plus the hazmat test. Software can\'t pass a background check for you'],
         ['The pay', 'Tanker pays about <span class="pink">$1,060–$1,425 a week</span>, up to <span class="pink">$78,500–$81,400</span> a year. Plus the biggest sign-up bonuses we found: <span class="pink">$10,000–$12,000</span>']
       ],
-      door: 'What to do: this is a YES job. Keep tanker and hazmat add-ons current and your record spotless (paperwork mistakes get you fired here). Next steps: LTL long routes and plant tanker work.',
-      short: 'Tanker and hazmat is a good bet. Robot truck rules leave hazmat out, you need a background check, and it pays the biggest sign-up bonuses.',
+      door: 'What to do: this is a YES job. Keep tanker and hazmat add-ons current and your record spotless (paperwork mistakes get you fired here). Next steps: long city-to-city routes and plant tanker work.',
+      short: 'Tanker and hazmat is a good bet. Robot truck rules leave hazmat out, and you need a background check. It also pays the biggest sign-up bonuses.',
       next: NEXT_TRK };
     SEATS.flatbed = { prof: 'truckdriver', label: 'Flatbed / heavy haul / car haul',
       head: 'FLATBED & HEAVY HAUL — <span class="pink">YES</span>. THE LOADS NEED HANDS.',
@@ -87,7 +87,7 @@
         ['Getting in', 'Experience: heavy haul asks <span class="pink">2 years</span> driving plus a year of flatbed. Car haul asks <span class="pink">2 years</span> of Class A'],
         ['The work itself', 'You strap, chain and cover the load yourself. One company checks if you can lift a <span class="pink">90-pound tarp</span> on day one. No robot does that']
       ],
-      door: 'What to do: this is a YES job. Your shield is tying loads down well. Get great at it and keep proof. Top job posts want oversize, step-deck and car-haul experience.',
+      door: 'What to do: this is a YES job. Your shield is tying loads down well. Robots can\'t. Get great at it and keep proof. Top job posts want oversize, step-deck and car-haul experience.',
       short: 'Flatbed, heavy haul and car haul are a good bet. Pay beats regular box trucks, and the loads need human hands: straps, chains, tarps, cars.',
       next: NEXT_TRK };
     SEATS.ownerop = { prof: 'truckdriver', label: 'Owner-operator',
@@ -97,18 +97,18 @@
         ['The bills', 'One company lists them in the ad: insurance <span class="pink">$298 a week</span>, trailer rent <span class="pink">$250–$450 a week</span>. Its own example turns <span class="pink">$8,000 gross into about $4,500</span> after costs'],
         ['How many', '<span class="pink">161,500 drivers</span> work for themselves. That\'s 7.3% of all drivers (BLS). This is running a business, not a promotion']
       ],
-      door: 'What to do: do the math before you sign. Your truck, your loan, your spreadsheet. The trap: leasing a truck from the same company that controls your loads.',
+      door: 'What to do: do the math before you sign. Your truck, your loan, your spreadsheet. AI can check your numbers in minutes. The trap: leasing a truck from the company that controls your loads.',
       short: 'Owner-operator is a good bet as a business: 80 to 87% of the load. It\'s a bad bet as a loan. Insurance, trailer and truck are all on you.',
       next: NEXT_TRK };
     GRIDS.truckdriver = {
       head: 'TRUCK DRIVER IS A YES. LONG-HAUL IS A NO.',
-      sub: 'One title, six different jobs. Each gets its own answer:',
-      corner: 'Local, tanker, flatbed and regional: jobs with stops, hands-on loads and background checks. The trap: CDL school costs $3,000–$10,000. Spending it just for long-haul, where robot trucks already drive, buys the riskiest version of this job.',
-      short: '"Truck driver" is six different jobs. Long-haul is the risky one: driverless trucks already run its routes. Local, tanker, flatbed, regional and owner-operator are good bets, each with its own timeline.',
+      sub: 'AI already drives some trucks in Texas. Worried your CDL was a waste? It isn\'t. "Truck driver" is six jobs. Here\'s where people stay and earn well:',
+      corner: 'Local, tanker, flatbed and regional: jobs with stops, hands-on loads and background checks. AI can\'t do those. The trap: CDL school costs $3,000–$10,000. Spending it just for long-haul, where robot trucks already drive, buys the riskiest job.',
+      short: '"Truck driver" is six different jobs. Long-haul is the risky one: driverless trucks already run its routes. Local, tanker, flatbed, regional and owner-operator are good bets. Each has its own timeline.',
       rows: [
-        ['Long-haul OTR (solo van / reefer)', 'NO', 'driverless trucks on its Texas routes since May 2025 · $960–$1,250/wk', 'otr'],
+        ['Long-haul (weeks on the road)', 'NO', 'driverless trucks on its Texas routes since May 2025 · $960–$1,250/wk', 'otr'],
         ['Regional (home weekly)', 'YES', 'robot trucks start with long-haul · $1,230–$1,500/wk train-and-truck', 'regional'],
-        ['Local & LTL city (home daily)', 'YES', '$30.35–$36.01/hr · stops and customers all day', 'local'],
+        ['Local city driving (home daily)', 'YES', '$30.35–$36.01/hr · stops and customers all day', 'local'],
         ['Tanker & hazmat', 'YES', 'the driverless rule (Oct 2026) leaves hazmat out · bonuses up to $12,000', 'tanker'],
         ['Flatbed / heavy haul / car haul', 'YES', '$0.48–$0.79/mi + tarp pay · car haul $70,000–$120,000+', 'flatbed'],
         ['Owner-operator', 'YES', '80–87% of the load · 100% of the bills', 'ownerop']
@@ -119,23 +119,23 @@
       by: 'Doug Smith, owner-operator from Utah and OOIDA board member, to CNBC — via Land Line Media, Aug 29, 2023',
       url: 'https://landline.media/a-truckers-view-of-autonomous-trucks/'
     };
-    GV11.truckdriver = { hook: 'Driverless trucks already run in Texas. 2.2 million drivers.', next: 'We re-check this by April 2027. Sooner if a second company starts driverless highway trucks, or the rules open up to hazmat.' };
+    GV11.truckdriver = { hook: 'Driverless trucks already run in Texas. 2.2 million drivers need a safe road.', next: 'We re-check this by April 2027. Sooner if a second company starts driverless highway trucks, or the rules open up to hazmat.' };
     PROF_STEPS.truckdriver = {
       student: 'First step, before any school takes your money: write down the job you want: "local", "tanker", "flatbed". Not just "truck driver". Same license, different careers.',
       early: 'First step this month: write down your move date, 12 months out. Drive like this year is your proof. Good jobs want clean records, not miles.',
       mid: 'First step this week: check your route on the driverless map in your Radar. Long-haul routes in Texas and Arizona are on it. City, tanker and flatbed work isn\'t.',
-      senior: 'First step: know your worth. LTL long routes pay about $100,000–$107,000, car haul $70,000–$120,000+. With 5+ clean years, every job here is open to you. Choose by money, not habit.'
+      senior: 'First step: know your worth. Long city-to-city routes pay about $100,000–$107,000, car haul $70,000–$120,000+. With 5+ clean years, every job here is open to you. Choose by money, not habit.'
     };
     V11.otr = {
       hook: 'No driver. No rest stops. Already on I-45.',
       conf: 'Medium',
       next: 'We re-check this by April 2027. Or the week a second driverless company starts on highways.',
-      coe: 'Making long-haul your forever job costs about $10K a year (middle of real pay). LTL city pays $30.35–$36.01 an hour (≈$63–75K a year). Long-haul pays $960–$1,250 a week. Plus about 300 nights a year away from home. And if you spent CDL school money ($3,000–$10,000) only on this job, that cost is yours whatever robots do.',
+      coe: 'Making long-haul your forever job costs about $10K a year (middle of real pay). City delivery pays $30.35–$36.01 an hour (≈$63–75K a year). Long-haul pays $960–$1,250 a week. Plus about 300 nights a year away from home. And if you spent CDL school money ($3,000–$10,000) only on this job, that cost is yours whatever robots do.',
       step: {
         student: 'First step, before any school takes your money: write down "local" or "tanker", not "truck driver". Schools sell the license. The job is your choice.',
         early: 'First step this month: write your move date down: month 12. Drive this year like it\'s your proof. No bonus is worth an accident you could avoid.',
         mid: 'First step this week: find your route on the driverless map (it\'s in your Radar). If it\'s on a driverless list, plan to move this quarter, not this year.',
-        senior: 'First step: plan your next job with real numbers. LTL long routes pay about $100,000–$107,000 a year. Your years and clean record are exactly what they want.'
+        senior: 'First step: plan your next job with real numbers. Long city-to-city routes pay about $100,000–$107,000 a year. Your years and clean record are exactly what they want.'
       }
     };
     V11.regional = {
@@ -144,20 +144,20 @@
       next: 'We re-check this by April 2027. Sooner if driverless trucks start on regional routes.',
       step: {
         student: 'First step: ask schools and recruiters one question: "How many of your grads drive regional, home weekly?" If all go long-haul, that school sells one job only.',
-        early: 'First step this month: protect your record. Good regional companies want what LTL wants. One clean year beats any bonus from job-hopping.',
+        early: 'First step this month: protect your record. Good regional companies want what city delivery jobs want. One clean year beats any bonus from job-hopping.',
         mid: 'First step this week: add one license add-on. Tanker is the cheap one, just a written test. One afternoon, and more regional jobs open up.',
         senior: 'First step: check your route four times a year against the driverless map. Regional is safe while robots stay long-haul. This check tells you first if that changes.'
       }
     };
     V11.local = {
-      hook: 'LTL pays $36 an hour. Home every night.',
+      hook: 'City delivery pays $36 an hour. Home every night.',
       conf: 'High',
       next: 'We re-check this by April 2027.',
       step: {
-        student: 'First step: read three LTL city job posts today (FedEx Freight, XPO, Old Dominion). They all ask the same: 1 year of experience and three license add-ons. That\'s your school plan now.',
-        early: 'First step this month: get your license add-ons in order. Doubles/triples and tanker are written tests. Start the hazmat background check early: the TSA wait is the slow part.',
-        mid: 'First step this week: home daily but not at LTL pay? Apply up. City jobs at $30.35–$36.01 an hour hire people just like you. Bring your driving record.',
-        senior: 'First step: look at LTL long routes. They pay about $100,000–$107,000 a year, with nights and seniority lists. Your years count there. Use them wisely.'
+        student: 'First step: read three city delivery job posts today (FedEx Freight, XPO, Old Dominion). They all ask the same: 1 year of experience and three license add-ons. That\'s your school plan now.',
+        early: 'First step this month: get your license add-ons in order. Doubles/triples and tanker are written tests. AI can quiz you for them for free. Start the hazmat background check early: the TSA wait is the slow part.',
+        mid: 'First step this week: home daily but not at city delivery pay? Apply up. City jobs at $30.35–$36.01 an hour hire people just like you. Bring your driving record.',
+        senior: 'First step: look at long city-to-city routes. They pay about $100,000–$107,000 a year, with nights and seniority lists. Your years count there. Use them wisely.'
       }
     };
     V11.tanker = {
@@ -165,10 +165,10 @@
       conf: 'High',
       next: 'We re-check this by October 2027. Or the week FMCSA (the trucking regulator) starts any driverless rule that touches hazmat.',
       step: {
-        student: 'First step: plan your add-ons from day one. Tanker (N) is one written test. Hazmat (H) needs a TSA background check ($85.25), started weeks before. Do both while still in school.',
+        student: 'First step: plan your add-ons from day one. Tanker (N) is one written test. Hazmat (H) needs a TSA background check ($85.25), started weeks before. Ask ChatGPT to quiz you. Do both while still in school.',
         early: 'First step this month: file the TSA hazmat check now, not when a tanker job shows up. Jobs with $10,000–$12,000 bonuses won\'t wait for your paperwork.',
         mid: 'First step this week: check your own paperwork: medical card date, license renewals, Clearinghouse record (drug and alcohol file). In tanker work, paperwork mistakes get you fired.',
-        senior: 'First step: look at plant and LTL tanker jobs. Same add-ons, steadier work. And watch the rule: you\'re protected by a written federal exception, and rules can change.'
+        senior: 'First step: look at plant and city tanker jobs. Same add-ons, steadier work. And watch the rule: you\'re protected by a written federal exception, and rules can change.'
       }
     };
     V11.flatbed = {
@@ -279,17 +279,17 @@
     if (typeof PROFS === 'undefined' || PROFS.counselor) return;
     PROFS.counselor = {title:'Your Path Check — Mental Health Counselor', kick:'Mental Health Counselor', count:44, srcWhat:'real counselor job posts', srcLine:'44 real job posts, state license laws and the 2025 AI-therapy laws', code:'SESSION', tail:'PATHCHECK — KNOW BEFORE YOU PAY FOR THE MASTER’S'};
     COFACTS.counselor = [
-      '<b>Illinois and Nevada banned AI therapy in 2025</b>. By law, only a licensed person may do therapy.',
-      'Group practices pay <b>$75,000–$135,000</b> for this license. A therapy app pays <b>$43–$59 an hour</b>, sessions only, for the same license.',
-      '<b>2,000–3,000 supervised hours</b> sit between the master’s and the full license. Pay during that time: <b>$40,000–$65,000</b>.'];
+      'AI chatbots now talk to people about feelings. But <b>Illinois and Nevada banned AI therapy in 2025</b>. By law, only a licensed person may do therapy.',
+      'Group practices pay <b>$75,000–$135,000</b> for this license. A therapy app pays <b>$43–$59 an hour</b>, sessions only, for the same license. Where you work decides your money.',
+      '<b>2,000–3,000 supervised hours</b> sit between the master’s and the full license. Pay during that time: <b>$40,000–$65,000</b>. Pick a job that makes these hours count.'];
     SEATS.groupcns = {prof:'counselor', label:'Licensed counselor — private / group practice',
       head:'LICENSED COUNSELOR, GROUP OR PRIVATE PRACTICE — <span class="pink">YES</span>.',
       facts:[
         ['The pay','Group practices pay <span class="pink">$75,000–$135,000</span> a year. California pays <span class="pink">$118,000–$135,000</span> (12 job posts, all paid by how many clients you see)'],
         ['Getting in','<span class="pink">12 of 12</span> group-practice job posts require the <span class="pink">full license</span>. They say no to pre-licensed counselors in writing'],
         ['The protection','Illinois and Nevada made it law in <span class="pink">2025</span>: only a licensed person may do therapy. Not an AI']],
-      door:'What to do: this is a YES job. Pick one clear specialty (trauma, couples, teens). Get your pay deal in writing. Build a list of people who send you clients.',
-      short:'A licensed counselor in a group or private practice is a good bet. It pays $75,000–$135,000, and the law protects the work from AI.'};
+      door:'What to do: this is a YES job. Pick one clear specialty (trauma, couples, teens). Get your pay deal in writing. Build a list of people who send you clients. That\'s how you reach the top pay.',
+      short:'A licensed counselor in a group or private practice is a good bet. It pays $75,000–$135,000. The law keeps this work for people, not AI.'};
     SEATS.agencycns = {prof:'counselor', label:'Licensed counselor — community / agency / clinic',
       head:'LICENSED COUNSELOR, COMMUNITY AGENCY — <span class="pink">YES</span>.',
       facts:[
@@ -298,34 +298,34 @@
         ['The demand','The government expects <span class="pink">+98,000</span> new counselor jobs by 2035. Agencies hire first, and always hire']],
       door:'What to do: this is a YES job. Take it for license years, free supervision, or a steady paycheck. Check the monthly hours rule before you sign.',
       short:'A licensed counselor at a community agency is a good bet. Steady work, always hiring, $45,000–$75,000, with a set hours target.'};
-    SEATS.platform = {prof:'counselor', label:'Teletherapy platform gig counselor',
-      head:'THERAPY APP GIG — <span class="pink">NO</span> AS YOUR FINAL STOP.',
+    SEATS.platform = {prof:'counselor', label:'Therapy app side-job counselor',
+      head:'THERAPY APP SIDE JOB — <span class="pink">NO</span> AS YOUR FINAL STOP.',
       facts:[
         ['The pay','One big app pays <span class="pink">$43–$59 an hour</span>. Only for <span class="pink">live sessions</span>, as a contractor, no benefits'],
         ['The real pay','One counselor worked out her real pay: about <span class="pink">$22.50 an hour</span> at first. Notes, prep and no-shows aren\'t paid'],
         ['The history','The app paid <span class="pink">$7.8 million</span> to settle with the FTC in 2023. It shared clients’ health data with advertisers']],
-      door:'What to do instead: if you use the app, keep it as a side gig. Move your main hours to a group or your own practice. There, the clients and the pay are yours.',
-      short:'The therapy app gig is a bad final stop. $43–$59 an hour, live sessions only. The same license pays $75,000–$135,000 a year in group practice.'};
+      door:'What to do instead: if you use the app, keep it as a side job. Move your main hours to a group or your own practice. There, the clients and the pay are yours.',
+      short:'The therapy app side job is a bad final stop. $43–$59 an hour, live sessions only. The same license pays $75,000–$135,000 a year in group practice.'};
     SEATS.sudcns = {prof:'counselor', label:'Substance-use counselor (certificate track)',
-      head:'SUBSTANCE-USE COUNSELOR, CERTIFICATE TRACK — <span class="pink">NO</span> AS YOUR FINAL STOP.',
+      head:'ADDICTION COUNSELOR, CERTIFICATE ONLY — <span class="pink">NO</span> AS YOUR FINAL STOP.',
       facts:[
         ['The way in','<span class="pink">8 of 8</span> job posts here take a <span class="pink">bachelor’s degree</span> plus a state certificate. No master’s needed to start'],
         ['The pay','It pays <span class="pink">$43,000–$79,886</span>. Real money, but less than licensed jobs'],
         ['The wall','With this certificate you can\'t work alone as a therapist or bill insurance yourself. And you can\'t get the <span class="pink">$75,000–$135,000</span> practice jobs']],
       door:'What to do instead: work here and build experience. Then move up to the license (a master’s, or your state\'s licensed addiction level). Great first step. As a last step, it holds you back.',
-      short:'The substance-use certificate is a bad final stop. You start fast with a bachelor’s. But pay tops out at $79,886, and you can\'t practice alone.'};
+      short:'Addiction counselor with a certificate is a bad final stop. You start fast with a bachelor’s. But pay tops out at $79,886, and you can\'t practice alone.'};
     SEATS.associate = {prof:'counselor', label:'Pre-licensed associate counselor',
-      head:'PRE-LICENSED ASSOCIATE — <span class="pink">NO</span> AS A PLACE TO STAY. IT\'S THE WAY IN.',
+      head:'COUNSELOR IN TRAINING (BEFORE THE LICENSE) — <span class="pink">NO</span> AS A PLACE TO STAY. IT\'S THE WAY IN.',
       facts:[
         ['The pay','Associate jobs pay <span class="pink">$40,000–$65,000</span>. About half of licensed pay'],
         ['The cost','Your state wants <span class="pink">2,000–3,000 supervised hours</span> before the full license. Hours count only with a board-approved supervisor'],
         ['What makes the difference','<span class="pink">10 job posts</span> we found offer supervision <span class="pink">free, in writing</span>. If it\'s not written, you pay the supervisor yourself']],
-      door:'What to do: pick your associate job by the supervision, not the salary. Free approved supervision, hours logged weekly, and the exam as early as your state allows.',
-      short:'Pre-licensed associate is the way in, not where you stay. It pays $40,000–$65,000 while you log 2,000–3,000 supervised hours. You\'ve got this.'};
-    GRIDS.counselor = {head:'MENTAL HEALTH COUNSELOR IS A YES. THE PLATFORM GIG IS A NO.',
-      sub:'The title means five different jobs. Each gets its own answer:',
-      corner:'Licensed work in a group or private practice. The license pays $75,000–$135,000 there, and the law protects it. The trap: a master’s costing $40,000–$100,000 or more, used for an app gig at $43–$59 an hour, live sessions only.',
-      short:'“Mental health counselor” is five different jobs. Licensed practice and agency work are good bets. The app gig and the certificate-only path are bad final stops.',
+      door:'What to do: pick your training job by the supervision, not the salary. Free approved supervision, hours logged weekly, and the exam as early as your state allows. That\'s the fastest road to the license.',
+      short:'Counselor in training is the way in, not where you stay. It pays $40,000–$65,000 while you log 2,000–3,000 supervised hours. You\'ve got this.'};
+    GRIDS.counselor = {head:'MENTAL HEALTH COUNSELOR IS A YES. THE APP SIDE JOB IS A NO.',
+      sub:'AI chatbots now talk to people about feelings. Worried your master’s was a waste? It isn\'t: the law keeps therapy for licensed people. The title means five jobs:',
+      corner:'Licensed work in a group or private practice. The license pays $75,000–$135,000 there, and the law keeps it for people. The trap: a master’s costing $40,000–$100,000 or more, used for an app job at $43–$59 an hour, live sessions only.',
+      short:'“Mental health counselor” is five different jobs. Licensed practice and agency work are good bets. The app side job and the certificate-only path are bad final stops.',
       rows:[
         ['Licensed counselor — private / group practice','YES','pays $75,000–$135,000 · you need the full license','groupcns'],
         ['Licensed counselor — community / agency','YES','pays $45,000–$75,000 · one agency wants 95 billable hours a month','agencycns'],
@@ -338,24 +338,24 @@
     GV11.counselor = {hook:'The license is the job. AI can\'t have one.', next:NEXT_COUNSELOR};
     PROF_STEPS.counselor = {
       student:'First step, as a student: check your degree with your state board before paying for next semester. A 60-credit program the board accepts (CACREP-accredited is safest) gets you licensed. If not, it\'s $40K–$100K+ for nothing.',
-      early:'First step, as an associate: pick your job by its supervision. Board-approved, free and in writing (10 job posts we found offer it). Log hours weekly. The license is 2,000–3,000 hours away. Unlogged hours don\'t count.',
+      early:'First step, in training: pick your job by its supervision. Board-approved, free and in writing (10 job posts we found offer it). Log hours weekly. The license is 2,000–3,000 hours away. Unlogged hours don\'t count.',
       mid:'First step, licensed: compare both places before you sign. Group practice pays $75,000–$135,000. Apps pay $43–$59 an hour, live sessions only. Same license, your choice.',
       senior:'First step, at 5+ years: your next raise is a new role. Supervisor, a waitlist in your specialty, or your own practice that takes insurance. The compact (11 states live) lets you work in more states.'};
     V11.groupcns = {hook:'California group practices pay $135,000 for this license.', conf:'High', next:NEXT_COUNSELOR, step:{
       student:'First step, as a student: do your training placement at a group practice. These jobs pay $75,000–$135,000 for a license plus a specialty. Your specialty starts there.',
-      early:'First step, as an associate: try to get your associate job in a group practice. Same place, and your supervised hours count toward the license.',
+      early:'First step, in training: try to get your first job in a group practice. Same place, and your supervised hours count toward the license.',
       mid:'First step, licensed: get your pay deal in writing. Salary or a split, and what counts as a billable hour. Every group-practice job post we found pays by how much you work.',
       senior:'First step, at 5+ years: the raise is owning or supervising. Your own practice that takes insurance, or a lead role. Compare both to your current deal.'}};
     V11.agencycns = {hook:'Ninety-five billable hours a month. That\'s the job.', conf:'Medium', next:NEXT_COUNSELOR, step:{
       student:'First step, as a student: agency training placements teach volume and crisis work. That\'s what agency jobs look for. Choose one on purpose.',
-      early:'First step, as an associate: agencies are the most reliable place for supervision. Helio Health gives license supervision for free on the job. Get yours in writing.',
+      early:'First step, in training: agencies are the most reliable place for supervision. Helio Health gives license supervision for free on the job. Get yours in writing.',
       mid:'First step, licensed: read the hours rule before the salary. One agency wants at least 95 billable hours a month. That number is your real job.',
       senior:'First step, at 5+ years: agency years lead to program-lead and supervisor jobs. Or they\'re your way into practice pay. Decide which, on paper.'}};
     V11.platform = {hook:'Forty-three dollars an hour. Sessions only. Nothing else paid.', conf:'Medium', next:NEXT_COUNSELOR,
       coe:'Skipping this now saves the gap between the two pay levels. A master’s costing $40K–$100K+ for $43–$59/hr (live sessions only), instead of $75,000–$135,000 in group practice. That\'s roughly $20K–$40K a year with full hours (worked out from real pay).', step:{
       student:'First step, as a student: don\'t plan your degree around the app. Apps need the full license and turn away anyone still under supervision. It can\'t be your way in.',
-      early:'First step, as an associate: the app is closed to you for now. Its job post turns away people who need supervision. Spend these years where supervision is free and written.',
-      mid:'First step, licensed: if you use the app, limit your hours. Keep it a side gig, never your main job. Your main hours belong where the clients are yours.',
+      early:'First step, in training: the app is closed to you for now. Its job post turns away people who need supervision. Spend these years where supervision is free and written.',
+      mid:'First step, licensed: if you use the app, limit your hours. Keep it a side job, never your main job. Your main hours belong where the clients are yours.',
       senior:'First step, at 5+ years: your years let you set your own rate. On the app, they set it for you, per live hour. Work out the difference in dollars before renewing.'}};
     V11.sudcns = {hook:'A bachelor’s gets you in. It also holds you back.', conf:'Medium', next:NEXT_COUNSELOR,
       coe:'Moving on now (not skipping the start) saves roughly $40K+ a year at the top. This job tops out at $79,886. Licensed practice tops out at $135,000 (worked out from real pay).', step:{
@@ -366,7 +366,7 @@
     V11.associate = {hook:'Free supervision, or supervision you pay for.', conf:'High', next:NEXT_COUNSELOR,
       coe:'Every year stuck at associate pay ($40,000–$65,000) instead of finishing your hours costs about half a licensed year\'s pay. Licensed practice starts at $75,000 (worked out from real pay).', step:{
       student:'First step, as a student: your practice hours (100) and internship hours (600) are your first career hours. Keep your own copy of every log from day one.',
-      early:'First step, as an associate: this is your job now. Supervision in writing, hours logged weekly, exam as soon as your state allows. Nothing else matters until you\'re licensed.',
+      early:'First step, in training: this is your job now. Supervision in writing, hours logged weekly, exam as soon as your state allows. AI can quiz you for the exam. Nothing else matters until you\'re licensed.',
       mid:'First step, licensed: you\'ve moved on, but keep your hour logs and supervision records. Boards and employers can ask years later.',
       senior:'First step, at 5+ years: be the supervisor you needed. Paid supervisor jobs exist, and good supervision is the hardest thing to find here.'}};
     /* Seat rules FIRST as one block, package priority order:
@@ -441,7 +441,7 @@
       tail: 'PATHCHECK — KNOW BEFORE YOU PAY FOR THE DIPLOMA',
       next: NEXT_HVC
     };
-    COFACTS.hvac = ['<b>+11% growth</b> and <b>+48,200 jobs</b> (BLS, 2025–35). The government even names <b>data centers</b> as a reason.', '<b>EPA 608</b> is the federal card for working with refrigerant (cooling gas). It\'s in <b>13 of 27</b> job posts, required in all 13. No card, no refrigerant work.', 'Commercial controls jobs pay <b>$60K–$125K</b>. And <b>0 of 9</b> mention commission. Commission is in home repair work.'];
+    COFACTS.hvac = ['<b>+11% growth</b> and <b>+48,200 jobs</b> (BLS, 2025–35). AI can\'t fix an air conditioner. And AI <b>data centers</b> need cooling: the government names them as a reason.', '<b>EPA 608</b> is the federal card for working with refrigerant (cooling gas). It\'s in <b>13 of 27</b> job posts, required in all 13. It\'s your fastest way in.', 'Commercial controls jobs pay <b>$60K–$125K</b>. And <b>0 of 9</b> mention commission. Commission is in home repair work.'];
     SEATS.hvcapp = {
       prof: 'hvac',
       label: 'Apprentice / helper — the way in',
@@ -451,7 +451,7 @@
         ['The one must-have', 'The <span class="pink">EPA 608</span> card. A federal exam, a few hundred dollars with prep. With it, a shop can send you out as a tech'],
         ['The trap', 'Private HVAC diplomas cost <span class="pink">$20,825 to about $42,000</span>. And grads still start as the same helper']
       ],
-      door: 'What to do: get the EPA 608 card (Universal if you can). Start as a paid helper. Let a boss pay for your training, not a school for your hopes.',
+      door: 'What to do: get the EPA 608 card (Universal if you can). AI can quiz you for the exam for free. Start as a paid helper. Let a boss pay for your training, not a school.',
       short: 'HVAC is the fastest way in of the three trades. The EPA 608 card plus a paid helper job takes months, not years. The expensive diploma doesn\'t change your first job.'
     };
     SEATS.hvctech = {
@@ -463,19 +463,19 @@
         ['What they want', 'Most want <span class="pink">2+ years</span> of repair experience, and EPA 608'],
         ['The hidden cost', '<span class="pink">A quarter</span> of job posts include on-call shifts. That costs you something, so ask for pay for it before you sign']
       ],
-      door: 'What to do: this is a YES job on hourly or guaranteed pay. Keep a log of every system: type, size, problem, fix. Commercial jobs hire based on that log.',
+      door: 'What to do: this is a YES job on hourly or guaranteed pay. Keep a log of every system: type, size, problem, fix. Commercial jobs hire based on that log. It\'s your shortcut up.',
       short: 'Hourly home repair tech is a good bet. $28–$50 an hour by level. On-call shifts are the downside.'
     };
     SEATS.hvcomm = {
       prof: 'hvac',
       label: 'Commercial HVAC / controls (BAS) specialist',
-      head: 'COMMERCIAL / CONTROLS SPECIALIST — <span class="pink">YES</span>. THE TOP PAY IN THE TRADE.',
+      head: 'COMMERCIAL / SMART BUILDING CONTROLS — <span class="pink">YES</span>. THE TOP PAY IN THE TRADE.',
       facts: [
         ['The pay', 'Nine controls job posts pay <span class="pink">$60,000–$125,000</span> a year. Salary, not commission'],
         ['What they want', '<span class="pink">2–5 years of controls work</span> and one named system: Johnson Controls, Siemens, Trane, Distech, Niagara'],
-        ['Why it grows', 'Smart buildings and data centers run on these systems. And BLS names <span class="pink">data centers</span> as a reason this trade grows']
+        ['Why it grows', 'Smart buildings and AI data centers run on these systems. And BLS names <span class="pink">data centers</span> as a reason this trade grows']
       ],
-      door: 'What to do: repair years first, then learn one controls system really well. It\'s like a second apprenticeship. That\'s why it pays.',
+      door: 'What to do: repair years first, then learn one controls system really well. AI tutors and free videos make it faster. It\'s like a second apprenticeship. That\'s why it pays.',
       short: 'Commercial controls is the top pay in HVAC. $60K–$125K, salary, and none of the nine job posts mention commission.'
     };
     SEATS.hvcown = {
@@ -483,7 +483,7 @@
       label: 'Owner-operator / own shop',
       head: 'OWN SHOP — <span class="pink">YES</span>.',
       facts: [
-        ['The proof of value', 'Investors paid record prices for shops like yours. <span class="pink">55 PE HVAC deals in 2024</span> alone (PE = investor firms, PitchBook), including a <span class="pink">~$2.5B</span> deal'],
+        ['The proof of value', 'Investors paid record prices for shops like yours. <span class="pink">55 HVAC deals by investor firms in 2024</span> alone (PitchBook), including a <span class="pink">~$2.5B</span> deal'],
         ['What they buy', 'Repeat <span class="pink">maintenance contracts</span> and a local name. Not trucks'],
         ['The honest limit', 'Nobody shares checked small-shop income. We won\'t guess yours']
       ],
@@ -504,13 +504,13 @@
     };
     GRIDS.hvac = {
       head: 'HVAC IS A YES. THE FEDERAL CARD GETS YOU IN. A SPECIALTY PAYS MORE.',
-      sub: 'The title means five different paychecks. Each gets its own answer:',
-      corner: 'Commercial controls: the systems that run smart buildings and data centers. The trap: a private HVAC diploma costs $20,825 to about $42,000. Grads start as the same helper as someone who paid a few hundred dollars for the EPA 608 card.',
+      sub: 'AI won\'t climb on a roof to fix your air conditioner. And AI data centers need cooling. The title means five different paychecks:',
+      corner: 'Commercial controls: the systems that run smart buildings and AI data centers. The trap: a private HVAC diploma costs $20,825 to about $42,000. Grads start as the same helper as someone who paid a few hundred dollars for the EPA 608 card.',
       short: '“HVAC technician” is five different paychecks. You get in within months with the federal card. Controls pays the most, no commission. Commission sales is the dead end.',
       rows: [
         ['Apprentice / helper', 'YES', 'EPA 608 + a paid job · months, not years', 'hvcapp'],
         ['Residential service tech (hourly)', 'YES', '$28–$50/hr by level · on-call is the downside', 'hvctech'],
-        ['Commercial / controls (BAS)', 'YES', '$60K–$125K · 0 of 9 mention commission', 'hvcomm'],
+        ['Commercial / smart building controls', 'YES', '$60K–$125K · 0 of 9 mention commission', 'hvcomm'],
         ['Own shop', 'YES', 'buyers pay for the maintenance book and the name', 'hvcown'],
         ['Commission sales-tech', 'NO', '“uncapped commission” = endless pressure · ~21% quit each year', 'hvcsales']
       ]
@@ -543,7 +543,7 @@
       conf: 'High',
       next: NEXT_HVC,
       step: {
-        student: 'First step, as a student: book the EPA 608 exam before any school tour. Commercial shops want the Universal version.',
+        student: 'First step, as a student: book the EPA 608 exam before any school tour. Ask ChatGPT or Claude to quiz you. Commercial shops want the Universal version.',
         early: 'First step, early in: be the helper they send out. Clean truck, written notes, systems logged. Shops promote helpers they can send to customers.',
         mid: 'First step, at 3–5 years: you\'re past this. Your next step is commercial work and one controls system.',
         senior: 'First step, at 5+ years: hire helpers the way you were hired. A paid job and a logbook beat a pricey diploma for your team too.'
@@ -560,7 +560,7 @@
       next: NEXT_HVC
     }; /* composed by the integrator from spec-verbatim facts — the spec shipped V11 for 9 of 15 trade seats */
     PROF_STEPS.hvac = {
-      student: 'First step, before you start: get the EPA 608 card. It\'s the federal exam for cooling gas. It costs a few hundred dollars with prep. Without it, no shop can send you out as a tech. Skip the $21K–$42K diploma for now.',
+      student: 'First step, before you start: get the EPA 608 card. It\'s the federal exam for cooling gas. It costs a few hundred dollars with prep, and AI can help you study. Without it, no shop can send you out as a tech. Skip the $21K–$42K diploma for now.',
       early: 'First step, as a helper: start your system log in week one: type, size, problem, fix. Jobs asking 2+ years look for that record.',
       mid: 'First step, at 3–5 years: move into commercial work: rooftops, chillers, refrigeration. Then learn one controls system. Controls jobs pay $60K–$125K, no commission.',
       senior: 'First step, at 5+ years: value the customer list, not the hours. A shop is worth its maintenance contracts and its name. That\'s what record buyers paid for in 2024–2025.'
@@ -595,7 +595,7 @@
       tail: 'PATHCHECK — KNOW BEFORE YOU SIGN THE LOAN',
       next: NEXT_ELC
     };
-    COFACTS.electrician = ['<b>72,700 openings a year</b> (BLS). But training takes <b>4–5 years</b> per person, and the law limits how many can train.', '<b>24 of 36</b> real job posts name the <b>state journeyman license</b>. They check the license, not a diploma.', 'Union pay near data centers is <b>$62.00 an hour</b>. A real job wiring new houses pays <b>$24 an hour</b>. Same license.'];
+    COFACTS.electrician = ['<b>72,700 openings a year</b> (BLS). AI can\'t pull wire. But training takes <b>4–5 years</b> per person, and the law limits how many can train. Start early.', '<b>24 of 36</b> real job posts name the <b>state journeyman license</b>. They check the license, not a diploma. So skip the expensive school.', 'Union pay near AI data centers is <b>$62.00 an hour</b>. A real job wiring new houses pays <b>$24 an hour</b>. Same license. Aim high.'];
     SEATS.elcapp = {
       prof: 'electrician',
       label: 'Apprentice electrician — the way in',
@@ -617,7 +617,7 @@
         ['The pay', 'Journeyman pay is <span class="pink">$29–$65 an hour</span>. Licensed repair work pays <span class="pink">$45–$65</span>'],
         ['Lowest pay', 'New house wiring pays <span class="pink">$24–$30 an hour</span>. The lowest pay we found']
       ],
-      door: 'What to do: your license is valuable. Point it at buildings that pay: factories, hospitals, data centers. Log your hours by type of work.',
+      door: 'What to do: your license is valuable. Point it at buildings that pay: factories, hospitals, AI data centers. Log your hours by type of work.',
       short: 'Licensed journeyman is a good bet. Two of three job posts ask for the license. Pay is $29–$65 an hour, depending on the building.'
     };
     SEATS.elcdata = {
@@ -658,8 +658,8 @@
     };
     GRIDS.electrician = {
       head: 'ELECTRICIAN IS A YES. THE LICENSE IS THE JOB. WHERE YOU WORK DECIDES THE PAY.',
-      sub: 'The title means five different paychecks. Each gets its own answer:',
-      corner: 'Factory and data-center work: the buildings AI lives in. The trap: a private electrical school costs $21,325 to about $42,000. Grads still start as helpers with the same 4–5 years ahead, while apprentices got paid from day one.',
+      sub: 'AI is growing fast, and it lives in buildings electricians wire. Worried about your trade? It\'s the other way round. The title means five paychecks:',
+      corner: 'Factory and data-center work: the buildings AI lives in. The trap: a private electrical school costs $21,325 to about $42,000. Grads still start as helpers with the same 4–5 years ahead. Apprentices got paid from day one.',
       short: '“Electrician” is five different paychecks. The apprentice way in is narrow but real. Data centers pay the most. Commission sales is the one dead end.',
       rows: [
         ['Apprentice — the way in', 'YES', 'paid from year one · $0 tuition · spots limited by law', 'elcapp'],
@@ -716,7 +716,7 @@
     PROF_STEPS.electrician = {
       student: 'First step, before you start: apply to an official apprenticeship (union JATC or non-union) during its yearly window. Don\'t buy a $21K–$42K diploma first. Its grads start as the same helpers.',
       early: 'First step, as an apprentice: get your state apprentice card. Log every hour by type of work from day one. Unregistered hours often don\'t count.',
-      mid: 'First step, as a journeyman: point your license at buildings that pay. Data-center jobs pay $48.50 an hour, and the Data Center Alley rate is $62.00. Add OSHA 30 and NFPA 70E.',
+      mid: 'First step, as a journeyman: point your license at buildings that pay. Data-center jobs pay $48.50 an hour, and the Data Center Alley rate is $62.00. Add OSHA 30 and NFPA 70E. AI can help you study for both.',
       senior: 'First step, as a master: value the business, not the hours. Contractor license, insurance, and maintenance contracts. Buyers pay many times over for those contracts.'
     };
     SEAT_RULES.unshift([['data center electrician', 'industrial electrician', 'substation', 'plant electrician', 'maintenance electrician'], 'elcdata'], [['electrical contractor', 'master electrician', 'electrical business'], 'elcown'], [['commission electrician'], 'elcsales'], [['journeyman electrician', 'service electrician', 'licensed electrician', 'journeyman'], 'elcjour'], [['apprentice electrician', 'electrical apprentice', 'electrician apprentice', 'electrician helper', 'pre-apprentice', 'thinking about electrician'], 'elcapp']);
@@ -749,7 +749,7 @@
       tail: 'PATHCHECK — KNOW BEFORE YOU PICK YOUR WAY IN',
       next: NEXT_PLB
     };
-    COFACTS.plumber = ['<b>Top 10% already earn above $108,420</b> (BLS). And this work can\'t be sent to other countries.', 'At one company: apprentice pays <b>$55,000–$75,000</b> in year one. Licensed journeyman pays <b>$110,000–$130,000</b>. The difference is <b>the license</b>.', 'One job post pays <b>100% commission</b>. Another lets you choose, in writing: <b>$35–$40 an hour guaranteed</b>, or 25% commission.'];
+    COFACTS.plumber = ['<b>Top 10% already earn above $108,420</b> (BLS). AI can\'t fix a pipe, and this work can\'t be sent to other countries.', 'At one company: apprentice pays <b>$55,000–$75,000</b> in year one. Licensed journeyman pays <b>$110,000–$130,000</b>. The difference is <b>the license</b>. Get it fast.', 'One job post pays <b>100% commission</b>. Another lets you choose, in writing: <b>$35–$40 an hour guaranteed</b>, or 25% commission.'];
     SEATS.plbapp = {
       prof: 'plumber',
       label: 'Apprentice plumber — the way in',
@@ -759,7 +759,7 @@
         ['The chain company way', 'The biggest chain takes <span class="pink">no experience</span> and pays in year one. Then grads move to <span class="pink">minimum-wage base plus 16–22% commission</span>, says its own job post'],
         ['The years', 'Either way, the license takes <span class="pink">4–5 years</span> and about <span class="pink">2,000 paid hours a year</span> (BLS). Pick what those years lead to']
       ],
-      door: 'What to do: apply to official apprenticeships first. If you take a chain\'s free training, check the contract for payback rules. Register your hours with the state from day one.',
+      door: 'What to do: apply to official apprenticeships first. If you take a chain\'s free training, check the contract for payback rules. AI can read it with you. Register your hours with the state from day one.',
       short: 'Apprentice is a yes, with a warning. One way pays a set wage for 4–5 years. The other trains you, then pays commission. Both take the same years.'
     };
     SEATS.plbserv = {
@@ -812,7 +812,7 @@
     };
     GRIDS.plumber = {
       head: 'PLUMBER IS A YES. THE LICENSE SETS THE PAY. COMMISSION IS THE TRAP.',
-      sub: 'The title means five different paychecks. Each gets its own answer:',
+      sub: 'AI is changing office jobs, but nobody fixes a burst pipe by chat. Your trade is safe. The title means five different paychecks:',
       corner: 'The licensed jobs: guaranteed repair work and the factory side. The trap: the chain\'s “free” training ends at minimum-wage base plus 16–22% commission. A union apprenticeship pays $24.54 an hour in year one, $0 tuition.',
       short: '“Plumber” is five different paychecks. The license doubles your pay at the same company. Factory work pays union rates. Commission-only is the dead end.',
       rows: [
@@ -896,7 +896,7 @@
     if (typeof PROFS === 'undefined' || PROFS.cybersecurity) return;
     PROFS.cybersecurity = {
       title: 'Cybersecurity',
-      kick: 'The field is booming. But the beginner way in is a trap.',
+      kick: 'AI is taking the first job in security. Here\'s the way past it.',
       count: '35',
       srcWhat: 'real job posts + BLS + CyberSeek',
       srcLine: 'Job posts opened 1 Nov 2026 · BLS Employment Projections 2025–35 (government job numbers) · CyberSeek (NIST/NICE + CompTIA + Lightcast)',
@@ -904,29 +904,29 @@
       tail: '514,359 job posts. Almost none want beginners.',
       next: NEXT_CYB
     };
-    COFACTS.cybersecurity = ['Of job posts that name years, only <span class="pink">1 of 29</span> takes <span class="pink">zero experience</span>. One is even called “Early Career”, and asks for 2 years.', 'Job sites counted <span class="pink">514,359</span> US cybersecurity job posts in one year (CyberSeek). Almost none want a beginner.', '<span class="pink">9 of 35</span> job posts need US citizenship, a Public Trust, or a security clearance (government background checks). This work can\'t go to other countries.'];
+    COFACTS.cybersecurity = ['Of job posts that name years, only <span class="pink">1 of 29</span> takes <span class="pink">zero experience</span>. One is even called “Early Career”, and asks for 2 years. Get real IT years first.', 'Job sites counted <span class="pink">514,359</span> US cybersecurity job posts in one year (CyberSeek). Lots of jobs, but almost none for a beginner.', '<span class="pink">9 of 35</span> job posts need US citizenship, a Public Trust, or a security clearance (government background checks). AI can\'t pass those, and this work can\'t go abroad.'];
     SEATS.socanalyst = {
       prof: 'cybersecurity',
       label: 'SOC analyst',
-      head: 'SOC ANALYST — <span class="pink">YES</span>. REAL HIRING. BUT AI IS TAKING THE FIRST STEP.',
+      head: 'ALERT WATCHER (SOC ANALYST) — <span class="pink">YES</span>. REAL HIRING. BUT AI IS TAKING THE FIRST STEP.',
       facts: [
-        ['The work', 'You watch alerts on screens and sort real attacks from false alarms. Tier 1 sorts. Tier 2 investigates. Tier 3 hunts.'],
-        ['The trap', 'AI and cheaper countries take alert-sorting first. Microsoft launched AI alert-sorters in <span class="pink">November 2025</span>.'],
-        ['The way in', 'Government employers still hire beginners. One Tier-1 job post takes <span class="pink">0–2 years</span> and pays <span class="pink">$46,000–$76,000</span>.']
+        ['The work', 'You watch alerts on screens and sort real attacks from false alarms. Level 1 sorts. Level 2 investigates. Level 3 hunts.'],
+        ['The trap', 'AI and cheaper countries take alert-sorting first. Microsoft launched AI alert-sorters in <span class="pink">November 2025</span>. Move up fast.'],
+        ['The way in', 'Government employers still hire beginners. One Level-1 job post takes <span class="pink">0–2 years</span> and pays <span class="pink">$46,000–$76,000</span>.']
       ],
-      door: 'What to do: start here if you need to start now. Plan your move to Tier 2 from week one.',
+      door: 'What to do: start here if you need to start now. Plan your move to Level 2 from week one. AI does the sorting, so be the one who investigates.',
       short: 'Watches alerts, sorts attacks from false alarms.'
     };
     SEATS.secengineer = {
       prof: 'cybersecurity',
       label: 'Security engineer / detection',
-      head: 'SECURITY ENGINEER / DETECTION — <span class="pink">YES</span>. THE PEOPLE WHO BUILD THE ALARMS EARN THE MOST.',
+      head: 'ATTACK-ALARM BUILDER — <span class="pink">YES</span>. THE PEOPLE WHO BUILD THE ALARMS EARN THE MOST.',
       facts: [
         ['The work', 'You build and tune the systems that catch attacks. You write the rules they use.'],
         ['The pay', 'The top pay we found: <span class="pink">$140,000–$155,000</span> for a detection engineer, <span class="pink">$200,000–$240,000</span> for senior threat response.'],
-        ['The price', '<span class="pink">Python</span>. Beginner job posts asking for Python doubled in two years, to <span class="pink">46.6%</span>. Senior jobs just require it.']
+        ['The price', '<span class="pink">Python</span>. Beginner job posts asking for Python doubled in two years, to <span class="pink">46.6%</span>. With AI as a tutor, you can learn it faster.']
       ],
-      door: 'What to do: not a first job. SOC and IT workers move up to it. Start practicing early.',
+      door: 'What to do: not a first job. Alert watchers and IT workers move up to it. Start practicing early.',
       short: 'Builds the systems that catch attacks.'
     };
     SEATS.cloudsec = {
@@ -938,7 +938,7 @@
         ['The pay', 'Job posts pay <span class="pink">$127,000–$198,000</span>. Companies say cloud security is their <span class="pink">number-two missing skill</span> (ISC2, 2025).'],
         ['The way in', 'They want <span class="pink">3–5 years</span> plus the same certificates again and again: AZ-500, CCSP, AWS Certified Security – Specialty.']
       ],
-      door: 'What to do: move here from IT or SOC work. Not a first step from zero.',
+      door: 'What to do: move here from IT or alert-watching work. Not a first step from zero.',
       short: 'Protects systems that run in the cloud.'
     };
     SEATS.pentester = {
@@ -950,29 +950,29 @@
         ['The pay', 'Real money: up to <span class="pink">$221,603</span>. Every job post wants <span class="pink">2–5+ years</span> of security work first.'],
         ['The way in', 'All <span class="pink">6 job posts</span> name the <span class="pink">OSCP</span> certificate (a hard hacking exam). 3 require it. None of the 6 hire beginners.']
       ],
-      door: 'What to do: dream job, but not your first step. You get there through IT and SOC work first.',
+      door: 'What to do: dream job, but not your first step. You get there through IT and alert-watching work first.',
       short: 'Hacks systems on purpose, with permission.'
     };
     SEATS.grcanalyst = {
       prof: 'cybersecurity',
       label: 'GRC analyst',
-      head: 'GRC ANALYST — <span class="pink">NO</span> AS A BEGINNER’S FINAL STOP.',
+      head: 'RULES CHECKER (GRC ANALYST) — <span class="pink">NO</span> AS A BEGINNER’S FINAL STOP.',
       facts: [
         ['The work', 'You check that a company follows security rules and laws. You write the proof, using rule lists like NIST 800-53 and ISO 27001.'],
-        ['The trap', 'Every GRC job post wants <span class="pink">3–7 years</span>. None hire beginners. And AI is already good at checking documents against lists.'],
-        ['The price', 'Courses selling a fast way into GRC cost about <span class="pink">$10,000–$25,000</span>. For certificates that need 3–5 years of experience to get.']
+        ['The trap', 'Every rules-checker job post wants <span class="pink">3–7 years</span>. None hire beginners. And AI is already good at checking documents against lists.'],
+        ['The price', 'Courses selling a fast way into rules-checking cost about <span class="pink">$10,000–$25,000</span>. For certificates that need 3–5 years of experience to get.']
       ],
-      door: 'What to do instead: a fine specialty by year four. As a beginner’s final stop: no.',
+      door: 'What to do instead: a fine specialty by year four. As a beginner’s final stop: no. Save the course money.',
       short: 'Checks companies against security rule lists.'
     };
     GRIDS.cybersecurity = {
       head: 'Five jobs hide inside one word',
-      sub: 'Same field. Different ways in, different futures.',
+      sub: 'AI already sorts security alerts, the classic first job. Worried your courses were for nothing? Here\'s what stays with people and pays well:',
       corner: '$10,000–$25,000: the bootcamp bill for a way in that doesn\'t hire beginners',
-      short: '“Cybersecurity” is five different jobs. SOC hires beginners, but AI is taking the first step. Engineering and cloud pay the most. GRC is a dead end as a first stop.',
+      short: '“Cybersecurity” is five different jobs. Alert watching hires beginners, but AI is taking that first step. Alarm building and cloud pay the most. Rules-checking is a dead end as a first stop.',
       rows: [
-        ['SOC analyst', 'YES', 'Real hiring. But move past alert-sorting fast.', 'socanalyst'],
-        ['Security engineer / detection', 'YES', 'Top pay we found: $140,000–$240,000.', 'secengineer'],
+        ['SOC analyst', 'YES', 'Real hiring. But move past alert-sorting fast: AI does it now.', 'socanalyst'],
+        ['Attack-alarm builder', 'YES', 'Top pay we found: $140,000–$240,000.', 'secengineer'],
         ['Cloud security engineer', 'YES', 'Companies say it\'s a top missing skill. $127,000–$198,000.', 'cloudsec'],
         ['Penetration tester', 'YES', 'A second job. None of the 6 job posts hire beginners.', 'pentester'],
         ['GRC analyst', 'NO', 'As a beginner’s final stop. Every job post wants 3+ years.', 'grcanalyst']
@@ -990,7 +990,7 @@
       step: {
         student: 'First step, as a student: open the NICE Framework job list. Read what a Cyber Defense Analyst really does all day.',
         early: 'First step, early in: get one month of any IT work (help desk counts). Start Security+ the same month.',
-        mid: 'First step, at mid level: stop just sorting. Pick investigating: take your team\'s next alert and write its full story.',
+        mid: 'First step, at mid level: stop just sorting. AI sorts now. Pick investigating: take your team\'s next alert and write its full story.',
         senior: 'First step, at senior level: move to hunting or writing detection rules. That\'s the work above what AI took.'
       },
       next: NEXT_CYB
@@ -999,8 +999,8 @@
       hook: 'The people who build the alarms earn the most.',
       conf: 'High',
       step: {
-        student: 'First step, as a student: learn Python before any certificate. One small script a week.',
-        early: 'First step, early in: at your SOC or IT job, automate one boring task. Keep the script as proof.',
+        student: 'First step, as a student: learn Python before any certificate. One small script a week. Ask ChatGPT or Claude to explain every line.',
+        early: 'First step, early in: at your alert-watching or IT job, automate one boring task. AI can help you write it. Keep the script as proof.',
         mid: 'First step, at mid level: write your first detection rule for a real alert system. Test it on old alerts.',
         senior: 'First step, at senior level: own one detection area start to finish. Rules, tuning, and numbers that prove they work.'
       },
@@ -1011,7 +1011,7 @@
       conf: 'High',
       step: {
         student: 'First step, as a student: pick one cloud, AWS or Azure. Learn how its accounts and permissions work.',
-        early: 'First step, early in: at your IT or SOC job, take every cloud task your team gets. Cloud experience is what counts here.',
+        early: 'First step, early in: at your IT or alert-watching job, take every cloud task your team gets. Cloud experience is what counts here.',
         mid: 'First step, at mid level: take the AZ-500 or AWS Certified Security – Specialty exam. Job posts name these again and again.',
         senior: 'First step, at senior level: protect a company\'s whole cloud, not one account. Safety rules, alerts, and proof for auditors.'
       },
@@ -1022,7 +1022,7 @@
       conf: 'Medium',
       step: {
         student: 'First step, as a student: learn the basics first: networking, Linux, Windows. Job posts test all three.',
-        early: 'First step, early in: two years of IT or SOC work is your real application. Practice labs help, but don\'t replace it.',
+        early: 'First step, early in: two years of IT or alert-watching work is your real application. Practice labs help, but don\'t replace it.',
         mid: 'First step, at mid level: start preparing for OSCP. 3 of 6 job posts require it.',
         senior: 'First step, at senior level: specialize in web apps or red team (attacking like real hackers). Specialists earn the most.'
       },
@@ -1031,12 +1031,12 @@
     V11.grcanalyst = {
       hook: 'The paperwork specialty. Not a way in for beginners.',
       conf: 'Medium',
-      coe: 'Skipping this now saves a $10,000–$25,000 course bill. Those certificates need 3–5 years of experience anyway. Better to spend those years in the field, where GRC hires from.',
+      coe: 'Skipping this now saves a $10,000–$25,000 course bill. Those certificates need 3–5 years of experience anyway. Better to spend those years in the field, where rules-checking jobs hire from.',
       step: {
         student: 'First step, as a student: don\'t start here. Every job post wants 3+ years of security work first.',
-        early: 'First step, early in: build security years in SOC or IT first. GRC hires people already in the field.',
+        early: 'First step, early in: build security years in alert-watching or IT first. Rules-checking jobs hire people already in the field.',
         mid: 'First step, at mid level: with 3+ security years, learn one rule list really well: NIST 800-53 or ISO 27001.',
-        senior: 'First step, at senior level: lead audits and own the proof. Senior GRC pays up to $209,618.'
+        senior: 'First step, at senior level: lead audits and own the proof. Senior rules-checking jobs pay up to $209,618.'
       },
       next: NEXT_CYB
     };

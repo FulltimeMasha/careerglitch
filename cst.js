@@ -123,7 +123,7 @@ stateFact = (function(origStateFact){
         ['The job','Your content is judged by <span class="pink">CTR and conversion</span>. CTR is how many people clicked. Conversion is how many bought or signed up. You change the first seconds and the picture. Then you test again.'],
         ['Why it lasts','<span class="pink">23 of 40</span> job posts list reading the numbers as a task. In this job, reading the numbers is the job. Jobs close to the money survive cuts. Jobs far from the money often don’t.']],
       door:'What to do: learn to read ad numbers like you read an audience. Run one paid test, start to finish. A test with a number on it is the rarest proof out there.',
-      short:'The paid-social creator is a YES. This job sits closest to the company’s money. It’s judged by CTR (how many clicked) and by sales. It pays bonuses no plain-posting job we found offers.'};
+      short:'The paid-social creator is a YES. This job sits closest to the company’s money. It’s judged by CTR (how many clicked) and by sales. It pays bonuses no plain job we found offers.'};
     SEATS.agencycreator = {prof:'creator', label:'Agency staff creator',
       head:'AGENCY CREATOR — <span class="pink">NO</span> AS YOUR FINAL STOP.',
       facts:[
@@ -204,14 +204,14 @@ document.addEventListener('DOMContentLoaded', function(){
   if (typeof GRIDS === 'undefined' || typeof SEATS === 'undefined') return;
   GRIDS.law.head = "LAW IS A YES — IF YOU PICK A SPECIALTY. THE MOST COMMON WAY IN IS A NO.";
   GRIDS.law.corner = "Privacy and AI rules pay the most in our 46 job posts ($212K–$319K). Privacy job posts that want a certificate: 3 of 3 name CIPP. The trap: typical debt at a typical school is $112,500. A typical first salary is $100,000.";
-  GRIDS.law.short = "“Law” is really several very different jobs. Some will stay needed: privacy and AI rules, checking companies before big deals, health-care rules. Job posts there pay up to $319K. The general paralegal job is a bad bet. So is law school with no clear goal.";
+  GRIDS.law.short = "AI already reads documents for law firms. But some law jobs still pay very well. “Law” is really several very different jobs. Some will stay needed: privacy and AI rules, checking companies before big deals, health-care rules. Job posts there pay up to $319K. The general paralegal job is a bad bet. So is law school with no clear goal.";
   SEATS.specialist.short = "Specialist paralegal jobs will stay needed. Privacy and AI-rules job posts paid $212K–$319K in our 46 job posts. The general job has 0% growth.";
   SEATS.paralegal.short = "The general paralegal job is a bad bet. That’s a lawyer’s helper for everything. Middle pay $62,890, growth 0%. Specialist jobs pay up to $150K–$200K. Privacy and AI-rules jobs pay up to $319K. That’s where to aim!";
   SEATS.docreview.short = "Reading documents all career long is a dead end. It’s the #1 law job AI already does. The good money moved to specialists who run that AI. You can become one of them.";
   SEATS.lawstudent.short = "Law school only pays off if you pick a top specialty on purpose. With no clear goal, a typical first salary is $100,000. Typical debt at a typical school is $112,500. Specialties picked on purpose pay $212K–$319K.";
   GRIDS.cpa.head = "ACCOUNTING IS A YES — IN A SPECIALTY. THE MOST COMMON JOBS ARE A NO.";
   GRIDS.cpa.corner = "Checking a company’s money before a sale (transaction advisory, FDD) pays up to $225K. That’s the top pay in our 54 job posts. The exam is hard: only 42% pass FAR, its hardest part. Pick your specialty first, then take the exam. Pay is high in 2026 because few people do this — re-check in 2028.";
-  GRIDS.cpa.short = "“Accountant” is nine jobs. The general ones are a bad bet: bookkeeping, tax prep, audit as a final stop. Special ones stay needed and pay $120K–$225K. Those are narrow tax, SEC reporting for public companies, FDD (checking firms before a sale), forensic, controller.";
+  GRIDS.cpa.short = "AI already does routine bookkeeping and tax prep. “Accountant” is nine jobs. The general ones are a bad bet: bookkeeping, tax prep, audit as a final stop. Special ones stay needed and pay $120K–$225K. Those are narrow tax, SEC reporting for public companies, FDD (checking firms before a sale), forensic, controller.";
   SEATS.bookkeeper.short = "Keeping the books as your final job is a bad bet. The job shrinks −6%, while accountants grow +5%. AI takes the routine work. 29% of firms send it to cheaper countries. Ways out: staff accountant → controller ($130–200K + bonus). Or special tax work ($125–200K).";
   SEATS.tax.short = "Doing general tax returns is a bad bet. It’s the first accounting job AI is taking. Special tax work pays $125–200K. 8 of 10 manager job posts need a CPA license.";
   SEATS.staff.short = "The general staff job is a bad bet as your final stop. Pay stays flat at $50–80K. A CPA aimed at a specialty opens better jobs. Special tax work pays $125–200K. Transaction advisory, checking firms before a sale, pays up to $225K.";
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function(){
   SEATS.controller.short = "The controller job will stay needed at $130–200K + bonus. That’s when the controller runs the company’s money systems. NetSuite is in 10 of 10 senior job posts we read.";
   GRIDS.nurse.head = "NURSING IS A YES. THE MOST COMMON WAY IN IS A NO.";
   GRIDS.nurse.corner = "CRNA (nurse anesthetist) typical pay is $236,590. Psych NP jobs pay $200K–$257K. DNP schools cost $73K–$195K and are a trap. Top job posts asked for that degree 0 of 16 times.";
-  GRIDS.nurse.short = "Nursing is many different jobs. These will stay needed: specialty RN, psych NP, CRNA, travel nurse. Dead ends: med-surg (the general ward) as a final stop, and starting as an LPN. General FNP work is a bad bet in big cities. Too many people already do it.";
+  GRIDS.nurse.short = "AI helps with paperwork, but patients still need a nurse. Nursing is many different jobs. These will stay needed: specialty RN, psych NP, CRNA, travel nurse. Dead ends: med-surg (the general ward) as a final stop, and starting as an LPN. General FNP work is a bad bet in big cities. Too many people already do it.";
   SEATS.medsurg.short = "A general ward job (med-surg) as a final stop is a dead end. Nurses quit there the most. Specialty jobs pay $50–$75/hr. They open the way to travel pay and CRNA money.";
   SEATS.specialty.short = "A specialty RN job will stay needed. ICU job posts pay $50–$75/hr. Two years in a specialty open travel pay and the CRNA path. CRNA typical pay is $236,590.";
   SEATS.travel.short = "Travel nursing is a good bet after two years in a specialty. Typical pay was $2,134 a week in Dec 2025. That pay is shrinking. 70.7% of hospitals plan to hire fewer agency nurses. So enjoy travel for a while, but don’t make it your final stop.";
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function(){
   SEATS.lpn.short = "Starting as an LPN is a bad bet. Growth is only +3%. Only 16% of LPNs work in hospitals. Better idea: a short ADN program makes you an RN for $5,472 total.";
   GRIDS.fin.head = "“FINANCIAL ANALYST” IS FIVE JOBS. THREE ARE GROWING. ONE IS A TRAP. ONE IS HARD TO GET INTO.";
   GRIDS.fin.corner = "31 of 40 top-paying job posts ask for SQL. 0 of 40 ask for a CFA. Companies hire 3 seniors for every junior. So starting with a certificate is a detour.";
-  GRIDS.fin.short = "“Financial analyst” is five jobs. The general reporting job is a trap. Typical pay $103,570, and junior jobs are down 21%. FP&A partnering (planning money with a team), strategic finance and the analytics hybrid pay up to $276,250.";
+  GRIDS.fin.short = "AI now drafts finance reports. “Financial analyst” is five jobs. The general reporting job is a trap. Typical pay $103,570, and junior jobs are down 21%. FP&A partnering (planning money with a team), strategic finance and the analytics hybrid pay up to $276,250.";
   SEATS.reporting.short = "The general reporting job is a bad bet. Typical pay is $103,570. Junior job posts are down 21%. AI now writes first drafts of the reports. The money is in FP&A partnering and the analytics hybrid.";
   SEATS.fpa.short = "The FP&A partner job will stay needed. It pays up to $276,250. Only 5% of CFOs (top finance bosses) trust AI’s board report without a human check. So your job is to own the number, not just build it.";
   SEATS.strategic.short = "Strategic finance will stay needed. Google pays analysts $113K–$167K. It asks for SQL, not a CFA. 0 of 40 top-paying job posts asked for a CFA.";

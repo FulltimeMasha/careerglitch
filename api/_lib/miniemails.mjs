@@ -106,8 +106,8 @@ function capSubject(s, max = 97) {
 
 function fullReportBlockHtml(input) {
   return `<div style="background:${BUTTER};border-radius:16px;padding:20px;margin:26px 0;">
-  <div style="font-size:19px;font-weight:800;margin-bottom:8px;">Want even more?</div>
-  <p style="margin:0 0 14px;font-size:15px;line-height:1.55;">The Full Report shows what you still need for this job. It compares you with what employers really ask for. Then it gives you a step-by-step plan for the next 12 months. It uses the same job posts as this check.</p>
+  <div style="font-size:19px;font-weight:800;margin-bottom:8px;">Want the shortest path?</div>
+  <p style="margin:0 0 14px;font-size:15px;line-height:1.55;">The Full Report is your shortcut. AI has changed what employers ask for. The report compares you with what they really want now. Then it gives you a step-by-step plan for the next 12 months. No extra courses. It uses the same job posts as this check.</p>
   <a href="${fullReportUrlFor(input)}" style="display:inline-block;background:linear-gradient(135deg,#F92A82,#FF8CBE);color:#ffffff;text-decoration:none;font-weight:800;font-size:16px;border-radius:999px;padding:12px 24px;">Get the Full Report — ${FULL_REPORT_PRICE}</a>
   <p style="margin:14px 0 0;font-size:14px;line-height:1.55;">${esc(FOUNDER_APPEAL)}</p>
   <p style="margin:8px 0 0;font-size:13px;line-height:1.5;color:#5b5470;">Share your card — and the Full Report is free.</p>
@@ -115,8 +115,8 @@ function fullReportBlockHtml(input) {
 }
 function fullReportBlockText(input) {
   return [
-    'WANT EVEN MORE?',
-    'The Full Report shows what you still need for this job. It compares you with what employers really ask for. Then it gives you a step-by-step plan for the next 12 months. It uses the same job posts as this check.',
+    'WANT THE SHORTEST PATH?',
+    'The Full Report is your shortcut. AI has changed what employers ask for. The report compares you with what they really want now. Then it gives you a step-by-step plan for the next 12 months. No extra courses. It uses the same job posts as this check.',
     `Get the Full Report — ${FULL_REPORT_PRICE}: ${fullReportUrlFor(input)}`,
     FOUNDER_APPEAL,
     'Share your card — and the Full Report is free.',
@@ -126,15 +126,15 @@ function fullReportBlockText(input) {
 function serviceBlockHtml(appUrl, waitlist, typed) {
   const lines = waitlist
     ? [
-        'Your answer is just the start.',
+        'Your answer is on its way.',
         `Your dashboard is already open. It keeps an eye on “${esc(typed || 'your profession')}” while we research it. When your answer is ready, your plan opens there.`,
-        'Inside is the Become Top 1% service. It helps you grow into the best 1% in your field. You get small tasks every day. It also watches the job market for you.',
+        'Inside is the Become Top 1% service. It leads you to the best 1% in your field, by the shortest road. One small task a day, with AI tools to help. And it watches job posts for you, as AI changes them.',
         'First week free. Then $9/month. Cancel any time.',
       ]
     : [
-        'This answer is the start, not the end.',
-        'The Become Top 1% service turns it into a daily plan. It leads you to the best 1% in this field. You do one small task a day.',
-        'It also watches the job market for your work. So your plan always stays fresh. You’ve got this!',
+        'This answer shows you the way. Now let’s walk it.',
+        'The Become Top 1% service turns it into a daily plan. One small task a day, with AI tools to help you learn faster. It’s the shortest road to the best 1% in this field.',
+        'AI keeps changing what employers ask for. The service watches job posts for you, so your plan stays fresh. You’ve got this!',
         'First week free. Then $9/month. Cancel any time.',
       ];
   return `<div style="margin:26px 0;">
@@ -146,16 +146,16 @@ function serviceBlockHtml(appUrl, waitlist, typed) {
 function serviceBlockText(appUrl, waitlist, typed) {
   const lines = waitlist
     ? [
-        'Your answer is just the start.',
+        'Your answer is on its way.',
         `Your dashboard is already open. It keeps an eye on "${typed || 'your profession'}" while we research it. When your answer is ready, your plan opens there.`,
-        'Inside is the Become Top 1% service. It helps you grow into the best 1% in your field. You get small tasks every day. It also watches the job market for you.',
+        'Inside is the Become Top 1% service. It leads you to the best 1% in your field, by the shortest road. One small task a day, with AI tools to help. And it watches job posts for you, as AI changes them.',
         'First week free. Then $9/month. Cancel any time.',
         `Follow the research: ${appUrl}`,
       ]
     : [
-        'This answer is the start, not the end.',
-        'The Become Top 1% service turns it into a daily plan. It leads you to the best 1% in this field. You do one small task a day.',
-        'It also watches the job market for your work. So your plan always stays fresh. You’ve got this!',
+        'This answer shows you the way. Now let’s walk it.',
+        'The Become Top 1% service turns it into a daily plan. One small task a day, with AI tools to help you learn faster. It’s the shortest road to the best 1% in this field.',
+        'AI keeps changing what employers ask for. The service watches job posts for you, so your plan stays fresh. You’ve got this!',
         'First week free. Then $9/month. Cancel any time.',
         `Open my path: ${appUrl}`,
       ];
@@ -289,7 +289,7 @@ function renderWaitlist({ typed, name, leadId }) {
   const inner = `
 ${name ? `<p style="margin:0 0 10px;font-size:15px;">Hi ${esc(name)},</p>` : ''}
 <div style="font-size:25px;line-height:1.25;font-weight:800;">“${esc(t)}” is being checked right now.</div>
-<p style="margin:14px 0 0;font-size:15.5px;line-height:1.6;">We check every job the same way, with 5 filters. We read real job posts. We look at official pay and growth numbers. We read hiring reports. Then a second team tries hard to prove our answer wrong. When your answer is ready, we’ll email it to you.</p>
+<p style="margin:14px 0 0;font-size:15.5px;line-height:1.6;">We check every job the same way, with 5 filters. We read real job posts. We look at official pay and growth numbers. We read hiring reports. Then a second team tries hard to prove our answer wrong. When your answer is ready, we’ll email it to you. You’ll see what still pays in this job now that AI is here.</p>
 <p style="margin:16px 0 4px;font-size:16px;font-weight:800;">While you wait, these checks are ready:</p>
 <div style="margin:6px 0 16px;">${listHtml}</div>
 <a href="${GATE_URL}" style="display:inline-block;background:linear-gradient(135deg,#F92A82,#FF8CBE);color:#ffffff;text-decoration:none;font-weight:800;font-size:16px;border-radius:999px;padding:12px 24px;">Run a free check now →</a>
@@ -301,7 +301,7 @@ ${footerHtml(null)}`;
     '',
     `"${t}" is being checked right now.`,
     '',
-    'We check every job the same way, with 5 filters. We read real job posts. We look at official pay and growth numbers. We read hiring reports. Then a second team tries hard to prove our answer wrong. When your answer is ready, we’ll email it to you.',
+    'We check every job the same way, with 5 filters. We read real job posts. We look at official pay and growth numbers. We read hiring reports. Then a second team tries hard to prove our answer wrong. When your answer is ready, we’ll email it to you. You’ll see what still pays in this job now that AI is here.',
     '',
     'While you wait, these checks are ready:',
     listText,
