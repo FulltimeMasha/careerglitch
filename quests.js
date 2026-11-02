@@ -707,4 +707,4 @@ Object.assign(BIGGOALS, {
   growpm: 'The big goal: a growth PM on an AI product. Your experiments prove your work. It pays $275K–$305K.',
   apmpm: 'The big goal: by year two, get into an entry program or a nearby job. Then climb step by step. You’ve got this!'
 });
-BIGGOAL_PROF.aipm = 'The big goal: a job you picked yourself. Real job posts pay $117K–$490K. You get there with evals (tests for AI) and features you shipped. Not certificates.';
+BIGGOAL_PROF.aipm = 'Your goal: an AI product manager job you picked yourself. It pays $117K to $490K a year. You don’t need certificates. You need to show what you did: you added AI to an app and checked that it answers correctly.';
