@@ -75,7 +75,7 @@ businessanalyst: [
    (YES/NO) stay English by design. Step ids are untouched — progress is
    keyed by id and is language-proof. ===== */
 
-var PHASE_NAMES_RU = ['Ворота', 'Доказательства', 'Выбор тебя'];
+var PHASE_NAMES_RU = ['Вход', 'Доказательства', 'Вас выбирают'];
 
 var PROF_META_RU = {
   law:   'Право',

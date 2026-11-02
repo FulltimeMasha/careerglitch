@@ -62,35 +62,35 @@ GRIDINFO.plumber = {
 
 TRACKS.plumber = [
   {
-    name: 'The gate',
+    name: 'Getting in',
     steps: [
       {
         id: 'plb-g1',
         t: 'Pick your way in on purpose. A registered apprenticeship pays a set wage from year one. Big chains train you free, then pay commission. Both take the same 4–5 years.',
-        src: 'HR checklist · Part 2, item 1 — The gate',
+        src: 'HR checklist · Part 2, item 1 — Getting in',
         ru: 'Выбирайте путь осознанно. Зарегистрированное ученичество (apprenticeship — обучение на работе, с зарплатой) платит по шкале с первого года. Крупные сети учат бесплатно, но потом платят комиссией. Оба пути занимают те же 4–5 лет.',
-        sru: 'HR-чек-лист · Часть 2, пункт 1 — Ворота'
+        sru: 'HR-чек-лист · Часть 2, пункт 1 — Вход'
       },
       {
         id: 'plb-g2',
         t: 'Get your state\'s apprentice license or registration first. Then start counting hours. Unregistered hours often don\'t count toward the journeyman license.',
-        src: 'HR checklist · Part 2, item 2 — The gate',
+        src: 'HR checklist · Part 2, item 2 — Getting in',
         ru: 'Сначала получите лицензию ученика или регистрацию в штате. Только потом считайте часы. Незарегистрированные часы часто не идут в лицензию journeyman (сантехник с лицензией).',
-        sru: 'HR-чек-лист · Часть 2, пункт 2 — Ворота'
+        sru: 'HR-чек-лист · Часть 2, пункт 2 — Вход'
       },
       {
         id: 'plb-g3',
         t: 'Before signing a training contract, look for a payback rule. Some \'free\' training makes you pay if you leave too early.',
-        src: 'HR checklist · Part 2, item 3 — The gate',
+        src: 'HR checklist · Part 2, item 3 — Getting in',
         ru: 'Перед подписанием найдите в учебном договоре пункт о возврате денег (repayment clause). Иногда за «бесплатное» обучение надо заплатить. Это если уйти раньше срока.',
-        sru: 'HR-чек-лист · Часть 2, пункт 3 — Ворота'
+        sru: 'HR-чек-лист · Часть 2, пункт 3 — Вход'
       },
       {
         id: 'plb-g4',
         t: 'Plan the 4–5 years honestly: 2,000 paid hours a year plus classes. The license at the end is what counts. There\'s no shortcut to it.',
-        src: 'HR checklist · Part 2, item 4 — The gate',
+        src: 'HR checklist · Part 2, item 4 — Getting in',
         ru: 'Честно спланируйте 4–5 лет: 2,000 оплачиваемых часов в год плюс занятия. Главное — лицензия в конце. Короткого пути к ней нет.',
-        sru: 'HR-чек-лист · Часть 2, пункт 4 — Ворота'
+        sru: 'HR-чек-лист · Часть 2, пункт 4 — Вход'
       }
     ]
   },
@@ -135,42 +135,42 @@ TRACKS.plumber = [
         t: 'Take service work with a guaranteed hourly minimum. Commission on top is a bonus. Commission instead of a minimum is the NO job.',
         src: 'HR checklist · Part 2, item 9 — Get picked',
         ru: 'Берите работу в ремонте с гарантированным минимумом в час (floor). Комиссия сверху — это бонус. Комиссия вместо минимума — это работа с NO.',
-        sru: 'HR-чек-лист · Часть 2, пункт 9 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 9 — Вас выбирают'
       },
       {
         id: 'plb-k2',
         t: 'Find out on-call pay before you sign. BLS says plumbers are often on call. One shop in our job posts sells \'No On-Call\' as its main perk.',
         src: 'HR checklist · Part 2, item 10 — Get picked',
         ru: 'До подписания узнайте, как платят за дежурства (on-call — аварийные вызовы ночью и в выходные). BLS пишет: сантехники часто дежурят. Одна фирма даже рекламирует «Без дежурств» (No On-Call) как главный плюс.',
-        sru: 'HR-чек-лист · Часть 2, пункт 10 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 10 — Вас выбирают'
       },
       {
         id: 'plb-k3',
         t: 'Think about factory pipe work: pipefitting. Same BLS job, same union (workers\' group). You work on plant pipes, steam and machine systems. Pay is $40.64 to about $54 an hour. All are union jobs and need a union card.',
         src: 'HR checklist · Part 2, item 11 — Get picked',
         ru: 'Подумайте о заводской ветке: pipefitting (монтаж труб). Та же профессия по BLS и тот же профсоюз. Это трубы на заводах, пар и технологические системы. Платят от $40.64 до примерно $54 в час. Везде профсоюз и нужна карта.',
-        sru: 'HR-чек-лист · Часть 2, пункт 11 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 11 — Вас выбирают'
       },
       {
         id: 'plb-k4',
         t: 'Pass the master exam when you can. The master license lets you lead others and get permits. Some states also require it for a contractor license for your own shop.',
         src: 'HR checklist · Part 2, item 12 — Get picked',
         ru: 'Сдайте экзамен на master (мастер), когда будет можно. С этой лицензией можно руководить людьми и брать разрешения на работы (permits). В некоторых штатах без неё не дадут лицензию подрядчика (contractor license) для своей фирмы.',
-        sru: 'HR-чек-лист · Часть 2, пункт 12 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 12 — Вас выбирают'
       },
       {
         id: 'plb-k5',
         t: 'If you open a shop, you can sell two things. Your list of maintenance agreements and your license. Buyers pay many times more for that.',
         src: 'HR checklist · Part 2, item 13 — Get picked',
         ru: 'Если открываете фирму, продать можно две вещи. Базу договоров на обслуживание и лицензию. За это покупатели платят в разы больше (multiples).',
-        sru: 'HR-чек-лист · Часть 2, пункт 13 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 13 — Вас выбирают'
       },
       {
         id: 'plb-k6',
         t: 'Check your state\'s license and reciprocity rules every year. Reciprocity means another state accepts your license. Several states changed trade licenses in 2026. A license that works in more states is worth more each year.',
         src: 'HR checklist · Part 2, item 14 — Get picked',
         ru: 'Каждый год проверяйте правила лицензий и reciprocity в своём штате. Reciprocity — это когда другой штат признаёт вашу лицензию. В 2026 году несколько штатов поменяли правила. Лицензия, которая работает в разных штатах, дорожает каждый год.',
-        sru: 'HR-чек-лист · Часть 2, пункт 14 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 14 — Вас выбирают'
       }
     ]
   }
@@ -340,42 +340,42 @@ GRIDINFO.cybersecurity = {
 
 TRACKS.cybersecurity = [
   {
-    name: 'The gate',
+    name: 'Getting in',
     steps: [
       {
         id: 'cyb-g1',
         t: 'Pick one specialty before you buy any course',
-        src: 'HR checklist · Part 1, item 1 — The gate',
+        src: 'HR checklist · Part 1, item 1 — Getting in',
         ru: 'Выберите одну специальность до покупки любого курса',
-        sru: 'Чек-лист HR · Часть 1, пункт 1 — Ворота'
+        sru: 'Чек-лист HR · Часть 1, пункт 1 — Вход'
       },
       {
         id: 'cyb-g2',
         t: 'Get real IT time first — help desk counts',
-        src: 'HR checklist · Part 1, item 2 — The gate',
+        src: 'HR checklist · Part 1, item 2 — Getting in',
         ru: 'Сначала наберите реальный опыт в IT — служба поддержки засчитывается',
-        sru: 'Чек-лист HR · Часть 1, пункт 2 — Ворота'
+        sru: 'Чек-лист HR · Часть 1, пункт 2 — Вход'
       },
       {
         id: 'cyb-g3',
         t: 'Earn Security+ — beginner job posts ask for it by name',
-        src: 'HR checklist · Part 1, item 3 — The gate',
+        src: 'HR checklist · Part 1, item 3 — Getting in',
         ru: 'Получите Security+ — его прямо называют в вакансиях для новичков',
-        sru: 'Чек-лист HR · Часть 1, пункт 3 — Ворота'
+        sru: 'Чек-лист HR · Часть 1, пункт 3 — Вход'
       },
       {
         id: 'cyb-g4',
         t: 'Learn how networks actually move data',
-        src: 'HR checklist · Part 1, item 4 — The gate',
+        src: 'HR checklist · Part 1, item 4 — Getting in',
         ru: 'Разберитесь, как сети на самом деле передают данные',
-        sru: 'Чек-лист HR · Часть 1, пункт 4 — Ворота'
+        sru: 'Чек-лист HR · Часть 1, пункт 4 — Вход'
       },
       {
         id: 'cyb-g5',
         t: 'Get hands-on with one alert system: Splunk or Microsoft Sentinel',
-        src: 'HR checklist · Part 1, item 5 — The gate',
+        src: 'HR checklist · Part 1, item 5 — Getting in',
         ru: 'Освойте на практике одну систему оповещений: Splunk или Microsoft Sentinel',
-        sru: 'Чек-лист HR · Часть 1, пункт 5 — Ворота'
+        sru: 'Чек-лист HR · Часть 1, пункт 5 — Вход'
       }
     ]
   },

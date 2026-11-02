@@ -63,35 +63,35 @@ GRIDINFO.electrician = {
 
 TRACKS.electrician = [
   {
-    name: 'The gate',
+    name: 'Getting in',
     steps: [
       {
         id: 'elc-g1',
         t: 'Pick the way in that pays you. A registered apprenticeship pays from year one. Learning costs $0. A private school can charge $21,325 to about $42,000. You still come out as a helper.',
-        src: 'HR checklist · Part 2, item 1 — The gate',
+        src: 'HR checklist · Part 2, item 1 — Getting in',
         ru: 'Выберите путь, где платят вам. Зарегистрированное ученичество (apprenticeship — обучение прямо на работе, с зарплатой) платит с первого года. Учёба стоит $0. Частная школа берёт от $21,325 до примерно $42,000. А после неё вы всё равно просто помощник.',
-        sru: 'HR-чек-лист · Часть 2, пункт 1 — Ворота'
+        sru: 'HR-чек-лист · Часть 2, пункт 1 — Вход'
       },
       {
         id: 'elc-g2',
         t: 'Apply on time. Apprenticeships take new people once a year. They close when spots fill. One union notice says: 2026 class closed. 2027 applications open January 1 to March 31.',
-        src: 'HR checklist · Part 2, item 2 — The gate',
+        src: 'HR checklist · Part 2, item 2 — Getting in',
         ru: 'Подайте заявку вовремя. Набор в ученичество идёт раз в год. Когда места кончаются, набор закрывают. Пример от одного профсоюза: набор 2026 закрыт. На 2027 подают с 1 января по 31 марта.',
-        sru: 'HR-чек-лист · Часть 2, пункт 2 — Ворота'
+        sru: 'HR-чек-лист · Часть 2, пункт 2 — Вход'
       },
       {
         id: 'elc-g3',
         t: 'Get your state apprentice card before you count hours. The card means the state has you on record. Hours without it often don\'t count toward the license.',
-        src: 'HR checklist · Part 2, item 3 — The gate',
+        src: 'HR checklist · Part 2, item 3 — Getting in',
         ru: 'Сначала получите карту ученика (apprentice/training card). Только потом считайте часы. Карта значит, что штат вас записал. Часы без неё часто не идут в зачёт лицензии.',
-        sru: 'HR-чек-лист · Часть 2, пункт 3 — Ворота'
+        sru: 'HR-чек-лист · Часть 2, пункт 3 — Вход'
       },
       {
         id: 'elc-g4',
         t: 'Learn your state\'s ratio rule. It says how many apprentices one journeyman can lead. On many sites it is one. So it decides how many spots exist near you.',
-        src: 'HR checklist · Part 2, item 4 — The gate',
+        src: 'HR checklist · Part 2, item 4 — Getting in',
         ru: 'Узнайте правило соотношения (ratio) в вашем штате. Оно говорит, скольких учеников ведёт один journeyman (электрик с лицензией). Часто — только одного. От этого зависит, сколько мест есть рядом с вами.',
-        sru: 'HR-чек-лист · Часть 2, пункт 4 — Ворота'
+        sru: 'HR-чек-лист · Часть 2, пункт 4 — Вход'
       }
     ]
   },
@@ -136,42 +136,42 @@ TRACKS.electrician = [
         t: 'Go where the pay is. Data centers, factories and hospitals pay $48.50–$62.00 an hour. New home building pays $24–$30 an hour. Same license.',
         src: 'HR checklist · Part 2, item 9 — Get picked',
         ru: 'Идите туда, где больше платят. Дата-центры, заводы и больницы платят $48.50–$62.00 в час. На стройке новых домов — $24–$30 в час. Лицензия та же.',
-        sru: 'HR-чек-лист · Часть 2, пункт 9 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 9 — Вас выбирают'
       },
       {
         id: 'elc-k2',
         t: 'If you do repair calls, take hourly or guaranteed pay. Commission-only means you earn only when you sell. Then your skill turns into a sales goal someone else sets.',
         src: 'HR checklist · Part 2, item 10 — Get picked',
         ru: 'Если идёте в ремонт по вызовам, берите оплату за часы или с гарантией. Оплата только с продаж значит: деньги — только когда продали. Тогда ваш навык превращается в план продаж, который ставит кто-то другой.',
-        sru: 'HR-чек-лист · Часть 2, пункт 10 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 10 — Вас выбирают'
       },
       {
         id: 'elc-k3',
         t: 'After the journeyman card, look into the master exam. The master license lets you lead others and get permits. In most states, you need it to open a shop.',
         src: 'HR checklist · Part 2, item 11 — Get picked',
         ru: 'После лицензии journeyman узнайте про экзамен на master (мастер). С ней можно руководить людьми и брать разрешения на работы (permits). В большинстве штатов без неё свою фирму не открыть.',
-        sru: 'HR-чек-лист · Часть 2, пункт 11 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 11 — Вас выбирают'
       },
       {
         id: 'elc-k4',
         t: 'If you start your own business, get a contractor license and insurance first. Do it before your first solo job. In most states the master license comes before that. The contractor license lets your business sign jobs.',
         src: 'HR checklist · Part 2, item 12 — Get picked',
         ru: 'Если открываете своё дело, сначала получите лицензию подрядчика (contractor license) и страховку. Это до первого самостоятельного заказа. В большинстве штатов перед этим нужна лицензия master. Лицензия подрядчика даёт фирме право брать заказы.',
-        sru: 'HR-чек-лист · Часть 2, пункт 12 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 12 — Вас выбирают'
       },
       {
         id: 'elc-k5',
         t: 'Check your state\'s ratio and reciprocity rules every year. Reciprocity means another state accepts your license. While workers are short, such a license gets more valuable every year.',
         src: 'HR checklist · Part 2, item 13 — Get picked',
         ru: 'Каждый год проверяйте правила ratio и reciprocity в вашем штате. Reciprocity — это когда другой штат признаёт вашу лицензию. Пока электриков не хватает, такая лицензия дорожает каждый год.',
-        sru: 'HR-чек-лист · Часть 2, пункт 13 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 13 — Вас выбирают'
       },
       {
         id: 'elc-k6',
         t: 'Don\'t stay in a prefab shop for good. Prefab means parts built in a factory: electrical rooms, pipe racks, ready panels. The work is real. But shop hours pay less. In your state they may count less toward the license.',
         src: 'HR checklist · Part 2, item 14 — Get picked',
         ru: 'Не оставайтесь в цеху prefab навсегда. Prefab — это сборка на заводе: электрощитовые, трубы, готовые щиты. Работа настоящая. Но в цеху платят меньше. И часы там могут хуже засчитываться в лицензию.',
-        sru: 'HR-чек-лист · Часть 2, пункт 14 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 14 — Вас выбирают'
       }
     ]
   }
@@ -342,35 +342,35 @@ GRIDINFO.hvac = {
 
 TRACKS.hvac = [
   {
-    name: 'The gate',
+    name: 'Getting in',
     steps: [
       {
         id: 'hvc-g1',
         t: 'Get the EPA 608 card first. Universal if you can. It\'s the federal certificate for working with refrigerant (the cooling gas). The law says you need it for that work. With it, shops can send you to clients as a tech.',
-        src: 'HR checklist · Part 2, item 1 — The gate',
+        src: 'HR checklist · Part 2, item 1 — Getting in',
         ru: 'Сначала получите карту EPA 608. Лучше Universal (все типы). Это федеральный сертификат на работу с хладагентом (газ в системе охлаждения). По закону без него с хладагентом работать нельзя. А с ним фирма может отправлять вас к клиентам как техника.',
-        sru: 'HR-чек-лист · Часть 2, пункт 1 — Ворота'
+        sru: 'HR-чек-лист · Часть 2, пункт 1 — Вход'
       },
       {
         id: 'hvc-g2',
         t: 'Start as a paid helper or apprentice. Skip the $21K–$42K diploma. Job posts for beginners pay them. Schools charge them and still turn out helpers.',
-        src: 'HR checklist · Part 2, item 2 — The gate',
+        src: 'HR checklist · Part 2, item 2 — Getting in',
         ru: 'Начинайте оплачиваемым помощником или учеником. Не покупайте диплом за $21K–$42K. Вакансии для новичков им платят. А школы берут деньги и выпускают тех же помощников.',
-        sru: 'HR-чек-лист · Часть 2, пункт 2 — Ворота'
+        sru: 'HR-чек-лист · Часть 2, пункт 2 — Вход'
       },
       {
         id: 'hvc-g3',
         t: 'Learn your state\'s rule. Some states license HVAC techs. Some license only the contractor. Find out which paper your state checks. Then decide what to pay for.',
-        src: 'HR checklist · Part 2, item 3 — The gate',
+        src: 'HR checklist · Part 2, item 3 — Getting in',
         ru: 'Узнайте правило вашего штата. В одних штатах лицензия нужна технику HVAC. В других — только подрядчику (contractor). Узнайте, какую бумагу реально проверяют. Только потом за неё платите.',
-        sru: 'HR-чек-лист · Часть 2, пункт 3 — Ворота'
+        sru: 'HR-чек-лист · Часть 2, пункт 3 — Вход'
       },
       {
         id: 'hvc-g4',
         t: 'Choose repair work over install-only early on. Diagnosis means finding what\'s really broken. Every top job post pays for it. Swapping whole systems pays the least.',
-        src: 'HR checklist · Part 2, item 4 — The gate',
+        src: 'HR checklist · Part 2, item 4 — Getting in',
         ru: 'С самого начала выбирайте ремонт, а не только монтаж. Диагностика — это найти, что на самом деле сломалось. За неё платят все лучшие вакансии. Замена систем целиком (change-out) оплачивается хуже всего.',
-        sru: 'HR-чек-лист · Часть 2, пункт 4 — Ворота'
+        sru: 'HR-чек-лист · Часть 2, пункт 4 — Вход'
       }
     ]
   },
@@ -415,35 +415,35 @@ TRACKS.hvac = [
         t: 'Aim at controls and commercial jobs. They pay $60K–$125K, as salary or hourly. In 9 of 9 controls job posts, there\'s no commission.',
         src: 'HR checklist · Part 2, item 9 — Get picked',
         ru: 'Цельтесь в автоматику и коммерческие объекты. Там платят $60K–$125K, зарплатой или почасово. В 9 из 9 вакансий по автоматике нет комиссии.',
-        sru: 'HR-чек-лист · Часть 2, пункт 9 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 9 — Вас выбирают'
       },
       {
         id: 'hvc-k2',
         t: 'If you stay in homes, take hourly or guaranteed pay. \'Uncapped commission\' means your pay depends on selling new systems to homeowners.',
         src: 'HR checklist · Part 2, item 10 — Get picked',
         ru: 'Если остаётесь работать по домам, берите почасовую или гарантированную оплату. «Комиссия без потолка» (uncapped commission) — значит, ваш доход зависит от продаж новых систем людям.',
-        sru: 'HR-чек-лист · Часть 2, пункт 10 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 10 — Вас выбирают'
       },
       {
         id: 'hvc-k3',
         t: 'On-call should be paid extra. On-call means taking turns on nights and weekends for emergencies. A quarter of our job posts have it. Agree on its pay and schedule before you sign.',
         src: 'HR checklist · Part 2, item 11 — Get picked',
         ru: 'Дежурства (on-call — ночи и выходные по очереди, для аварий) должны оплачиваться. Они есть в четверти вакансий. Договоритесь об оплате и графике до подписания.',
-        sru: 'HR-чек-лист · Часть 2, пункт 11 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 11 — Вас выбирают'
       },
       {
         id: 'hvc-k4',
         t: 'Learn data-center skills: precision cooling, big systems, sites that can never shut down. BLS says data centers drive growth. Their cooling contracts never end.',
         src: 'HR checklist · Part 2, item 12 — Get picked',
         ru: 'Освойте навыки для дата-центров: точное охлаждение (precision cooling), большие системы, объекты, которые нельзя остановить (mission-critical). BLS говорит, что рост дают дата-центры. А договор на их охлаждение не заканчивается.',
-        sru: 'HR-чек-лист · Часть 2, пункт 12 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 12 — Вас выбирают'
       },
       {
         id: 'hvc-k5',
         t: 'If you start your own business, the business is two things. A contractor license and a list of maintenance agreements. When shops sell, buyers pay for repeat agreements.',
         src: 'HR checklist · Part 2, item 13 — Get picked',
         ru: 'Если открываете своё дело, бизнес — это две вещи. Лицензия подрядчика (contractor license) и база договоров на обслуживание. Когда фирму продают, платят именно за постоянные договоры.',
-        sru: 'HR-чек-лист · Часть 2, пункт 13 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 2, пункт 13 — Вас выбирают'
       }
     ]
   }

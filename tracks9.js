@@ -70,35 +70,35 @@ GRIDINFO.aipm = {
 
 TRACKS.aipm = [
   {
-    name: 'The gate',
+    name: 'Getting in',
     steps: [
       {
         id: 'apm-g1',
         t: 'Learn how a large language model really works. It\'s the AI behind chatbots. Learn what it does well and how it fails. One failure is hallucination: the AI says false things with full confidence. 26 of 42 job posts we opened ask for work with large language models or Generative AI.',
-        src: 'HR checklist · Part 6, item 1 — The gate',
+        src: 'HR checklist · Part 6, item 1 — Getting in',
         ru: 'Разберитесь, как на самом деле работает большая языковая модель. Это AI, на котором работают чат-боты. Узнайте, что у неё выходит хорошо и где она ошибается. Например, галлюцинации: модель уверенно говорит неправду. Работу с большими языковыми моделями или генеративным AI просят 26 из 42 вакансий, которые мы открыли.',
-        sru: 'HR-чек-лист · Часть 6, пункт 1 — Ворота'
+        sru: 'HR-чек-лист · Часть 6, пункт 1 — Вход'
       },
       {
         id: 'apm-g2',
         t: 'Pick your job on purpose. Platform, evals, feature, enterprise, growth, or a beginner program. The six jobs pay $83,000 to $490,000. Each wants a different background. Write down which job your years and proof fit today.',
-        src: 'HR checklist · Part 6, item 2 — The gate',
+        src: 'HR checklist · Part 6, item 2 — Getting in',
         ru: 'Выберите свою работу сами, а не наугад. Platform, evals, feature, enterprise, growth — или программа для новичков. За шесть работ платят от $83,000 до $490,000. Каждая хочет разный опыт. Запишите, какой работе подходят ваши годы и доказательства сегодня.',
-        sru: 'HR-чек-лист · Часть 6, пункт 2 — Ворота'
+        sru: 'HR-чек-лист · Часть 6, пункт 2 — Вход'
       },
       {
         id: 'apm-g3',
         t: 'Be honest about your years. 20 of the 26 job posts that name a number want 5+ years in product. Don\'t have them? Take a nearby job to build them. Or join one of the three beginner programs. Don\'t worry — there\'s always a next step.',
-        src: 'HR checklist · Part 6, item 3 — The gate',
+        src: 'HR checklist · Part 6, item 3 — Getting in',
         ru: 'Честно посчитайте свой опыт. 20 из 26 вакансий, где указаны годы, просят 5+ лет в продукте. Нет такого опыта? Возьмите соседнюю работу, чтобы его набрать. Или идите в одну из трёх программ для новичков. Не переживайте — следующий шаг есть всегда.',
-        sru: 'HR-чек-лист · Часть 6, пункт 3 — Ворота'
+        sru: 'HR-чек-лист · Часть 6, пункт 3 — Вход'
       },
       {
         id: 'apm-g4',
         t: 'Get technical enough for what job posts check. 17 of 42 job posts want a technical background. Only 2 require a computer science degree. Technical enough means: you read engineers\' documents. You can weigh design choices. You know what the AI can and can\'t do.',
-        src: 'HR checklist · Part 6, item 4 — The gate',
+        src: 'HR checklist · Part 6, item 4 — Getting in',
         ru: 'Разберитесь в технике настолько, насколько проверяют вакансии. 17 из 42 вакансий хотят технический опыт. Но только 2 требуют диплом по компьютерным наукам. Достаточно, если вы: читаете документы инженеров, понимаете плюсы и минусы решений, знаете, что AI может, а что нет.',
-        sru: 'HR-чек-лист · Часть 6, пункт 4 — Ворота'
+        sru: 'HR-чек-лист · Часть 6, пункт 4 — Вход'
       }
     ]
   },
@@ -157,28 +157,28 @@ TRACKS.aipm = [
         t: 'Apply to jobs by their exact names. Platform PM. Evals PM. Agent PM. Plain “AI product manager” jobs get piles of identical resumes.',
         src: 'HR checklist · Part 6, item 11 — Get picked',
         ru: 'Подавайтесь на работы по точному названию. Platform PM. Evals PM. Agent PM. На обычного «AI product manager» приходят горы одинаковых резюме.',
-        sru: 'HR-чек-лист · Часть 6, пункт 11 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 6, пункт 11 — Вас выбирают'
       },
       {
         id: 'apm-k2',
         t: 'Bring your evals work to the interview. Your test set, your scores, and one mistake you caught before users did. That\'s exactly what evals jobs check.',
         src: 'HR checklist · Part 6, item 12 — Get picked',
         ru: 'Принесите свои evals на собеседование. Ваш тестовый набор, ваши оценки и одну ошибку, которую вы поймали раньше пользователей. Именно это проверяют на работе с evals.',
-        sru: 'HR-чек-лист · Часть 6, пункт 12 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 6, пункт 12 — Вас выбирают'
       },
       {
         id: 'apm-k3',
         t: 'Know your price from real job posts. The typical middle of the pay range is $204,500. Platform pays up to $490,000. Feature pays $117,000–$300,000. Beginner programs pay $83,000–$150,000. If the pay is low, it\'s not your fault. It\'s the job — so look at a better one.',
         src: 'HR checklist · Part 6, item 13 — Get picked',
         ru: 'Узнайте свою цену по настоящим вакансиям. Обычно в середине — $204,500. Platform платит до $490,000. Feature — $117,000–$300,000. Программы для новичков — $83,000–$150,000. Если платят мало, вы не виноваты. Дело в самой работе — посмотрите на другую.',
-        sru: 'HR-чек-лист · Часть 6, пункт 13 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 6, пункт 13 — Вас выбирают'
       },
       {
         id: 'apm-k4',
         t: 'Redo this checklist every quarter with fresh job posts. Evals were in 10 of 42 job posts in this scan, and that\'s changing. Things change fast now, so a quick check keeps you ahead.',
         src: 'HR checklist · Part 6, item 14 — Get picked',
         ru: 'Проходите этот чек-лист заново каждый квартал по свежим вакансиям. В этом скане evals были в 10 из 42 вакансий, и это меняется. Всё меняется быстро — короткая проверка поможет быть на шаг впереди.',
-        sru: 'HR-чек-лист · Часть 6, пункт 14 — Выбор тебя'
+        sru: 'HR-чек-лист · Часть 6, пункт 14 — Вас выбирают'
       }
     ]
   }
