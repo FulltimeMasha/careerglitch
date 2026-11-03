@@ -53,7 +53,7 @@ function num(v, min, max, fallback) {
 // state update, flags are taken from the CLIENT object (the user flipped
 // them), but the structure (ids, weights, texts) must still validate.
 // ---------------------------------------------------------------------------
-export function validateProfile(raw) {
+export function validateProfile(raw, opts = {}) {
   const errors = [];
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
     throw new Error('profile is not an object');
@@ -102,7 +102,18 @@ export function validateProfile(raw) {
   if (items.length < 4) errors.push('top1_profile needs at least 4 valid items');
 
   // Normalize weights to sum to exactly 100 so the score base is a share.
-  if (items.length) {
+  // Exception: when re-validating a stored profile after a user flip,
+  // the caller passes preserveWeights (id -> weight) from the stored
+  // profile. Those weights are the ones the user saw ("+N pts"), so a
+  // flip must add exactly that many points — never re-normalize them.
+  const preserve = opts.preserveWeights instanceof Map ? opts.preserveWeights : null;
+  const canPreserve = preserve
+    && items.length === preserve.size
+    && items.every((it) => preserve.has(it.id))
+    && items.reduce((a, it) => a + preserve.get(it.id), 0) === 100;
+  if (canPreserve) {
+    items.forEach((it) => { it.weight = preserve.get(it.id); });
+  } else if (items.length) {
     const sum = items.reduce((a, i) => a + i.weight, 0) || 1;
     let acc = 0;
     items.forEach((it, idx) => {
@@ -179,7 +190,11 @@ export function buildWatchdogState(profile, nowIso) {
 // Radar is re-derived from the sourced feed (never trusted from the
 // client), trial and baseline are preserved from the stored state.
 export function refreshWatchdogState(stored, clientProfile, nowIso) {
-  const profile = validateProfile(clientProfile);
+  const storedItems = stored && stored.profile && Array.isArray(stored.profile.top1_profile)
+    ? stored.profile.top1_profile
+    : [];
+  const preserveWeights = new Map(storedItems.map((i) => [i.id, i.weight]));
+  const profile = validateProfile(clientProfile, { preserveWeights });
   const next = {
     ...stored,
     profile,
@@ -266,6 +281,7 @@ export const PROFILE_INSTRUCTIONS = [
   '  "tasks": [{"title": "one small action for this week", "points": 3–5, "checklist_id": "<id of a top1_profile item the user does NOT have>"}] — exactly 3 tasks, each tied to a different missing checklist item',
   '}',
   'Rules: honest, no flattery and no fear-mongering. Facts about the profession must be mainstream and checkable; do not invent statistics, salaries or product names. If the chat is thin, still fill every field with the most reasonable reading of what the user said.',
+  'Calibrating user_has: an item is TRUE when the chat shows the user already does or uses that thing in their current work — it does not have to be perfect or top-1% level. Example: if they say they work in QuickBooks Online every day, an item like "Runs the books in cloud accounting software daily" is TRUE. The tools they named are evidence for tool items. A working professional with a few years of experience honestly has 2–4 items true; marking everything false for an experienced person is a calibration error, and so is marking things true with no evidence in the chat.',
 ].join('\n');
 
 export function transcriptToText(messages) {
