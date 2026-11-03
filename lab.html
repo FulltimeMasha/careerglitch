@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Career Glitch Lab — no experience? get it in 30 days</title>
+<meta name="description" content="AI took the junior jobs, so nobody hires without experience. Career Glitch Lab gives you 30 days of real work for real small businesses, with AI tools and a pro who checks it. Join the waitlist.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://careerglitch.com/lab">
+<meta property="og:title" content="No experience? Get it in 30 days. With real clients.">
+<meta property="og:description" content="30 days of real work for real small businesses, with AI tools and a pro who checks it. Accounting, marketing, data. Join the waitlist.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<meta name="theme-color" content="#FFEEF5">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Instrument+Sans:wght@400;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+:root{
+  --paper:#FFFCF6; --ink:#17122B; --ink2:#3a2b4d; --mut:#7a7285;
+  --pink:#FF8CBE; --hot:#F92A82; --deep:#c2185b;
+  --blush:#FFD8EA; --soft:#FFEEF5; --line:#eedfe8; --green:#12805f;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;color:var(--ink);
+  font-family:'Instrument Sans',system-ui,sans-serif;font-size:17px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background:linear-gradient(180deg,#FFFCF6 0%,#FFF3F8 46%,#FFEEF5 78%,#FFE3F0 100%);
+  background-attachment:fixed;
+}
+h1,h2,h3{font-family:'Outfit',sans-serif}
+.mono{font-family:'DM Mono',monospace}
+.wrap{max-width:680px;margin:0 auto;padding:18px 16px 60px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:4px 0 26px}
+.logo{font-family:'Outfit',sans-serif;font-weight:900;letter-spacing:.05em;color:var(--ink);text-decoration:none;font-size:17px}
+.logo span{color:var(--hot)}
+nav a.home{color:var(--mut);text-decoration:none;font-size:14.5px}
+.kicker{display:inline-block;background:var(--ink);color:#fff;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:7px 12px;border-radius:99px;margin-bottom:16px}
+h1{font-weight:900;font-size:36px;line-height:1.1;margin-bottom:14px}
+h1 em{font-style:normal;color:var(--hot)}
+.sub{font-size:18.5px;color:var(--ink2);margin-bottom:22px}
+.cta{display:block;width:100%;text-align:center;background:var(--hot);color:#fff;border:0;border-radius:16px;padding:16px;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;text-decoration:none;cursor:pointer;box-shadow:0 10px 24px rgba(249,42,130,.28)}
+.cta:disabled{opacity:.6;cursor:wait}
+.fine{font-size:13.5px;color:var(--mut);margin-top:9px;text-align:center}
+h2{font-weight:800;font-size:25px;line-height:1.2;margin:44px 0 14px}
+.card{background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 10px 30px rgba(194,24,91,.07)}
+.pain{background:var(--ink);color:#fff;border-radius:22px;padding:22px}
+.pain p{font-size:17.5px;margin-bottom:10px}
+.pain p:last-child{margin-bottom:0}
+.pain b{color:var(--pink)}
+.steps{display:grid;gap:12px}
+.step{display:flex;gap:14px;align-items:flex-start}
+.num{flex:0 0 36px;height:36px;border-radius:50%;background:var(--blush);color:var(--deep);font-family:'Outfit',sans-serif;font-weight:900;display:flex;align-items:center;justify-content:center}
+.step b{font-family:'Outfit',sans-serif;font-size:17.5px;display:block}
+.step p{color:var(--ink2);font-size:16px}
+.tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tr{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:14px 12px;text-align:center}
+.tr .ic{font-size:28px;line-height:1}
+.tr b{font-family:'Outfit',sans-serif;display:block;margin-top:6px;font-size:16px}
+.tr span{font-size:13px;color:var(--mut);display:block;margin-top:3px}
+@media (max-width:520px){.tracks{grid-template-columns:1fr}.tr{display:flex;gap:12px;align-items:center;text-align:left}.tr b{margin-top:0}}
+.get{list-style:none;display:grid;gap:9px}
+.get li{padding-left:28px;position:relative;font-size:16.5px}
+.get li:before{content:'\2713';position:absolute;left:0;top:0;color:var(--green);font-weight:900}
+.honest{border-left:4px solid var(--hot);padding:4px 0 4px 16px;font-size:17px;color:var(--ink2)}
+.honest b{color:var(--ink)}
+form label{display:block;font-family:'Outfit',sans-serif;font-weight:700;font-size:15.5px;margin:16px 0 6px}
+form label:first-of-type{margin-top:0}
+form label .opt{font-weight:500;color:var(--mut);font-size:13.5px}
+.inp,select,textarea{display:block;width:100%;padding:13px 14px;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1.5px solid rgba(23,18,43,.18);border-radius:13px}
+.inp:focus,select:focus,textarea:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 3px var(--soft)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid rgba(23,18,43,.18);background:#fff;border-radius:99px;padding:10px 14px;font:inherit;font-size:15px;cursor:pointer;color:var(--ink)}
+.chip.sel{background:var(--ink);border-color:var(--ink);color:#fff}
+.dep{background:var(--soft);border-radius:16px;padding:14px;margin-top:18px}
+.dep p{font-size:15.5px;margin-bottom:10px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.err{display:none;background:#FDECEC;border:1px solid #d64545;color:#7c1d1d;border-radius:13px;padding:11px 14px;font-size:15px;margin-top:14px}
+.done{display:none;text-align:center}
+.done .big{font-size:44px}
+.done h3{font-size:26px;margin:6px 0 8px}
+.done p{color:var(--ink2);margin-bottom:12px}
+.share{display:flex;gap:8px;margin-top:6px}
+.share input{flex:1;min-width:0}
+.btn2{border:1.5px solid var(--ink);background:#fff;border-radius:13px;padding:0 16px;font:inherit;font-weight:700;cursor:pointer}
+.faq{display:grid;gap:10px}
+.faq details{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px 16px}
+.faq summary{font-family:'Outfit',sans-serif;font-weight:700;cursor:pointer;font-size:16.5px}
+.faq details p{color:var(--ink2);font-size:15.5px;margin-top:8px}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13.5px}
+footer a{color:var(--mut)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <a class="logo" href="/">CAREER<span>GLITCH</span></a>
+  <a class="home" href="/">Check your path &rarr;</a>
+</nav>
+
+<span class="kicker">Career Glitch Lab &middot; first cohort waitlist</span>
+<h1>No experience?<br>Get it in <em>30 days.</em><br>With real clients.</h1>
+<p class="sub">AI does the junior work now. So nobody hires without experience. We give you that experience: a month of real work for real small businesses, with AI tools and a pro who checks every task.</p>
+<a class="cta" href="#join">Join the waitlist &hearts;</a>
+<p class="fine">Free to join. Accounting, marketing, data. US first.</p>
+
+<h2>The trap you&rsquo;re in</h2>
+<div class="pain">
+  <p>Every job post says <b>&ldquo;1&ndash;2 years of experience.&rdquo;</b></p>
+  <p>But the entry jobs that gave people experience? AI does them now.</p>
+  <p>So you sent 200 applications. Zero interviews. <b>The first rung of the ladder is gone.</b></p>
+  <p>We&rsquo;re building a new one.</p>
+</div>
+
+<h2>How the Lab works</h2>
+<div class="card steps">
+  <div class="step"><div class="num">1</div><div><b>Pick your track</b><p>Accounting, marketing or data. One track, one month.</p></div></div>
+  <div class="step"><div class="num">2</div><div><b>Get real clients</b><p>Small businesses that need help: a coffee shop with a shoebox of receipts, a Shopify store with no reports. Real work, real people.</p></div></div>
+  <div class="step"><div class="num">3</div><div><b>Work like a 2027 junior</b><p>You use the AI tools companies use now. One AI-native junior does the work that used to take three.</p></div></div>
+  <div class="step"><div class="num">4</div><div><b>A pro checks your work</b><p>A working accountant, marketer or analyst reviews every task before it goes to the client.</p></div></div>
+  <div class="step"><div class="num">5</div><div><b>Meet companies that hire</b><p>The best grads get intros to our partner companies. They want juniors who already know the job and the AI.</p></div></div>
+</div>
+
+<h2>Pick a track</h2>
+<div class="tracks">
+  <div class="tr"><div class="ic">&#x1F9FE;</div><div><b>Accounting</b><span>Bookkeeping, bank recs, monthly P&amp;L in QuickBooks or Xero</span></div></div>
+  <div class="tr"><div class="ic">&#x1F4E3;</div><div><b>Marketing</b><span>Content, ads, email and funnels for real small brands</span></div></div>
+  <div class="tr"><div class="ic">&#x1F4CA;</div><div><b>Data</b><span>Dashboards and reports a shop owner actually uses</span></div></div>
+</div>
+
+<h2>You leave with</h2>
+<div class="card">
+  <ul class="get">
+    <li>Real client work on your resume, not &ldquo;finished a course&rdquo;</li>
+    <li>3&ndash;5 case studies with numbers (&ldquo;closed 3 months of books in 2 weeks&rdquo;)</li>
+    <li>A reference from a pro who saw your work</li>
+    <li>AI tools you can show you use on the job</li>
+    <li>Intros to companies that are hiring juniors</li>
+  </ul>
+</div>
+
+<h2>The honest part</h2>
+<p class="honest">We won&rsquo;t turn you into a senior in a month. Nobody can. <b>We turn you into an AI-native junior with real work to show.</b> That&rsquo;s the person companies say they can&rsquo;t find.</p>
+
+<h2 id="join">Get on the list</h2>
+<div class="card">
+<form id="f" novalidate>
+  <label for="em">Email</label>
+  <input class="inp" id="em" type="email" autocomplete="email" placeholder="you@email.com" required>
+
+  <label for="nm">First name <span class="opt">(optional)</span></label>
+  <input class="inp" id="nm" type="text" autocomplete="given-name" maxlength="80">
+
+  <label>Your track</label>
+  <div class="chips" data-k="track">
+    <button type="button" class="chip" data-v="accounting">Accounting</button>
+    <button type="button" class="chip" data-v="marketing">Marketing</button>
+    <button type="button" class="chip" data-v="data">Data</button>
+    <button type="button" class="chip" data-v="other">Something else</button>
+  </div>
+
+  <label>Where are you now?</label>
+  <div class="chips" data-k="stage">
+    <button type="button" class="chip" data-v="student">Still studying</button>
+    <button type="button" class="chip" data-v="graduate">Just graduated</button>
+    <button type="button" class="chip" data-v="switcher">Switching careers</button>
+    <button type="button" class="chip" data-v="working">Working, want better</button>
+  </div>
+
+  <label>Where do you live?</label>
+  <div class="chips" data-k="country">
+    <button type="button" class="chip" data-v="us">USA</button>
+    <button type="button" class="chip" data-v="canada">Canada</button>
+    <button type="button" class="chip" data-v="other">Somewhere else</button>
+  </div>
+
+  <div class="dep">
+    <p><b>The first cohort is small.</b> Would you put down a <b>refundable $9 deposit</b> to hold your seat? You get it back if you finish the month.</p>
+    <div class="chips" data-k="deposit">
+      <button type="button" class="chip" data-v="yes">Yes, hold my seat</button>
+      <button type="button" class="chip" data-v="maybe">Maybe, tell me more</button>
+      <button type="button" class="chip" data-v="no">Only if it&rsquo;s free</button>
+    </div>
+    <p class="fine" style="text-align:left;margin:10px 0 0">No payment today. We just want to know.</p>
+  </div>
+
+  <label for="bl">What&rsquo;s stopping you from getting hired right now? <span class="opt">(optional)</span></label>
+  <textarea id="bl" rows="3" maxlength="500" placeholder="Be honest. I read every answer."></textarea>
+
+  <div class="hp" aria-hidden="true"><label for="ws">Website</label><input id="ws" type="text" tabindex="-1" autocomplete="off"></div>
+
+  <div class="err" id="er"></div>
+  <button class="cta" id="go" type="submit" style="margin-top:20px">Join the waitlist &hearts;</button>
+  <p class="fine">We email you once, when the first cohort opens. No spam.</p>
+</form>
+
+<div class="done" id="dn">
+  <div class="big">&#x1F389;</div>
+  <h3>You&rsquo;re on the list.</h3>
+  <p>We&rsquo;ll email you before the first cohort opens. Know someone who keeps hearing &ldquo;you need experience&rdquo;? Send them this:</p>
+  <div class="share">
+    <input class="inp" id="sl" readonly>
+    <button type="button" class="btn2" id="cp">Copy</button>
+  </div>
+  <p style="margin-top:16px"><a href="/" style="color:var(--deep);font-weight:700">Meanwhile, check if your path survives AI &rarr;</a></p>
+</div>
+</div>
+
+<h2>Questions</h2>
+<div class="faq">
+  <details><summary>Is this a job?</summary><p>No. It&rsquo;s a one-month training lab where the practice work is real client work. You pay for the training, not for a job.</p></details>
+  <details><summary>Do you guarantee a job?</summary><p>No. Nobody honest can. We guarantee real work to show, a pro who reviews it, and intros to companies that hire juniors.</p></details>
+  <details><summary>How much will it cost?</summary><p>We&rsquo;re setting the price with the first cohort. People on the waitlist get the founding price.</p></details>
+  <details><summary>Do I need experience?</summary><p>No. That&rsquo;s the point. You need the basics of your field (a course, a degree, or self-study) and about 15 hours a week.</p></details>
+  <details><summary>Why not IT or coding?</summary><p>There are already a hundred coding bootcamps. Accounting, marketing and data juniors have nowhere to get real experience. We start there.</p></details>
+</div>
+
+<footer>
+  Career Glitch Lab is in early testing. Joining the waitlist is free and doesn&rsquo;t commit you to anything.<br>
+  <a href="/">careerglitch.com</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var API = '/api/lab-waitlist';
+  var pick = {track:null, stage:null, country:null, deposit:null};
+  var qs = new URLSearchParams(location.search);
+
+  // Preselect a track from the link (?track=accounting) so a video can send people straight in.
+  var qt = qs.get('track');
+  document.querySelectorAll('.chips').forEach(function(g){
+    var k = g.getAttribute('data-k');
+    g.addEventListener('click', function(e){
+      var b = e.target.closest('.chip'); if (!b) return;
+      g.querySelectorAll('.chip').forEach(function(x){ x.classList.remove('sel'); });
+      b.classList.add('sel'); pick[k] = b.getAttribute('data-v');
+    });
+    if (k === 'track' && qt) {
+      var pre = g.querySelector('.chip[data-v="' + qt.replace(/[^a-z]/g,'') + '"]');
+      if (pre) { pre.classList.add('sel'); pick.track = pre.getAttribute('data-v'); }
+    }
+  });
+
+  function fail(msg){ var er = document.getElementById('er'); er.textContent = msg; er.style.display = 'block'; }
+
+  document.getElementById('f').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('em').value.trim();
+    document.getElementById('er').style.display = 'none';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('Please add a valid email. That’s how we reach you.');
+    if (!pick.track) return fail('Pick your track.');
+    var btn = document.getElementById('go');
+    btn.disabled = true; btn.textContent = 'Saving…';
+    var payload = {
+      email: email,
+      name: document.getElementById('nm').value.trim(),
+      track: pick.track, stage: pick.stage, country: pick.country, deposit: pick.deposit,
+      blocker: document.getElementById('bl').value.trim(),
+      website: document.getElementById('ws').value,
+      src: qs.get('src') || qs.get('w') || '',
+      utm_source: qs.get('utm_source') || '',
+      utm_campaign: qs.get('utm_campaign') || '',
+      ref: qs.get('ref') || '',
+      ua: /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'mobile' : 'desktop'
+    };
+    fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)})
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){
+        if (!r.ok || !j.ok) throw new Error((j && j.error) || 'That did not save. Try again in a moment.');
+        return j;
+      }); })
+      .then(function(j){
+        document.getElementById('f').style.display = 'none';
+        document.getElementById('dn').style.display = 'block';
+        var link = 'https://careerglitch.com/lab' + (j.lead_id ? '?ref=' + encodeURIComponent(j.lead_id.slice(0,8)) : '');
+        document.getElementById('sl').value = link;
+        try { if (window.va) window.va('event', {name:'lab_waitlist', data:{track:pick.track, deposit:pick.deposit||'none'}}); } catch(x){}
+      })
+      .catch(function(err){
+        btn.disabled = false; btn.textContent = 'Join the waitlist ♥';
+        fail(err.message);
+      });
+  });
+
+  document.getElementById('cp').addEventListener('click', function(){
+    var i = document.getElementById('sl'); i.select();
+    try { navigator.clipboard.writeText(i.value); } catch(x){ document.execCommand('copy'); }
+    this.textContent = 'Copied ✓';
+  });
+})();
+</script>
+</body>
+</html>
