@@ -5,12 +5,12 @@
 var STEP_DETAILS = (typeof STEP_DETAILS !== "undefined" && STEP_DETAILS) || {};
 Object.assign(STEP_DETAILS, {
   'elc-g1': {
-    what: 'Choose the paid door first. A registered apprenticeship pays you from year one and charges $0 tuition. A private school can charge $21,325 to about $42,000 and still graduate a helper.',
-    whatRu: 'Сначала выберите дверь, где платят вам. Зарегистрированное ученичество (apprenticeship — оплачиваемое обучение на рабочем месте) платит вам с первого года и берёт $0 за обучение. Частная школа может взять от $21,325 до примерно $42,000 — и всё равно выпустить помощника.',
-    how: ['Search apprenticeship.gov by your ZIP code for electrician programs', 'Check your local IBEW/JATC and one non-union program side by side', 'Price any school from its own tuition page before you talk to its sales team', 'Apply to the apprenticeship first; keep school as the backup, not the plan'],
-    howRu: ['Поищите программы для электриков на apprenticeship.gov по вашему ZIP-коду', 'Сравните местный IBEW/JATC (комитет ученичества профсоюза и подрядчиков) и одну непрофсоюзную программу рядом', 'Возьмите цену любой школы с её собственной страницы оплаты, до разговора с её продавцами', 'Подавайтесь сначала в ученичество; школу держите как запасной вариант, а не как план'],
-    why: 'The apprenticeship door pays about $20.30 an hour in year one on published scales. The school door charges five figures for the same first job.',
-    whyRu: 'Дверь ученичества платит около $20.30 в час в первый год по опубликованным шкалам. Дверь школы берёт пятизначную сумму за ту же первую работу.',
+    what: 'An electrician installs and fixes wiring in buildings. First pick the way in that pays you. A registered apprenticeship pays from year one. It costs $0. A private school can charge $21,325 to about $42,000. And you may still finish as just a helper.',
+    whatRu: 'Электрик прокладывает и чинит проводку в зданиях. Сначала выберите путь, где платят вам. Зарегистрированное ученичество — это учёба прямо на работе. Оно платит с первого года. Учёба стоит $0. Частная школа может взять от $21,325 до примерно $42,000. И после неё вы можете стать просто помощником.',
+    how: ['Search apprenticeship.gov by your ZIP code for electrician programs', 'Compare your local IBEW/JATC (union training program) with one non-union program', 'Check the school\'s price on its own website before you talk to sales', 'Apply to the apprenticeship first. School is only the backup'],
+    howRu: ['Поищите программы для электриков на apprenticeship.gov по вашему ZIP-коду', 'Сравните местный IBEW/JATC (учебная программа профсоюза) и одну программу без профсоюза', 'Узнайте цену школы на её сайте до разговора с продавцами', 'Сначала подайтесь в ученичество. Школа — только запасной вариант'],
+    why: 'This is the shortest and cheapest way in. Apprenticeship pays about $20.30 an hour in year one. School charges five figures for the same first job. AI can\'t pull wire, so this work stays with people.',
+    whyRu: 'Это самый короткий и дешёвый путь. Ученичество платит около $20.30 в час в первый год. Школа берёт пятизначную сумму за ту же первую работу. AI не протянет провод — эта работа остаётся за людьми.',
     links: [
       {
         t: 'Apprenticeship Job Finder — Apprenticeship.gov',
@@ -23,12 +23,12 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'elc-g2': {
-    what: 'Apply inside the window. Apprenticeship classes open once a year and close when the slots fill. One local\'s notice reads: 2026 class closed, 2027 window January 1 to March 31.',
-    whatRu: 'Подавайтесь внутри окна. Классы ученичества открываются раз в год и закрываются, когда места заполнены. Объявление одного профсоюза гласит: класс 2026 закрыт, окно 2027 — с 1 января по 31 марта.',
-    how: ['Find the application dates for every program within driving distance', 'Put the opening date in your calendar, not the closing date', 'Prepare the standard papers early: diploma or GED, transcripts, photo ID, algebra on the transcript', 'Take the aptitude test date as seriously as a job start date'],
-    howRu: ['Найдите даты приёма каждой программы в пределах досягаемости', 'Поставьте в календарь дату открытия, а не закрытия', 'Подготовьте стандартные бумаги заранее: диплом или GED, выписки оценок, удостоверение с фото, алгебру в выписке', 'Относитесь к дате теста на способности как к дате начала работы'],
-    why: 'Missing the window costs a full year, not a semester — the ratio rules cap class sizes by law.',
-    whyRu: 'Пропуск окна стоит полный год, а не семестр: правила соотношения (ratio — сколько учеников может вести один подмастерье) ограничивают размер классов по закону.',
+    what: 'Apply on time. Apprenticeship classes open once a year. They close when the spots fill up. One example: 2026 class closed, 2027 opens January 1 to March 31.',
+    whatRu: 'Подайтесь вовремя. Набор в ученичество — раз в год. Он закрывается, когда места кончаются. Пример: набор 2026 закрыт, на 2027 — с 1 января по 31 марта.',
+    how: ['Find the application dates of every program near you', 'Put the opening date in your calendar, not the closing date', 'Get your papers ready early: diploma or GED, grades, photo ID, algebra in your grades', 'Treat the test date like the first day of a job. Ask ChatGPT or Claude to drill you on algebra'],
+    howRu: ['Найдите даты приёма всех программ рядом с вами', 'Поставьте в календарь дату открытия, а не закрытия', 'Заранее соберите бумаги: диплом или GED, оценки, удостоверение с фото, алгебру в оценках', 'Относитесь к дате теста как к первому дню работы. Попросите ChatGPT или Claude погонять вас по алгебре'],
+    why: 'Miss the dates and you lose a whole year. By law, classes can\'t be bigger. So set a reminder now!',
+    whyRu: 'Пропустите даты — потеряете целый год. По закону классы нельзя сделать больше. Поставьте напоминание прямо сейчас!',
     links: [
       {
         t: 'Apprenticeship — IBEW Local 269 (a JATC example)',
@@ -41,12 +41,12 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'elc-g3': {
-    what: 'Get the state apprentice or training card before you count hours. The card is your registration with the state. Hours worked without it often do not count toward the license.',
-    whatRu: 'Получите карту ученика (apprentice/training card — регистрация в штате) до того, как начнёте считать часы. Карта — это ваша регистрация в штате. Часы без неё часто не засчитываются в лицензию.',
-    how: ['Find your state board\'s apprentice registration page', 'Register before your first counted shift, or in the first weeks', 'Keep a photo of the card on your phone', 'Ask your sponsor to confirm your hours are being reported'],
-    howRu: ['Найдите страницу регистрации учеников board вашего штата', 'Зарегистрируйтесь до первой засчитываемой смены или в первые недели', 'Держите фото карты в телефоне', 'Попросите вашего спонсора подтвердить, что ваши часы подаются в отчётность'],
-    why: 'The license needs about 8,000 documented hours. Undocumented hours are years you cannot prove.',
-    whyRu: 'Лицензии нужно около 8,000 задокументированных часов. Незадокументированные часы — годы, которые вы не можете доказать.',
+    what: 'Get your state apprentice card before you count hours. The card registers you with the state. Hours without it often don\'t count toward the license.',
+    whatRu: 'Получите карту ученика в штате до того, как считать часы. Карта — это ваша регистрация в штате. Часы без неё часто не идут в лицензию.',
+    how: ['Find the page where your state registers apprentices', 'Register before your first counted shift, or in the first weeks', 'Keep a photo of the card on your phone', 'Ask your sponsor (the employer who trains you) to confirm your hours are reported'],
+    howRu: ['Найдите страницу, где ваш штат регистрирует учеников', 'Зарегистрируйтесь до первой смены, которая идёт в зачёт, или в первые недели', 'Держите фото карты в телефоне', 'Попросите спонсора (работодателя, который вас учит) подтвердить, что ваши часы записывают'],
+    why: 'The license needs about 8,000 recorded hours. Hours with no record are hard to prove. A simple log keeps your path short.',
+    whyRu: 'Для лицензии нужно около 8,000 записанных часов. Часы без записи трудно доказать. Простой журнал держит ваш путь коротким.',
     links: [
       {
         t: 'BLS Occupational Outlook Handbook — Electricians',
@@ -55,12 +55,12 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'elc-g4': {
-    what: 'Learn the ratio rule in your state. The ratio says how many apprentices one journeyman may supervise — on many sites it is one. That number decides how many doors exist near you.',
-    whatRu: 'Выучите правило соотношения (ratio) в вашем штате. Оно говорит, сколько учеников может вести один подмастерье (journeyman); на многих объектах — одного. Это число решает, сколько дверей существует рядом с вами.',
-    how: ['Search your state board\'s site for \'apprentice ratio\'', 'Ask the JATC or program what ratio they hire under', 'If your state is 1:1, apply to more programs — each slot is scarcer', 'Remember the rule when you are the journeyman: it becomes your hiring limit too'],
-    howRu: ['Поищите \'apprentice ratio\' на сайте board вашего штата', 'Спросите JATC или программу, по какому соотношению они нанимают', 'Если в вашем штате 1:1, подавайтесь в больше программ — каждое место дефицитнее', 'Помните правило, когда станете подмастерьем: оно станет и вашим лимитом найма'],
-    why: 'A master electrician\'s own words: he wants to hire an apprentice every year, and the rules will not let him keep them all on one crew.',
-    whyRu: 'Слова самого мастера-электрика: он хочет нанимать ученика каждый год, а правила не дают держать всех на одной бригаде.',
+    what: 'Learn the ratio rule in your state. It says how many apprentices one journeyman (licensed electrician) can lead. Often it\'s just one. So it decides how many spots exist near you.',
+    whatRu: 'Узнайте правило соотношения в вашем штате. Оно говорит, скольких учеников может вести один подмастерье — электрик с лицензией. Часто — только одного. От этого зависит, сколько мест есть рядом с вами.',
+    how: ['Search your state\'s licensing site for \'apprentice ratio\'', 'Ask the program what ratio they hire by', 'If your state is 1:1, apply to more programs. Spots are rarer', 'Remember this rule when you become a journeyman. It limits your hiring too'],
+    howRu: ['Поищите \'apprentice ratio\' на сайте лицензий вашего штата', 'Спросите программу, по какому соотношению они нанимают', 'Если в штате 1:1, подавайтесь в больше программ. Мест меньше', 'Помните это правило, когда станете подмастерьем. Оно ограничит и ваш найм'],
+    why: 'Few spots means you apply wider to start sooner. A master electrician says it himself: he wants to hire an apprentice every year. The rules won\'t let him keep them all on one team.',
+    whyRu: 'Мест мало — подавайтесь шире, чтобы начать раньше. Мастер-электрик говорит сам: он хочет брать ученика каждый год. Но правила не дают держать всех в одной бригаде.',
     links: [
       {
         t: 'BLS Occupational Outlook Handbook — Electricians',
@@ -69,21 +69,21 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'elc-p1': {
-    what: 'Log your 8,000 hours by work type as you go — commercial, industrial, service, residential. A log is a notebook or notes app with one line per day.',
-    whatRu: 'Записывайте ваши 8,000 часов по видам работ по ходу дела — коммерческая, промышленная, сервисная, жилая. Журнал — это блокнот или приложение заметок, одна строка в день.',
-    how: ['Write date, site and work type every day', 'Keep a weekly total against your program\'s records', 'Fix mismatches the same month, not at graduation', 'Keep the log after the license — it is your experience proof for the next seat'],
-    howRu: ['Пишите дату, объект и вид работы каждый день', 'Сверяйте недельную сумму с записями вашей программы', 'Исправляйте расхождения в том же месяце, а не на выпуске', 'Храните журнал и после лицензии — это ваше доказательство опыта для следующего места'],
-    why: 'The mix you can prove decides the seats you can take later. Industrial hours open industrial doors.',
-    whyRu: 'Состав, который вы можете доказать, решает, какие места вы сможете занять позже. Промышленные часы открывают промышленные двери.',
+    what: 'Write down your 8,000 hours by work type as you go: commercial, industrial, service, home. A log is just a notebook or notes app. One line per day.',
+    whatRu: 'Записывайте ваши 8,000 часов по видам работ сразу: офисы, заводы, ремонт, дома. Журнал — это просто блокнот или заметки. Одна строка в день.',
+    how: ['Write date, site and work type every day', 'Each week, check your total against your program\'s records', 'Fix mistakes the same month, not at the end', 'Keep the log after you get the license. It proves your experience for the next job'],
+    howRu: ['Пишите дату, объект и вид работы каждый день', 'Каждую неделю сверяйте сумму с записями программы', 'Исправляйте ошибки в тот же месяц, а не в конце', 'Храните журнал и после лицензии. Он доказывает ваш опыт для следующей работы'],
+    why: 'The work you can prove decides your next job and pay. Factory hours open factory jobs. And factories are among the best-paid sites.',
+    whyRu: 'Опыт, который вы можете доказать, решает следующую работу и оплату. Часы на заводе открывают работу на заводах. А заводы — среди самых денежных объектов.',
     links: []
   },
   'elc-p2': {
-    what: 'Pass the journeyman exam on the first cycle after your hours complete. The journeyman license is the state paper that lets you work unsupervised. It is named in 24 of 36 live postings.',
-    whatRu: 'Сдайте экзамен на подмастерье (journeyman) в первый цикл после завершения часов. Лицензия подмастерья — бумага штата, которая разрешает работать без присмотра. Её называют в 24 из 36 живых вакансий.',
-    how: ['Book the exam as soon as your hours are certified', 'Study the code book (NEC — the national electrical rulebook) the way the exam tests it: by lookup speed', 'Take a prep course only if it drills timed lookups, not lectures', 'If you fail, rebook immediately — the knowledge is freshest now'],
-    howRu: ['Запишитесь на экзамен, как только ваши часы подтверждены', 'Учите книгу правил (NEC — национальный свод правил электромонтажа) так, как её проверяет экзамен: по скорости поиска', 'Берите подготовительный курс, только если он тренирует поиск на время, а не лекции', 'Если не сдали, перезапишитесь сразу — знания сейчас самые свежие'],
-    why: 'Every top posting in the scan screens for this license. It is the product of the whole apprenticeship.',
-    whyRu: 'Каждая топовая вакансия в скане проверяет эту лицензию. Она — продукт всего ученичества.',
+    what: 'Pass the journeyman exam right after your hours are done. This state license lets you work without a boss watching. 24 of 36 real job posts ask for it.',
+    whatRu: 'Сдайте экзамен на подмастерье сразу, как наберёте часы. Эта лицензия штата разрешает работать без присмотра начальника. Её просят в 24 из 36 настоящих вакансий.',
+    how: ['Book the exam as soon as your hours are certified', 'Study the code book (NEC — the national electrical rules) like the exam tests it: how fast you find things. ChatGPT or Claude can quiz you on where rules live', 'Take a prep course only if it trains timed lookups, not lectures', 'Didn\'t pass? That\'s OK. Sign up again right away. You remember the most now'],
+    howRu: ['Запишитесь на экзамен, как только ваши часы подтверждены', 'Учите книгу правил (NEC — национальные правила электромонтажа) так, как проверяет экзамен: на скорость поиска. ChatGPT или Claude погоняют вас по разделам', 'Берите курс подготовки, только если там тренируют поиск на время, а не лекции', 'Не сдали? Ничего страшного. Сразу записывайтесь снова — сейчас вы помните больше всего'],
+    why: 'Every top job post checks for this license. It\'s what the whole apprenticeship is for. Pass soon, and the higher pay starts sooner.',
+    whyRu: 'Все лучшие вакансии требуют эту лицензию. Ради неё и нужно всё ученичество. Сдадите раньше — раньше начнёте получать больше.',
     links: [
       {
         t: 'BLS Occupational Outlook Handbook — Electricians',
@@ -92,21 +92,21 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'elc-p3': {
-    what: 'Add the safety cards the big sites screen for: OSHA 30 (the 30-hour construction safety course) and NFPA 70E (electrical safety in the workplace — how to work around live energy).',
-    whatRu: 'Добавьте карты безопасности, которые проверяют большие объекты: OSHA 30 (30-часовой курс безопасности в строительстве) и NFPA 70E (электробезопасность на рабочем месте — как работать рядом с энергией под напряжением).',
-    how: ['Ask your sponsor which cards their big-site clients require', 'Take OSHA 30 first — it is the common screen', 'Add NFPA 70E before applying to industrial or data-center contractors', 'Keep both cards current; expired safety cards fail screens silently'],
-    howRu: ['Спросите спонсора, какие карты требуют их клиенты на больших объектах', 'Сначала возьмите OSHA 30 — это общий фильтр', 'Добавьте NFPA 70E до подачи в промышленные или дата-центр компании', 'Держите обе карты действующими; просроченные карты безопасности молча проваливают проверки'],
-    why: 'Data-center and industrial postings screen for these cards before they read your hours.',
-    whyRu: 'Дата-центр и промышленные вакансии проверяют эти карты до того, как читают ваши часы.',
+    what: 'Add the safety cards big sites check for: OSHA 30 (30-hour construction safety course) and NFPA 70E (how to work safely near live power).',
+    whatRu: 'Добавьте карты безопасности, которые требуют большие объекты: OSHA 30 (30-часовой курс безопасности на стройке) и NFPA 70E (как безопасно работать рядом с током).',
+    how: ['Ask your sponsor which cards their big clients require', 'Take OSHA 30 first. Almost everyone checks for it', 'Add NFPA 70E before applying to factory or data-center companies', 'Keep both cards up to date. An expired card quietly gets you rejected'],
+    howRu: ['Спросите спонсора, какие карты требуют их крупные клиенты', 'Сначала пройдите OSHA 30. Его требуют почти все', 'Добавьте NFPA 70E до того, как подаваться на заводы или в дата-центры', 'Следите, чтобы обе карты были действующими. С просроченной картой вам тихо откажут'],
+    why: 'AI runs in data centers, and they need electricians. Data centers and factories check these cards before they even look at your hours.',
+    whyRu: 'AI работает в дата-центрах, и им нужны электрики. Дата-центры и заводы смотрят на эти карты раньше, чем на ваши часы.',
     links: []
   },
   'elc-p4': {
-    what: 'Keep one specialty current: EV charging, solar plus storage, generators, or controls wiring. These are the demand drivers the postings name.',
-    whatRu: 'Держите одну специализацию в актуальном состоянии: зарядка электромобилей (EV), солнечные системы с батареями, генераторы или проводка систем управления (controls). Это драйверы спроса, которые называют вакансии.',
-    how: ['Pick the specialty your local postings repeat most', 'Take the manufacturer\'s own training for that equipment', 'Log every specialty hour separately in your log', 'Re-check the choice once a year against fresh postings'],
-    howRu: ['Выберите специализацию, которую чаще всего повторяют местные вакансии', 'Пройдите обучение самого производителя этого оборудования', 'Записывайте каждый час специализации отдельно в журнале', 'Перепроверяйте выбор раз в год по свежим вакансиям'],
-    why: 'The general license gets you hired. The specialty decides which band of the pay table you land in.',
-    whyRu: 'Общая лицензия даёт работу. Специализация решает, в какой ряд таблицы оплаты вы попадёте.',
+    what: 'Keep one specialty fresh: EV charging, solar with batteries, generators, or control wiring. Job posts ask for these the most.',
+    whatRu: 'Держите одну специализацию в форме: зарядки для электромобилей (EV), солнечные панели с батареями, генераторы или проводка систем управления. Их чаще всего просят в вакансиях.',
+    how: ['Pick the specialty local job posts ask for most. AI can sort a stack of job posts for you in minutes', 'Take the training from the equipment maker', 'Write down every specialty hour separately', 'Once a year, check your choice against new job posts'],
+    howRu: ['Выберите специализацию, которую чаще всего просят местные вакансии. AI разберёт пачку вакансий за минуты', 'Пройдите обучение у производителя этого оборудования', 'Записывайте часы по специализации отдельно', 'Раз в год сверяйте выбор со свежими вакансиями'],
+    why: 'The license gets you hired. The specialty decides how much you get paid. This is your road to the top.',
+    whyRu: 'Лицензия даёт работу. Специализация решает, сколько вам платят. Это ваша дорога наверх.',
     links: [
       {
         t: 'BLS Occupational Outlook Handbook — Electricians',
@@ -115,30 +115,30 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'elc-k1': {
-    what: 'Aim at the building type that pays. Data centers, plants and hospitals post $48.50–$62.00 an hour for the same license that posts $24–$30 an hour in residential new construction.',
-    whatRu: 'Цельтесь в тип зданий, который платит. Дата-центры, заводы и больницы публикуют $48.50–$62.00 в час за ту же лицензию, которая в жилом новострое публикует $24–$30 в час.',
-    how: ['List the industrial and data-center contractors hiring in your region', 'Apply by name to those postings, not to the general pool', 'Lead your resume with industrial hours from your log', 'Keep one residential option only as the bridge, not the destination'],
-    howRu: ['Составьте список промышленных и дата-центр подрядчиков, нанимающих в вашем регионе', 'Подавайтесь по именам в эти вакансии, а не в общий поток', 'Ставьте в резюме первыми промышленные часы из вашего журнала', 'Держите жилой вариант только как мост, а не как назначение'],
-    why: 'Pay in this trade is set by the building, not by the wrench. The scan\'s top and bottom bands differ by more than double.',
-    whyRu: 'Оплату в этом ремесле задаёт здание, а не ключ. Верхняя и нижняя вилки скана различаются больше чем вдвое.',
+    what: 'Go for the buildings that pay. Data centers, factories and hospitals pay $48.50–$62.00 an hour. New homes pay $24–$30 an hour for the same license.',
+    whatRu: 'Выбирайте здания, где платят. Дата-центры, заводы и больницы платят $48.50–$62.00 в час. На стройке жилых домов за ту же лицензию — $24–$30 в час.',
+    how: ['List the factory and data-center companies hiring near you', 'Apply to their job posts directly, not to the general pool', 'Put your factory hours from the log first on your resume', 'Take home building work only as a step, not the goal'],
+    howRu: ['Составьте список заводских компаний и дата-центров, которые нанимают рядом', 'Подавайтесь прямо в их вакансии, а не в общий поток', 'Поставьте в резюме первыми часы на заводах из журнала', 'Работу на жилых домах берите только как ступеньку, а не как цель'],
+    why: 'In this trade, the building sets your pay, not the tool. Top pay is more than double the lowest. Data centers, where AI lives, are among the best-paid sites.',
+    whyRu: 'В этом ремесле оплату задаёт здание, а не инструмент. Самая высокая оплата больше самой низкой вдвое с лишним. Дата-центры, где живёт AI, — среди самых денежных объектов.',
     links: []
   },
   'elc-k2': {
-    what: 'If you take service work, take it hourly or guaranteed. Commission-only pay converts your license into a sales quota set by someone else.',
-    whatRu: 'Если берёте сервисную работу, берите почасовую или гарантированную оплату. Оплата только с комиссии превращает вашу лицензию в план продаж, который поставил кто-то другой.',
-    how: ['Read the pay paragraph of any offer before the duties paragraph', 'Ask what happens to your pay in a slow week — in writing', 'Compare against the posted hourly bands: licensed service runs $45–$65 an hour', 'Walk away from any offer that will not put the guarantee in writing'],
-    howRu: ['Читайте абзац про оплату в любом предложении до абзаца про обязанности', 'Спросите, что будет с вашей оплатой в медленную неделю, — письменно', 'Сравните с опубликованными почасовыми вилками: лицензированный сервис идёт по $45–$65 в час', 'Уходите от предложения, которое не готово дать гарантию письменно'],
-    why: 'The same license posts at $45–$65 an hour with no quota. The quota is a choice the employer makes, not a fact of the trade.',
-    whyRu: 'Та же лицензия публикуется по $45–$65 в час без плана продаж. План — это выбор работодателя, а не факт ремесла.',
+    what: 'If you take repair work, get hourly or guaranteed pay. Commission-only turns your license into a sales target someone else sets.',
+    whatRu: 'Если берёте ремонтную работу, просите почасовую или гарантированную оплату. Оплата только с продаж превращает лицензию в план продаж от чужого человека.',
+    how: ['Read the pay part of any offer before the duties part', 'Ask in writing: what happens to your pay in a slow week?', 'Compare with real hourly pay: licensed repair work pays $45–$65 an hour', 'If they won\'t write the guarantee down, it\'s OK to say no'],
+    howRu: ['В любом предложении сначала читайте про оплату, потом про обязанности', 'Спросите письменно: что будет с оплатой в неделю без заказов?', 'Сравните с реальной почасовой оплатой: ремонт с лицензией — $45–$65 в час', 'Если гарантию не пишут на бумаге, смело отказывайтесь'],
+    why: 'The same license pays $45–$65 an hour with no sales target. The target is the employer\'s choice, not how the trade works.',
+    whyRu: 'Та же лицензия даёт $45–$65 в час без плана продаж. План — выбор работодателя, а не правило ремесла.',
     links: []
   },
   'elc-k3': {
-    what: 'After the journeyman card, price the master exam. The master license lets you supervise others, pull permits, and — in most states — is the license a shop is built on.',
-    whatRu: 'После карты подмастерья оцените экзамен на мастера (master). Лицензия мастера разрешает руководить другими, брать разрешения на работы (permits) и — в большинстве штатов — является лицензией, на которой строится фирма.',
-    how: ['Check your state\'s master requirements: years at journeyman level plus the exam', 'Calendar the earliest date you qualify', 'Study business basics alongside the code: estimating, permits, inspections', 'Sit the exam in the first cycle you are eligible'],
-    howRu: ['Проверьте требования вашего штата к мастеру: годы на уровне подмастерья плюс экзамен', 'Поставьте в календарь самую раннюю дату, когда вы подходите', 'Учите основы бизнеса рядом с правилами: сметы, разрешения, инспекции', 'Сдавайте экзамен в первый цикл, когда вы имеете право'],
-    why: 'Every rung above journeyman — foreman, estimator, owner — screens for the master paper or prices like it.',
-    whyRu: 'Каждая ступень выше подмастерья — прораб, сметчик, владелец — проверяет бумагу мастера или платит как за неё.',
+    what: 'After the journeyman card, look at the master exam. A master license lets you lead others and get permits. In most states, you need it to open your own shop.',
+    whatRu: 'После карты подмастерья посмотрите на экзамен на мастера. С лицензией мастера можно руководить другими и получать разрешения на работы. В большинстве штатов без неё не открыть свою фирму.',
+    how: ['Check what your state needs for master: years as a journeyman plus the exam', 'Put the first date you qualify in your calendar', 'Learn business basics too: estimates, permits, inspections', 'Take the exam as soon as you\'re allowed'],
+    howRu: ['Узнайте, что нужно для мастера в вашем штате: годы работы подмастерьем плюс экзамен', 'Поставьте в календарь первую дату, когда вам можно сдавать', 'Учите и основы бизнеса: сметы, разрешения, проверки', 'Сдавайте экзамен, как только вам разрешат'],
+    why: 'Every step up — foreman, estimator, owner — asks for the master license or pays like it. This is how you reach top pay.',
+    whyRu: 'Каждая ступень выше — прораб, сметчик, владелец — требует лицензию мастера или платит как за неё. Так вы дойдёте до самой высокой оплаты.',
     links: [
       {
         t: 'BLS Occupational Outlook Handbook — Electricians',
@@ -147,39 +147,39 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'elc-k4': {
-    what: 'If you go out on your own, get the contractor license and insurance before the first solo job. In most states the master license comes first; the contractor license is what lets the business sign work.',
-    whatRu: 'Если уходите в своё дело, получите лицензию подрядчика (contractor license) и страховку до первой сольной работы. В большинстве штатов сначала идёт лицензия мастера; лицензия подрядчика разрешает бизнесу подписывать работы.',
-    how: ['Read your state\'s contractor rules end to end', 'Price insurance and bonding before you price jobs', 'Register the business and the license in the same month', 'Start with maintenance agreements — recurring work is the asset buyers pay for'],
-    howRu: ['Прочитайте правила вашего штата для подрядчиков целиком', 'Оцените страховку и поручительство (bonding) до оценки работ', 'Зарегистрируйте бизнес и лицензию в одном месяце', 'Начните с договоров обслуживания — повторяющаяся работа и есть актив, за который платят покупатели'],
-    why: 'Investor platforms have closed 800+ trade deals since 2022 buying shops. What they buy is the license, the name and the recurring book.',
-    whyRu: 'Инвесторские платформы закрыли более 800 сделок в ремеслах с 2022 года, покупая фирмы. Они покупают лицензию, имя и повторяющуюся клиентскую базу.',
+    what: 'Going solo? Get the contractor license and insurance before your first job alone. In most states the master license comes first. The contractor license lets your business sign contracts.',
+    whatRu: 'Уходите в своё дело? Получите лицензию подрядчика и страховку до первого заказа. В большинстве штатов сначала нужна лицензия мастера. Лицензия подрядчика разрешает вашей фирме подписывать договоры.',
+    how: ['Read your state\'s contractor rules fully', 'Price insurance and bonding (a money guarantee for clients) before you price jobs', 'Register the business and the license in the same month', 'Start with service contracts. Repeat work is what buyers pay for'],
+    howRu: ['Прочитайте правила для подрядчиков вашего штата полностью', 'Узнайте цену страховки и поручительства (денежная гарантия для клиентов) до расчёта заказов', 'Зарегистрируйте фирму и лицензию в один месяц', 'Начните с договоров на обслуживание. Покупатели платят именно за повторную работу'],
+    why: 'Your own shop is the top of this path. Investors have bought 800+ trade shops since 2022. They buy the license, the name and the repeat clients.',
+    whyRu: 'Своя фирма — вершина этого пути. С 2022 года инвесторы купили более 800 фирм в ремёслах. Они покупают лицензию, имя и постоянных клиентов.',
     links: []
   },
   'elc-k5': {
-    what: 'Re-check your state\'s ratio and reciprocity rules yearly. Reciprocity means another state honors your license. A license that travels is worth more every year the shortage lasts.',
-    whatRu: 'Перепроверяйте правила соотношения и взаимного признания (reciprocity — когда другой штат признаёт вашу лицензию) каждый год. Лицензия, которая путешествует, стоит дороже каждый год, пока длится нехватка.',
-    how: ['List the states that recognize your license today', 'Watch states rewriting trade law — several did in 2026', 'If a data-center state borders yours, price the move with real postings', 'Keep your continuing-education hours current so the license never lapses'],
-    howRu: ['Составьте список штатов, которые признают вашу лицензию сегодня', 'Следите за штатами, переписывающими законы о ремёслах, — несколько сделали это в 2026 году', 'Если штат с дата-центрами граничит с вашим, оцените переезд по настоящим вакансиям', 'Держите часы повышения квалификации в срок, чтобы лицензия никогда не просрочилась'],
-    why: 'The shortage is national but the pay is local. Mobility is the journeyman\'s raise that no boss can veto.',
-    whyRu: 'Нехватка национальная, а оплата местная. Мобильность — это прибавка подмастерья, которую ни один босс не может отменить.',
+    what: 'Each year, check your state\'s ratio and reciprocity rules. Reciprocity means another state accepts your license. A license that works in many states is worth more while workers are scarce.',
+    whatRu: 'Каждый год проверяйте правила соотношения и взаимного признания — когда другой штат принимает вашу лицензию. Лицензия, которая работает в разных штатах, стоит дороже, пока рабочих не хватает.',
+    how: ['List the states that accept your license today', 'Watch states that change trade laws. Several did in 2026', 'If a state with data centers is next to yours, check the move against real job posts', 'Keep your training hours up to date so the license never expires'],
+    howRu: ['Составьте список штатов, которые принимают вашу лицензию сегодня', 'Следите за штатами, которые меняют законы о ремёслах. Несколько сделали это в 2026 году', 'Если рядом штат с дата-центрами, оцените переезд по настоящим вакансиям', 'Вовремя набирайте часы обучения, чтобы лицензия не истекла'],
+    why: 'Workers are scarce everywhere, but pay is local. Moving is a raise no boss can block.',
+    whyRu: 'Рабочих не хватает везде, а платят по-разному в каждом месте. Переезд — прибавка, которую не запретит ни один начальник.',
     links: []
   },
   'elc-k6': {
-    what: 'Stay off the prefab-shop floor as your final stop. Prefab means factory-built assemblies — electrical rooms, racked conduit, prewired panels. The work is real, but shop hours pay less and may not count toward the license the same way in your state.',
-    whatRu: 'Не оставайтесь на полу цеха заготовок (prefab — заводская сборка: электрические помещения, собранные трубы, готовые щиты) как на конечном месте. Работа настоящая, но цеховые часы платят меньше и могут не засчитываться в лицензию так же в вашем штате.',
-    how: ['If you take a prefab season, confirm in writing how the hours are reported', 'Keep field hours in your log separately from shop hours', 'Rotate back to field work before the season becomes the seat', 'Learn the model side (BIM drawings) while you are there — that skill travels up'],
-    howRu: ['Если берёте сезон в цехе, подтвердите письменно, как подаются часы', 'Держите полевые часы в журнале отдельно от цеховых', 'Возвращайтесь в полевую работу до того, как сезон станет местом', 'Выучите сторону моделей (чертежи BIM) пока вы там — этот навык движется вверх'],
-    why: 'Contractors\' own publications describe prefab growing fast on hospitals and data centers. It moves hours; it does not have to move your ceiling.',
-    whyRu: 'Публикации самих подрядчиков описывают быстрый рост prefab на больницах и дата-центрах. Он двигает часы; он не обязан двигать ваш потолок.',
+    what: 'Don\'t stay in a prefab shop for good. Prefab means building parts in a factory: electrical rooms, pipe racks, ready panels. The work is real. But shop hours pay less and may not count toward the license the same way.',
+    whatRu: 'Не оставайтесь в цеху сборки навсегда. Там детали собирают на заводе: электрощитовые, трубы, готовые щиты. Работа настоящая. Но в цеху платят меньше, и часы могут не идти в лицензию так же.',
+    how: ['If you work a prefab season, get in writing how the hours are reported', 'Log site hours apart from shop hours', 'Go back to site work before the season becomes your job', 'Learn BIM drawings (digital building models) while there. That skill helps you move up'],
+    howRu: ['Если работаете сезон в цеху, письменно уточните, как записывают часы', 'Записывайте часы на объекте отдельно от часов в цеху', 'Вернитесь на объекты, пока сезон не стал вашей работой', 'Пока вы там, выучите чертежи BIM (цифровые модели зданий). Этот навык помогает расти'],
+    why: 'Contractors say prefab is growing fast at hospitals and data centers. It moves hours around. It doesn\'t have to limit your pay.',
+    whyRu: 'Сами подрядчики пишут, что сборка в цеху быстро растёт в больницах и дата-центрах. Она меняет, где идут часы. Но не обязана ограничивать вашу оплату.',
     links: []
   },
   'hvc-g1': {
-    what: 'Get the EPA 608 card first — Universal if you can. EPA 608 is the federal certificate for handling refrigerant. Without it you cannot legally do refrigerant work, and no shop can bill you out as a technician.',
-    whatRu: 'Сначала получите карту EPA 608 — Universal (все типы), если можете. EPA 608 — федеральный сертификат на работу с хладагентом (refrigerant — газ в системе охлаждения). Без него вы не можете легально работать с хладагентом, и ни одна фирма не может выставлять вас клиенту как техника.',
-    how: ['Read the EPA Section 608 page for the certificate types', 'Pick Universal — it covers every type and is what commercial shops ask for', 'Prepare with a practice exam, then book an approved tester', 'Keep the card number in your phone and your resume'],
-    howRu: ['Прочитайте страницу EPA Section 608 о типах сертификатов', 'Выберите Universal — он покрывает все типы, и его просят коммерческие фирмы', 'Подготовьтесь на пробном экзамене и запишитесь к одобренному экзаменатору', 'Держите номер карты в телефоне и в резюме'],
-    why: '13 of 27 postings name EPA 608; every one of the 13 requires it. It is the trade\'s one federal gate.',
-    whyRu: '13 из 27 вакансий называют EPA 608; все 13 его требуют. Это единственная федеральная дверь ремесла.',
+    what: 'An HVAC tech installs and fixes heating and cooling. First get the EPA 608 card — Universal if you can. EPA 608 is the federal certificate for handling refrigerant (the cooling gas). Without it, refrigerant work is illegal. And no shop can send you to clients.',
+    whatRu: 'Техник HVAC ставит и чинит отопление и кондиционеры. Сначала получите карту EPA 608 — Universal (все типы), если получится. EPA 608 — федеральный сертификат для работы с хладагентом (газ в системе охлаждения). Без него работать с хладагентом незаконно. И ни одна фирма не отправит вас к клиентам.',
+    how: ['Read the EPA Section 608 page about the certificate types', 'Pick Universal. It covers every type, and commercial shops ask for it', 'Do a practice exam, then book an approved tester. ChatGPT or Claude can quiz you for free', 'Keep the card number in your phone and your resume'],
+    howRu: ['Прочитайте страницу EPA Section 608 о видах сертификатов', 'Выберите Universal. Он покрывает все типы, и его просят крупные фирмы', 'Пройдите пробный экзамен, потом запишитесь к одобренному экзаменатору. ChatGPT или Claude погоняют вас бесплатно', 'Держите номер карты в телефоне и в резюме'],
+    why: 'This card is your fastest ticket in. 13 of 27 job posts name EPA 608. All 13 require it. It\'s the only federal must-have in this trade.',
+    whyRu: 'Эта карта — самый быстрый вход. 13 из 27 вакансий упоминают EPA 608. Все 13 его требуют. Это единственное федеральное обязательное условие в ремесле.',
     links: [
       {
         t: 'Section 608 Technician Certification — US EPA',
@@ -188,12 +188,12 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'hvc-g2': {
-    what: 'Enter through a paid helper or apprentice seat, not a $21K–$42K diploma. Postings that take beginners pay them. The schools that charge them still graduate helpers.',
-    whatRu: 'Входите через оплачиваемое место помощника или ученика, а не через диплом за $21K–$42K. Вакансии, которые берут новичков, им платят. Школы, которые берут с них деньги, всё равно выпускают помощников.',
-    how: ['Apply to helper seats that name paid training', 'Ask what the seat pays after training — in writing', 'Price any school against the EPA exam route before enrolling', 'Keep the apprenticeship.gov finder as your second door'],
-    howRu: ['Подавайтесь в места помощников, где названо оплачиваемое обучение', 'Спросите, сколько платит место после обучения, — письменно', 'Сравните любую школу с путём через экзамен EPA до записи', 'Держите поиск apprenticeship.gov как вторую дверь'],
-    why: 'The scan\'s own doors: a union apprentice posting pays $15–$30 an hour. The diploma route charges five figures to reach the same first seat.',
-    whyRu: 'Двери самого скана: вакансия профсоюзного ученика платит $15–$30 в час. Путь диплома берёт пятизначную сумму за то же первое место.',
+    what: 'Start as a paid helper or apprentice, not with a $21K–$42K diploma. Jobs that take beginners pay them. Schools charge beginners and still turn out helpers.',
+    whatRu: 'Начните как оплачиваемый помощник или ученик, а не с диплома за $21K–$42K. Работа для новичков им платит. Школы берут с новичков деньги и всё равно выпускают помощников.',
+    how: ['Apply to helper jobs that say training is paid', 'Ask in writing what the job pays after training', 'Before signing up for a school, compare it with just taking the EPA exam', 'Keep the apprenticeship.gov search as your backup way in'],
+    howRu: ['Подавайтесь на работу помощника, где обучение оплачивают', 'Спросите письменно, сколько платят после обучения', 'Прежде чем идти в школу, сравните её с простой сдачей экзамена EPA', 'Держите поиск на apprenticeship.gov как запасной путь'],
+    why: 'A paid start is shorter and cheaper. A union apprentice job pays $15–$30 an hour. The diploma costs five figures to get the same first job. A free AI helper can explain the theory along the way.',
+    whyRu: 'Старт с зарплатой короче и дешевле. Профсоюзное ученичество платит $15–$30 в час. Диплом стоит пятизначную сумму ради той же первой работы. Теорию по пути объяснит бесплатный AI-помощник.',
     links: [
       {
         t: 'Apprenticeship Job Finder — Apprenticeship.gov',
@@ -202,12 +202,12 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'hvc-g3': {
-    what: 'Learn your state\'s rule. Some states license HVAC technicians. Some license only the contractor. Know which paper your state actually checks before you pay for anyone\'s version of it.',
-    whatRu: 'Выучите правило вашего штата. Некоторые штаты лицензируют техников HVAC. Некоторые — только подрядчика (contractor). Знайте, какую бумагу ваш штат действительно проверяет, прежде чем платить за чужую версию.',
-    how: ['Find your state board\'s HVAC page', 'Write down whether the tech, the contractor, or both need a license', 'Ask local postings what they check — they print it', 'File the answer where your EPA card lives'],
-    howRu: ['Найдите страницу HVAC board вашего штата', 'Запишите, кому нужна лицензия: технику, подрядчику или обоим', 'Спросите местные вакансии, что они проверяют, — они это печатают', 'Храните ответ там же, где вашу карту EPA'],
-    why: 'The federal card is national, but the license is local. Paying for the wrong paper is the quiet cost in this trade.',
-    whyRu: 'Федеральная карта национальная, а лицензия местная. Оплата не той бумаги — тихая цена в этом ремесле.',
+    what: 'Learn your state\'s rule. Some states license HVAC (heating and cooling) technicians. Some license only the contractor. Know what your state really checks before you pay for anything.',
+    whatRu: 'Узнайте правило вашего штата. Где-то лицензию получают техники HVAC (отопление и кондиционеры). Где-то — только подрядчик. Узнайте, что ваш штат правда проверяет, прежде чем за что-то платить.',
+    how: ['Find your state\'s HVAC licensing page', 'Write down whether the tech, the contractor, or both need a license', 'Look at what local job posts check. They list it', 'Keep the answer next to your EPA card'],
+    howRu: ['Найдите страницу лицензий HVAC вашего штата', 'Запишите, кому нужна лицензия: технику, подрядчику или обоим', 'Посмотрите, что проверяют местные вакансии. Они это пишут', 'Храните ответ рядом с картой EPA'],
+    why: 'The federal card works everywhere. The license is local. Paying for the wrong paper is a hidden cost here.',
+    whyRu: 'Федеральная карта действует везде. А лицензия — своя в каждом штате. Заплатить не за ту бумагу — частая скрытая трата.',
     links: [
       {
         t: 'BLS Occupational Outlook Handbook — HVAC Mechanics and Installers',
@@ -216,39 +216,39 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'hvc-g4': {
-    what: 'Pick service over install-only early. Diagnosis — finding what is actually wrong — is the skill every top posting pays for. System change-outs are the commodity end of the trade.',
-    whatRu: 'Рано выбирайте сервис вместо только монтажа. Диагностика — найти, что на самом деле сломалось, — навык, за который платит каждая топовая вакансия. Замена систем (change-out) — товарный конец ремесла.',
-    how: ['Ask for ride-alongs on diagnostic calls, not only installs', 'Write down every fault you did not find first — that list is your training plan', 'Learn the electrical side of the system; most no-cool calls live there', 'Track your first-time-fix rate in your log'],
-    howRu: ['Проситесь на диагностические вызовы, а не только на монтаж', 'Записывайте каждую неисправность, которую не нашли первой, — этот список и есть ваш план обучения', 'Учите электрическую сторону системы; большинство вызовов «не холодит» живут там', 'Отмечайте в журнале долю ремонтов с первого раза'],
-    why: 'Service postings ask 2+ years and pay to $50 an hour at lead level. Install-only experience caps out lower and earlier.',
-    whyRu: 'Сервисные вакансии просят 2+ года и платят до $50 в час на уровне ведущего техника. Опыт только монтажа упирается в потолок ниже и раньше.',
+    what: 'Pick repair over install-only early. Diagnosis means finding what\'s really broken. Top jobs pay for that skill. Swapping whole systems is the low-paid end.',
+    whatRu: 'С самого начала выбирайте ремонт, а не только монтаж. Диагностика — это найти, что на самом деле сломалось. Лучшие вакансии платят за этот навык. Замена систем целиком — низкооплачиваемая часть.',
+    how: ['Ask to ride along on repair calls, not only installs', 'Write down every problem you didn\'t find first. That list is your study plan. Ask ChatGPT or Claude to explain each one', 'Learn the electrical side. Most \'not cooling\' calls are there', 'Track in your log how often you fix it the first time'],
+    howRu: ['Проситесь ездить на ремонтные вызовы, а не только на монтаж', 'Записывайте каждую поломку, которую не нашли сразу. Этот список — ваш план учёбы. Попросите ChatGPT или Claude объяснить каждую', 'Учите электрическую часть. Большинство вызовов «не холодит» — из-за неё', 'Отмечайте в журнале, как часто чините с первого раза'],
+    why: 'This is the road to top pay. Repair jobs ask for 2+ years and pay up to $50 an hour for lead techs. Install-only work stops growing sooner and lower. AI can suggest a cause, but you find the fault on site.',
+    whyRu: 'Это дорога к высокой оплате. Ремонтные вакансии просят 2+ года и платят до $50 в час старшему технику. Монтаж без ремонта раньше упирается в потолок, и он ниже. AI подскажет причину, но найдёте поломку вы — на месте.',
     links: []
   },
   'hvc-p1': {
-    what: 'Log every system you touch: type, tonnage, fault, fix. Tonnage is the system\'s cooling size. Your log is the experience record the 2+ year postings screen for.',
-    whatRu: 'Записывайте каждую систему, которой касаетесь: тип, тоннаж (tonnage — размер охлаждения системы), неисправность, ремонт. Ваш журнал — это запись опыта, которую проверяют вакансии с требованием 2+ года.',
-    how: ['One line per call, the same day', 'Include the fault you found, not only the part you changed', 'Count your commercial lines separately — they are your crossing proof', 'Bring the log to every pay conversation'],
-    howRu: ['Одна строка на вызов, в тот же день', 'Включайте найденную неисправность, а не только заменённую деталь', 'Считайте коммерческие строки отдельно — это ваше доказательство перехода', 'Приносите журнал на каждый разговор об оплате'],
-    why: 'Experience claims are free. A dated log is proof — and proof is what the better seats hire on.',
-    whyRu: 'Заявления об опыте бесплатны. Журнал с датами — доказательство, а по доказательству нанимают лучшие места.',
+    what: 'Log every system you work on: type, tonnage, problem, fix. Tonnage is how much the system cools. Jobs asking for 2+ years check this record.',
+    whatRu: 'Записывайте каждую систему, с которой работали: тип, тоннаж (мощность охлаждения), поломку, ремонт. Вакансии, где нужно 2+ года, проверяют эти записи.',
+    how: ['One line per call, the same day', 'Write the problem you found, not only the part you changed', 'Count your commercial work separately. It proves you can move up', 'Bring the log to every talk about pay'],
+    howRu: ['Одна строка на вызов, в тот же день', 'Пишите найденную поломку, а не только заменённую деталь', 'Считайте работу в коммерческих зданиях отдельно. Это доказывает, что вы готовы расти', 'Приносите журнал на каждый разговор о зарплате'],
+    why: 'Anyone can say they have experience. A dated log is proof. Better jobs hire on proof, so the log gets you hired faster.',
+    whyRu: 'Сказать про опыт может каждый. Журнал с датами — доказательство. Лучшие работодатели нанимают по доказательствам, и журнал ускоряет найм.',
     links: []
   },
   'hvc-p2': {
-    what: 'Cross into commercial work by year two or three: rooftops, chillers, refrigeration. Residential-only experience caps your pay at the lowest employer class in the scan.',
-    whatRu: 'Переходите в коммерческую работу к второму-третьему году: крыши (rooftops — блоки на крышах), чиллеры (chillers — большие холодильные машины), холодильное оборудование. Опыт только в жилом секторе ограничивает вашу оплату самым низким классом работодателей в скане.',
-    how: ['Tell your shop you want commercial ride-alongs — in writing', 'If the shop has no commercial book, list the contractors that do', 'Log your first 25 commercial systems as a set', 'Apply to commercial seats with the log, not with years alone'],
-    howRu: ['Скажите вашей фирме, что хотите коммерческие выезды, — письменно', 'Если у фирмы нет коммерческой базы, составьте список подрядчиков, у которых есть', 'Запишите ваши первые 25 коммерческих систем как отдельный набор', 'Подавайтесь на коммерческие места с журналом, а не только с годами'],
-    why: 'Commercial service posts $35–$45 an hour asking 7–10 years at the top. The crossing has to start years before the pay does.',
-    whyRu: 'Коммерческий сервис публикует $35–$45 в час и просит 7–10 лет на вершине. Переход должен начаться за годы до этой оплаты.',
+    what: 'Move into commercial work by year two or three: rooftop units, chillers (big cooling machines), refrigeration. Home-only experience keeps you at the lowest pay.',
+    whatRu: 'Переходите в коммерческие здания к второму-третьему году: блоки на крышах, чиллеры (большие холодильные машины), холодильное оборудование. Опыт только в домах держит вас на самой низкой оплате.',
+    how: ['Tell your shop in writing you want commercial ride-alongs', 'If your shop has no commercial clients, list the companies that do', 'Log your first 25 commercial systems as a group', 'Apply to commercial jobs with the log, not just your years'],
+    howRu: ['Скажите фирме письменно, что хотите ездить на коммерческие объекты', 'Если у фирмы нет таких клиентов, составьте список компаний, у которых есть', 'Запишите ваши первые 25 коммерческих систем отдельной группой', 'Подавайтесь на коммерческие вакансии с журналом, а не только с годами стажа'],
+    why: 'Commercial repair pays $35–$45 an hour and asks 7–10 years at the top. Start the move years before.',
+    whyRu: 'Ремонт в коммерческих зданиях платит $35–$45 в час, а наверху просят 7–10 лет. Начинайте переход за годы до этого.',
     links: []
   },
   'hvc-p3': {
-    what: 'Sit the NATE exam in your specialty once you have the hours. NATE is the industry\'s own technician certificate. Employers list it as \'preferred\' — it is the cheapest documented raise in the trade.',
-    whatRu: 'Сдайте экзамен NATE (отраслевой сертификат техника) по вашей специализации, когда наберёте часы. Работодатели пишут его как «желательно» (preferred) — это самая дешёвая задокументированная прибавка в ремесле.',
-    how: ['Pick the NATE specialty that matches your log\'s biggest block', 'Prepare from the official study materials', 'Book the exam, then book the pay conversation within 30 days of passing', 'Add the certificate to your resume the same week'],
-    howRu: ['Выберите специализацию NATE, которая совпадает с самым большим блоком вашего журнала', 'Готовьтесь по официальным учебным материалам', 'Запишитесь на экзамен, а разговор об оплате назначьте в течение 30 дней после сдачи', 'Добавьте сертификат в резюме в ту же неделю'],
-    why: 'NATE is named in 6 of 27 postings — never required, always preferred. Preferred, in a shortage, is a pay line.',
-    whyRu: 'NATE назван в 6 из 27 вакансий — никогда не требуется, всегда желателен. «Желателен» при нехватке — это строка оплаты.',
+    what: 'Take the NATE exam (the industry\'s technician certificate) once you have the hours. Employers list it as \'preferred\'. It\'s the cheapest proven raise in the trade.',
+    whatRu: 'Сдайте экзамен NATE (отраслевой сертификат техника), когда наберёте часы. Работодатели пишут «желательно». Это самая дешёвая прибавка в ремесле.',
+    how: ['Pick the NATE area where your log has the most work', 'Study from the official materials', 'Book the exam. Then ask for a raise within 30 days of passing', 'Add it to your resume the same week'],
+    howRu: ['Выберите направление NATE, где у вас больше всего записей в журнале', 'Готовьтесь по официальным материалам', 'Запишитесь на экзамен. Потом в течение 30 дней после сдачи попросите прибавку', 'Добавьте сертификат в резюме в ту же неделю'],
+    why: '6 of 27 job posts name NATE. Never required, always \'preferred\'. When workers are scarce, \'preferred\' means more pay.',
+    whyRu: 'NATE упоминают 6 из 27 вакансий. Не обязателен, но всегда «желателен». Когда людей не хватает, «желателен» значит больше денег.',
     links: [
       {
         t: 'NATE — North American Technician Excellence',
@@ -257,12 +257,12 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'hvc-p4': {
-    what: 'Learn one controls platform properly: Trane, Johnson Controls, Siemens, Schneider, Distech. Controls are the building automation systems — the software that runs big buildings\' heating and cooling. Postings name platforms, not tools.',
-    whatRu: 'Выучите одну платформу автоматики (controls) по-настоящему: Trane, Johnson Controls, Siemens, Schneider, Distech. Controls — это системы автоматизации зданий, программа, которая управляет отоплением и охлаждением больших зданий. Вакансии называют платформы, а не инструменты.',
-    how: ['Pick the platform your region\'s controls postings repeat most', 'Take the manufacturer\'s own training path for it', 'Volunteer for every controls-adjacent call your shop gets', 'Log controls hours separately from service hours'],
-    howRu: ['Выберите платформу, которую чаще всего повторяют вакансии по автоматике вашего региона', 'Пройдите учебный путь самого производителя по ней', 'Вызывайтесь на каждый вызов рядом с автоматикой, который получает ваша фирма', 'Записывайте часы автоматики отдельно от сервисных часов'],
-    why: 'Nine controls postings run $60,000–$125,000. None of the nine mentions commission. The platform is the moat.',
-    whyRu: 'Девять вакансий по автоматике идут по $60,000–$125,000. Ни одна из девяти не упоминает комиссию. Платформа — это защита.',
+    what: 'Learn one controls system well: Trane, Johnson Controls, Siemens, Schneider, Distech. Controls are the software that runs heating and cooling in big buildings. Job posts name these brands.',
+    whatRu: 'Хорошо выучите одну систему автоматики: Trane, Johnson Controls, Siemens, Schneider, Distech. Это программы, которые управляют отоплением и охлаждением больших зданий. Вакансии называют именно эти марки.',
+    how: ['Pick the brand local controls job posts mention most', 'Take the maker\'s own training for it', 'Volunteer for every controls-related call your shop gets', 'Log controls hours apart from repair hours'],
+    howRu: ['Выберите марку, которую чаще всего называют местные вакансии по автоматике', 'Пройдите обучение у самого производителя', 'Вызывайтесь на каждый вызов, связанный с автоматикой', 'Записывайте часы по автоматике отдельно от ремонта'],
+    why: 'Controls is computer work on top of repair. People who learn these work tools get ahead. Nine controls jobs pay $60,000–$125,000. None of the nine mentions commission.',
+    whyRu: 'Автоматика — это работа с компьютером поверх ремонта. Кто осваивает такие инструменты, уходит вперёд. Девять вакансий по автоматике платят $60,000–$125,000. Ни одна из девяти не упоминает комиссию.',
     links: [
       {
         t: 'ACCA — Air Conditioning Contractors of America',
@@ -271,39 +271,39 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'hvc-k1': {
-    what: 'Aim at the controls and commercial seats. They post $60K–$125K, pay salary or hourly, and — in 9 of 9 controls postings — never mention commission.',
-    whatRu: 'Цельтесь в места автоматики и коммерческие места. Они публикуют $60K–$125K, платят зарплату или почасово и — в 9 из 9 вакансий по автоматике — никогда не упоминают комиссию.',
-    how: ['Apply by name to controls postings with your log attached', 'Lead with platform names you can prove', 'Compare total pay, not the headline: salary plus no quota beats commission math', 'Keep one residential option only as a bridge'],
-    howRu: ['Подавайтесь по именам в вакансии по автоматике, прикладывая журнал', 'Ставьте первыми названия платформ, которые можете доказать', 'Сравнивайте полную оплату, а не заголовок: зарплата без плана продаж бьёт комиссионную математику', 'Держите жилой вариант только как мост'],
-    why: 'The trade\'s top pay is in the seats furthest from the sales floor. The postings prove it in their own pay lines.',
-    whyRu: 'Верхняя оплата ремесла — в местах, самых далёких от торгового зала. Вакансии доказывают это своими строками оплаты.',
+    what: 'Go for controls and commercial jobs. They pay $60K–$125K, as salary or hourly. 9 of 9 controls job posts never mention commission.',
+    whatRu: 'Цельтесь в автоматику и коммерческие здания. Там платят $60K–$125K, зарплатой или почасово. 9 из 9 вакансий по автоматике не упоминают комиссию.',
+    how: ['Apply directly to controls job posts with your log attached', 'Lead with the brands you can prove', 'Compare total pay, not the big number. Salary with no sales target beats commission', 'Take home work only as a step'],
+    howRu: ['Подавайтесь прямо в вакансии по автоматике и прикладывайте журнал', 'Начинайте с марок, опыт с которыми можете доказать', 'Сравнивайте всю оплату, а не крупную цифру. Зарплата без плана продаж лучше комиссии', 'Работу в домах берите только как ступеньку'],
+    why: 'The best pay in this trade is in jobs far from selling. The job posts show it in their pay. Aim there to reach the top faster.',
+    whyRu: 'Лучшая оплата в ремесле — там, где не надо продавать. Это видно по оплате в вакансиях. Цельтесь туда — и дойдёте до вершины быстрее.',
     links: []
   },
   'hvc-k2': {
-    what: 'If you stay residential, take hourly or guaranteed pay. \'Uncapped commission\' means your wage depends on selling replacements in people\'s homes.',
-    whatRu: 'Если остаётесь в жилом секторе, берите почасовую или гарантированную оплату. «Комиссия без потолка» (uncapped commission) значит, что ваша зарплата зависит от продажи замен в домах людей.',
-    how: ['Read the pay paragraph before the duties paragraph', 'Ask what a slow month pays — in writing', 'Compare with posted hourly bands: $28–$35 an hour, $30–$50 at lead level', 'Treat a refusal to write the floor down as the answer'],
-    howRu: ['Читайте абзац про оплату до абзаца про обязанности', 'Спросите, сколько платит медленный месяц, — письменно', 'Сравните с опубликованными почасовыми вилками: $28–$35 в час, $30–$50 на уровне ведущего', 'Считайте отказ записать минимум ответом'],
-    why: 'One posting\'s whole pitch is the commission ceiling. None of them print the floor.',
-    whyRu: 'Вся реклама одной вакансии — потолок комиссии. Ни одна из них не печатает пол.',
+    what: 'If you stay in home work, get hourly or guaranteed pay. \'Uncapped commission\' means your pay depends on selling new systems in people\'s homes.',
+    whatRu: 'Если остаётесь работать в домах, просите почасовую или гарантированную оплату. «Комиссия без потолка» значит: ваш доход зависит от продажи новых систем людям.',
+    how: ['Read the pay part before the duties part', 'Ask in writing what a slow month pays', 'Compare with real hourly pay: $28–$35 an hour, $30–$50 for lead techs', 'If they won\'t write down the minimum, that\'s your answer'],
+    howRu: ['Сначала читайте про оплату, потом про обязанности', 'Спросите письменно, сколько платят в месяц без заказов', 'Сравните с реальной почасовой оплатой: $28–$35 в час, $30–$50 у старшего техника', 'Не хотят записать минимум — это и есть ответ'],
+    why: 'One job post brags only about the commission ceiling. None of them say the minimum.',
+    whyRu: 'Одна вакансия хвастается только потолком комиссии. Ни одна не пишет минимум.',
     links: []
   },
   'hvc-k3': {
-    what: 'Treat on-call as a priced item. On-call means nights and weekends on rotation for emergencies. It appears in a quarter of the scan\'s postings; negotiate its pay and rotation before you sign.',
-    whatRu: 'Считайте дежурства (on-call — ночи и выходные по ротации для аварийных вызовов) платной частью работы. Они встречаются в четверти вакансий скана; обсуждайте их оплату и ротацию до подписания.',
-    how: ['Count the rotation: how many nights a month, honestly', 'Ask the on-call pay rate and the minimum callout pay', 'Write your current terms down (quest 5 does this)', 'Renegotiate at your next review with the log in hand'],
-    howRu: ['Посчитайте ротацию: сколько ночей в месяц, честно', 'Спросите ставку дежурства и минимальную оплату выезда', 'Запишите ваши текущие условия (квест 5 делает это)', 'Пересматривайте на следующем обзоре с журналом в руках'],
-    why: 'One shop advertises \'minimal on-call\' as a headline perk and a union posting prints its rotation as a benefit. The market prices your nights — make sure your pay line does too.',
-    whyRu: 'Одна фирма рекламирует «минимум дежурств» как главное преимущество, а профсоюзная вакансия печатает ротацию как благо. Рынок оценивает ваши ночи — убедитесь, что ваша строка оплаты тоже.',
+    what: 'On-call work should be paid. On-call means taking turns on nights and weekends for emergencies. A quarter of job posts include it. Agree on its pay and schedule before you sign.',
+    whatRu: 'Дежурства должны оплачиваться. Это ночи и выходные по очереди для аварий. Они есть в четверти вакансий. Договоритесь об оплате и графике до подписания.',
+    how: ['Count honestly how many nights a month you\'ll be on call', 'Ask the on-call rate and the minimum pay per callout', 'Write your current terms down (quest 5 does this)', 'Bring the log to your next review and ask for better terms'],
+    howRu: ['Честно посчитайте, сколько ночей в месяц будете дежурить', 'Спросите ставку за дежурство и минимум за один выезд', 'Запишите ваши нынешние условия (это делает квест 5)', 'На следующем разговоре о зарплате придите с журналом и просите лучше'],
+    why: 'One shop brags about \'minimal on-call\' as its main perk. A union job post lists its schedule as a benefit. Your nights have a price. Make sure you get paid for them.',
+    whyRu: 'Одна фирма хвастается «минимумом дежурств» как главным плюсом. Профсоюзная вакансия пишет график как бонус. Ваши ночи чего-то стоят. Убедитесь, что вам за них платят.',
     links: []
   },
   'hvc-k4': {
-    what: 'Add the data-center skill set: precision cooling, large tonnage, mission-critical sites. BLS names data centers as the growth driver, and a cooling contract for a data center does not end.',
-    whatRu: 'Добавьте набор навыков дата-центров: точное охлаждение (precision cooling), большой тоннаж, объекты, которые не могут остановиться (mission-critical). BLS называет дата-центры драйвером роста, а контракт на охлаждение дата-центра не заканчивается.',
-    how: ['Learn how precision cooling differs from comfort cooling', 'Get chiller and cooling-tower hours logged', 'Watch data-center contractor postings in your region monthly', 'Bring controls knowledge — the two specialties stack'],
-    howRu: ['Выучите, чем точное охлаждение отличается от комфортного', 'Наберите часы на чиллерах и градирнях (cooling towers) в журнал', 'Следите за вакансиями подрядчиков дата-центров в вашем регионе ежемесячно', 'Приносите знания автоматики — две специализации складываются'],
-    why: 'The growth line (+11%) is not abstract: it is buildings full of computers that must never get warm.',
-    whyRu: 'Строка роста (+11%) не абстрактна: это здания, полные компьютеров, которым никогда нельзя нагреваться.',
+    what: 'Add data-center skills: precision cooling, large systems, sites that can never stop. BLS says data centers drive growth. And a data center always needs cooling.',
+    whatRu: 'Добавьте навыки для дата-центров: точное охлаждение, большие системы, объекты, которые нельзя останавливать. BLS говорит, что рост идёт от дата-центров. А охлаждение им нужно всегда.',
+    how: ['Learn how precision cooling differs from normal air conditioning', 'Log hours on chillers and cooling towers', 'Check data-center job posts in your area every month', 'Add controls knowledge. The two skills work together'],
+    howRu: ['Узнайте, чем точное охлаждение отличается от обычного кондиционера', 'Наберите в журнал часы на чиллерах и градирнях', 'Каждый месяц смотрите вакансии дата-центров в вашем регионе', 'Добавьте знание автоматики. Эти два навыка работают вместе'],
+    why: 'AI runs in data centers, and they all need cooling. The +11% growth is real. It\'s buildings full of computers that must never get hot. That means steady work for you.',
+    whyRu: 'AI работает в дата-центрах, и всем им нужно охлаждение. Рост +11% — не просто цифра. Это здания, полные компьютеров, которые нельзя перегревать. Для вас это стабильная работа.',
     links: [
       {
         t: 'BLS Occupational Outlook Handbook — HVAC Mechanics and Installers',
@@ -312,12 +312,12 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'hvc-k5': {
-    what: 'If you go out on your own, the contractor license and a maintenance-agreement book are the business. Recurring agreements are what buyers pay for when shops sell.',
-    whatRu: 'Если уходите в своё дело, бизнес — это лицензия подрядчика (contractor license) и база договоров обслуживания. Повторяющиеся договоры — то, за что платят покупатели, когда фирмы продаются.',
-    how: ['Read your state\'s contractor license rules first', 'Sell maintenance agreements from your first month — every agreement is equity', 'Keep tech pay honest: your shop\'s edge is keeping people platforms churn', 'Price the business yearly, even if you never sell'],
-    howRu: ['Сначала прочитайте правила лицензии подрядчика вашего штата', 'Продавайте договоры обслуживания с первого месяца — каждый договор это капитал', 'Держите оплату техников честной: преимущество вашей фирмы — удерживать людей, которых платформы теряют', 'Оценивайте бизнес каждый год, даже если никогда не продадите'],
-    why: 'Record deal pace in 2024–2025 priced these books in public. The agreements, not the trucks, carry the multiple.',
-    whyRu: 'Рекордный темп сделок в 2024–2025 оценил эти базы открыто. Кратную цену (multiple) несут договоры, а не машины.',
+    what: 'Going solo? Your business is the contractor license plus service contracts. Repeat contracts are what buyers pay for when a shop is sold.',
+    whatRu: 'Уходите в своё дело? Ваш бизнес — это лицензия подрядчика и договоры на обслуживание. Когда фирму продают, платят именно за постоянные договоры.',
+    how: ['First read your state\'s contractor license rules', 'Sell service contracts from month one. Each one adds value to your business', 'Pay your techs fairly. Keeping good people is your edge over big chains', 'Check what your business is worth every year, even if you never sell'],
+    howRu: ['Сначала прочитайте правила лицензии подрядчика в вашем штате', 'Продавайте договоры на обслуживание с первого месяца. Каждый делает фирму дороже', 'Платите техникам честно. Удерживать хороших людей — ваш плюс перед большими сетями', 'Каждый год оценивайте, сколько стоит ваша фирма, даже если не будете продавать'],
+    why: 'Record deals in 2024–2025 showed the prices openly. Buyers pay extra for the contracts, not the trucks.',
+    whyRu: 'Рекордные сделки 2024–2025 открыто показали цены. Покупатели платят много за договоры, а не за машины.',
     links: [
       {
         t: 'ACCA — Air Conditioning Contractors of America',
@@ -326,12 +326,12 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'plb-g1': {
-    what: 'Choose your door on purpose. A registered apprenticeship pays a wage scale from year one. The big chains\' free training pays commission after it. Both take the same 4–5 years.',
-    whatRu: 'Выбирайте дверь осознанно. Зарегистрированное ученичество (apprenticeship — оплачиваемое обучение на рабочем месте) платит шкалу зарплаты с первого года. Бесплатное обучение крупных сетей платит комиссию после него. Оба пути занимают те же 4–5 лет.',
-    how: ['List the registered programs near you: union (UA), association (PHCC chapters), employer', 'Price each door by its year-three pay, not its week-one pay', 'Ask every program how hours are registered with the state', 'Apply to the wage door first'],
-    howRu: ['Составьте список зарегистрированных программ рядом: профсоюз (UA), ассоциация (отделения PHCC), работодатель', 'Оценивайте каждую дверь по оплате третьего года, а не первой недели', 'Спросите каждую программу, как часы регистрируются в штате', 'Подавайтесь сначала в дверь со шкалой зарплаты'],
-    why: 'UA Local 486 pays $24.54 an hour in year one at $0 tuition. The chain door\'s own posting ends at minimum-wage base plus commission.',
-    whyRu: 'UA Local 486 платит $24.54 в час в первый год при $0 за обучение. Собственная вакансия сетевой двери заканчивается минимальной базой плюс комиссия.',
+    what: 'A plumber installs and fixes water pipes and drains. Pick your way in on purpose. A registered apprenticeship pays a set wage from year one. Big chains\' free training pays commission after it. Both take the same 4–5 years.',
+    whatRu: 'Сантехник ставит и чинит водопровод и канализацию. Выбирайте путь осознанно. Зарегистрированное ученичество — учёба прямо на работе — платит зарплату с первого года. Бесплатное обучение больших сетей потом платит процент с продаж. Оба пути занимают те же 4–5 лет.',
+    how: ['List registered programs near you: union (UA), trade groups (PHCC chapters), employers', 'Judge each one by year-three pay, not week-one pay', 'Ask every program how hours are registered with the state', 'Apply first where they pay a set wage'],
+    howRu: ['Составьте список зарегистрированных программ рядом: профсоюз (UA), объединения (отделения PHCC), работодатели', 'Сравнивайте их по оплате на третьем году, а не в первую неделю', 'Спросите каждую программу, как часы регистрируют в штате', 'Сначала подавайтесь туда, где платят зарплату'],
+    why: 'Same years, very different money. UA Local 486 pays $24.54 an hour in year one, and training costs $0. The chain\'s own job post ends with minimum wage plus commission.',
+    whyRu: 'Годы те же, а деньги разные. UA Local 486 платит $24.54 в час в первый год, учёба стоит $0. В вакансии сети в итоге — минимальная оплата плюс процент.',
     links: [
       {
         t: 'Apprenticeship Job Finder — Apprenticeship.gov',
@@ -344,12 +344,12 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'plb-g2': {
-    what: 'Get the apprentice license or registration your state issues before you start counting hours. Unregistered hours often do not count toward the journeyman license.',
-    whatRu: 'Получите лицензию ученика или регистрацию, которую выдаёт ваш штат, до того, как начнёте считать часы. Незарегистрированные часы часто не засчитываются в лицензию подмастерья (journeyman).',
-    how: ['Find your state board\'s apprentice registration page', 'Register in your first weeks, not your first year', 'Confirm your sponsor reports your hours', 'Keep a photo of the registration on your phone'],
-    howRu: ['Найдите страницу регистрации учеников board вашего штата', 'Зарегистрируйтесь в первые недели, а не в первый год', 'Подтвердите, что ваш спонсор подаёт ваши часы', 'Держите фото регистрации в телефоне'],
-    why: 'The apprenticeship is about 2,000 paid hours a year for 4–5 years. Years the state cannot see are years you may have to repeat.',
-    whyRu: 'Ученичество — около 2,000 оплачиваемых часов в год за 4–5 лет. Годы, которых штат не видит, могут потребовать повторения.',
+    what: 'Get your state\'s apprentice license or registration before counting hours. Hours without it often don\'t count toward the journeyman license.',
+    whatRu: 'Получите лицензию ученика или регистрацию в штате до того, как считать часы. Часы без неё часто не идут в лицензию подмастерья.',
+    how: ['Find the page where your state registers apprentices', 'Register in your first weeks, not your first year', 'Make sure your sponsor reports your hours', 'Keep a photo of the registration on your phone'],
+    howRu: ['Найдите страницу, где ваш штат регистрирует учеников', 'Зарегистрируйтесь в первые недели, а не в первый год', 'Убедитесь, что спонсор записывает ваши часы', 'Держите фото регистрации в телефоне'],
+    why: 'The apprenticeship is about 2,000 paid hours a year for 4–5 years. Years the state can\'t see, you may have to redo. Register early, and no year is wasted.',
+    whyRu: 'Ученичество — около 2,000 оплачиваемых часов в год, 4–5 лет. Годы, которых штат не видит, возможно, придётся повторить. Зарегистрируйтесь сразу — и ни один год не пропадёт.',
     links: [
       {
         t: 'BLS Occupational Outlook Handbook — Plumbers, Pipefitters, and Steamfitters',
@@ -358,21 +358,21 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'plb-g3': {
-    what: 'Read any training contract for a repayment clause before you sign. Some \'free\' training charges you for the training if you leave before a set date.',
-    whatRu: 'Прочитайте любой учебный договор на условие возврата денег (repayment clause) до подписания. Некоторое «бесплатное» обучение берёт с вас плату за обучение, если вы уйдёте до установленной даты.',
-    how: ['Ask for the contract before the first training day', 'Find the words \'repay\', \'repayment\' or \'training cost\' in it', 'Write down the date the obligation ends', 'If the clause is heavy, price the registered apprenticeship again — it has no such clause'],
-    howRu: ['Попросите договор до первого учебного дня', 'Найдите в нём слова «repay», «repayment» или «training cost»', 'Запишите дату, когда обязательство заканчивается', 'Если условие тяжёлое, оцените зарегистрированное ученичество ещё раз — там такого условия нет'],
-    why: 'A debt to your employer is a lock on your license years. The wage door does not need one.',
-    whyRu: 'Долг работодателю — замок на годы вашей лицензии. Двери со шкалой зарплаты он не нужен.',
+    what: 'Before you sign any training contract, look for a repayment clause. Some \'free\' training makes you pay if you leave early.',
+    whatRu: 'Перед подписанием учебного договора поищите условие о возврате денег. Некоторое «бесплатное» обучение заставит платить, если уйдёте раньше срока.',
+    how: ['Ask for the contract before the first day', 'Look for the words \'repay\', \'repayment\' or \'training cost\'', 'Write down the date when you\'re free to leave', 'If the terms are tough, look again at the registered apprenticeship. It has no such clause'],
+    howRu: ['Попросите договор до первого дня', 'Ищите слова «repay», «repayment» или «training cost»', 'Запишите дату, когда вы сможете уйти без долга', 'Если условия жёсткие, ещё раз посмотрите на зарегистрированное ученичество. Там такого нет'],
+    why: 'A debt to your boss can tie you to them for years. A paid apprenticeship has no such catch.',
+    whyRu: 'Долг работодателю может привязать вас на годы. В ученичестве с зарплатой такого подвоха нет.',
     links: []
   },
   'plb-g4': {
-    what: 'Plan the 4–5 years honestly: 2,000 paid hours a year plus classes. The license at the end is the asset. There is no shortcut that keeps it.',
-    whatRu: 'Спланируйте 4–5 лет честно: 2,000 оплачиваемых часов в год плюс занятия. Лицензия в конце — это актив. Сокращения, которое её сохраняет, не существует.',
-    how: ['Write your target journeyman exam date today', 'Budget the apprentice years as a rising wage, not a flat one', 'Keep your class attendance perfect — programs drop no-shows first', 'Tell the people close to you the timeline, out loud, once'],
-    howRu: ['Запишите вашу целевую дату экзамена на подмастерье сегодня', 'Планируйте годы ученика как растущую зарплату, а не плоскую', 'Держите посещаемость занятий идеальной — программы сначала отчисляют прогульщиков', 'Скажите близким людям сроки вслух, один раз'],
-    why: 'BLS describes the same shape for the whole occupation: apprenticeship first, journey level after, master after that. Everyone above you walked it.',
-    whyRu: 'BLS описывает ту же форму для всей профессии: сначала ученичество, потом уровень подмастерья, потом мастер. Все выше вас прошли её.',
+    what: 'Plan the 4–5 years honestly: 2,000 paid hours a year plus classes. The license at the end is what matters. You can\'t skip years, but you can avoid wasting any.',
+    whatRu: 'Честно спланируйте 4–5 лет: 2,000 оплачиваемых часов в год плюс занятия. Главное — лицензия в конце. Годы не пропустить, но можно не потерять ни одного зря.',
+    how: ['Write down your target journeyman exam date today', 'Plan your money knowing apprentice pay goes up each year', 'Never miss class. Programs drop no-shows first. Stuck on theory? Ask ChatGPT or Claude to explain it', 'Tell the people close to you the timeline, once, out loud'],
+    howRu: ['Сегодня запишите дату, когда хотите сдать экзамен на подмастерье', 'Планируйте деньги с учётом того, что зарплата ученика растёт каждый год', 'Не пропускайте занятия. Прогульщиков отчисляют первыми. Не понятна теория? Попросите ChatGPT или Claude объяснить', 'Один раз скажите близким вслух, сколько это займёт'],
+    why: 'BLS describes the same path for everyone: apprentice first, then journeyman, then master. Everyone above you took it. You\'re paid the whole way, and AI can\'t do this work for you.',
+    whyRu: 'BLS описывает один путь для всех: сначала ученик, потом подмастерье, потом мастер. Все, кто выше вас, прошли его. Вам платят на всём пути, и AI эту работу за вас не сделает.',
     links: [
       {
         t: 'BLS Occupational Outlook Handbook — Plumbers, Pipefitters, and Steamfitters',
@@ -381,21 +381,21 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'plb-p1': {
-    what: 'Log hours by work type — service, new construction, commercial, industrial. The mix decides which journeyman seats you can prove later.',
-    whatRu: 'Записывайте часы по видам работ — сервис, новострой, коммерческая, промышленная. Состав решает, какие места подмастерья вы сможете доказать позже.',
-    how: ['One line per day: date, site, type', 'Keep a weekly total against your sponsor\'s records', 'Fix mismatches the same month', 'Keep the log after the license — industrial hours open the industrial branch'],
-    howRu: ['Одна строка в день: дата, объект, вид', 'Сверяйте недельную сумму с записями спонсора', 'Исправляйте расхождения в том же месяце', 'Храните журнал и после лицензии — промышленные часы открывают промышленную ветвь'],
-    why: 'A pipefitter posting asks for plant work; a service posting asks for service years. Proof beats adjectives in both.',
-    whyRu: 'Вакансия монтажника труб просит заводскую работу; сервисная — годы сервиса. Доказательство бьёт прилагательные в обеих.',
+    what: 'Log hours by work type: repair, new building, commercial, factory. The mix decides which journeyman jobs you can get later.',
+    whatRu: 'Записывайте часы по видам работ: ремонт, новостройки, коммерческие здания, заводы. От этого зависит, какую работу подмастерья вы получите потом.',
+    how: ['One line per day: date, site, type', 'Each week, check your total against your sponsor\'s records', 'Fix mistakes the same month', 'Keep the log after the license. Factory hours open factory jobs'],
+    howRu: ['Одна строка в день: дата, объект, вид', 'Каждую неделю сверяйте сумму с записями спонсора', 'Исправляйте ошибки в тот же месяц', 'Храните журнал и после лицензии. Часы на заводах открывают работу на заводах'],
+    why: 'A pipefitter job asks for factory work. A repair job asks for repair years. Both want proof, not nice words.',
+    whyRu: 'Вакансия монтажника труб просит опыт на заводе. Ремонтная — годы ремонта. Обеим нужны доказательства, а не красивые слова.',
     links: []
   },
   'plb-p2': {
-    what: 'Pass the journeyman exam as soon as your hours complete. The license is named in every top posting in the scan — including the $110,000–$130,000 service seat.',
-    whatRu: 'Сдайте экзамен на подмастерье (journeyman), как только ваши часы завершены. Лицензия названа в каждой топовой вакансии скана — включая сервисное место за $110,000–$130,000.',
-    how: ['Book the exam in the first cycle after certification of hours', 'Study code the way the exam tests it: lookups under time pressure', 'Keep working under your sponsor while you wait for the date', 'Carry the license number on your resume from day one'],
-    howRu: ['Запишитесь на экзамен в первый цикл после подтверждения часов', 'Учите правила (code) так, как их проверяет экзамен: поиск ответов на время', 'Продолжайте работать у спонсора, пока ждёте дату', 'Носите номер лицензии в резюме с первого дня'],
-    why: 'At one company in the scan, the licensed seat pays roughly double the apprentice seat. The exam is the moment the gap is paid.',
-    whyRu: 'В одной компании скана лицензированное место платит примерно вдвое больше ученического. Экзамен — момент, когда разрыв выплачивается.',
+    what: 'Pass the journeyman exam as soon as your hours are done. Every top job post asks for this license. That includes the $110,000–$130,000 repair job.',
+    whatRu: 'Сдайте экзамен на подмастерье, как только наберёте часы. Эту лицензию требуют все лучшие вакансии. В том числе ремонтная работа за $110,000–$130,000.',
+    how: ['Book the exam right after your hours are confirmed', 'Study the code (the rules) like the exam tests it: finding answers fast. ChatGPT or Claude can quiz you', 'Keep working for your sponsor while you wait', 'Put the license number on your resume from day one'],
+    howRu: ['Запишитесь на экзамен сразу после подтверждения часов', 'Учите правила так, как проверяет экзамен: быстро находить ответы. ChatGPT или Claude погоняют вас', 'Пока ждёте, продолжайте работать у спонсора', 'Указывайте номер лицензии в резюме с первого дня'],
+    why: 'At one company, licensed workers earn about double what apprentices earn. The exam is when you get that raise.',
+    whyRu: 'В одной компании мастер с лицензией получает примерно вдвое больше ученика. Экзамен — момент, когда вы получаете эту разницу.',
     links: [
       {
         t: 'BLS Occupational Outlook Handbook — Plumbers, Pipefitters, and Steamfitters',
@@ -404,21 +404,21 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'plb-p3': {
-    what: 'Add one priced certificate: backflow prevention. Backflow devices keep dirty water out of clean supply lines. Cities and water systems require their testing, and certified testers are a short list.',
-    whatRu: 'Добавьте один сертификат с ценой: проверка обратных клапанов (backflow prevention — устройства, которые не дают грязной воде попасть в чистые линии). Города и водоканалы требуют их проверки, а сертифицированные проверяющие — короткий список.',
-    how: ['Find your city or water utility\'s backflow rules', 'Take the tester course your state recognizes', 'Get on the utility\'s approved tester list if one exists', 'Renew on time — a lapsed tester certificate deletes the whole asset'],
-    howRu: ['Найдите правила backflow вашего города или водоканала', 'Пройдите курс проверяющего, который признаёт ваш штат', 'Встаньте в одобренный список проверяющих водоканала, если он есть', 'Продлевайте вовремя — просроченный сертификат проверяющего удаляет весь актив'],
-    why: 'Required testing is recurring, scheduled, non-emergency work — the opposite of the 2 a.m. call, priced by a short list of names.',
-    whyRu: 'Обязательная проверка — повторяющаяся, плановая, неаварийная работа — противоположность вызова в 2 часа ночи, оценённая коротким списком имён.',
+    what: 'Add one certificate that pays: backflow prevention. Backflow devices keep dirty water out of clean pipes. Cities require testing them, and few people are certified to do it.',
+    whatRu: 'Добавьте один сертификат, который приносит деньги: проверку клапанов обратного тока (backflow prevention). Они не пускают грязную воду в чистые трубы. Города требуют их проверять, а людей с таким сертификатом мало.',
+    how: ['Find your city or water company\'s backflow rules', 'Take the tester course your state accepts', 'Get on the water company\'s approved tester list, if it has one', 'Renew on time. An expired certificate means losing all that work'],
+    howRu: ['Найдите правила проверки клапанов вашего города или водоканала', 'Пройдите курс, который принимает ваш штат', 'Попадите в список одобренных проверяющих водоканала, если он есть', 'Продлевайте вовремя. Просрочили сертификат — потеряли всю эту работу'],
+    why: 'Required testing is regular, planned work, not emergencies. It\'s the opposite of a 2 a.m. call. And few people can do it, so it pays well.',
+    whyRu: 'Обязательные проверки — регулярная плановая работа, не аварии. Это противоположность вызову в 2 часа ночи. И делать её могут немногие, поэтому платят хорошо.',
     links: []
   },
   'plb-p4': {
-    what: 'Learn the camera and the press tools. Sewer cameras find the fault without digging; press tools join pipe without flame. Both are in the standard kit now, and they raise what one licensed tech bills in a day.',
-    whatRu: 'Выучите камеру и пресс-инструменты. Камеры для труб находят неисправность без раскопок; пресс-инструменты соединяют трубы без огня. Оба уже в стандартном наборе и поднимают то, что один лицензированный техник выставляет за день.',
-    how: ['Ask to run the camera on every drain call for a month', 'Practice press fittings until they are boring', 'Log camera and trenchless jobs as their own category', 'Quote jobs with the camera findings attached — proof sells at full price'],
-    howRu: ['Проситесь вести камеру на каждом вызове по сливу в течение месяца', 'Тренируйте пресс-соединения, пока они не станут скучными', 'Записывайте работы с камерой и бестраншейные (trenchless) работы отдельной категорией', 'Оценивайте работы с приложенными результатами камеры — доказательство продаётся по полной цене'],
-    why: 'BLS lists these tools in the occupation\'s standard kit. The tech who diagnoses on screen out-bills the tech who guesses with a shovel.',
-    whyRu: 'BLS перечисляет эти инструменты в стандартном наборе профессии. Техник, который диагностирует на экране, выставляет больше техника, который угадывает лопатой.',
+    what: 'Learn the camera and press tools. Sewer cameras find the problem without digging. Press tools join pipes without fire. Both are standard now. They raise how much one tech earns in a day.',
+    whatRu: 'Освойте камеру и пресс-инструменты. Камера для труб находит поломку без раскопок. Пресс-инструмент соединяет трубы без огня. Оба уже стандарт. С ними техник зарабатывает больше за день.',
+    how: ['Ask to run the camera on every drain call for a month', 'Practice press fittings until they feel easy', 'Log camera and no-dig (trenchless) jobs as their own type', 'Show camera results with your price. Proof gets you full price'],
+    howRu: ['Месяц проситесь работать с камерой на каждом вызове по засорам', 'Тренируйте пресс-соединения, пока не станет легко', 'Записывайте работы с камерой и без раскопок отдельно', 'Прикладывайте к цене снимки с камеры. С доказательством платят полную цену'],
+    why: 'Smart tools beat guesswork. BLS lists these tools as standard for plumbers. A tech who finds the problem on a screen earns more than one who guesses with a shovel.',
+    whyRu: 'Умные инструменты побеждают догадки. BLS называет эти инструменты стандартными для сантехников. Тот, кто находит поломку на экране, зарабатывает больше того, кто гадает с лопатой.',
     links: [
       {
         t: 'BLS Occupational Outlook Handbook — Plumbers, Pipefitters, and Steamfitters',
@@ -427,21 +427,21 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'plb-k1': {
-    what: 'Take service work with a guaranteed hourly floor. Commission as an option on top is upside. Commission instead of a floor is the NO seat.',
-    whatRu: 'Берите сервисную работу с гарантированным почасовым минимумом (floor). Комиссия как вариант сверху — это плюс. Комиссия вместо минимума — место NO.',
-    how: ['Ask every offer one question: what does a slow week pay?', 'Get the answer in writing before you sign', 'Compare with the printed choice in the market: $35–$40 an hour guaranteed, or 25% commission', 'Choose the floor until your license years say otherwise'],
-    howRu: ['Задайте каждому предложению один вопрос: сколько платит медленная неделя?', 'Получите ответ письменно до подписания', 'Сравните с напечатанным выбором рынка: $35–$40 в час гарантированно или 25% комиссии', 'Выбирайте минимум, пока годы вашей лицензии не скажут иначе'],
-    why: 'The guarantee exists in the same market, at the same kind of company. A seat that refuses it is telling you its model.',
-    whyRu: 'Гарантия существует на том же рынке, в том же виде компаний. Место, которое от неё отказывается, рассказывает вам свою модель.',
+    what: 'Take repair work with a guaranteed hourly minimum. Commission on top is a bonus. Commission instead of a minimum is a NO job.',
+    whatRu: 'Берите ремонтную работу с гарантированным почасовым минимумом. Процент с продаж сверху — бонус. Процент вместо минимума — это работа NO.',
+    how: ['Ask every offer one question: what does a slow week pay?', 'Get the answer in writing before you sign', 'Compare with real offers: $35–$40 an hour guaranteed, or 25% commission', 'Pick the guaranteed minimum until you have more license years'],
+    howRu: ['Задайте в каждом предложении один вопрос: сколько платят в неделю без заказов?', 'Получите ответ письменно до подписания', 'Сравните с реальными предложениями: $35–$40 в час гарантированно или 25% с продаж', 'Выбирайте гарантированный минимум, пока у вас мало лет с лицензией'],
+    why: 'Similar companies in the same market do offer a guarantee. A job that refuses it is showing you how it works.',
+    whyRu: 'Похожие компании на том же рынке дают гарантию. Если работодатель отказывает — он показывает, как он работает.',
     links: []
   },
   'plb-k2': {
-    what: 'Price on-call before you sign. BLS states the trade\'s norm — plumbers are often on call — and one shop in the scan sells \'No On-Call\' as its headline perk.',
-    whatRu: 'Оценивайте дежурства (on-call — аварийные вызовы ночью и в выходные) до подписания. BLS называет норму ремесла — сантехники часто на дежурстве, — а одна фирма в скане продаёт «Без дежурств» (No On-Call) как главное преимущество.',
-    how: ['Count the rotation honestly: nights per month', 'Ask the callout minimum pay per night call', 'Write your terms down before the first rotation', 'Renegotiate with your license, not with your hope'],
-    howRu: ['Посчитайте ротацию честно: ночей в месяц', 'Спросите минимальную оплату за ночной выезд', 'Запишите ваши условия до первой ротации', 'Пересматривайте с вашей лицензией, а не с надеждой'],
-    why: 'If the absence of on-call is a recruiting perk, its presence has a price. Make sure the price is in your pay line.',
-    whyRu: 'Если отсутствие дежурств — преимущество при найме, у их присутствия есть цена. Убедитесь, что цена стоит в вашей строке оплаты.',
+    what: 'Agree on on-call pay before you sign. BLS says plumbers are often on call (night and weekend emergencies). One shop even brags \'No On-Call\' as its main perk.',
+    whatRu: 'Договоритесь об оплате дежурств до подписания. Дежурства — аварийные вызовы ночью и в выходные. BLS пишет, что сантехники часто дежурят. А одна фирма хвастается «Без дежурств» как главным плюсом.',
+    how: ['Count honestly how many nights a month you\'ll be on call', 'Ask the minimum pay for one night call', 'Write down your terms before your first on-call week', 'Ask for better terms with your license in hand, not just hope'],
+    howRu: ['Честно посчитайте, сколько ночей в месяц будете дежурить', 'Спросите минимальную оплату за один ночной выезд', 'Запишите условия до первого дежурства', 'Просите лучших условий, опираясь на лицензию, а не на надежду'],
+    why: 'If \'no on-call\' is a hiring perk, then on-call has a price. Make sure that price is in your pay.',
+    whyRu: 'Если «без дежурств» — плюс при найме, значит, у дежурств есть цена. Убедитесь, что она есть в вашей оплате.',
     links: [
       {
         t: 'BLS Occupational Outlook Handbook — Plumbers, Pipefitters, and Steamfitters',
@@ -450,21 +450,21 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'plb-k3': {
-    what: 'Consider the industrial branch: pipefitting. It is the same BLS occupation and the same union — plant piping, steam and process systems — posting $40.64 to about $54 an hour, all union, all card-gated.',
-    whatRu: 'Рассмотрите промышленную ветвь: монтаж труб (pipefitting). Это та же профессия BLS и тот же профсоюз — заводские трубы, пар и технологические системы — публикуют от $40.64 до примерно $54 в час, все профсоюзные, все с требованием карты.',
-    how: ['Tell your sponsor you want industrial rotations', 'Keep welding practice current — fitters are screened on it', 'Log plant hours as their own block', 'Watch UA dispatch and plant contractor postings monthly'],
-    howRu: ['Скажите спонсору, что хотите промышленные ротации', 'Держите практику сварки в актуальном состоянии — монтажников проверяют по ней', 'Записывайте заводские часы отдельным блоком', 'Следите за распределением UA (dispatch) и вакансиями заводских подрядчиков ежемесячно'],
-    why: 'Five of five industrial postings require the journeyman card or license — and pay at the top of the scan for it.',
-    whyRu: 'Пять из пяти промышленных вакансий требуют карту подмастерья или лицензию — и платят за неё на вершине скана.',
+    what: 'Think about factory work: pipefitting. It\'s the same job type and the same union. Factory pipes, steam and process systems. Pay is $40.64 to about $54 an hour. All union, all need the card.',
+    whatRu: 'Подумайте о заводах: монтаж труб. Это та же профессия и тот же профсоюз. Заводские трубы, пар, технологические системы. Платят от $40.64 до примерно $54 в час. Везде профсоюз, везде нужна карта.',
+    how: ['Tell your sponsor you want factory shifts', 'Keep practicing welding. Pipefitters get tested on it', 'Log factory hours as their own group', 'Check UA dispatch (union job board) and factory job posts every month'],
+    howRu: ['Скажите спонсору, что хотите работать на заводах', 'Продолжайте тренировать сварку. Монтажников проверяют на ней', 'Записывайте заводские часы отдельной группой', 'Каждый месяц смотрите доску заказов профсоюза UA и вакансии заводов'],
+    why: 'This is the top-pay lane for plumbers. Five of five factory job posts require the journeyman card or license. And they pay the most for it.',
+    whyRu: 'Это самая денежная дорожка для сантехника. Пять из пяти вакансий на заводах требуют карту подмастерья или лицензию. И платят за неё больше всех.',
     links: []
   },
   'plb-k4': {
-    what: 'Pass the master exam when eligible. The master license unlocks supervising and permitting — and, in states that require it, the contractor license for your own shop.',
-    whatRu: 'Сдайте экзамен на мастера (master), когда получите право. Лицензия мастера открывает руководство и разрешения на работы (permits) — и, в штатах, где это требуется, лицензию подрядчика (contractor license) для вашей собственной фирмы.',
-    how: ['Check your state\'s rule: years at journey level plus the exam', 'Calendar your first eligible cycle', 'Study the business side: estimating, permits, inspections', 'Sit the exam in the first cycle — eligibility is a wasting asset'],
-    howRu: ['Проверьте правило вашего штата: годы на уровне подмастерья плюс экзамен', 'Поставьте в календарь ваш первый доступный цикл', 'Учите сторону бизнеса: сметы, разрешения, инспекции', 'Сдавайте в первый цикл — право на экзамен — тающий актив'],
-    why: 'BLS prints the ladder: journey, then master, then contractor. Each rung is a pay structure, not just a title.',
-    whyRu: 'BLS печатает лестницу: подмастерье, потом мастер, потом подрядчик. Каждая ступень — структура оплаты, а не только название.',
+    what: 'Pass the master exam when you can. The master license lets you lead others and get permits. In some states you also need it for a contractor license for your own shop.',
+    whatRu: 'Сдайте экзамен на мастера, когда будет можно. С лицензией мастера можно руководить и получать разрешения на работы. В некоторых штатах без неё не получить лицензию подрядчика для своей фирмы.',
+    how: ['Check your state\'s rule: years as a journeyman plus the exam', 'Put the first date you can take it in your calendar', 'Learn the business side: estimates, permits, inspections', 'Take it at the first chance. Waiting only costs you'],
+    howRu: ['Узнайте правило вашего штата: годы подмастерьем плюс экзамен', 'Поставьте в календарь первую дату, когда можно сдавать', 'Учите бизнес-часть: сметы, разрешения, проверки', 'Сдавайте при первой возможности. Ожидание только вредит'],
+    why: 'BLS shows the ladder: journeyman, then master, then contractor. Each step means different pay, not just a new title.',
+    whyRu: 'BLS показывает лестницу: подмастерье, потом мастер, потом подрядчик. Каждая ступень — это другая оплата, а не просто новое звание.',
     links: [
       {
         t: 'BLS Occupational Outlook Handbook — Plumbers, Pipefitters, and Steamfitters',
@@ -473,12 +473,12 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'plb-k5': {
-    what: 'If you open a shop, your sellable asset is the maintenance-agreement book and the license on the wall. That is what acquirers pay multiples for.',
-    whatRu: 'Если открываете фирму, ваш продаваемый актив — база договоров обслуживания и лицензия на стене. Именно за это покупатели платят кратные суммы (multiples).',
-    how: ['Sell maintenance agreements from month one', 'Keep the license and insurance spotless — they are the valuation', 'Keep techs on guaranteed pay; a stable crew is part of the price', 'Price the business yearly even if you never sell'],
-    howRu: ['Продавайте договоры обслуживания с первого месяца', 'Держите лицензию и страховку безупречными — они и есть оценка', 'Держите техников на гарантированной оплате; стабильная бригада — часть цены', 'Оценивайте бизнес каждый год, даже если никогда не продадите'],
-    why: 'The roll-up\'s own math is public: platforms pay for recurring books. Building one is the owner\'s version of the license.',
-    whyRu: 'Математика скупки открыта: платформы платят за повторяющиеся базы. Построить одну — версия лицензии для владельца.',
+    what: 'If you open a shop, what you can sell is your service contracts and your license. That\'s what buyers pay big money for.',
+    whatRu: 'Если открываете фирму, продать можно договоры на обслуживание и вашу лицензию. Именно за это покупатели платят большие деньги.',
+    how: ['Sell service contracts from month one', 'Keep your license and insurance perfect. They set the price of your business', 'Keep techs on guaranteed pay. A steady team adds to the price', 'Check what your business is worth yearly, even if you never sell'],
+    howRu: ['Продавайте договоры на обслуживание с первого месяца', 'Держите лицензию и страховку в идеальном порядке. От них зависит цена фирмы', 'Платите техникам гарантированно. Стабильная команда повышает цену', 'Каждый год оценивайте, сколько стоит фирма, даже если не будете продавать'],
+    why: 'Buyers openly pay for repeat contracts. For an owner, building them is like getting a license.',
+    whyRu: 'Покупатели открыто платят за постоянные договоры. Для владельца собрать их — всё равно что получить лицензию.',
     links: [
       {
         t: 'PHCC — Plumbing-Heating-Cooling Contractors Association',
@@ -487,12 +487,12 @@ Object.assign(STEP_DETAILS, {
     ]
   },
   'plb-k6': {
-    what: 'Re-check your state\'s licensing and reciprocity rules yearly. Several states rewrote trade licensing in 2026. A movable license is worth more each year.',
-    whatRu: 'Перепроверяйте правила лицензирования и взаимного признания (reciprocity — когда другой штат признаёт вашу лицензию) вашего штата каждый год. Несколько штатов переписали лицензирование ремёсел в 2026 году. Подвижная лицензия стоит дороже каждый год.',
-    how: ['List the states that honor your license today', 'Read your board\'s annual rule changes each January', 'If a plant state borders yours, price the move with real postings', 'Keep continuing education current so nothing lapses'],
-    howRu: ['Составьте список штатов, которые признают вашу лицензию сегодня', 'Читайте годовые изменения правил вашего board каждый январь', 'Если заводской штат граничит с вашим, оцените переезд по настоящим вакансиям', 'Держите повышение квалификации в срок, чтобы ничего не просрочилось'],
-    why: 'The shortage is national; the license is state-shaped. Knowing exactly where yours works is part of its value.',
-    whyRu: 'Нехватка национальная; лицензия имеет форму штата. Знать точно, где ваша работает, — часть её цены.',
+    what: 'Each year, check your state\'s license and reciprocity rules. Reciprocity means another state accepts your license. Several states changed trade licenses in 2026. A license you can move is worth more each year.',
+    whatRu: 'Каждый год проверяйте правила лицензий и взаимного признания — когда другой штат принимает вашу лицензию. В 2026 году несколько штатов изменили правила для ремёсел. Лицензия, с которой можно переехать, дорожает каждый год.',
+    how: ['List the states that accept your license today', 'Every January, read your state\'s rule changes for the year', 'If a state with many factories is next to yours, check the move against real job posts', 'Keep your training hours up to date so nothing expires'],
+    howRu: ['Составьте список штатов, которые принимают вашу лицензию сегодня', 'Каждый январь читайте, какие правила изменились в вашем штате', 'Если рядом штат с заводами, оцените переезд по настоящим вакансиям', 'Вовремя набирайте часы обучения, чтобы ничего не истекло'],
+    why: 'Workers are scarce everywhere, but each state has its own license. Knowing where yours works adds to its value.',
+    whyRu: 'Рабочих не хватает везде, но лицензия у каждого штата своя. Знать, где действует ваша, — часть её ценности.',
     links: []
   }
 });

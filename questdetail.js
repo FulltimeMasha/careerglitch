@@ -17,9 +17,9 @@
 
 var QD_STR = {
   en: {back:'← Back', kicker:'⚑ Today’s quest', howK:'What to do — in plain words',
-       doIt:'✓ I did it — mark as done', undoIt:'↩ Undo — mark as not done'},
+       doIt:'✓ I did it — mark as done', undoIt:'↩ Oops, not done yet'},
   ru: {back:'← Назад', kicker:'⚑ Квест дня', howK:'Что делать — простыми словами',
-       doIt:'✓ Я сделал — отметить готовым', undoIt:'↩ Отменить — отметить невыполненным'}
+       doIt:'✓ Готово — отметить сделанным', undoIt:'↩ Ой, ещё не сделано'}
 };
 function qdLang(){ return (window.CG && CG.LANG) || 'en'; }
 function qdT(k){ var tab = QD_STR[qdLang()] || QD_STR.en; return tab[k] != null ? tab[k] : (QD_STR.en[k] || k); }

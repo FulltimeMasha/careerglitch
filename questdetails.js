@@ -16,268 +16,268 @@ var QUEST_DETAILS = (typeof QUEST_DETAILS !== "undefined" && QUEST_DETAILS) || {
 Object.assign(QUEST_DETAILS, {
  "cpa-q1": {
   "how": [
-   "Open a job board and search for accounting jobs in your niche — your chosen narrow area, like tax.",
-   "Open one live posting — live means it is open now and accepting people.",
+   "Open a job site. Search for accounting jobs in your niche (your narrow area, like tax).",
+   "Open one job post that is still open.",
    "Tap Save on it so you keep it.",
-   "Find the pay line in the posting and read it twice, slowly."
+   "Find how much it pays. Read that line twice, slowly."
   ],
   "howRu": [
-   "Откройте сайт с вакансиями и найдите вакансии бухгалтеров в вашей нише — вашей выбранной узкой области, например tax.",
-   "Откройте одну живую вакансию — живая значит, что она открыта сейчас и туда берут людей.",
-   "Нажмите Save — сохранить — на этой вакансии, чтобы она у вас осталась.",
-   "Найдите в вакансии строку оплаты и прочитайте её дважды, медленно."
+   "Откройте сайт с вакансиями. Найдите вакансии бухгалтеров в вашей нише (узкой области, например налоги — tax).",
+   "Откройте одну вакансию, которая ещё открыта.",
+   "Нажмите Save (сохранить), чтобы вакансия осталась у вас.",
+   "Найдите, сколько там платят. Прочитайте эту строку дважды, медленно."
   ]
  },
  "cpa-q10": {
   "how": [
-   "Read the line in the quest again: only 42% pass FAR first try — FAR is one big part of the CPA exam, about financial accounting reports.",
-   "Think what one more try would cost you: paying for the exam again plus your study time.",
-   "Write one money line in your notes: how much money you will set aside for a retake, just in case.",
-   "Keep that line — it is your backup plan, not a prediction that you will fail."
+   "Read the quest line again: only 42% pass FAR the first time. FAR is one big part of the CPA exam, about money reports.",
+   "Think what one more try would cost: the exam fee again, plus study time.",
+   "Write one line in your notes: how much you'll save for a retake, just in case.",
+   "Keep that line. It's a backup plan, not a guess that you'll fail."
   ],
   "howRu": [
-   "Прочитайте строку из квеста ещё раз: только 42% сдают FAR с первого раза — FAR это большой раздел экзамена CPA про финансовую отчётность.",
-   "Подумайте, во что вам обойдётся ещё одна попытка: ещё раз плата за экзамен плюс ваше время на учёбу.",
-   "Запишите одной строкой в заметки, сколько денег вы отложите на пересдачу, — на всякий случай.",
-   "Сохраните эту строку — это ваш запасной план, а не предсказание, что вы не сдадите."
+   "Ещё раз прочитайте строку квеста: только 42% сдают FAR с первого раза. FAR — большая часть экзамена CPA, про финансовые отчёты.",
+   "Подумайте, сколько будет стоить ещё одна попытка: снова плата за экзамен плюс время на учёбу.",
+   "Запишите в заметки одну строку: сколько денег отложите на пересдачу, на всякий случай.",
+   "Сохраните эту строку. Это запасной план, а не прогноз, что вы не сдадите."
   ]
  },
  "cpa-q2": {
   "how": [
-   "Read the four choices: tax means taxes, SEC reporting means official reports for public companies, FDD means checking a business before it is bought, and controller means the person in charge of a company's money records.",
-   "Choose only one — the one you want your next job to be in.",
+   "Read the four choices. Tax means taxes. SEC reporting means official reports for public companies. FDD means checking a business before someone buys it. Controller is the person in charge of a company's money records.",
+   "Pick only one: where you want your next job.",
    "Write it down in one line in your notes, for example: My specialty is tax."
   ],
   "howRu": [
-   "Прочитайте четыре варианта: tax — это налоги, SEC reporting — это официальные отчёты для публичных компаний, FDD — это проверка бизнеса перед его покупкой, а controller — это человек, который отвечает за денежные записи компании.",
-   "Выберите только один вариант — тот, в котором вы хотите вашу следующую работу.",
-   "Запишите это одной строкой в заметки, например: Моя специализация — tax."
+   "Прочитайте четыре варианта. Tax — налоги. SEC reporting — официальные отчёты компаний, чьи акции на бирже. FDD — проверка бизнеса перед покупкой. Controller — главный по денежным записям компании.",
+   "Выберите только один: где вы хотите следующую работу.",
+   "Запишите это одной строкой в заметки, например: Моя специализация — налоги (tax)."
   ]
  },
  "cpa-q3": {
   "how": [
-   "On a job board, open three postings in your niche, one by one.",
-   "In each posting, look in the requirements part for a tool name: NetSuite, Workiva, or Excel.",
-   "Write down the tool name you saw in each posting, so you have three names in your notes.",
-   "Count which name appears most often and circle it — that is your answer."
+   "On a job site, open three job posts in your niche, one by one.",
+   "In each, look at the requirements for a tool name: NetSuite, Workiva, or Excel.",
+   "Write down the tool from each job post. You'll have three names.",
+   "Circle the name you see most. That's your answer."
   ],
   "howRu": [
    "На сайте с вакансиями откройте три вакансии в вашей нише, по одной.",
-   "В каждой вакансии посмотрите в части с требованиями название инструмента: NetSuite, Workiva или Excel.",
-   "Запишите название инструмента из каждой вакансии, чтобы у вас в заметках было три названия.",
-   "Посчитайте, какое название встречается чаще всего, и обведите его — это ваш ответ."
+   "В каждой посмотрите требования. Ищите название инструмента: NetSuite, Workiva или Excel.",
+   "Запишите инструмент из каждой вакансии. Получится три названия.",
+   "Обведите название, которое встречается чаще. Это ваш ответ."
   ]
  },
  "cpa-q4": {
   "how": [
-   "Search in your browser for your state CPA board license page — the board is the official office that gives the license in your state.",
-   "Open the page that shows the route to get the license, step by step.",
-   "Find the part about college credits and read whether your number is 120 credits or 150 — credits are the points you earn for college classes.",
+   "Search online for your state CPA board license page. The board is the office that gives the license in your state.",
+   "Open the page that shows how to get the license, step by step.",
+   "Find the part about college credits. Is your number 120 or 150? Credits are points you get for college classes.",
    "Write your number down in your notes: 120 or 150."
   ],
   "howRu": [
-   "Найдите в браузере страницу лицензии board вашего штата для CPA — board это официальная организация, которая выдаёт лицензию в вашем штате.",
-   "Откройте страницу, где показан маршрут получения лицензии, шаг за шагом.",
-   "Найдите часть про кредиты за учёбу и прочитайте, ваше число — 120 credits или 150; credits это баллы, которые вы получаете за занятия в колледже.",
+   "Найдите в интернете страницу совета по лицензиям вашего штата (state CPA board). Это ведомство выдаёт лицензию CPA.",
+   "Откройте страницу, где по шагам написано, как получить лицензию.",
+   "Найдите часть про учебные кредиты (credits). Ваше число — 120 или 150? Кредиты — это баллы за предметы в колледже.",
    "Запишите ваше число в заметки: 120 или 150."
   ]
  },
  "cpa-q5": {
   "how": [
-   "Open a job board and search for Workiva — type the word Workiva in the search box.",
-   "Open one posting that asks for Workiva in its requirements and read that part carefully.",
-   "Tap Save on that posting so you keep it.",
-   "Remember: this saved posting shows you the door into SEC reporting, which is making official reports for public companies."
+   "Open a job site. Type Workiva in the search box.",
+   "Open one job post that lists Workiva in its requirements. Read that part carefully.",
+   "Tap Save on that job post so you keep it.",
+   "Remember: this job post shows your way into SEC reporting. That means making official reports for public companies."
   ],
   "howRu": [
-   "Откройте сайт с вакансиями и введите в поиск слово Workiva.",
-   "Откройте одну вакансию, где Workiva названа в требованиях, и внимательно прочитайте эту часть.",
-   "Нажмите Save — сохранить — на этой вакансии, чтобы она у вас осталась.",
-   "Запомните: эта сохранённая вакансия показывает вам дверь в SEC reporting — это подготовка официальных отчётов для публичных компаний."
+   "Откройте сайт с вакансиями. Введите в поиск слово Workiva.",
+   "Откройте вакансию, где Workiva есть в требованиях. Внимательно прочитайте эту часть.",
+   "Нажмите Save (сохранить), чтобы вакансия осталась у вас.",
+   "Запомните: эта вакансия — ваш путь в SEC reporting. Это официальные отчёты компаний, чьи акции на бирже."
   ]
  },
  "cpa-q6": {
   "how": [
-   "Scroll down this Path page until you see the resume block.",
-   "Tap the upload button in that block and pick your resume file from your phone or computer.",
-   "Wait a few seconds until small labels appear that say Evidence found.",
-   "Tap Confirm on one label that is true for you — that is the quest done."
+   "Scroll down this Path page to the resume block.",
+   "Tap the upload button. Pick your resume file from your phone or computer.",
+   "Wait a few seconds. Small labels will appear: Evidence found.",
+   "Tap Confirm on one label that's true for you. Quest done."
   ],
   "howRu": [
-   "Прокрутите эту страницу Path вниз, пока не увидите блок с резюме.",
-   "Нажмите кнопку загрузки в этом блоке и выберите файл вашего резюме с телефона или компьютера.",
-   "Подождите несколько секунд, пока не появятся маленькие пометки Evidence found — найдено доказательство.",
-   "Нажмите Confirm — подтвердить — на одной пометке, которая про вас правда, — квест выполнен."
+   "Прокрутите страницу «Путь» вниз до блока с резюме.",
+   "Нажмите кнопку загрузки. Выберите файл резюме на телефоне или компьютере.",
+   "Подождите несколько секунд. Появятся маленькие пометки «Нашли в резюме».",
+   "Нажмите «Подтвердить» на одной пометке, которая про вас правда. Квест выполнен."
   ]
  },
  "cpa-q7": {
   "how": [
    "Open the Radar tab in this app.",
-   "Read the newest signal at the top — it has a date on it.",
-   "That is all — you do not need to do anything else for this quest."
+   "Read the newest signal at the top. It has a date.",
+   "That's all. Nothing else to do for this quest."
   ],
   "howRu": [
-   "Откройте вкладку Radar в этом приложении.",
-   "Прочитайте самый новый сигнал наверху — на нём стоит дата.",
-   "Это всё — больше для этого квеста ничего делать не нужно."
+   "Откройте вкладку «Радар» в этом приложении.",
+   "Прочитайте самый новый сигнал наверху. На нём стоит дата.",
+   "Это всё. Больше ничего делать не нужно."
   ]
  },
  "cpa-q8": {
   "how": [
-   "Open your verdict card — the share box on this page with your result on it.",
+   "Open your result card. It's the share box on this page.",
    "Tap the Share button.",
-   "Send it to one person you know, or post it — as soon as it is sent, the quest is done."
+   "Send it to one person or post it. Once it's sent, the quest is done."
   ],
   "howRu": [
-   "Откройте вашу карточку вердикта — блок на этой странице с вашим результатом, из которого можно поделиться.",
-   "Нажмите кнопку Share — поделиться.",
-   "Отправьте её одному знакомому человеку или опубликуйте — как только отправили, квест выполнен."
+   "Откройте карточку с вашим результатом. Это блок на этой странице, которым можно поделиться.",
+   "Нажмите кнопку «Поделиться».",
+   "Отправьте её одному знакомому или опубликуйте. Как только отправили, квест выполнен."
   ]
  },
  "cpa-q9": {
   "how": [
-   "Think of one process at work that you do fully by hand, for example typing numbers from one file into another.",
-   "Write that process down in your notes in one clear line.",
-   "Think how many hours it takes you in a normal month and write that number next to it."
+   "Think of one task at work you do fully by hand. For example, copying numbers from one file to another.",
+   "Write that task in your notes in one clear line.",
+   "How many hours does it take in a normal month? Write that number next to it. AI can often help with hand work like this. Spotting it puts you ahead."
   ],
   "howRu": [
-   "Вспомните один процесс на работе, который вы делаете полностью руками, например переписываете числа из одного файла в другой.",
-   "Запишите этот процесс в заметки одной понятной строкой.",
-   "Подумайте, сколько часов он занимает у вас в обычный месяц, и запишите это число рядом."
+   "Вспомните одну задачу на работе, которую вы делаете полностью руками. Например, переносите числа из одного файла в другой.",
+   "Запишите эту задачу в заметки одной понятной строкой.",
+   "Сколько часов она занимает в обычный месяц? Запишите число рядом. С такой ручной работой часто помогает AI. Кто это видит, тот впереди."
   ]
  },
  "law-q1": {
   "how": [
-   "Open a job board, for example LinkedIn or Indeed, and type specialist paralegal in the search box.",
-   "Open the first posting that looks like a real full-time job, not an ad.",
-   "Tap Save or Bookmark on that posting so you can find it again.",
-   "That saved posting is now your example — this is the job shape you are aiming at."
+   "Open a job site, like LinkedIn or Indeed. Type specialist paralegal in the search box.",
+   "Open the first job post that looks like a real full-time job, not an ad.",
+   "Tap Save or Bookmark so you can find it again.",
+   "This saved job post is now your example. It's the kind of job you're aiming for."
   ],
   "howRu": [
-   "Откройте сайт с вакансиями, например LinkedIn или Indeed, и введите в поиск specialist paralegal — это помощник юриста с узкой специализацией.",
-   "Откройте первую вакансию, которая выглядит как настоящая работа на полную ставку, а не реклама.",
-   "Нажмите Save или Bookmark — сохранить — на этой вакансии, чтобы потом легко её найти.",
-   "Эта сохранённая вакансия теперь ваш пример — это форма работы, к которой вы целитесь."
+   "Откройте сайт с вакансиями, например LinkedIn или Indeed. Введите в поиск specialist paralegal (помощник юриста в узкой области).",
+   "Откройте первую вакансию, похожую на настоящую работу на полный день, а не на рекламу.",
+   "Нажмите Save или Bookmark (сохранить), чтобы потом найти её.",
+   "Эта вакансия теперь ваш пример. К такой работе вы и идёте."
   ]
  },
  "law-q10": {
   "how": [
-   "Search in your browser for CIPP/US and open a page that explains it in simple words.",
-   "Read what it is: a certificate that shows you know the privacy rules in the United States.",
-   "Also look at who usually gets it and what topics the exam covers — just read the headings.",
+   "Search online for CIPP/US, or ask ChatGPT or Claude. Get a simple explanation.",
+   "Read what it is: a certificate that shows you know US privacy rules.",
+   "Also see who usually gets it and what the exam covers. Just read the headings.",
    "Write one line in your notes: what CIPP/US is, in your own words."
   ],
   "howRu": [
-   "Введите в браузере CIPP/US и откройте страницу, где это объясняют простыми словами.",
-   "Прочитайте, что это: сертификат, который показывает, что вы знаете правила про частные данные в США.",
-   "Посмотрите также, кто обычно его получает и какие темы есть на экзамене, — прочитайте только заголовки.",
+   "Поищите CIPP/US в интернете или спросите ChatGPT или Claude. Пусть объяснят просто.",
+   "Прочитайте, что это: сертификат, который показывает, что вы знаете правила о личных данных в США.",
+   "Посмотрите, кто обычно его получает и что на экзамене. Хватит заголовков.",
    "Запишите одной строкой в заметки: что такое CIPP/US, своими словами."
   ]
  },
  "law-q2": {
   "how": [
-   "Read the three choices: privacy means protecting people's private data, diligence means checking documents carefully before a deal, and healthcare means work for hospitals and health companies.",
-   "Choose only one — the one you want your next job to be in.",
+   "Read the three choices. Privacy means protecting people's private data. Diligence means checking documents carefully before a deal. Healthcare means work for hospitals and health companies.",
+   "Pick only one: where you want your next job.",
    "Write it down in one line in your notes, for example: My area is privacy."
   ],
   "howRu": [
-   "Прочитайте три варианта: privacy — это защита частных данных людей, diligence — это внимательная проверка документов перед сделкой, а healthcare — это работа для больниц и медицинских компаний.",
-   "Выберите только один вариант — тот, в котором вы хотите вашу следующую работу.",
-   "Запишите это одной строкой в заметки, например: Моя область — privacy."
+   "Прочитайте три варианта. Privacy — защита личных данных людей. Diligence — внимательная проверка документов перед сделкой. Healthcare — работа для больниц и медицинских компаний.",
+   "Выберите только один: где вы хотите следующую работу.",
+   "Запишите это одной строкой в заметки, например: Моя область — защита данных (privacy)."
   ]
  },
  "law-q3": {
   "how": [
-   "On a job board, search for senior postings and open three different ones, one by one.",
-   "In each posting, scroll until you find the line about education — the degree it asks for.",
-   "Write that line down for each posting, so you have three lines in your notes.",
-   "Look at your three lines — most of them ask for a bachelor's, which is a four-year college degree."
+   "On a job site, search for senior jobs. Open three different ones, one by one.",
+   "In each, scroll to the line about education: what degree it asks for.",
+   "Write that line down for each job post. You'll have three lines.",
+   "Look at your three lines. Most ask for a bachelor's (a four-year college degree)."
   ],
   "howRu": [
-   "На сайте с вакансиями найдите senior-вакансии и откройте три разные, по одной.",
-   "В каждой вакансии прокрутите текст до строки про образование — какую степень там просят.",
-   "Запишите эту строку для каждой вакансии, чтобы у вас в заметках было три строки.",
-   "Посмотрите на ваши три строки — большинство просит bachelor's, это степень после четырёх лет учёбы в колледже или университете."
+   "На сайте с вакансиями найдите вакансии для опытных (senior). Откройте три разные, по одной.",
+   "В каждой найдите строку про образование: какой диплом просят.",
+   "Запишите эту строку для каждой вакансии. Получится три строки.",
+   "Посмотрите на три строки. Большинство просит диплом бакалавра (bachelor's — четыре года в колледже или университете)."
   ]
  },
  "law-q4": {
   "how": [
-   "In your browser, search for Kira or Harvey and open the official page of one of them — these are AI tools for law firms.",
-   "Find the part that explains diligence — the careful checking of contracts and documents before a deal.",
-   "Read what the AI does there: what it reads, what it finds, and what a person still checks.",
-   "Stop after five minutes and write one sentence in your notes about what the AI does."
+   "Search online for Kira or Harvey. Open the official page of one. These are AI tools for law firms.",
+   "Find the part about diligence: carefully checking contracts and papers before a deal.",
+   "Read what the AI does: what it reads, what it finds, what a person still checks.",
+   "Stop after five minutes. Write one sentence in your notes about what the AI does."
   ],
   "howRu": [
-   "Введите в браузере Kira или Harvey и откройте официальную страницу одного из них — это AI-инструменты для юридических фирм.",
-   "Найдите часть, где объясняется diligence — внимательная проверка договоров и документов перед сделкой.",
-   "Прочитайте, что там делает AI: что он читает, что находит и что человек всё равно проверяет сам.",
-   "Через пять минут остановитесь и запишите в заметки одно предложение о том, что делает AI."
+   "Введите в поиске Kira или Harvey. Откройте официальную страницу одного из них. Это AI-инструменты для юридических фирм.",
+   "Найдите часть про проверку перед сделкой (diligence): внимательное чтение договоров и документов.",
+   "Прочитайте, что делает AI: что читает, что находит, что человек всё равно проверяет сам.",
+   "Через пять минут остановитесь. Запишите в заметки одно предложение о том, что делает AI."
   ]
  },
  "law-q5": {
   "how": [
-   "Search in your browser for the Cooley posting, or open it on a job board if you saved it there.",
-   "Find the pay line with $135,200–$176,800 and read the whole posting around it.",
-   "Look for what the posting asks for so a person can get the top of that pay — for example more experience or a chosen practice area.",
-   "Write down in your notes, in your own words, what it asks for, next to the pay line."
+   "Search online for the Cooley job post. Or open it on the job site if you saved it.",
+   "Find the pay: $135,200–$176,800. Read the whole job post around it.",
+   "Look for what you need to get the top pay. For example, more experience or a certain area of law.",
+   "Write what it asks for in your own words, next to the pay."
   ],
   "howRu": [
-   "Найдите в браузере вакансию Cooley или откройте её на сайте с вакансиями, если вы её там сохранили.",
-   "Найдите строку оплаты $135,200–$176,800 и прочитайте вокруг неё всю вакансию.",
-   "Посмотрите, что вакансия просит, чтобы человек мог получить верх этой оплаты, — например больше опыта или выбранную область практики.",
-   "Запишите в заметки своими словами, что там просят, рядом со строкой оплаты."
+   "Найдите в интернете вакансию Cooley. Или откройте её на сайте, если сохранили.",
+   "Найдите оплату $135,200–$176,800. Прочитайте всю вакансию вокруг неё.",
+   "Посмотрите, что нужно, чтобы получать по верхней границе. Например, больше опыта или определённая область права.",
+   "Запишите своими словами, что там просят, рядом с оплатой."
   ]
  },
  "law-q6": {
   "how": [
-   "Scroll down this Path page until you see the resume block.",
-   "Tap the upload button in that block and pick your resume file from your phone or computer.",
-   "Wait a few seconds until small labels appear that say Evidence found.",
-   "Tap Confirm on one label that is true for you — that is the quest done."
+   "Scroll down this Path page to the resume block.",
+   "Tap the upload button. Pick your resume file from your phone or computer.",
+   "Wait a few seconds. Small labels will appear: Evidence found.",
+   "Tap Confirm on one label that's true for you. Quest done."
   ],
   "howRu": [
-   "Прокрутите эту страницу Path вниз, пока не увидите блок с резюме.",
-   "Нажмите кнопку загрузки в этом блоке и выберите файл вашего резюме с телефона или компьютера.",
-   "Подождите несколько секунд, пока не появятся маленькие пометки Evidence found — найдено доказательство.",
-   "Нажмите Confirm — подтвердить — на одной пометке, которая про вас правда, — квест выполнен."
+   "Прокрутите страницу «Путь» вниз до блока с резюме.",
+   "Нажмите кнопку загрузки. Выберите файл резюме на телефоне или компьютере.",
+   "Подождите несколько секунд. Появятся маленькие пометки «Нашли в резюме».",
+   "Нажмите «Подтвердить» на одной пометке, которая про вас правда. Квест выполнен."
   ]
  },
  "law-q7": {
   "how": [
    "Open the Radar tab in this app.",
-   "Read the newest signal at the top — it has a date on it.",
-   "That is all — you do not need to do anything else for this quest."
+   "Read the newest signal at the top. It has a date.",
+   "That's all. Nothing else to do for this quest."
   ],
   "howRu": [
-   "Откройте вкладку Radar в этом приложении.",
-   "Прочитайте самый новый сигнал наверху — на нём стоит дата.",
-   "Это всё — больше для этого квеста ничего делать не нужно."
+   "Откройте вкладку «Радар» в этом приложении.",
+   "Прочитайте самый новый сигнал наверху. На нём стоит дата.",
+   "Это всё. Больше ничего делать не нужно."
   ]
  },
  "law-q8": {
   "how": [
-   "Open your verdict card — the share box on this page with your result on it.",
+   "Open your result card. It's the share box on this page.",
    "Tap the Share button.",
-   "Send it to one person you know, or post it — as soon as it is sent, the quest is done."
+   "Send it to one person or post it. Once it's sent, the quest is done."
   ],
   "howRu": [
-   "Откройте вашу карточку вердикта — блок на этой странице с вашим результатом, из которого можно поделиться.",
-   "Нажмите кнопку Share — поделиться.",
-   "Отправьте её одному знакомому человеку или опубликуйте — как только отправили, квест выполнен."
+   "Откройте карточку с вашим результатом. Это блок на этой странице, которым можно поделиться.",
+   "Нажмите кнопку «Поделиться».",
+   "Отправьте её одному знакомому или опубликуйте. Как только отправили, квест выполнен."
   ]
  },
  "law-q9": {
   "how": [
-   "Think of one small task you do again and again at work, for example filing the same form or checking the same list.",
-   "Next time you do it, look at the clock when you start and when you finish, or use a timer on your phone.",
-   "Do the task just once for this quest, at your normal speed.",
-   "Write down in your notes how many minutes it took."
+   "Think of one small task you repeat at work. For example, filling the same form or checking the same list.",
+   "Next time, note the time when you start and finish. Or use a phone timer.",
+   "Do the task once, at your normal speed.",
+   "Write down how many minutes it took."
   ],
   "howRu": [
-   "Вспомните одну маленькую задачу, которую вы снова и снова делаете на работе, например заполняете одну и ту же форму или проверяете один и тот же список.",
-   "Когда будете делать её в следующий раз, посмотрите на часы в начале и в конце или включите таймер на телефоне.",
-   "Для этого квеста сделайте задачу только один раз, в вашем обычном темпе.",
-   "Запишите в заметки, сколько минут это заняло."
+   "Вспомните одну маленькую задачу, которую вы повторяете на работе. Например, заполняете одну и ту же форму или проверяете один список.",
+   "В следующий раз засеките время начала и конца. Или включите таймер на телефоне.",
+   "Сделайте задачу один раз, в обычном темпе.",
+   "Запишите, сколько минут это заняло."
   ]
  }
 });
@@ -286,242 +286,242 @@ var QUEST_DETAILS = (typeof QUEST_DETAILS !== "undefined" && QUEST_DETAILS) || {
 Object.assign(QUEST_DETAILS, {
  "fin-q1": {
   "how": [
-   "Open a job board and search for FP&A partner — FP&A means financial planning and analysis, and a partner works closely with one business team, not just on reports.",
-   "Open one posting with partner in the title and read what the job actually does day to day.",
-   "Tap Save or bookmark it, and skip plain analyst postings for now."
+   "Open a job site. Search for FP&A partner. FP&A means financial planning and analysis. A partner works closely with one business team, not just on reports.",
+   "Open one job post with partner in the title. Read what the job really does each day.",
+   "Save or bookmark it. Skip plain analyst job posts for now."
   ],
   "howRu": [
-   "Откройте сайт вакансий и поищите FP&A partner — FP&A означает финансовое планирование и анализ, а partner работает тесно с одной командой бизнеса, а не только над отчётами.",
-   "Откройте одну вакансию со словом partner в названии и прочитайте, что там правда делают каждый день.",
-   "Нажмите «Сохранить» или добавьте её в закладки, а обычные вакансии analyst пока пропускайте."
+   "Откройте сайт вакансий. Поищите FP&A partner. FP&A — финансовое планирование и анализ. Такой специалист (partner) работает рядом с одной командой бизнеса, а не только над отчётами.",
+   "Откройте вакансию со словом partner в названии. Прочитайте, что там делают каждый день.",
+   "Нажмите «Сохранить» или добавьте в закладки. Обычные вакансии аналитика (analyst) пока пропускайте."
   ]
  },
  "fin-q10": {
   "how": [
-   "Open one FP&A posting on a job board and look in the requirements part for CFA — CFA is a hard finance certificate that takes years to get.",
-   "Decide which it is in this posting: the word required next to it, the word preferred next to it, or CFA is not there at all.",
-   "Write down that one answer. Our scan: required in 0 of 40."
+   "Open one FP&A job post. Look in the requirements for CFA. CFA is a hard finance certificate that takes years.",
+   "Check which it is: it says required, it says preferred, or CFA isn't there.",
+   "Write down that one answer. We checked 40 job posts: 0 required it."
   ],
   "howRu": [
-   "Откройте одну вакансию FP&A на сайте вакансий и посмотрите в разделе требований CFA — CFA это сложный финансовый сертификат, на который уходят годы.",
-   "Решите, что именно в этой вакансии: рядом с ним стоит слово required, рядом стоит слово preferred, или CFA там вообще нет.",
-   "Запишите этот один ответ. Наш скан: требуется в 0 из 40."
+   "Откройте одну вакансию FP&A. Поищите в требованиях CFA. CFA — сложный финансовый сертификат, на него уходят годы.",
+   "Посмотрите, что там: рядом написано required (обязательно), preferred (желательно) или CFA нет вообще.",
+   "Запишите этот один ответ. Мы проверили 40 вакансий: обязателен в 0 из них."
   ]
  },
  "fin-q2": {
   "how": [
-   "Look at the choices: partner, strategic, hybrid, or corp dev — think about which seat you want most, and pick only one.",
-   "Write that one word down in your notes or on paper.",
-   "That one line is your target — do not write a list, just the one."
+   "Look at the choices: partner, strategic, hybrid, or corp dev. Pick the one job you want most.",
+   "Write that one word in your notes or on paper.",
+   "That one line is your goal. No list, just one."
   ],
   "howRu": [
-   "Посмотрите на варианты: partner, strategic, hybrid или corp dev — подумайте, какое место вы хотите больше всего, и выберите только одно.",
-   "Запишите это одно слово в заметки или на бумагу.",
-   "Эта одна строка и есть ваша цель — не пишите список, только одно."
+   "Посмотрите на варианты: partner (рядом с командой), strategic (стратегия), hybrid (смешанная роль) или corp dev (покупки и сделки компании). Выберите одну работу, которую хотите больше всего.",
+   "Запишите это слово в заметки или на бумагу.",
+   "Эта строка и есть ваша цель. Не список, а только одно."
   ]
  },
  "fin-q3": {
   "how": [
-   "Open 3 FP&A postings on a job board.",
-   "In each posting, look in the requirements part for the word SQL — SQL is the language used to pull numbers out of a database.",
-   "Count how many of the 3 ask for SQL and write that count down. In our scan it was 31 of 40."
+   "Open 3 FP&A job posts on a job site.",
+   "In each, look in the requirements for SQL. SQL is the language for pulling numbers from a database.",
+   "Count how many of the 3 ask for SQL. Write it down. In our check it was 31 of 40."
   ],
   "howRu": [
    "Откройте 3 вакансии FP&A на сайте вакансий.",
-   "В каждой вакансии посмотрите в разделе требований слово SQL — SQL это язык, на котором достают числа из базы данных.",
-   "Посчитайте, в скольких из 3 просят SQL, и запишите это число. В нашем скане это было 31 из 40."
+   "В каждой поищите в требованиях SQL. SQL — язык, на котором достают числа из базы данных.",
+   "Посчитайте, сколько из 3 просят SQL. Запишите. У нас вышло 31 из 40."
   ]
  },
  "fin-q4": {
   "how": [
-   "Take a sheet of paper and a pen — no computer for this one, and give yourself ten minutes.",
-   "Write a short SQL query: name one table to take numbers from, add one filter that picks only some rows, and add one sum that adds numbers up.",
-   "Stop when those three parts are on the page — it does not have to be perfect."
+   "Take paper and a pen. No computer this time. Give yourself ten minutes.",
+   "Write a short SQL query. It needs one table to take numbers from, one filter to pick some rows, and one sum.",
+   "Stop when all three parts are there. It doesn't have to be perfect. Later, ask ChatGPT or Claude to check it."
   ],
   "howRu": [
-   "Возьмите лист бумаги и ручку — для этого задания без компьютера, и дайте себе десять минут.",
-   "Напишите короткий SQL-запрос: назовите одну таблицу, откуда брать числа, добавьте один фильтр, который выбирает только часть строк, и добавьте одну сумму, которая складывает числа.",
-   "Остановитесь, когда эти три части есть на странице — идеально быть не должно."
+   "Возьмите бумагу и ручку. Без компьютера. Дайте себе десять минут.",
+   "Напишите короткий SQL-запрос. В нём нужны: одна таблица с числами, один фильтр, который выбирает часть строк, и одна сумма.",
+   "Остановитесь, когда все три части готовы. Идеально не надо. Потом попросите ChatGPT или Claude проверить."
   ]
  },
  "fin-q5": {
   "how": [
-   "Open a job board and search for FP&A jobs adding the word Anaplan — Anaplan is a planning tool some finance teams use instead of spreadsheets.",
-   "Open postings until you find one that names Anaplan in the text.",
-   "Save that posting. Platforms are named in 16 of 40 postings."
+   "Open a job site. Search for FP&A jobs with the word Anaplan. Anaplan is a planning tool some finance teams use instead of spreadsheets.",
+   "Keep opening job posts until one names Anaplan.",
+   "Save that job post. 16 of 40 job posts name such tools."
   ],
   "howRu": [
-   "Откройте сайт вакансий и поищите вакансии FP&A, добавив слово Anaplan — Anaplan это инструмент планирования, который некоторые финансовые команды используют вместо таблиц.",
-   "Открывайте вакансии, пока не найдёте одну, где Anaplan назван в тексте.",
-   "Сохраните эту вакансию. Платформы названы в 16 из 40 вакансий."
+   "Откройте сайт вакансий. Поищите вакансии FP&A со словом Anaplan. Anaplan — программа для планирования, её используют вместо таблиц.",
+   "Открывайте вакансии, пока не найдёте ту, где упомянут Anaplan.",
+   "Сохраните эту вакансию. Такие программы упоминают 16 из 40 вакансий."
   ]
  },
  "fin-q6": {
   "how": [
-   "Scroll to the resume block on this Path page.",
-   "Tap the upload button and pick your resume file.",
-   "Wait for the Evidence found chips to appear, then tap Confirm on one chip that is true."
+   "Scroll down this Path page to the resume block.",
+   "Tap the upload button. Pick your resume file.",
+   "Wait for the Evidence found labels. Tap Confirm on one that's true."
   ],
   "howRu": [
-   "Пролистайте к блоку резюме на этой странице Path.",
-   "Нажмите кнопку загрузки и выберите файл вашего резюме.",
-   "Дождитесь плашек Evidence found и нажмите Confirm на одной плашке, которая верна."
+   "Прокрутите страницу «Путь» вниз до блока с резюме.",
+   "Нажмите кнопку загрузки. Выберите файл резюме.",
+   "Дождитесь пометок «Нашли в резюме». Нажмите «Подтвердить» на одной, которая про вас правда."
   ]
  },
  "fin-q7": {
   "how": [
    "Open the Radar tab in this app.",
-   "Read the newest signal — it has a date on it.",
-   "That is all — you have seen how the market moved."
+   "Read the newest signal. It has a date.",
+   "That's all. You've seen how the job market changed."
   ],
   "howRu": [
-   "Откройте вкладку Radar в этом приложении.",
-   "Прочитайте самый новый сигнал — на нём есть дата.",
-   "Это всё — вы увидели, как двинулся рынок."
+   "Откройте вкладку «Радар» в этом приложении.",
+   "Прочитайте самый новый сигнал. На нём есть дата.",
+   "Это всё. Вы увидели, что поменялось на рынке."
   ]
  },
  "fin-q8": {
   "how": [
-   "Open your verdict card in the share box on this page.",
+   "Open your result card in the share box on this page.",
    "Tap Share.",
-   "Send it to one person or post it — done."
+   "Send it to one person or post it. Done."
   ],
   "howRu": [
-   "Откройте вашу карточку вердикта в блоке шеринга на этой странице.",
+   "Откройте карточку с вашим результатом на этой странице.",
    "Нажмите Share.",
-   "Отправьте её одному человеку или опубликуйте — готово."
+   "Отправьте её одному человеку или опубликуйте. Готово."
   ]
  },
  "fin-q9": {
   "how": [
-   "Think of the reports you make at work and pick one that you rebuild again every month.",
+   "Think of the reports you make at work. Pick one you rebuild every month.",
    "Write its name down in your notes.",
-   "Next to it, write how many hours it eats each time — that report is your automation target."
+   "Next to it, write how many hours it takes each time. That's the report to automate, often with AI."
   ],
   "howRu": [
-   "Вспомните отчёты, которые вы делаете на работе, и выберите один, который вы пересобираете заново каждый месяц.",
+   "Вспомните отчёты, которые делаете на работе. Выберите один, который каждый месяц собираете заново.",
    "Запишите его название в заметки.",
-   "Рядом запишите, сколько часов он ест каждый раз — этот отчёт и есть ваша цель автоматизации."
+   "Рядом запишите, сколько часов он отнимает каждый раз. Этот отчёт и надо автоматизировать — часто с помощью AI."
   ]
  },
  "nurse-q1": {
   "how": [
-   "Open a job board or a hospital careers page and search for ICU RN, ER RN, or OR RN — these are intensive care, emergency room, and operating room nurse jobs.",
-   "Open one posting that looks like a job you would actually want.",
-   "Tap Save or bookmark it, so you can come back to it later."
+   "Open a job site or a hospital jobs page. Search for ICU RN, ER RN, or OR RN. These are intensive care, emergency room and operating room nurse jobs.",
+   "Open one job post you'd really want.",
+   "Save or bookmark it so you can come back later."
   ],
   "howRu": [
-   "Откройте сайт вакансий или страницу вакансий больницы и поищите ICU RN, ER RN или OR RN — это медсестра реанимации, приёмного покоя и операционной.",
-   "Откройте одну вакансию, похожую на работу, которую вы правда хотели бы получить.",
-   "Нажмите «Сохранить» или добавьте её в закладки, чтобы потом к ней вернуться."
+   "Откройте сайт вакансий или страницу вакансий больницы. Поищите ICU RN, ER RN или OR RN. Это медсёстры реанимации, приёмного покоя и операционной.",
+   "Откройте одну вакансию, которую вы правда хотели бы.",
+   "Нажмите «Сохранить» или добавьте в закладки, чтобы потом вернуться."
   ]
  },
  "nurse-q10": {
   "how": [
-   "Search for a nurse practice map — it shows, state by state, how freely a nurse practitioner may work on their own.",
-   "Find your state on the map and read its label: Full, Reduced, or Restricted.",
+   "Search for a nurse practice map. It shows, by state, how freely a nurse practitioner can work alone.",
+   "Find your state and read its label: Full, Reduced, or Restricted.",
    "Write that word down next to your state name."
   ],
   "howRu": [
-   "Поищите карту практики медсестёр — она показывает по штатам, насколько свободно практикующая медсестра может работать самостоятельно.",
-   "Найдите ваш штат на карте и прочитайте его пометку: Full, Reduced или Restricted.",
+   "Поищите карту прав медсестёр по штатам (nurse practice map). Она показывает, насколько свободно медсестра-практик может работать сама, без врача.",
+   "Найдите ваш штат и прочитайте пометку: Full (полная свобода), Reduced (частичная) или Restricted (ограниченная).",
    "Запишите это слово рядом с названием вашего штата."
   ]
  },
  "nurse-q2": {
   "how": [
-   "Look at the choices: ICU, ER, OR, psych, or anesthesia — think about which one you want most, and pick only one.",
-   "Write that one word down in your notes or on paper.",
-   "That one line is your target — do not write a list, just the one."
+   "Look at the choices: ICU, ER, OR, psych, or anesthesia. Pick the one you want most.",
+   "Write that one word in your notes or on paper.",
+   "That one line is your goal. No list, just one."
   ],
   "howRu": [
-   "Посмотрите на варианты: ICU, ER, OR, psych или anesthesia — подумайте, что вы хотите больше всего, и выберите только одно.",
-   "Запишите это одно слово в заметки или на бумагу.",
-   "Эта одна строка и есть ваша цель — не пишите список, только одно."
+   "Посмотрите на варианты: ICU (реанимация), ER (приёмный покой), OR (операционная), psych (психиатрия) или anesthesia (анестезия). Выберите одно, что хотите больше всего.",
+   "Запишите это слово в заметки или на бумагу.",
+   "Эта строка и есть ваша цель. Не список, а только одно."
   ]
  },
  "nurse-q3": {
   "how": [
-   "Open 3 postings for your specialty on a job board or hospital careers page.",
-   "In each posting, look in the requirements part for a certificate name: BLS is the basic life support card, ACLS is the advanced heart life support card, and CCRN is a critical care nurse certificate.",
-   "Write down the name you saw most often across the 3 postings."
+   "Open 3 job posts for your specialty on a job site or hospital jobs page.",
+   "In each, look in the requirements for a certificate. BLS is the basic life support card. ACLS is the advanced heart care card. CCRN is a critical care nurse certificate.",
+   "Write down the name you saw most in the 3 job posts."
   ],
   "howRu": [
-   "Откройте 3 вакансии по вашей специальности на сайте вакансий или на странице вакансий больницы.",
-   "В каждой вакансии посмотрите в разделе требований название сертификата: BLS — это базовый сертификат поддержки жизни, ACLS — расширенный сертификат помощи при остановке сердца, а CCRN — сертификат медсестры реанимации.",
-   "Запишите название, которое встретилось чаще всего в этих 3 вакансиях."
+   "Откройте 3 вакансии по вашей специальности на сайте вакансий или больницы.",
+   "В каждой посмотрите в требованиях название сертификата. BLS — базовая помощь для спасения жизни. ACLS — расширенная помощь при остановке сердца. CCRN — сертификат медсестры реанимации.",
+   "Запишите название, которое встречалось чаще всего в этих 3 вакансиях."
   ]
  },
  "nurse-q4": {
   "how": [
-   "Find your BLS card — look in your wallet, your certificate folder, or the app or email where your employer keeps it. BLS is your basic life support certificate.",
+   "Find your BLS card (basic life support). Look in your wallet, your papers folder, or the app or email where your employer keeps it.",
    "Read the expiry date printed on the card.",
-   "If that date falls in this year, write down the month it ends, so you know when to renew it."
+   "If it ends this year, write down the month so you know when to renew."
   ],
   "howRu": [
-   "Найдите вашу карточку BLS — посмотрите в кошельке, в папке с сертификатами или в приложении и почте, где её хранит работодатель. BLS — это ваш базовый сертификат поддержки жизни.",
-   "Прочитайте дату окончания, которая напечатана на карточке.",
-   "Если эта дата выпадает на этот год, запишите месяц, в котором она заканчивается, чтобы знать, когда обновлять."
+   "Найдите карточку BLS (базовая помощь для спасения жизни). Посмотрите в кошельке, в папке с документами или в приложении и почте, где её хранит работодатель.",
+   "Прочитайте дату окончания на карточке.",
+   "Если она в этом году, запишите месяц. Так вы не забудете вовремя обновить."
   ]
  },
  "nurse-q5": {
   "how": [
-   "Open a job board and search for RN jobs in your specialty, adding the words sign-on bonus to your search.",
-   "Open postings until you find one that names a sign-on bonus — they run $10K–$25K.",
-   "Save that posting and write down the exact bonus number it shows."
+   "Open a job site. Search for RN jobs in your specialty, plus the words sign-on bonus.",
+   "Keep opening job posts until one names a sign-on bonus (money for joining). They're $10K–$25K.",
+   "Save that job post. Write down the exact bonus amount."
   ],
   "howRu": [
-   "Откройте сайт вакансий и поищите вакансии RN по вашей специальности, добавив к поиску слова sign-on bonus.",
-   "Открывайте вакансии, пока не найдёте одну, где назван бонус за выход на работу — они идут $10K–$25K.",
-   "Сохраните эту вакансию и запишите точное число бонуса, которое там указано."
+   "Откройте сайт вакансий. Поищите вакансии медсестры (RN) по вашей специальности со словами sign-on bonus (бонус за выход на работу).",
+   "Открывайте вакансии, пока не найдёте бонус за выход на работу. Обычно это $10K–$25K.",
+   "Сохраните вакансию. Запишите точную сумму бонуса."
   ]
  },
  "nurse-q6": {
   "how": [
-   "Scroll to the resume block on this Path page.",
-   "Tap the upload button and pick your resume file.",
-   "Wait for the Evidence found chips to appear, then tap Confirm on one chip that is true."
+   "Scroll down this Path page to the resume block.",
+   "Tap the upload button. Pick your resume file.",
+   "Wait for the Evidence found labels. Tap Confirm on one that's true."
   ],
   "howRu": [
-   "Пролистайте к блоку резюме на этой странице Path.",
-   "Нажмите кнопку загрузки и выберите файл вашего резюме.",
-   "Дождитесь плашек Evidence found и нажмите Confirm на одной плашке, которая верна."
+   "Прокрутите страницу «Путь» вниз до блока с резюме.",
+   "Нажмите кнопку загрузки. Выберите файл резюме.",
+   "Дождитесь пометок «Нашли в резюме». Нажмите «Подтвердить» на одной, которая про вас правда."
   ]
  },
  "nurse-q7": {
   "how": [
    "Open the Radar tab in this app.",
-   "Read the newest signal — it has a date on it.",
-   "That is all — you have seen how the market moved."
+   "Read the newest signal. It has a date.",
+   "That's all. You've seen how the job market changed."
   ],
   "howRu": [
-   "Откройте вкладку Radar в этом приложении.",
-   "Прочитайте самый новый сигнал — на нём есть дата.",
-   "Это всё — вы увидели, как двинулся рынок."
+   "Откройте вкладку «Радар» в этом приложении.",
+   "Прочитайте самый новый сигнал. На нём есть дата.",
+   "Это всё. Вы увидели, что поменялось на рынке."
   ]
  },
  "nurse-q8": {
   "how": [
-   "Open your verdict card in the share box on this page.",
+   "Open your result card in the share box on this page.",
    "Tap Share.",
-   "Send it to one person or post it — done."
+   "Send it to one person or post it. Done."
   ],
   "howRu": [
-   "Откройте вашу карточку вердикта в блоке шеринга на этой странице.",
+   "Откройте карточку с вашим результатом на этой странице.",
    "Нажмите Share.",
-   "Отправьте её одному человеку или опубликуйте — готово."
+   "Отправьте её одному человеку или опубликуйте. Готово."
   ]
  },
  "nurse-q9": {
   "how": [
-   "Pick one ADN program — ADN is the two-year nursing degree — and open its tuition or cost page. A school website or search result is fine.",
-   "Find its total price and put it next to $5,472, the Wake Tech total.",
-   "Subtract the smaller number from the bigger one and write down the difference."
+   "Pick one ADN program (a two-year nursing degree). Open its price page. A school site or search result is fine.",
+   "Find the total price. Put it next to $5,472, the Wake Tech total.",
+   "Take the smaller number from the bigger one. Write down the difference."
   ],
   "howRu": [
-   "Выберите одну программу ADN — ADN это двухлетняя программа медсестёр — и откройте её страницу с ценой обучения. Подойдёт сайт учебного заведения или результат поиска.",
-   "Найдите её полную цену и поставьте рядом с $5,472 — итогом Wake Tech.",
-   "Вычтите меньшее число из большего и запишите разницу."
+   "Выберите одну программу ADN (двухлетняя учёба на медсестру). Откройте страницу с ценой. Подойдёт сайт школы или результат поиска.",
+   "Найдите полную цену. Поставьте её рядом с $5,472 — это итог Wake Tech.",
+   "Вычтите меньшее число из большего. Запишите разницу."
   ]
  }
 });
@@ -530,242 +530,242 @@ var QUEST_DETAILS = (typeof QUEST_DETAILS !== "undefined" && QUEST_DETAILS) || {
 Object.assign(QUEST_DETAILS, {
  "analyst-q1": {
   "how": [
-   "Go to a job board like LinkedIn or Indeed and search for \"product analyst\".",
-   "Open one posting and read what the person would do day to day.",
-   "Tap Save on that posting, and skip postings that are only about making dashboards when someone asks for one."
+   "Go to a job site like LinkedIn or Indeed. Search for \"product analyst\".",
+   "Open one job post. Read what the person would do each day.",
+   "Tap Save on it. Skip job posts that only make dashboards (charts) on request."
   ],
   "howRu": [
-   "Зайдите на сайт вакансий, например LinkedIn или Indeed, и поищите \"product analyst\".",
-   "Откройте одну вакансию и прочитайте, что человек будет делать каждый день.",
-   "Нажмите «Сохранить» у этой вакансии и пропускайте вакансии только про дашборды по запросу."
+   "Зайдите на сайт вакансий, например LinkedIn или Indeed. Поищите \"product analyst\".",
+   "Откройте одну вакансию. Прочитайте, что человек будет делать каждый день.",
+   "Нажмите «Сохранить». Вакансии, где только делают дашборды (графики) по просьбе, пропускайте."
   ]
  },
  "analyst-q10": {
   "how": [
-   "BLS is the US Bureau of Labor Statistics — the government's job-numbers office that counts pay and how fast jobs grow.",
-   "Look at the two lines side by side: $101,860 at +10% growth, and $120,230 at +35% growth.",
-   "Write down which line matches the seat you aim at — that is what \"which house is yours\" means."
+   "BLS is the US Bureau of Labor Statistics. It's the government office that counts pay and job growth.",
+   "Look at the two lines side by side: $101,860 with +10% growth, and $120,230 with +35% growth.",
+   "Write down which line fits the job you want. That's what \"which house is yours\" means."
   ],
   "howRu": [
-   "BLS — это Бюро статистики труда США, государственный офис, который считает зарплаты и то, как быстро растёт число рабочих мест.",
-   "Посмотрите на две строки рядом: $101,860 при росте +10% и $120,230 при росте +35%.",
-   "Запишите, какая строка совпадает с местом, в которое вы целитесь, — это и значит «какой дом ваш»."
+   "BLS — Бюро статистики труда США. Это госорган, который считает зарплаты и рост числа рабочих мест.",
+   "Посмотрите на две строки рядом: $101,860 и рост +10%, $120,230 и рост +35%.",
+   "Запишите, какая строка подходит к работе, которую вы хотите. Это и значит «какой дом ваш»."
   ]
  },
  "analyst-q2": {
   "how": [
    "Look at the four choices: product, analytics engineer, strategy, or data scientist.",
-   "Pick only one — the job title you want most, not all of them.",
-   "Write it down in one line, for example: \"My seat is product analyst.\""
+   "Pick only one: the job title you want most.",
+   "Write it in one line, for example: \"My job is product analyst.\""
   ],
   "howRu": [
-   "Посмотрите на четыре варианта: product, analytics engineer, strategy или data scientist.",
-   "Выберите только один — должность, которую хотите больше всего, а не все сразу.",
-   "Запишите это одной строкой, например: «Моё место — product analyst»."
+   "Посмотрите на четыре варианта: product (аналитик продукта), analytics engineer (инженер аналитики), strategy (стратегия) или data scientist (специалист по данным).",
+   "Выберите только одну: должность, которую хотите больше всего.",
+   "Запишите одной строкой, например: «Моя работа — product analyst»."
   ]
  },
  "analyst-q3": {
   "how": [
-   "Go to a job board and open 3 different analyst postings, one by one.",
-   "In each posting, look for the word SQL and mark yes or no.",
-   "Write down your count, like \"2 of 3 ask for SQL\" — in our scan it was 43 of 46."
+   "Go to a job site. Open 3 different analyst job posts, one by one.",
+   "In each, look for the word SQL. Mark yes or no.",
+   "Write your count, like \"2 of 3 ask for SQL\". In our check it was 43 of 46."
   ],
   "howRu": [
-   "Зайдите на сайт вакансий и откройте 3 разные вакансии аналитика, по одной.",
-   "В каждой вакансии поищите слово SQL и отметьте: да или нет.",
-   "Запишите свой подсчёт, например «2 из 3 просят SQL» — в нашем скане было 43 из 46."
+   "Зайдите на сайт вакансий. Откройте 3 разные вакансии аналитика, по одной.",
+   "В каждой поищите слово SQL. Отметьте: да или нет.",
+   "Запишите итог, например «2 из 3 просят SQL». У нас вышло 43 из 46."
   ]
  },
  "analyst-q4": {
   "how": [
-   "Take a sheet of paper and a pen — no computer needed.",
-   "Write the name of one table, which is just a list of rows, like \"orders\", then write one filter line: only rows where month = May.",
-   "Write one sum line: add up the money column. It does not need to run anywhere — the shape is the point."
+   "Take paper and a pen. No computer needed.",
+   "Write the name of one table (just a list of rows), like \"orders\". Then one filter line: only rows where month = May.",
+   "Write one sum line: add up the money column. It doesn't need to run. The shape is what counts. Later, ChatGPT or Claude can check it."
   ],
   "howRu": [
-   "Возьмите лист бумаги и ручку — компьютер не нужен.",
-   "Напишите название одной таблицы — это просто список строк, например \"orders\", — затем одну строку фильтра: только строки, где month = May.",
-   "Напишите одну строку суммы: сложить столбец с деньгами. Запускать это нигде не нужно — важна сама форма."
+   "Возьмите бумагу и ручку. Компьютер не нужен.",
+   "Напишите название одной таблицы (это просто список строк), например \"orders\". Потом строку фильтра: только строки, где month = May.",
+   "Напишите строку суммы: сложить столбец с деньгами. Запускать не надо. Важна сама форма. Потом ChatGPT или Claude могут проверить."
   ]
  },
  "analyst-q5": {
   "how": [
-   "Go to a job board and search for \"analytics engineer\", then open one posting.",
-   "Look through the list of tools it asks for and find the line with dbt.",
-   "Write down that you found it — in our scan, 7 of 7 postings ask for it."
+   "Go to a job site. Search for \"analytics engineer\" and open one job post.",
+   "Look at the tools it asks for. Find dbt.",
+   "Write down that you found it. In our check, 7 of 7 job posts ask for it."
   ],
   "howRu": [
-   "Зайдите на сайт вакансий, поищите \"analytics engineer\" и откройте одну вакансию.",
-   "Просмотрите список инструментов, которые там просят, и найдите строку с dbt.",
-   "Запишите, что вы её нашли, — в нашем скане dbt просят 7 из 7 вакансий."
+   "Зайдите на сайт вакансий. Поищите \"analytics engineer\" и откройте одну вакансию.",
+   "Посмотрите список инструментов. Найдите dbt.",
+   "Запишите, что нашли. У нас dbt просили 7 из 7 вакансий."
   ]
  },
  "analyst-q6": {
   "how": [
-   "Scroll to the resume block on this Path page.",
-   "Tap the upload button, pick your resume file, and wait for the \"Evidence found\" chips to appear.",
-   "Tap Confirm on one chip that is true for you."
+   "Scroll down this Path page to the resume block.",
+   "Tap the upload button and pick your resume. Wait for the \"Evidence found\" labels.",
+   "Tap Confirm on one label that's true for you."
   ],
   "howRu": [
-   "Прокрутите до блока резюме на этой странице Path.",
-   "Нажмите кнопку загрузки, выберите файл своего резюме и дождитесь плашек \"Evidence found\".",
-   "Нажмите Confirm на одной плашке, которая про вас — правда."
+   "Прокрутите страницу «Путь» вниз до блока с резюме.",
+   "Нажмите кнопку загрузки и выберите резюме. Дождитесь пометок «Нашли в резюме».",
+   "Нажмите «Подтвердить» на одной пометке, которая про вас правда."
   ]
  },
  "analyst-q7": {
   "how": [
    "Open the Radar tab in this app.",
-   "Read the newest signal at the top — it has a date on it.",
-   "That is all you need to do for this quest."
+   "Read the newest signal at the top. It has a date.",
+   "That's all for this quest. Nice!"
   ],
   "howRu": [
-   "Откройте вкладку Radar в этом приложении.",
-   "Прочитайте самый новый сигнал наверху — на нём есть дата.",
-   "Это всё, что нужно сделать в этом квесте."
+   "Откройте вкладку «Радар» в этом приложении.",
+   "Прочитайте самый новый сигнал наверху. На нём есть дата.",
+   "Это всё. Квест готов!"
   ]
  },
  "analyst-q8": {
   "how": [
-   "Open your verdict card in the share box on this page.",
+   "Open your result card in the share box on this page.",
    "Tap Share.",
-   "Send it to one person or post it — done."
+   "Send it to one person or post it. Done."
   ],
   "howRu": [
-   "Откройте свою карточку вердикта в блоке шеринга на этой странице.",
+   "Откройте карточку с вашим результатом на этой странице.",
    "Нажмите Share.",
-   "Отправьте её одному человеку или опубликуйте — готово."
+   "Отправьте её одному человеку или опубликуйте. Готово."
   ]
  },
  "analyst-q9": {
   "how": [
-   "Think of one dashboard at work that nobody opens, or pick one you know well.",
-   "Ask yourself: what choice was this dashboard supposed to help someone make?",
-   "Write that decision down in one plain sentence, for example: \"whether to keep this product or stop it.\""
+   "Think of one dashboard (a page of charts) at work that nobody opens. Or one you know well.",
+   "Ask yourself: what choice was it meant to help someone make?",
+   "Write that choice in one plain sentence. For example: \"keep this product or stop it.\""
   ],
   "howRu": [
-   "Вспомните один дашборд на работе, который никто не открывает, или выберите один знакомый вам.",
-   "Спросите себя: какое решение этот дашборд должен был помогать принять?",
-   "Запишите это решение одним простым предложением, например: «оставлять этот продукт или закрывать его»."
+   "Вспомните один дашборд (страницу с графиками) на работе, который никто не открывает. Или тот, что вы хорошо знаете.",
+   "Спросите себя: какое решение он должен был помогать принять?",
+   "Запишите это решение одним простым предложением. Например: «оставить этот продукт или закрыть»."
   ]
  },
  "dataanalyst-q1": {
   "how": [
-   "Go to a job board like LinkedIn or Indeed and search for \"product analyst\".",
-   "Open one posting and read what the person would do day to day.",
-   "Tap Save on that posting, and skip postings that are only about making dashboards when someone asks for one."
+   "Go to a job site like LinkedIn or Indeed. Search for \"product analyst\".",
+   "Open one job post. Read what the person would do each day.",
+   "Tap Save on it. Skip job posts that only make dashboards (charts) on request."
   ],
   "howRu": [
-   "Зайдите на сайт вакансий, например LinkedIn или Indeed, и поищите \"product analyst\".",
-   "Откройте одну вакансию и прочитайте, что человек будет делать каждый день.",
-   "Нажмите «Сохранить» у этой вакансии и пропускайте вакансии только про дашборды по запросу."
+   "Зайдите на сайт вакансий, например LinkedIn или Indeed. Поищите \"product analyst\".",
+   "Откройте одну вакансию. Прочитайте, что человек будет делать каждый день.",
+   "Нажмите «Сохранить». Вакансии, где только делают дашборды (графики) по просьбе, пропускайте."
   ]
  },
  "dataanalyst-q10": {
   "how": [
-   "BLS is the US Bureau of Labor Statistics — the government's job-numbers office that counts pay and how fast jobs grow.",
-   "Read the data-scientist line there: median pay $120,230 and growth +35% — median means half of people earn more and half earn less.",
-   "Write down in one sentence what this means for your seat, for example whether this faster-growing seat is the one you want to move toward."
+   "BLS is the US Bureau of Labor Statistics. It's the government office that counts pay and job growth.",
+   "Read the data scientist line: median pay $120,230, growth +35%. Median means half earn more, half earn less.",
+   "Write one sentence on what this means for you. For example: do you want to move toward this fast-growing job?"
   ],
   "howRu": [
-   "BLS — это Бюро статистики труда США, государственный офис, который считает зарплаты и то, как быстро растёт число рабочих мест.",
-   "Прочитайте там строку про data scientists: медианная зарплата $120,230 и рост +35% — медиана значит, что половина людей зарабатывает больше, а половина меньше.",
-   "Запишите одним предложением, что это значит для вашего места, например: хотите ли вы двигаться к этому быстрее растущему месту."
+   "BLS — Бюро статистики труда США. Это госорган, который считает зарплаты и рост числа рабочих мест.",
+   "Прочитайте строку про data scientist: медианная зарплата $120,230, рост +35%. Медиана — это когда половина получает больше, половина меньше.",
+   "Запишите одним предложением, что это значит для вас. Например: хотите ли вы идти к этой быстро растущей работе?"
   ]
  },
  "dataanalyst-q2": {
   "how": [
-   "Look at the three choices: product, analytics engineer, or the data-scientist door.",
-   "Pick only one — the job title you want most, not all of them.",
-   "Write it down in one line, for example: \"My seat is product analyst.\""
+   "Look at the three choices: product, analytics engineer, or data scientist.",
+   "Pick only one: the job title you want most.",
+   "Write it in one line, for example: \"My job is product analyst.\""
   ],
   "howRu": [
-   "Посмотрите на три варианта: product, analytics engineer или дверь data scientist.",
-   "Выберите только один — должность, которую хотите больше всего, а не все сразу.",
-   "Запишите это одной строкой, например: «Моё место — product analyst»."
+   "Посмотрите на три варианта: product (аналитик продукта), analytics engineer (инженер аналитики) или data scientist (специалист по данным).",
+   "Выберите только одну: должность, которую хотите больше всего.",
+   "Запишите одной строкой, например: «Моя работа — product analyst»."
   ]
  },
  "dataanalyst-q3": {
   "how": [
-   "Go to a job board and open 3 different data analyst postings, one by one.",
-   "In each posting, look for the word SQL and mark yes or no.",
-   "Write down your count, like \"2 of 3 ask for SQL\" — in our data-side scan it was 24 of 24."
+   "Go to a job site. Open 3 different data analyst job posts, one by one.",
+   "In each, look for the word SQL. Mark yes or no.",
+   "Write your count, like \"2 of 3 ask for SQL\". In our check it was 24 of 24."
   ],
   "howRu": [
-   "Зайдите на сайт вакансий и откройте 3 разные вакансии data analyst, по одной.",
-   "В каждой вакансии поищите слово SQL и отметьте: да или нет.",
-   "Запишите свой подсчёт, например «2 из 3 просят SQL» — в нашем скане стороны данных было 24 из 24."
+   "Зайдите на сайт вакансий. Откройте 3 разные вакансии аналитика данных (data analyst), по одной.",
+   "В каждой поищите слово SQL. Отметьте: да или нет.",
+   "Запишите итог, например «2 из 3 просят SQL». У нас вышло 24 из 24."
   ]
  },
  "dataanalyst-q4": {
   "how": [
-   "Take a sheet of paper and a pen — no computer needed.",
-   "Write the name of one table, which is just a list of rows, like \"orders\", then write one filter line: only rows where month = May.",
-   "Write one sum line: add up the money column. It does not need to run anywhere — the shape is the point."
+   "Take paper and a pen. No computer needed.",
+   "Write the name of one table (just a list of rows), like \"orders\". Then one filter line: only rows where month = May.",
+   "Write one sum line: add up the money column. It doesn't need to run. The shape is what counts. Later, ChatGPT or Claude can check it."
   ],
   "howRu": [
-   "Возьмите лист бумаги и ручку — компьютер не нужен.",
-   "Напишите название одной таблицы — это просто список строк, например \"orders\", — затем одну строку фильтра: только строки, где month = May.",
-   "Напишите одну строку суммы: сложить столбец с деньгами. Запускать это нигде не нужно — важна сама форма."
+   "Возьмите бумагу и ручку. Компьютер не нужен.",
+   "Напишите название одной таблицы (это просто список строк), например \"orders\". Потом строку фильтра: только строки, где month = May.",
+   "Напишите строку суммы: сложить столбец с деньгами. Запускать не надо. Важна сама форма. Потом ChatGPT или Claude могут проверить."
   ]
  },
  "dataanalyst-q5": {
   "how": [
-   "Go to a job board and search for \"analytics engineer\", then open one posting.",
-   "Look through the list of tools it asks for and find the line with dbt.",
-   "Write down that you found it — in our scan, 7 of 7 postings ask for it."
+   "Go to a job site. Search for \"analytics engineer\" and open one job post.",
+   "Look at the tools it asks for. Find dbt.",
+   "Write down that you found it. In our check, 7 of 7 job posts ask for it."
   ],
   "howRu": [
-   "Зайдите на сайт вакансий, поищите \"analytics engineer\" и откройте одну вакансию.",
-   "Просмотрите список инструментов, которые там просят, и найдите строку с dbt.",
-   "Запишите, что вы её нашли, — в нашем скане dbt просят 7 из 7 вакансий."
+   "Зайдите на сайт вакансий. Поищите \"analytics engineer\" и откройте одну вакансию.",
+   "Посмотрите список инструментов. Найдите dbt.",
+   "Запишите, что нашли. У нас dbt просили 7 из 7 вакансий."
   ]
  },
  "dataanalyst-q6": {
   "how": [
-   "Scroll to the resume block on this Path page.",
-   "Tap the upload button, pick your resume file, and wait for the \"Evidence found\" chips to appear.",
-   "Tap Confirm on one chip that is true for you."
+   "Scroll down this Path page to the resume block.",
+   "Tap the upload button and pick your resume. Wait for the \"Evidence found\" labels.",
+   "Tap Confirm on one label that's true for you."
   ],
   "howRu": [
-   "Прокрутите до блока резюме на этой странице Path.",
-   "Нажмите кнопку загрузки, выберите файл своего резюме и дождитесь плашек \"Evidence found\".",
-   "Нажмите Confirm на одной плашке, которая про вас — правда."
+   "Прокрутите страницу «Путь» вниз до блока с резюме.",
+   "Нажмите кнопку загрузки и выберите резюме. Дождитесь пометок «Нашли в резюме».",
+   "Нажмите «Подтвердить» на одной пометке, которая про вас правда."
   ]
  },
  "dataanalyst-q7": {
   "how": [
    "Open the Radar tab in this app.",
-   "Read the newest signal at the top — it has a date on it.",
-   "That is all you need to do for this quest."
+   "Read the newest signal at the top. It has a date.",
+   "That's all for this quest. Nice!"
   ],
   "howRu": [
-   "Откройте вкладку Radar в этом приложении.",
-   "Прочитайте самый новый сигнал наверху — на нём есть дата.",
-   "Это всё, что нужно сделать в этом квесте."
+   "Откройте вкладку «Радар» в этом приложении.",
+   "Прочитайте самый новый сигнал наверху. На нём есть дата.",
+   "Это всё. Квест готов!"
   ]
  },
  "dataanalyst-q8": {
   "how": [
-   "Open your verdict card in the share box on this page.",
+   "Open your result card in the share box on this page.",
    "Tap Share.",
-   "Send it to one person or post it — done."
+   "Send it to one person or post it. Done."
   ],
   "howRu": [
-   "Откройте свою карточку вердикта в блоке шеринга на этой странице.",
+   "Откройте карточку с вашим результатом на этой странице.",
    "Нажмите Share.",
-   "Отправьте её одному человеку или опубликуйте — готово."
+   "Отправьте её одному человеку или опубликуйте. Готово."
   ]
  },
  "dataanalyst-q9": {
   "how": [
-   "Think of one dashboard at work that nobody opens, or pick one you know well.",
-   "Ask yourself: what choice was this dashboard supposed to help someone make?",
-   "Write that decision down in one plain sentence, for example: \"whether to keep this product or stop it.\""
+   "Think of one dashboard (a page of charts) at work that nobody opens. Or one you know well.",
+   "Ask yourself: what choice was it meant to help someone make?",
+   "Write that choice in one plain sentence. For example: \"keep this product or stop it.\""
   ],
   "howRu": [
-   "Вспомните один дашборд на работе, который никто не открывает, или выберите один знакомый вам.",
-   "Спросите себя: какое решение этот дашборд должен был помогать принять?",
-   "Запишите это решение одним простым предложением, например: «оставлять этот продукт или закрывать его»."
+   "Вспомните один дашборд (страницу с графиками) на работе, который никто не открывает. Или тот, что вы хорошо знаете.",
+   "Спросите себя: какое решение он должен был помогать принять?",
+   "Запишите это решение одним простым предложением. Например: «оставить этот продукт или закрыть»."
   ]
  }
 });
@@ -774,246 +774,246 @@ var QUEST_DETAILS = (typeof QUEST_DETAILS !== "undefined" && QUEST_DETAILS) || {
 Object.assign(QUEST_DETAILS, {
  "aicreator-q1": {
   "how": [
-   "Choose ONE seat: a real face with an AI crew, meaning you on camera with AI helping you make videos, or AI video for brands, meaning you make AI videos for companies.",
-   "Write it in one sentence that starts with what you are, for example: I am a real face with an AI crew.",
-   "Pin that sentence where you work - on your wall, your desk or your phone home screen."
+   "Choose ONE path. A real face with an AI crew: you're on camera, AI helps make the videos. Or AI video for brands: you make AI videos for companies.",
+   "Write it in one sentence that starts with who you are. For example: I am a real face with an AI crew.",
+   "Pin that sentence where you work: on the wall, your desk or your phone screen."
   ],
   "howRu": [
-   "Выберите ОДНО место: настоящее лицо с AI-командой, то есть вы в кадре, а AI помогает вам делать видео, или AI-видео для брендов, то есть вы делаете AI-видео для компаний.",
-   "Напишите это одним предложением, которое начинается с того, кто вы, например: я - настоящее лицо с AI-командой.",
-   "Прикрепите это предложение там, где вы работаете, - на стену, на стол или на главный экран телефона."
+   "Выберите ОДИН путь. Настоящее лицо с AI-командой: вы в кадре, AI помогает делать видео. Или AI-видео для брендов: вы делаете AI-видео для компаний.",
+   "Напишите это одним предложением о том, кто вы. Например: я — настоящее лицо с AI-командой.",
+   "Повесьте эту фразу там, где работаете: на стену, на стол или на экран телефона."
   ]
  },
  "aicreator-q10": {
   "how": [
-   "Count how many pieces you finished and shipped this month and write that as line one.",
-   "Work out how many minutes one piece takes you on average and write that as line two.",
-   "Add up the money that came in this month and write that as line three - three lines, done."
+   "Line one: how many pieces you finished and posted this month.",
+   "Line two: how many minutes one piece takes you, on average.",
+   "Line three: how much money came in this month. Three lines, done!"
   ],
   "howRu": [
-   "Посчитайте, сколько работ вы закончили и отправили в этом месяце, и запишите это первой строкой.",
-   "Посчитайте, сколько минут у вас в среднем занимает одна работа, и запишите это второй строкой.",
-   "Сложите деньги, которые пришли в этом месяце, и запишите это третьей строкой - три строки, готово."
+   "Первая строка: сколько работ вы закончили и выложили в этом месяце.",
+   "Вторая строка: сколько минут в среднем уходит на одну работу.",
+   "Третья строка: сколько денег пришло в этом месяце. Три строки — готово!"
   ]
  },
  "aicreator-q2": {
   "how": [
-   "Pick one old video you already made and start a timer on your phone.",
-   "Re-cut that same video using your AI pipeline - your usual AI tools for cutting, captions and sound.",
-   "Stop the timer when the new version is ready and write down how many minutes it took."
+   "Pick one old video you made. Start a timer on your phone.",
+   "Re-edit that video with your AI tools: your usual tools for cutting, captions and sound.",
+   "Stop the timer when it's ready. Write down how many minutes it took."
   ],
   "howRu": [
-   "Выберите одно старое видео, которое вы уже сделали, и включите таймер на телефоне.",
-   "Перемонтируйте это же видео вашим AI-процессом - вашими обычными AI-инструментами для монтажа, субтитров и звука.",
-   "Остановите таймер, когда новая версия готова, и запишите, сколько минут это заняло."
+   "Выберите одно старое видео. Включите таймер на телефоне.",
+   "Перемонтируйте его с вашими AI-инструментами: для монтажа, субтитров и звука.",
+   "Когда готово, остановите таймер. Запишите, сколько минут ушло."
   ]
  },
  "aicreator-q3": {
   "how": [
    "Pick one product and open your AI video or text tool.",
-   "Make three different hooks for it - a hook is the first line or first shot that makes someone stop and watch.",
-   "Read or watch all three and pick the one a real human would stop scrolling for."
+   "Make three different hooks for it. A hook is the first line or shot that makes people stop and watch.",
+   "Look at all three. Pick the one a real person would stop scrolling for."
   ],
   "howRu": [
    "Выберите один продукт и откройте ваш AI-инструмент для видео или текста.",
-   "Сделайте для него три разных хука - хук это первая фраза или первый кадр, который заставляет человека остановиться и смотреть.",
-   "Прочитайте или посмотрите все три и выберите тот, на котором настоящий человек остановит прокрутку."
+   "Сделайте для него три разных хука. Хук — первая фраза или кадр, из-за которого человек останавливается и смотрит.",
+   "Посмотрите все три. Выберите тот, на котором живой человек перестал бы листать."
   ]
  },
  "aicreator-q4": {
   "how": [
-   "Search for the FTC fake-review rule in plain words - the FTC is the US consumer-protection agency, the office that protects buyers.",
-   "Read what it says in simple language: a made-up AI person must not pretend to be a happy customer giving a real testimonial.",
-   "Open your current scripts and check them one by one against that rule. Fix or remove any line where an AI person fakes a testimonial."
+   "Search for the FTC fake-review rule in plain words. The FTC is the US office that protects buyers.",
+   "Here's the simple version: a made-up AI person can't pretend to be a happy real customer.",
+   "Open your scripts. Check each one against that rule. Fix or remove any line where an AI person fakes a review."
   ],
   "howRu": [
-   "Поищите правило FTC о фейковых отзывах простыми словами - FTC это агентство США по защите потребителей, ведомство, которое защищает покупателей.",
-   "Прочитайте простыми словами, что там сказано: выдуманный AI-человек не должен изображать довольного покупателя, который даёт настоящий отзыв.",
-   "Откройте ваши текущие скрипты и проверьте их по одному по этому правилу. Исправьте или уберите любую строку, где AI-человек изображает отзыв."
+   "Поищите правило FTC о поддельных отзывах простыми словами. FTC — ведомство США, которое защищает покупателей.",
+   "Если просто: выдуманный AI-человек не может притворяться довольным настоящим покупателем.",
+   "Откройте ваши сценарии. Проверьте каждый по этому правилу. Исправьте или уберите строки, где AI-человек изображает отзыв."
   ]
  },
  "aicreator-q5": {
   "how": [
-   "Pick one ad idea and find or make the filmed style version - shot with a real camera and a real person.",
-   "Make the same ad again with your AI tools, with the same product and the same main message.",
-   "Save both versions together in one folder, so you can show them side by side on your rate card."
+   "Pick one ad idea. Find or make a filmed version, shot with a real camera and a real person.",
+   "Make the same ad again with your AI tools. Same product, same main message.",
+   "Save both in one folder. Then you can show them side by side on your price list."
   ],
   "howRu": [
-   "Выберите одну идею рекламы и найдите или сделайте снятую версию - снятую настоящей камерой с настоящим человеком.",
-   "Сделайте ту же рекламу снова вашими AI-инструментами, с тем же продуктом и той же главной мыслью.",
-   "Сохраните обе версии вместе в одной папке, чтобы показывать их рядом в вашей карточке цен."
+   "Выберите одну идею рекламы. Найдите или сделайте снятую версию: настоящая камера, настоящий человек.",
+   "Сделайте ту же рекламу с вашими AI-инструментами. Тот же продукт, та же главная мысль.",
+   "Сохраните обе версии в одну папку. Так их можно показать рядом в вашем списке цен."
   ]
  },
  "aicreator-q6": {
   "how": [
-   "Look in your niche on social media or in an ads library and find one brand that is running ads with an AI label on them.",
-   "Open the ad and look at how the label shows - for example small text on the video or a note in the caption.",
+   "Look in your niche on social media or in an ads library. Find one brand running ads with an AI label.",
+   "Open the ad. See how the label shows: small text on the video, or a note in the caption.",
    "Write down the brand, what they sell, and exactly how the AI label shows."
   ],
   "howRu": [
-   "Посмотрите в вашей нише в соцсетях или в библиотеке рекламы и найдите один бренд, который крутит рекламу с пометкой AI.",
-   "Откройте рекламу и посмотрите, как видна пометка, - например мелкий текст на видео или заметка в подписи.",
+   "Поищите в вашей нише в соцсетях или в библиотеке рекламы. Найдите бренд, у которого реклама с пометкой AI.",
+   "Откройте рекламу. Посмотрите, как видна пометка: мелкий текст на видео или заметка в подписи.",
    "Запишите бренд, что они продают и как именно видна пометка AI."
   ]
  },
  "aicreator-q7": {
   "how": [
-   "Pick one local brand you know and find where to message them, like their social media inbox or email.",
-   "Write one short message offering them this: ten AI ad variants for the price of one filmed video.",
-   "Send that one message today - that is the whole quest."
+   "Pick one local brand you know. Find where to message them, like their social media or email.",
+   "Write one short message. Offer ten AI ad versions for the price of one filmed video.",
+   "Send that one message today. That's the whole quest. You've got this!"
   ],
   "howRu": [
-   "Выберите один локальный бренд, который вы знаете, и найдите, куда им написать, например в сообщения их соцсетей или на почту.",
-   "Напишите одно короткое сообщение и предложите им это: десять вариантов рекламы с AI по цене одного снятого видео.",
-   "Отправьте это одно сообщение сегодня - это и есть весь квест."
+   "Выберите один местный бренд, который знаете. Найдите, куда им написать: соцсети или почта.",
+   "Напишите одно короткое сообщение. Предложите десять вариантов рекламы с AI по цене одного снятого видео.",
+   "Отправьте это сообщение сегодня. Это весь квест. У вас получится!"
   ]
  },
  "aicreator-q8": {
   "how": [
-   "Open your verdict card in the share box on this page.",
+   "Open your result card in the share box on this page.",
    "Tap Share.",
-   "Send it to one person or post it - done."
+   "Send it to one person or post it. Done."
   ],
   "howRu": [
-   "Откройте вашу карточку вердикта в блоке шеринга на этой странице.",
+   "Откройте карточку с вашим результатом на этой странице.",
    "Нажмите «Поделиться».",
-   "Отправьте её одному человеку или опубликуйте - готово."
+   "Отправьте её одному человеку или опубликуйте. Готово."
   ]
  },
  "aicreator-q9": {
   "how": [
-   "Pick one of your videos and run it through your dubbing pipeline to make a version in a second language.",
-   "Watch the new version fully once, from start to end, and check the words and voice sound right.",
-   "Only post it after that full watch."
+   "Pick one of your videos. Use your dubbing tools to make a version in a second language.",
+   "Watch the new version once, start to end. Check that the words and voice sound right.",
+   "Post it only after that full watch."
   ],
   "howRu": [
-   "Выберите одно ваше видео и прогоните его через ваш процесс дубляжа, чтобы сделать версию на втором языке.",
-   "Посмотрите новую версию целиком один раз, от начала до конца, и проверьте, что слова и голос звучат правильно.",
-   "Публикуйте её только после этого полного просмотра."
+   "Выберите одно ваше видео. Сделайте с помощью дубляжа версию на другом языке.",
+   "Посмотрите новую версию один раз от начала до конца. Проверьте, что слова и голос звучат правильно.",
+   "Публикуйте только после такого просмотра."
   ]
  },
  "businessanalyst-q1": {
   "how": [
-   "Go to a job board like LinkedIn or Indeed and search for strategy & operations analyst.",
-   "Open one posting and read what the person in this job actually does day to day.",
-   "Tap Save or bookmark it, so you can find it again later.",
-   "Skip postings that are only about making documents when someone asks for them - that is the pool to avoid."
+   "Go to a job site like LinkedIn or Indeed. Search for strategy & operations analyst.",
+   "Open one job post. Read what this person really does each day.",
+   "Save or bookmark it so you can find it later.",
+   "Skip job posts that only make documents when asked. Those are the ones to avoid."
   ],
   "howRu": [
-   "Зайдите на сайт вакансий, например LinkedIn или Indeed, и поищите strategy & operations analyst.",
-   "Откройте одну вакансию и прочитайте, что человек на этой работе реально делает каждый день.",
-   "Нажмите «Сохранить» или добавьте в закладки, чтобы потом легко найти её снова.",
-   "Пропускайте вакансии, где вся работа - только делать документы, когда кто-то попросит: это тот пул, которого надо избегать."
+   "Зайдите на сайт вакансий, например LinkedIn или Indeed. Поищите strategy & operations analyst.",
+   "Откройте одну вакансию. Прочитайте, что этот человек делает каждый день.",
+   "Нажмите «Сохранить» или добавьте в закладки, чтобы потом найти.",
+   "Пропускайте вакансии, где нужно только делать документы по просьбе. Таких лучше избегать."
   ]
  },
  "businessanalyst-q10": {
   "how": [
-   "Go to the BLS website - BLS is the US government office that publishes job numbers - and find the page for management analysts.",
-   "Find this line: median pay $101,860, growth +10%, and about 94,100 openings a year.",
-   "Write down in your own words what that means for your seat: is this kind of work growing, and do you want a seat like it?"
+   "Go to the BLS website (the US office that shares job numbers). Find the page for management analysts.",
+   "Find this line: median pay $101,860, growth +10%, about 94,100 openings a year.",
+   "In your own words, write what it means for you. Is this work growing? Do you want a job like it?"
   ],
   "howRu": [
-   "Зайдите на сайт BLS - BLS это государственное ведомство США, которое публикует цифры по работе, - и найдите страницу про management analysts.",
-   "Найдите эту строку: медианная зарплата $101,860, рост +10% и около 94,100 открытых мест в год.",
-   "Запишите своими словами, что это значит для вашего места: растёт ли такая работа и хотите ли вы место вроде этого?"
+   "Зайдите на сайт BLS (ведомство США, которое публикует цифры о работе). Найдите страницу management analysts (аналитики по управлению).",
+   "Найдите строку: медианная зарплата $101,860, рост +10%, около 94,100 свободных мест в год.",
+   "Запишите своими словами, что это значит для вас. Такая работа растёт? Хотите такую же?"
   ]
  },
  "businessanalyst-q2": {
   "how": [
-   "Think about the two seats: working mainly with documents, or strategy & operations, which means helping the business decide what to do and how to run better.",
-   "Pick only ONE of them - the one you actually want to aim at.",
-   "Write it down in one short line, for example on a note on your phone, and keep it where you can see it."
+   "Think about two jobs. One is mostly documents. The other is strategy & operations: helping the business decide what to do and work better.",
+   "Pick only ONE: the one you really want.",
+   "Write it in one short line, like a phone note. Keep it where you can see it."
   ],
   "howRu": [
-   "Подумайте о двух местах: работа в основном с документами или strategy & operations - то есть помогать бизнесу решать, что делать и как работать лучше.",
-   "Выберите только ОДНО из них - то, в которое вы правда целитесь.",
-   "Запишите его одной короткой строкой, например в заметке на телефоне, и держите там, где вы её видите."
+   "Подумайте о двух работах. Одна — в основном документы. Другая — strategy & operations (стратегия и операции): помогать бизнесу решать, что делать и как работать лучше.",
+   "Выберите только ОДНУ: ту, которую правда хотите.",
+   "Запишите её одной короткой строкой, например в заметке на телефоне. Держите на виду."
   ]
  },
  "businessanalyst-q3": {
   "how": [
-   "Go to a job board and open 3 different business analyst postings, one by one.",
-   "In each posting, look in the requirements and count it if it names Jira or Agile.",
-   "Write down your count out of 3. In our scan it was 9 of 15 BA-family postings, so these words show up a lot."
+   "Go to a job site. Open 3 different business analyst job posts, one by one.",
+   "In each, check the requirements. Count it if it names Jira or Agile.",
+   "Write your count out of 3. In our check it was 9 of 15 BA job posts. So these words come up a lot."
   ],
   "howRu": [
-   "Зайдите на сайт вакансий и откройте 3 разные вакансии business analyst, по одной.",
-   "В каждой вакансии посмотрите требования и засчитайте её, если там названы Jira или Agile.",
-   "Запишите ваше число из 3. В нашем скане было 9 из 15 вакансий семьи BA, то есть эти слова встречаются очень часто."
+   "Зайдите на сайт вакансий. Откройте 3 разные вакансии бизнес-аналитика (business analyst), по одной.",
+   "В каждой посмотрите требования. Засчитайте, если там есть Jira или Agile.",
+   "Запишите ваше число из 3. У нас вышло 9 из 15 вакансий бизнес-аналитиков. Значит, эти слова встречаются часто."
   ]
  },
  "businessanalyst-q4": {
   "how": [
-   "Pick one document you wrote at work and open its first page.",
-   "On a new page, write first the call: what decision you want the reader to make.",
-   "Next write the number: the one key figure that supports that decision. Then write the ask: what exactly you want the reader to do.",
-   "Keep it to that one page - that is your decision brief."
+   "Pick one document you wrote at work. Open its first page.",
+   "On a new page, first write the call: what decision you want the reader to make.",
+   "Next, the number: one key fact that backs it up. Then the ask: what you want the reader to do.",
+   "Keep it to one page. ChatGPT or Claude can help cut it shorter. That's your decision brief!"
   ],
   "howRu": [
-   "Выберите один документ, который вы написали на работе, и откройте его первую страницу.",
-   "На новой странице сначала напишите призыв: какое решение вы хотите, чтобы принял читатель.",
-   "Дальше напишите цифру: одну главную цифру, которая поддерживает это решение. Потом напишите запрос: что именно вы хотите, чтобы читатель сделал.",
-   "Уложитесь в эту одну страницу - это и есть ваш бриф решения."
+   "Выберите один документ, который вы написали на работе. Откройте первую страницу.",
+   "На новой странице сначала напишите, какое решение должен принять читатель.",
+   "Потом одну главную цифру, которая это подтверждает. Потом — что именно читатель должен сделать.",
+   "Уложитесь в одну страницу. ChatGPT или Claude помогут сократить. Это и есть ваша записка для решения!"
   ]
  },
  "businessanalyst-q5": {
   "how": [
-   "Go to a job board and search for business-side analyst jobs - a good place to start is the company SanDisk, which has one like this.",
-   "Open the posting and read the requirements list slowly.",
-   "Find the line that names an AI tool as a requirement, not just as a nice extra, and write down the tool and the job title."
+   "Go to a job site. Search for business analyst jobs. SanDisk has one like this, so start there.",
+   "Open the job post. Read the requirements slowly.",
+   "Find where an AI tool is a must-have, not just a nice extra. Write down the tool and the job title."
   ],
   "howRu": [
-   "Зайдите на сайт вакансий и поищите вакансии аналитика со стороны бизнеса - начать можно с компании SanDisk, у неё есть такая вакансия.",
-   "Откройте вакансию и медленно прочитайте список требований.",
-   "Найдите строку, где AI-инструмент назван именно требованием, а не просто плюсом, и запишите инструмент и название вакансии."
+   "Зайдите на сайт вакансий. Поищите вакансии аналитика в бизнесе. У SanDisk такая есть — начните с неё.",
+   "Откройте вакансию. Медленно прочитайте требования.",
+   "Найдите, где AI-инструмент обязателен, а не просто плюс. Запишите инструмент и название вакансии."
   ]
  },
  "businessanalyst-q6": {
   "how": [
-   "Scroll down to the resume block on this Path page.",
-   "Tap the upload button and pick your resume file from your phone or computer.",
-   "Wait for the Evidence found chips to appear, then tap Confirm on one chip that is true for you."
+   "Scroll down this Path page to the resume block.",
+   "Tap the upload button. Pick your resume file from your phone or computer.",
+   "Wait for the Evidence found labels. Tap Confirm on one that's true for you."
   ],
   "howRu": [
-   "Прокрутите вниз до блока с резюме на этой странице пути.",
-   "Нажмите кнопку загрузки и выберите файл вашего резюме с телефона или компьютера.",
-   "Дождитесь плашек Evidence found и нажмите Confirm на одной плашке, которая про вас - правда."
+   "Прокрутите страницу пути вниз до блока с резюме.",
+   "Нажмите кнопку загрузки. Выберите файл резюме на телефоне или компьютере.",
+   "Дождитесь пометок «Нашли в резюме». Нажмите «Подтвердить» на одной, которая про вас правда."
   ]
  },
  "businessanalyst-q7": {
   "how": [
    "Open the Radar tab in this app.",
-   "Read the newest signal at the top and check it has a date.",
-   "That is all - one item read, and you have seen the market moving."
+   "Read the newest signal at the top. Check that it has a date.",
+   "That's all! You read one news item and saw how the job market moves."
   ],
   "howRu": [
-   "Откройте вкладку Radar в этом приложении.",
-   "Прочитайте самый новый сигнал наверху и проверьте, что у него есть дата.",
-   "Это всё - один пункт прочитан, и вы увидели рынок в движении."
+   "Откройте вкладку «Радар» в этом приложении.",
+   "Прочитайте самый новый сигнал наверху. Проверьте, что у него есть дата.",
+   "Это всё! Вы прочитали одну новость и увидели, как меняется рынок."
   ]
  },
  "businessanalyst-q8": {
   "how": [
-   "Open your verdict card in the share box on this page.",
+   "Open your result card in the share box on this page.",
    "Tap Share.",
-   "Send it to one person or post it - done."
+   "Send it to one person or post it. Done."
   ],
   "howRu": [
-   "Откройте вашу карточку вердикта в блоке шеринга на этой странице.",
+   "Откройте карточку с вашим результатом на этой странице.",
    "Нажмите «Поделиться».",
-   "Отправьте её одному человеку или опубликуйте - готово."
+   "Отправьте её одному человеку или опубликуйте. Готово."
   ]
  },
  "businessanalyst-q9": {
   "how": [
-   "Think of one time your work changed a real decision at work - something the team did differently because of you.",
-   "Write it in one line and put the real number from that work in the line, like money, time or people affected.",
-   "Save the line where you keep your wins - you will need it for reviews and interviews."
+   "Think of one time your work changed a real decision. The team did something differently because of you.",
+   "Write it in one line. Add the real number: money, time or people it helped.",
+   "Save it where you keep your wins. You'll need it for reviews and interviews."
   ],
   "howRu": [
-   "Вспомните один раз, когда ваша работа изменила настоящее решение на работе - что-то, что команда стала делать иначе из-за вас.",
-   "Запишите это одной строкой и вставьте в строку настоящую цифру из той работы, например деньги, время или число людей, которых это коснулось.",
-   "Сохраните строку там, где вы храните свои победы, - она пригодится для оценок и собеседований."
+   "Вспомните случай, когда ваша работа изменила настоящее решение. Команда сделала что-то по-другому благодаря вам.",
+   "Запишите это одной строкой. Добавьте настоящую цифру: деньги, время или сколько людей это коснулось.",
+   "Сохраните строку там, где храните свои победы. Она пригодится на оценках и собеседованиях."
   ]
  }
 });

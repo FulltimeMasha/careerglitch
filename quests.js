@@ -19,55 +19,55 @@
 var QUESTS = {
 /* ================= LAW QUESTS ================= */
 law: [
-  {id:'law-q1', t:'Open one specialist paralegal posting. Save it. That posting is the shape of your target.', tag:'5 minutes · eyes on the market', ru:'Откройте одну вакансию specialist paralegal. Сохраните её. Эта вакансия — форма вашей цели.', tagRu:'5 минут · глаза на рынке'},
-  {id:'law-q2', t:'Write down the ONE practice area you aim at. One line: privacy, diligence, or healthcare.', tag:'5 minutes · one decision', ru:'Запишите ОДНУ область практики, в которую целитесь. Одна строка: privacy, diligence или healthcare.', tagRu:'5 минут · одно решение'},
-  {id:'law-q3', t:'Open 3 senior postings. Write the degree line each one asks for. Most ask for a bachelor’s.', tag:'10 minutes · proof over paper', ru:'Откройте 3 senior-вакансии. Запишите строку о степени, которую просит каждая. Большинство просит bachelor’s.', tagRu:'10 минут · доказательство вместо бумаг'},
-  {id:'law-q4', t:'Open the Kira or Harvey page. Read what the AI does in a diligence check. Five minutes.', tag:'5 minutes · know the tools', ru:'Откройте страницу Kira или Harvey. Прочитайте, что AI делает в проверке diligence. Пять минут.', tagRu:'5 минут · знай инструменты'},
-  {id:'law-q5', t:'Find the Cooley pay line: $135,200–$176,800. Now write what the top of that range asks for.', tag:'10 minutes · one number', ru:'Найдите строку оплаты Cooley: $135,200–$176,800. Теперь запишите, что просят за верх этой вилки.', tagRu:'10 минут · одна цифра'},
-  {id:'law-q6', t:'Upload your resume on this page. Confirm one piece of evidence it finds.', tag:'10 minutes · your file', ru:'Загрузите резюме на этой странице. Подтвердите одно доказательство, которое оно найдёт.', tagRu:'10 минут · ваш файл'},
-  {id:'law-q7', t:'Read today’s radar signal below. One item, with a date. That is the market moving.', tag:'5 minutes · one signal', ru:'Прочитайте сегодняшний сигнал радара ниже. Один пункт, с датой. Это рынок в движении.', tagRu:'5 минут · один сигнал'},
-  {id:'law-q8', t:'Share your verdict card. Your people should know their path is being eaten too.', tag:'5 minutes · share it', ru:'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.', tagRu:'5 минут · поделиться'},
-  {id:'law-q9', t:'Pick one task you repeat at work. Time it once. Write the minutes down.', tag:'15 minutes · real proof', ru:'Выберите одну задачу, которую повторяете на работе. Замерьте её один раз. Запишите минуты.', tagRu:'15 минут · настоящее доказательство'},
-  {id:'law-q10', t:'Check what CIPP/US is. It showed up in 3 of 3 privacy postings that named a certificate.', tag:'10 minutes · one check', ru:'Проверьте, что такое CIPP/US. Он встретился в 3 из 3 вакансий privacy, где сертификаты назывались вообще.', tagRu:'10 минут · одна проверка'}
+  {id:'law-q1', t:'Open one job post for a specialist paralegal. Save it. A clear target saves months of study.', tag:'5 minutes · look at real jobs', ru:'Сохраните одну вакансию помощника юриста в узкой области. Это ваша цель. Ясная цель экономит месяцы учёбы.', tagRu:'5 минут · смотрим вакансии'},
+  {id:'law-q2', t:'Pick ONE area of law: privacy, diligence (checking a company before a deal), or healthcare. Write it down. One area means less to study.', tag:'5 minutes · one decision', ru:'Выберите ОДНУ область права: защита данных, проверка компании перед сделкой или медицина. Запишите. Одна область — меньше учёбы.', tagRu:'5 минут · одно решение'},
+  {id:'law-q3', t:'Open 3 job posts for senior roles. Write down what degree each one wants. Most want a bachelor’s, nothing more.', tag:'10 minutes · skills over diplomas', ru:'Откройте 3 вакансии для опытных помощников юриста. Запишите, какой диплом просит каждая. Чаще всего — бакалавр, не больше.', tagRu:'10 минут · навыки важнее дипломов'},
+  {id:'law-q4', t:'Open the Kira or Harvey site (AI tools for lawyers). Read how the AI checks a company before a deal. The best jobs go to people who run it.', tag:'5 minutes · know the tools', ru:'Зайдите на сайт Kira или Harvey (AI для юристов). Прочитайте, как AI проверяет компанию перед сделкой. Лучшие места — у тех, кто им управляет.', tagRu:'5 минут · узнать инструменты'},
+  {id:'law-q5', t:'Find the Cooley job post that pays $135,200–$176,800. Write down what they want for the top pay.', tag:'10 minutes · one number', ru:'Найдите вакансию Cooley, где платят $135,200–$176,800. Запишите, что нужно уметь, чтобы получать по максимуму.', tagRu:'10 минут · одна цифра'},
+  {id:'law-q6', t:'Upload your resume and confirm one fact the app finds. Your experience counts.', tag:'10 minutes · your file', ru:'Загрузите резюме и подтвердите один найденный факт. Ваш опыт — уже часть пути.', tagRu:'10 минут · ваш файл'},
+  {id:'law-q7', t:'Read one radar news item below, with its date. You’ll see changes before others do.', tag:'5 minutes · one news item', ru:'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.', tagRu:'5 минут · одна новость'},
+  {id:'law-q8', t:'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.', tag:'5 minutes · share it', ru:'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.', tagRu:'5 минут · поделиться'},
+  {id:'law-q9', t:'Pick one task you repeat at work. Time it once. Write down the minutes. Employers trust numbers like this.', tag:'15 minutes · real proof', ru:'Выберите задачу, которую повторяете на работе. Засеките время. Запишите минуты. Такой цифре работодатель верит.', tagRu:'15 минут · реальное доказательство'},
+  {id:'law-q10', t:'Look up CIPP/US (a privacy law certificate). 3 of 3 privacy job posts that named a certificate asked for it. AI can quiz you for it.', tag:'10 minutes · one check', ru:'Узнайте, что такое CIPP/US (сертификат по защите данных). Его просили 3 из 3 таких вакансий, где назван сертификат. AI поможет готовиться.', tagRu:'10 минут · одна проверка'}
 ],
 /* ================= CPA QUESTS ================= */
 cpa: [
-  {id:'cpa-q1', t:'Open one live posting in your niche. Save it. Read its pay line twice.', tag:'5 minutes · eyes on the market', ru:'Откройте одну живую вакансию в вашей нише. Сохраните её. Прочитайте строку оплаты дважды.', tagRu:'5 минут · глаза на рынке'},
-  {id:'cpa-q2', t:'Write down the ONE specialty you aim at. One line: tax, SEC reporting, FDD, or controller.', tag:'5 minutes · one decision', ru:'Запишите ОДНУ специализацию, в которую целитесь. Одна строка: tax, SEC reporting, FDD или controller.', tagRu:'5 минут · одно решение'},
-  {id:'cpa-q3', t:'Open 3 postings in your niche. Write the tool named most: NetSuite, Workiva, or Excel.', tag:'10 minutes · proof over paper', ru:'Откройте 3 вакансии в вашей нише. Запишите инструмент, который называют чаще: NetSuite, Workiva или Excel.', tagRu:'10 минут · доказательство вместо бумаг'},
-  {id:'cpa-q4', t:'Open your state board’s license route page. Write down your number: 120 credits or 150.', tag:'10 minutes · one page', ru:'Откройте страницу маршрута лицензии board вашего штата. Запишите ваше число: 120 credits или 150.', tagRu:'10 минут · одна страница'},
-  {id:'cpa-q5', t:'Find one posting that asks for Workiva. Save it. That posting is the SEC-reporting door.', tag:'10 minutes · eyes on the market', ru:'Найдите одну вакансию, которая просит Workiva. Сохраните её. Эта вакансия — дверь в SEC reporting.', tagRu:'10 минут · глаза на рынке'},
-  {id:'cpa-q6', t:'Upload your resume on this page. Confirm one piece of evidence it finds.', tag:'10 minutes · your file', ru:'Загрузите резюме на этой странице. Подтвердите одно доказательство, которое оно найдёт.', tagRu:'10 минут · ваш файл'},
-  {id:'cpa-q7', t:'Read today’s radar signal below. One item, with a date. That is the market moving.', tag:'5 minutes · one signal', ru:'Прочитайте сегодняшний сигнал радара ниже. Один пункт, с датой. Это рынок в движении.', tagRu:'5 минут · один сигнал'},
-  {id:'cpa-q8', t:'Share your verdict card. Your people should know their path is being eaten too.', tag:'5 minutes · share it', ru:'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.', tagRu:'5 минут · поделиться'},
-  {id:'cpa-q9', t:'Write down one process you do by hand. Add the hours it eats each month.', tag:'10 minutes · one page', ru:'Запишите один процесс, который вы делаете руками. Добавьте часы, которые он ест каждый месяц.', tagRu:'10 минут · одна страница'},
-  {id:'cpa-q10', t:'Read the FAR number once: only 42% pass it first try. Write your retake money line.', tag:'5 minutes · one number', ru:'Прочитайте число FAR один раз: с первого раза его сдают только 42%. Запишите вашу строку денег на пересдачу.', tagRu:'5 минут · одна цифра'}
+  {id:'cpa-q1', t:'Open one current job post in your field. Save it. Read twice how much it pays.', tag:'5 minutes · look at real jobs', ru:'Откройте одну открытую вакансию в вашей области. Сохраните её. Дважды прочитайте, сколько там платят.', tagRu:'5 минут · смотрим вакансии'},
+  {id:'cpa-q2', t:'Pick ONE specialty and write it down: tax, SEC reporting (reports for public companies), FDD (checking a company before a sale), or controller.', tag:'5 minutes · one decision', ru:'Выберите ОДНУ специализацию и запишите: налоги, отчёты SEC (для публичных компаний), проверка компании перед продажей или главный по учёту.', tagRu:'5 минут · одно решение'},
+  {id:'cpa-q3', t:'Open 3 job posts in your field. Which tool shows up most: NetSuite, Workiva, or Excel? Write it down.', tag:'10 minutes · skills over diplomas', ru:'Откройте 3 вакансии в вашей области. Какую программу упоминают чаще: NetSuite, Workiva или Excel? Запишите.', tagRu:'10 минут · навыки важнее дипломов'},
+  {id:'cpa-q4', t:'Open your state board’s page about the CPA license. How many college credits do you need: 120 or 150? Don’t take more than that.', tag:'10 minutes · one page', ru:'Откройте страницу совета по лицензиям вашего штата о CPA. Сколько нужно учебных кредитов: 120 или 150? Больше не набирайте.', tagRu:'10 минут · одна страница'},
+  {id:'cpa-q5', t:'Find one job post that asks for Workiva. Save it. This is your way into SEC reporting.', tag:'10 minutes · look at real jobs', ru:'Найдите одну вакансию, где просят Workiva. Сохраните её. Это ваш вход в отчёты SEC (для публичных компаний).', tagRu:'10 минут · смотрим вакансии'},
+  {id:'cpa-q6', t:'Upload your resume and confirm one fact the app finds. Your experience counts.', tag:'10 minutes · your file', ru:'Загрузите резюме и подтвердите один найденный факт. Ваш опыт — уже часть пути.', tagRu:'10 минут · ваш файл'},
+  {id:'cpa-q7', t:'Read one radar news item below, with its date. You’ll see changes before others do.', tag:'5 minutes · one news item', ru:'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.', tagRu:'5 минут · одна новость'},
+  {id:'cpa-q8', t:'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.', tag:'5 minutes · share it', ru:'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.', tagRu:'5 минут · поделиться'},
+  {id:'cpa-q9', t:'Write down one task you do by hand. Add how many hours it takes each month. Automate it, and you stand out.', tag:'10 minutes · one page', ru:'Запишите одну задачу, которую делаете вручную, и сколько часов в месяц она занимает. Автоматизируете — выделитесь.', tagRu:'10 минут · одна страница'},
+  {id:'cpa-q10', t:'Only 42% pass FAR (one part of the CPA exam) on the first try. That’s normal! Note the retake price. Practise free with an AI tutor.', tag:'5 minutes · one number', ru:'FAR (часть экзамена CPA) с первого раза сдают 42%. Это нормально! Запишите цену пересдачи. Тренируйтесь бесплатно с AI.', tagRu:'5 минут · одна цифра'}
 ],
 /* ================= NURSE QUESTS ================= */
 nurse: [
-  {id:'nurse-q1', t:'Open one specialty RN posting: ICU, ER, or OR. Save it. That is the shape of your target.', tag:'5 minutes · eyes on the market', ru:'Откройте одну вакансию RN по специальности: ICU, ER или OR. Сохраните её. Это форма вашей цели.', tagRu:'5 минут · глаза на рынке'},
-  {id:'nurse-q2', t:'Write down the ONE specialty you aim at. One line: ICU, ER, OR, psych, or anesthesia.', tag:'5 minutes · one decision', ru:'Запишите ОДНУ специальность, в которую целитесь. Одна строка: ICU, ER, OR, psych или anesthesia.', tagRu:'5 минут · одно решение'},
-  {id:'nurse-q3', t:'Open 3 specialty postings. Write the certificate named most: BLS, ACLS, or CCRN.', tag:'10 minutes · proof over paper', ru:'Откройте 3 вакансии по специальности. Запишите сертификат, который называют чаще: BLS, ACLS или CCRN.', tagRu:'10 минут · доказательство вместо бумаг'},
-  {id:'nurse-q4', t:'Check your BLS expiry date. If it ends this year, write the renewal month down.', tag:'5 minutes · one date', ru:'Проверьте дату окончания вашего BLS. Если он кончается в этом году, запишите месяц обновления.', tagRu:'5 минут · одна дата'},
-  {id:'nurse-q5', t:'Find one posting with a sign-on bonus. They run $10K–$25K. Save the number.', tag:'5 minutes · one number', ru:'Найдите одну вакансию с sign-on бонусом. Они идут $10K–$25K. Сохраните число.', tagRu:'5 минут · одна цифра'},
-  {id:'nurse-q6', t:'Upload your resume on this page. Confirm one piece of evidence it finds.', tag:'10 minutes · your file', ru:'Загрузите резюме на этой странице. Подтвердите одно доказательство, которое оно найдёт.', tagRu:'10 минут · ваш файл'},
-  {id:'nurse-q7', t:'Read today’s radar signal below. One item, with a date. That is the market moving.', tag:'5 minutes · one signal', ru:'Прочитайте сегодняшний сигнал радара ниже. Один пункт, с датой. Это рынок в движении.', tagRu:'5 минут · один сигнал'},
-  {id:'nurse-q8', t:'Share your verdict card. Your people should know their path is being eaten too.', tag:'5 minutes · share it', ru:'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.', tagRu:'5 минут · поделиться'},
-  {id:'nurse-q9', t:'Price one ADN program against $5,472 — the Wake Tech total. Write down the difference.', tag:'10 minutes · one number', ru:'Сравните цену одной программы ADN с $5,472 — итогом Wake Tech. Запишите разницу.', tagRu:'10 минут · одна цифра'},
-  {id:'nurse-q10', t:'Find your state on the practice map: Full, Reduced, or Restricted. Write it down.', tag:'10 minutes · one check', ru:'Найдите ваш штат на карте практики: Full, Reduced или Restricted. Запишите его.', tagRu:'10 минут · одна проверка'}
+  {id:'nurse-q1', t:'Open one RN job post in a specialty: ICU, ER, or OR. Save it. A clear target means a shorter path.', tag:'5 minutes · look at real jobs', ru:'Откройте вакансию RN (дипломированная медсестра) в реанимации (ICU), приёмном отделении (ER) или операционной (OR). Сохраните. Это ваша цель.', tagRu:'5 минут · смотрим вакансии'},
+  {id:'nurse-q2', t:'Pick ONE specialty and write it down: ICU, ER, OR, psych, or anesthesia.', tag:'5 minutes · one decision', ru:'Выберите ОДНУ специальность и запишите: реанимация, приёмное отделение, операционная, психиатрия или анестезия.', tagRu:'5 минут · одно решение'},
+  {id:'nurse-q3', t:'Open 3 job posts in your specialty. Which certificate shows up most: BLS, ACLS, or CCRN? Get that one first.', tag:'10 minutes · skills over diplomas', ru:'Откройте 3 вакансии по вашей специальности. Какой сертификат просят чаще: BLS, ACLS или CCRN? Его и получайте первым.', tagRu:'10 минут · навыки важнее дипломов'},
+  {id:'nurse-q4', t:'Check your BLS expiry date. If it ends this year, write the renewal month down.', tag:'5 minutes · one date', ru:'Проверьте, когда кончается ваш BLS (сертификат по первой помощи). Если в этом году — запишите месяц, когда продлить.', tagRu:'5 минут · одна дата'},
+  {id:'nurse-q5', t:'Find one job post with a sign-on bonus (money for joining). These are $10K–$25K. Save the number.', tag:'5 minutes · one number', ru:'Найдите вакансию с бонусом за выход на работу. Обычно это $10K–$25K. Сохраните сумму.', tagRu:'5 минут · одна цифра'},
+  {id:'nurse-q6', t:'Upload your resume and confirm one fact the app finds. Your experience counts.', tag:'10 minutes · your file', ru:'Загрузите резюме и подтвердите один найденный факт. Ваш опыт — уже часть пути.', tagRu:'10 минут · ваш файл'},
+  {id:'nurse-q7', t:'Read one radar news item below, with its date. You’ll see changes before others do.', tag:'5 minutes · one news item', ru:'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.', tagRu:'5 минут · одна новость'},
+  {id:'nurse-q8', t:'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.', tag:'5 minutes · share it', ru:'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.', tagRu:'5 минут · поделиться'},
+  {id:'nurse-q9', t:'Wake Tech’s ADN (a short nursing degree) costs $5,472 total. Find the price of one other ADN. Write down the difference.', tag:'10 minutes · one number', ru:'ADN (короткая программа на медсестру) в Wake Tech стоит всего $5,472. Найдите цену другой программы ADN. Запишите разницу.', tagRu:'10 минут · одна цифра'},
+  {id:'nurse-q10', t:'Find your state on the NP practice map (how freely NPs can work): Full, Reduced, or Restricted. Write it down.', tag:'10 minutes · one check', ru:'Найдите ваш штат на карте практики NP (насколько свободно может работать NP): Full, Reduced или Restricted (полная, частичная, ограниченная).', tagRu:'10 минут · одна проверка'}
 ],
 /* ================= FINANCE / FP&A QUESTS ================= */
 fin: [
-  {id:'fin-q1', t:'Open one FP&A partner posting. Save it. Skip the plain “analyst” pool — it shrinks.', tag:'5 minutes · eyes on the market', ru:'Откройте одну вакансию FP&A partner. Сохраните её. Пропустите обычный пул «analyst» — он сжимается.', tagRu:'5 минут · глаза на рынке'},
-  {id:'fin-q2', t:'Write down the ONE seat you aim at. One line: partner, strategic, hybrid, or corp dev.', tag:'5 minutes · one decision', ru:'Запишите ОДНО место, в которое целитесь. Одна строка: partner, strategic, hybrid или corp dev.', tagRu:'5 минут · одно решение'},
-  {id:'fin-q3', t:'Open 3 postings. Count the ones that ask for SQL. In our scan it was 31 of 40.', tag:'10 minutes · proof over paper', ru:'Откройте 3 вакансии. Посчитайте те, что просят SQL. В нашем скане это было 31 из 40.', tagRu:'10 минут · доказательство вместо бумаг'},
-  {id:'fin-q4', t:'Write one SQL query on paper. One table, one filter, one sum. Ten minutes, no computer.', tag:'10 minutes · paper first', ru:'Напишите один SQL-запрос на бумаге. Одна таблица, один фильтр, одна сумма. Десять минут, без компьютера.', tagRu:'10 минут · сначала бумага'},
-  {id:'fin-q5', t:'Find one posting that names Anaplan. Save it. Platforms are named in 16 of 40 postings.', tag:'10 minutes · eyes on the market', ru:'Найдите одну вакансию, которая называет Anaplan. Сохраните её. Платформы названы в 16 из 40 вакансий.', tagRu:'10 минут · глаза на рынке'},
-  {id:'fin-q6', t:'Upload your resume on this page. Confirm one piece of evidence it finds.', tag:'10 minutes · your file', ru:'Загрузите резюме на этой странице. Подтвердите одно доказательство, которое оно найдёт.', tagRu:'10 минут · ваш файл'},
-  {id:'fin-q7', t:'Read today’s radar signal below. One item, with a date. That is the market moving.', tag:'5 minutes · one signal', ru:'Прочитайте сегодняшний сигнал радара ниже. Один пункт, с датой. Это рынок в движении.', tagRu:'5 минут · один сигнал'},
-  {id:'fin-q8', t:'Share your verdict card. Your people should know their path is being eaten too.', tag:'5 minutes · share it', ru:'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.', tagRu:'5 минут · поделиться'},
-  {id:'fin-q9', t:'Pick one report you rebuild every month. Write the hours it eats. That is your automation target.', tag:'10 minutes · one page', ru:'Выберите один отчёт, который вы пересобираете каждый месяц. Запишите часы, которые он ест. Это ваша цель автоматизации.', tagRu:'10 минут · одна страница'},
-  {id:'fin-q10', t:'Check the CFA line in one posting: required, preferred, or absent. Our scan: required in 0 of 40.', tag:'10 minutes · one check', ru:'Проверьте строку CFA в одной вакансии: требуется, предпочитается или отсутствует. Наш скан: требуется в 0 из 40.', tagRu:'10 минут · одна проверка'}
+  {id:'fin-q1', t:'Open one job post for an FP&A partner (plans money with one team). Save it. Skip plain “analyst” jobs. There are fewer each year.', tag:'5 minutes · look at real jobs', ru:'Откройте вакансию финансового партнёра FP&A (планирует деньги вместе с одной командой). Сохраните. Обычные вакансии аналитика пропустите — их всё меньше.', tagRu:'5 минут · смотрим вакансии'},
+  {id:'fin-q2', t:'Pick ONE role and write it down: team partner, strategic finance, finance + data, or company deals (corp dev).', tag:'5 minutes · one decision', ru:'Выберите ОДНУ роль: партнёр команды, стратегия, финансы + данные или сделки компании. Запишите.', tagRu:'5 минут · одно решение'},
+  {id:'fin-q3', t:'Open 3 job posts. Count how many ask for SQL. In the jobs we checked, it was 31 of 40.', tag:'10 minutes · skills over diplomas', ru:'Откройте 3 вакансии. Посчитайте, сколько просят SQL. В вакансиях, которые мы проверили, — 31 из 40.', tagRu:'10 минут · навыки важнее дипломов'},
+  {id:'fin-q4', t:'Write one SQL query on paper: one table, one filter, one sum. Job posts ask for it far more than for certificates.', tag:'10 minutes · pen and paper', ru:'Напишите SQL-запрос на бумаге: одна таблица, один фильтр, одна сумма. Его просят куда чаще любых сертификатов.', tagRu:'10 минут · ручка и бумага'},
+  {id:'fin-q5', t:'Find one job post that names Anaplan (planning software). Save it. 16 of 40 job posts name such software.', tag:'10 minutes · look at real jobs', ru:'Найдите вакансию, где упомянут Anaplan (программа для планирования). Сохраните её. Такие программы есть в 16 из 40 вакансий.', tagRu:'10 минут · смотрим вакансии'},
+  {id:'fin-q6', t:'Upload your resume and confirm one fact the app finds. Your experience counts.', tag:'10 minutes · your file', ru:'Загрузите резюме и подтвердите один найденный факт. Ваш опыт — уже часть пути.', tagRu:'10 минут · ваш файл'},
+  {id:'fin-q7', t:'Read one radar news item below, with its date. You’ll see changes before others do.', tag:'5 minutes · one news item', ru:'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.', tagRu:'5 минут · одна новость'},
+  {id:'fin-q8', t:'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.', tag:'5 minutes · share it', ru:'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.', tagRu:'5 минут · поделиться'},
+  {id:'fin-q9', t:'Pick one report you redo every month. Write down how many hours it takes. That is the first thing to automate.', tag:'10 minutes · one page', ru:'Выберите отчёт, который вы переделываете каждый месяц. Запишите, сколько часов он занимает. Его и стоит автоматизировать первым.', tagRu:'10 минут · одна страница'},
+  {id:'fin-q10', t:'Check what one job post says about CFA: required, nice to have, or not mentioned. In our check: required in 0 of 40. Don’t spend years on it.', tag:'10 minutes · one check', ru:'Посмотрите, что вакансия пишет про CFA: обязателен, желателен или нет. У нас: обязателен в 0 из 40. Не тратьте на него годы.', tagRu:'10 минут · одна проверка'}
 ],
 /* ================= CREATOR QUESTS — STAFF (v2, 2026-11-01) =================
    Micro-actions for a staff-creator job hunt (the HIRED creator, not
@@ -75,66 +75,66 @@ fin: [
    server rotation and quest history keep working; quest q8 is the
    share quest (DNA strand: voice, founder ruling). */
 creator: [
-  {id:'creator-q1', t:'Shoot a 20-second product demo on your phone. One take is fine. The employers check that you can make the thing, not that it shines.', tag:'5 minutes · shoot it', ru:'Снимите 20-секундное демо продукта на телефон. Один дубль — это нормально. Работодатели проверяют, что вы умеете делать, а не то, что всё блестит.', tagRu:'5 минут · снять'},
-  {id:'creator-q2', t:'Cut 10 seconds out of an old video. Making a video tighter is the job itself. Do it in CapCut or Premiere.', tag:'10 minutes · one edit', ru:'Вырежьте 10 секунд из старого видео. Делать видео плотнее — это и есть сама работа. Сделайте это в CapCut или Premiere.', tagRu:'10 минут · один монтаж'},
-  {id:'creator-q3', t:'Open one staff-creator posting that is open now, and save its list of requirements. That list is your market, written in the employer’s own words.', tag:'5 minutes · eyes on the market', ru:'Откройте одну вакансию штатного креатора, которая открыта сейчас, и сохраните её список требований. Этот список — ваш рынок, написанный словами самого работодателя.', tagRu:'5 минут · глаза на рынке'},
-  {id:'creator-q4', t:'Add one finished piece to your portfolio, with its view count written next to it. The numbers are the proof.', tag:'10 minutes · your proof', ru:'Добавьте одну законченную работу в ваше портфолио и напишите рядом число её просмотров. Цифры — это доказательство.', tagRu:'10 минут · ваше доказательство'},
-  {id:'creator-q5', t:'Pick one industry and write down 5 brands in it that post a video every week. That list is the map of your niche.', tag:'10 minutes · one niche', ru:'Выберите одну отрасль и запишите 5 брендов в ней, которые публикуют видео каждую неделю. Этот список — карта вашей ниши.', tagRu:'10 минут · одна ниша'},
-  {id:'creator-q6', t:'Write to one staff creator or one hiring manager. Give one specific compliment about their content, and ask one real question.', tag:'5 minutes · one message', ru:'Напишите одному штатному креатору или одному нанимающему менеджеру. Скажите один конкретный комплимент их контенту и задайте один настоящий вопрос.', tagRu:'5 минут · одно сообщение'},
-  {id:'creator-q7', t:'Use one AI tool for one step of your work today: the captions, a new variant, or a first cut. Write down what it saved you.', tag:'10 minutes · one tool', ru:'Используйте один инструмент ИИ для одного шага вашей работы сегодня: подписи, новый вариант или первый монтаж. Запишите, что он вам сэкономил.', tagRu:'10 минут · один инструмент'},
-  {id:'creator-q8', t:'Share your PathCheck card in one story or post. The staff job goes to the creator the employers have already seen.', tag:'5 minutes · share it', ru:'Поделитесь вашей карточкой PathCheck в одной сторис или в одном посте. Штатную работу получает креатор, которого работодатели уже видели.', tagRu:'5 минут · поделиться'},
-  {id:'creator-q9', t:'Write 5 hooks for the same video idea. A hook is the first seconds that stop a viewer. The postings name hooks as a duty, so practise the duty.', tag:'10 minutes · five hooks', ru:'Напишите 5 хуков для одной идеи видео. Хук — это первые секунды, которые останавливают зрителя. Вакансии называют хуки обязанностью, поэтому тренируйте эту обязанность.', tagRu:'10 минут · пять хуков'},
-  {id:'creator-q10', t:'Take a screenshot of your best-performing post and write two lines about why it worked. That short analysis is gold for your portfolio.', tag:'5 minutes · your numbers', ru:'Сделайте скриншот вашего поста с лучшими цифрами и напишите две строки о том, почему он сработал. Этот короткий разбор — золото для вашего портфолио.', tagRu:'5 минут · ваши цифры'},
+  {id:'creator-q1', t:'Shoot a 20-second product demo on your phone. One take is fine! Employers want to see you can make it. It doesn’t have to be perfect.', tag:'5 minutes · shoot it', ru:'Снимите на телефон 20-секундный ролик о продукте. Одного дубля хватит. Работодателю важно, что вы умеете снимать. Идеально не нужно.', tagRu:'5 минут · снять'},
+  {id:'creator-q2', t:'Cut 10 seconds out of an old video. Making videos shorter and tighter is the job. Use CapCut or Premiere.', tag:'10 minutes · one edit', ru:'Вырежьте 10 секунд из старого видео. Делать видео короче и плотнее — это и есть работа. Используйте CapCut или Premiere.', tagRu:'10 минут · один монтаж'},
+  {id:'creator-q3', t:'Open one current job post for a staff creator. Save its list of requirements. Learn only what’s on it.', tag:'5 minutes · look at real jobs', ru:'Откройте свежую вакансию автора видео в штате компании. Сохраните список требований. Учите только то, что там есть.', tagRu:'5 минут · смотрим вакансии'},
+  {id:'creator-q4', t:'Add one finished work to your portfolio. Write its view count next to it. Numbers are your proof.', tag:'10 minutes · your proof', ru:'Добавьте одну готовую работу в портфолио. Рядом напишите число просмотров. Цифры — лучшее доказательство.', tagRu:'10 минут · ваше доказательство'},
+  {id:'creator-q5', t:'Pick one industry. Write down 5 brands in it that post a video every week. That list is your niche.', tag:'10 minutes · one niche', ru:'Выберите одну отрасль. Запишите 5 брендов из неё, которые выкладывают видео каждую неделю. Это и есть ваша ниша.', tagRu:'10 минут · одна ниша'},
+  {id:'creator-q6', t:'Message one staff creator or one hiring manager. Praise one specific thing in their videos. Ask one real question. Contacts shorten the path.', tag:'5 minutes · one message', ru:'Напишите автору видео в штате или тому, кто нанимает. Похвалите что-то конкретное в их видео. Задайте один настоящий вопрос.', tagRu:'5 минут · одно сообщение'},
+  {id:'creator-q7', t:'Today, let one AI tool do one step of your work. For example: captions, a new version, or a first edit. Write down what it saved you.', tag:'10 minutes · one tool', ru:'Сегодня дайте одному AI-инструменту сделать один шаг работы. Например, субтитры, новый вариант или первый монтаж. Запишите, что это вам сэкономило.', tagRu:'10 минут · один инструмент'},
+  {id:'creator-q8', t:'Share your PathCheck card in a story or post. Employers hire creators they have already seen.', tag:'5 minutes · share it', ru:'Поделитесь вашей карточкой PathCheck в сторис или посте. Работодатели нанимают тех, кого уже видели.', tagRu:'5 минут · поделиться'},
+  {id:'creator-q9', t:'Write 5 hooks for one video idea. A hook is the first seconds that stop the scroll. Job posts list hooks as a duty.', tag:'10 minutes · five hooks', ru:'Напишите 5 зацепок для одной идеи видео. Зацепка — первые секунды, которые не дают пролистать. В вакансиях это прямая обязанность.', tagRu:'10 минут · пять хуков'},
+  {id:'creator-q10', t:'Screenshot your best post. Write two lines on why it worked. This short note is gold for your portfolio.', tag:'5 minutes · your numbers', ru:'Сделайте скриншот вашего самого успешного поста. Напишите две строки: почему он сработал. Такой короткий разбор — золото для портфолио.', tagRu:'5 минут · ваши цифры'},
 ],
 /* ================= ANALYST QUESTS ================= */
 analyst: [
-  {id:'analyst-q1', t:'Open one product analyst posting. Save it. Skip the dashboards-on-request pool.', tag:'5 minutes · eyes on the market', ru:'Откройте одну вакансию product analyst. Сохраните её. Пропустите пул «дашборды по запросу».', tagRu:'5 минут · глаза на рынке'},
-  {id:'analyst-q2', t:'Write down the ONE seat you aim at. Product, analytics engineer, strategy, or data scientist.', tag:'5 minutes · one decision', ru:'Запишите ОДНО место, в которое целитесь. Product, analytics engineer, strategy или data scientist.', tagRu:'5 минут · одно решение'},
-  {id:'analyst-q3', t:'Open 3 analyst postings. Count the ones that ask for SQL. In our scan: 43 of 46.', tag:'10 minutes · proof over paper', ru:'Откройте 3 вакансии аналитика. Посчитайте те, что просят SQL. В нашем скане: 43 из 46.', tagRu:'10 минут · доказательство вместо бумаг'},
-  {id:'analyst-q4', t:'Write one SQL query on paper. One table, one filter, one sum. Ten minutes, no computer.', tag:'10 minutes · paper first', ru:'Напишите один SQL-запрос на бумаге. Одна таблица, один фильтр, одна сумма. Десять минут, без компьютера.', tagRu:'10 минут · сначала бумага'},
-  {id:'analyst-q5', t:'Find one analytics engineer posting. Check the dbt line: 7 of 7 postings ask for it.', tag:'10 minutes · eyes on the market', ru:'Найдите одну вакансию analytics engineer. Проверьте строку dbt: её просят 7 из 7 вакансий.', tagRu:'10 минут · глаза на рынке'},
-  {id:'analyst-q6', t:'Upload your resume on this page. Confirm one piece of evidence it finds.', tag:'10 minutes · your file', ru:'Загрузите резюме на этой странице. Подтвердите одно доказательство, которое оно найдёт.', tagRu:'10 минут · ваш файл'},
-  {id:'analyst-q7', t:'Read today’s radar signal below. One item, with a date. That is the market moving.', tag:'5 minutes · one signal', ru:'Прочитайте сегодняшний сигнал радара ниже. Один пункт, с датой. Это рынок в движении.', tagRu:'5 минут · один сигнал'},
-  {id:'analyst-q8', t:'Share your verdict card. Your people should know their path is being eaten too.', tag:'5 minutes · share it', ru:'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.', tagRu:'5 минут · поделиться'},
-  {id:'analyst-q9', t:'Pick one dashboard nobody opens. Write down the decision it was supposed to feed.', tag:'10 minutes · one page', ru:'Выберите один дашборд, который никто не открывает. Запишите решение, которое он должен был питать.', tagRu:'10 минут · одна страница'},
-  {id:'analyst-q10', t:'Compare two BLS lines: $101,860 at +10% vs $120,230 at +35%. Write which house is yours.', tag:'10 minutes · one number', ru:'Сравните две строки BLS: $101,860 при +10% против $120,230 при +35%. Запишите, какой дом ваш.', tagRu:'10 минут · одна цифра'}
+  {id:'analyst-q1', t:'Open one product analyst job post (improves a product with data). Save it. Skip jobs that only make charts on request.', tag:'5 minutes · look at real jobs', ru:'Откройте вакансию аналитика продукта (улучшает продукт по данным). Сохраните. Пропустите те, где только рисуют графики.', tagRu:'5 минут · смотрим вакансии'},
+  {id:'analyst-q2', t:'Pick ONE role and write it down: product, analytics engineer, strategy, or data scientist. One target, shorter path.', tag:'5 minutes · one decision', ru:'Выберите ОДНУ роль: аналитик продукта, инженер аналитики, стратегия или data scientist (модели на данных). Запишите.', tagRu:'5 минут · одно решение'},
+  {id:'analyst-q3', t:'Open 3 analyst job posts. Count how many ask for SQL. In the jobs we checked: 43 of 46. So learn SQL first.', tag:'10 minutes · skills over diplomas', ru:'Откройте 3 вакансии аналитика. Посчитайте, где просят SQL. В тех, что мы проверили: 43 из 46. Значит, SQL учите первым.', tagRu:'10 минут · навыки важнее дипломов'},
+  {id:'analyst-q4', t:'Write one SQL query on paper: one table, one filter, one sum. Stuck? Ask ChatGPT or Claude to explain.', tag:'10 minutes · pen and paper', ru:'Напишите SQL-запрос на бумаге: таблица, фильтр, сумма. Застряли — попросите ChatGPT или Claude объяснить.', tagRu:'10 минут · ручка и бумага'},
+  {id:'analyst-q5', t:'Find one job post for an analytics engineer (prepares data for reports). Look for dbt (a data tool). 7 of 7 job posts ask for it.', tag:'10 minutes · look at real jobs', ru:'Найдите вакансию инженера аналитики (готовит данные для отчётов). Поищите там dbt (инструмент для данных). Его просят 7 из 7.', tagRu:'10 минут · смотрим вакансии'},
+  {id:'analyst-q6', t:'Upload your resume and confirm one fact the app finds. Your experience counts.', tag:'10 minutes · your file', ru:'Загрузите резюме и подтвердите один найденный факт. Ваш опыт — уже часть пути.', tagRu:'10 минут · ваш файл'},
+  {id:'analyst-q7', t:'Read one radar news item below, with its date. You’ll see changes before others do.', tag:'5 minutes · one news item', ru:'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.', tagRu:'5 минут · одна новость'},
+  {id:'analyst-q8', t:'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.', tag:'5 minutes · share it', ru:'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.', tagRu:'5 минут · поделиться'},
+  {id:'analyst-q9', t:'Pick one dashboard nobody opens. Write down what decision it was meant to help. Top analysts think this way.', tag:'10 minutes · one page', ru:'Выберите панель с графиками, которую никто не открывает. Запишите, какое решение она должна была помочь принять.', tagRu:'10 минут · одна страница'},
+  {id:'analyst-q10', t:'Compare two BLS numbers (US government job data): $101,860 with +10% growth vs $120,230 with +35%. Write down which one is yours.', tag:'10 minutes · one number', ru:'Сравните две цифры BLS (госстатистика США): $101,860 и рост +10% против $120,230 и рост +35%. Запишите, какая из них про вас.', tagRu:'10 минут · одна цифра'}
 ],
 dataanalyst: [
-  {id:'dataanalyst-q1', t:'Open one product analyst posting. Save it. Skip the dashboards-on-request pool.', tag:'5 minutes · eyes on the market', ru:'Откройте одну вакансию product analyst. Сохраните её. Пропустите пул «дашборды по запросу».', tagRu:'5 минут · глаза на рынке'},
-  {id:'dataanalyst-q2', t:'Write down the ONE seat you aim at. Product, analytics engineer, or the data-scientist door.', tag:'5 minutes · one decision', ru:'Запишите ОДНО место, в которое целитесь. Product, analytics engineer или дверь data scientist.', tagRu:'5 минут · одно решение'},
-  {id:'dataanalyst-q3', t:'Open 3 data analyst postings. Count the ones that ask for SQL. In our data-side scan: 24 of 24.', tag:'10 minutes · proof over paper', ru:'Откройте 3 вакансии data analyst. Посчитайте те, что просят SQL. В нашем скане стороны данных: 24 из 24.', tagRu:'10 минут · доказательство вместо бумаг'},
-  {id:'dataanalyst-q4', t:'Write one SQL query on paper. One table, one filter, one sum. Ten minutes, no computer.', tag:'10 minutes · paper first', ru:'Напишите один SQL-запрос на бумаге. Одна таблица, один фильтр, одна сумма. Десять минут, без компьютера.', tagRu:'10 минут · сначала бумага'},
-  {id:'dataanalyst-q5', t:'Find one analytics engineer posting. Check the dbt line: 7 of 7 postings ask for it.', tag:'10 minutes · eyes on the market', ru:'Найдите одну вакансию analytics engineer. Проверьте строку dbt: её просят 7 из 7 вакансий.', tagRu:'10 минут · глаза на рынке'},
-  {id:'dataanalyst-q6', t:'Upload your resume on this page. Confirm one piece of evidence it finds.', tag:'10 minutes · your file', ru:'Загрузите резюме на этой странице. Подтвердите одно доказательство, которое оно найдёт.', tagRu:'10 минут · ваш файл'},
-  {id:'dataanalyst-q7', t:'Read today’s radar signal below. One item, with a date. That is the market moving.', tag:'5 minutes · one signal', ru:'Прочитайте сегодняшний сигнал радара ниже. Один пункт, с датой. Это рынок в движении.', tagRu:'5 минут · один сигнал'},
-  {id:'dataanalyst-q8', t:'Share your verdict card. Your people should know their path is being eaten too.', tag:'5 minutes · share it', ru:'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.', tagRu:'5 минут · поделиться'},
-  {id:'dataanalyst-q9', t:'Pick one dashboard nobody opens. Write down the decision it was supposed to feed.', tag:'10 minutes · one page', ru:'Выберите один дашборд, который никто не открывает. Запишите решение, которое он должен был питать.', tagRu:'10 минут · одна страница'},
-  {id:'dataanalyst-q10', t:'Read the BLS data-scientist line: median $120,230, growth +35%. Write down what it means for your seat.', tag:'10 minutes · one number', ru:'Прочитайте строку BLS про data scientists: медиана $120,230, рост +35%. Запишите, что это значит для вашего места.', tagRu:'10 минут · одна цифра'}
+  {id:'dataanalyst-q1', t:'Open one product analyst job post (improves a product with data). Save it. Skip jobs that only make charts on request.', tag:'5 minutes · look at real jobs', ru:'Откройте вакансию аналитика продукта (улучшает продукт по данным). Сохраните. Пропустите те, где только рисуют графики.', tagRu:'5 минут · смотрим вакансии'},
+  {id:'dataanalyst-q2', t:'Pick ONE role and write it down: product, analytics engineer, or the way into data science.', tag:'5 minutes · one decision', ru:'Выберите ОДНУ роль: аналитик продукта, инженер аналитики или путь в data scientist (модели на данных). Запишите.', tagRu:'5 минут · одно решение'},
+  {id:'dataanalyst-q3', t:'Open 3 data analyst job posts. Count how many ask for SQL. In the data jobs we checked: 24 of 24. So learn SQL first.', tag:'10 minutes · skills over diplomas', ru:'Откройте 3 вакансии аналитика данных. Посчитайте, где просят SQL. В тех, что мы проверили: 24 из 24. Значит, SQL учите первым.', tagRu:'10 минут · навыки важнее дипломов'},
+  {id:'dataanalyst-q4', t:'Write one SQL query on paper: one table, one filter, one sum. Stuck? Ask ChatGPT or Claude to explain.', tag:'10 minutes · pen and paper', ru:'Напишите SQL-запрос на бумаге: таблица, фильтр, сумма. Застряли — попросите ChatGPT или Claude объяснить.', tagRu:'10 минут · ручка и бумага'},
+  {id:'dataanalyst-q5', t:'Find one job post for an analytics engineer (prepares data for reports). Look for dbt (a data tool). 7 of 7 job posts ask for it.', tag:'10 minutes · look at real jobs', ru:'Найдите вакансию инженера аналитики (готовит данные для отчётов). Поищите там dbt (инструмент для данных). Его просят 7 из 7.', tagRu:'10 минут · смотрим вакансии'},
+  {id:'dataanalyst-q6', t:'Upload your resume and confirm one fact the app finds. Your experience counts.', tag:'10 minutes · your file', ru:'Загрузите резюме и подтвердите один найденный факт. Ваш опыт — уже часть пути.', tagRu:'10 минут · ваш файл'},
+  {id:'dataanalyst-q7', t:'Read one radar news item below, with its date. You’ll see changes before others do.', tag:'5 minutes · one news item', ru:'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.', tagRu:'5 минут · одна новость'},
+  {id:'dataanalyst-q8', t:'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.', tag:'5 minutes · share it', ru:'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.', tagRu:'5 минут · поделиться'},
+  {id:'dataanalyst-q9', t:'Pick one dashboard nobody opens. Write down what decision it was meant to help. Top analysts think this way.', tag:'10 minutes · one page', ru:'Выберите панель с графиками, которую никто не открывает. Запишите, какое решение она должна была помочь принять.', tagRu:'10 минут · одна страница'},
+  {id:'dataanalyst-q10', t:'Read the BLS numbers (US government job data) for data scientists: typical pay $120,230, growth +35%. Write down what this means for you.', tag:'10 minutes · one number', ru:'Прочитайте данные BLS (госстатистика США) о специалистах по данным: типичная зарплата $120,230, рост +35%. Запишите, что это значит для вас.', tagRu:'10 минут · одна цифра'}
 ],
 businessanalyst: [
-  {id:'businessanalyst-q1', t:'Open one strategy & operations analyst posting. Save it. Skip the documents-on-request pool.', tag:'5 minutes · eyes on the market', ru:'Откройте одну вакансию strategy & operations analyst. Сохраните её. Пропустите пул «документы по запросу».', tagRu:'5 минут · глаза на рынке'},
-  {id:'businessanalyst-q2', t:'Write down the ONE seat you aim at. Documents, or strategy & operations.', tag:'5 minutes · one decision', ru:'Запишите ОДНО место, в которое целитесь. Документы или strategy & operations.', tagRu:'5 минут · одно решение'},
-  {id:'businessanalyst-q3', t:'Open 3 business analyst postings. Count the ones that name Jira or Agile. In our scan: 9 of 15 BA-family postings.', tag:'10 minutes · proof over paper', ru:'Откройте 3 вакансии business analyst. Посчитайте те, что называют Jira или Agile. В нашем скане: 9 из 15 вакансий семьи BA.', tagRu:'10 минут · доказательство вместо бумаг'},
-  {id:'businessanalyst-q4', t:'Take one document you wrote. Rewrite its first page as a decision brief: the call, the number, the ask.', tag:'10 minutes · paper first', ru:'Возьмите один документ, который вы написали. Перепишите его первую страницу как бриф решения: призыв, цифра, запрос.', tagRu:'10 минут · сначала бумага'},
-  {id:'businessanalyst-q5', t:'Find one business-side posting that names an AI tool as a requirement. SanDisk has one.', tag:'10 minutes · eyes on the market', ru:'Найдите одну вакансию стороны бизнеса, которая называет AI-инструмент требованием. Такая есть у SanDisk.', tagRu:'10 минут · глаза на рынке'},
-  {id:'businessanalyst-q6', t:'Upload your resume on this page. Confirm one piece of evidence it finds.', tag:'10 minutes · your file', ru:'Загрузите резюме на этой странице. Подтвердите одно доказательство, которое оно найдёт.', tagRu:'10 минут · ваш файл'},
-  {id:'businessanalyst-q7', t:'Read today’s radar signal below. One item, with a date. That is the market moving.', tag:'5 minutes · one signal', ru:'Прочитайте сегодняшний сигнал радара ниже. Один пункт, с датой. Это рынок в движении.', tagRu:'5 минут · один сигнал'},
-  {id:'businessanalyst-q8', t:'Share your verdict card. Your people should know their path is being eaten too.', tag:'5 minutes · share it', ru:'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.', tagRu:'5 минут · поделиться'},
+  {id:'businessanalyst-q1', t:'Open one job post for a strategy & operations analyst (helps leaders decide where to go). Save it. Skip jobs that only write documents.', tag:'5 minutes · look at real jobs', ru:'Откройте вакансию аналитика по стратегии и операциям (помогает руководству выбрать курс). Сохраните. Пропустите те, где только пишут документы.', tagRu:'5 минут · смотрим вакансии'},
+  {id:'businessanalyst-q2', t:'Pick ONE role and write it down: documents, or strategy & operations.', tag:'5 minutes · one decision', ru:'Выберите ОДНУ роль и запишите её: документы или стратегия и операции.', tagRu:'5 минут · одно решение'},
+  {id:'businessanalyst-q3', t:'Open 3 business analyst job posts. Count how many name Jira or Agile. In the BA jobs we checked: 9 of 15.', tag:'10 minutes · skills over diplomas', ru:'Откройте 3 вакансии бизнес-аналитика. Посчитайте, где упомянуты Jira или Agile. В тех, что мы проверили: 9 из 15.', tagRu:'10 минут · навыки важнее дипломов'},
+  {id:'businessanalyst-q4', t:'Take one document you wrote. Rewrite its first page in three lines: the decision, the number, the request.', tag:'10 minutes · pen and paper', ru:'Возьмите документ, который вы написали. Перепишите первую страницу в три строки: решение, цифра, просьба.', tagRu:'10 минут · ручка и бумага'},
+  {id:'businessanalyst-q5', t:'Find one business job post that requires an AI tool. SanDisk has one.', tag:'10 minutes · look at real jobs', ru:'Найдите бизнес-вакансию, где AI-инструмент — обязательное требование. Такая есть у SanDisk.', tagRu:'10 минут · смотрим вакансии'},
+  {id:'businessanalyst-q6', t:'Upload your resume and confirm one fact the app finds. Your experience counts.', tag:'10 minutes · your file', ru:'Загрузите резюме и подтвердите один найденный факт. Ваш опыт — уже часть пути.', tagRu:'10 минут · ваш файл'},
+  {id:'businessanalyst-q7', t:'Read one radar news item below, with its date. You’ll see changes before others do.', tag:'5 minutes · one news item', ru:'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.', tagRu:'5 минут · одна новость'},
+  {id:'businessanalyst-q8', t:'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.', tag:'5 minutes · share it', ru:'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.', tagRu:'5 минут · поделиться'},
   {id:'businessanalyst-q9', t:'Write down one decision your work changed. One line, with the number.', tag:'10 minutes · one page', ru:'Запишите одно решение, которое изменила ваша работа. Одна строка, с цифрой.', tagRu:'10 минут · одна страница'},
-  {id:'businessanalyst-q10', t:'Read the BLS management-analyst line: median $101,860, growth +10%, about 94,100 openings a year. Write down what it means for your seat.', tag:'10 minutes · one number', ru:'Прочитайте строку BLS про management analysts: медиана $101,860, рост +10%, около 94,100 открытых мест в год. Запишите, что это значит для вашего места.', tagRu:'10 минут · одна цифра'}
+  {id:'businessanalyst-q10', t:'Read the BLS numbers (US government job data) for management analysts: typical pay $101,860, growth +10%, about 94,100 openings a year. Write down what this means for you.', tag:'10 minutes · one number', ru:'Прочитайте данные BLS (госстатистика США) о консультантах по управлению: типичная зарплата $101,860, рост +10%, около 94,100 вакансий в год. Что это значит для вас?', tagRu:'10 минут · одна цифра'}
 ],
 /* ================= AI CONTENT CREATOR QUESTS ================= */
 aicreator: [
-  {id:'aicreator-q1', t:'Write one sentence naming your seat: a real face with an AI crew, or AI video for brands. Pin it where you work.', tag:'5 minutes · one decision', ru:'Напишите одно предложение с вашим местом: настоящее лицо с AI-командой или AI-видео для брендов. Прикрепите его там, где работаете.', tagRu:'5 минут · одно решение'},
-  {id:'aicreator-q2', t:'Re-cut one old video with your AI pipeline. Time it. Write the minutes down.', tag:'15 minutes · hands on', ru:'Перемонтируйте одно старое видео вашим AI-процессом. Засеките время. Запишите минуты.', tagRu:'15 минут · руками'},
-  {id:'aicreator-q3', t:'Generate three hooks for one product. Pick the one a human would stop scrolling for.', tag:'10 minutes · three tries', ru:'Сгенерируйте три хука для одного продукта. Выберите тот, на котором человек остановит прокрутку.', tagRu:'10 минут · три попытки'},
-  {id:'aicreator-q4', t:'Read the FTC fake-review rule in plain words. Check your current scripts against it — no AI person fakes a testimonial.', tag:'10 minutes · one check', ru:'Прочитайте правило FTC о фейковых отзывах простыми словами. Проверьте ваши текущие скрипты по нему — ни один AI-человек не изображает отзыв.', tagRu:'10 минут · одна проверка'},
-  {id:'aicreator-q5', t:'Make one before/after pair: the same ad, filmed style vs AI-made. Save both for your rate card.', tag:'15 minutes · one page', ru:'Сделайте одну пару «до/после»: та же реклама, снятая и сгенерированная AI. Сохраните обе для вашей карточки цен.', tagRu:'15 минут · одна страница'},
-  {id:'aicreator-q6', t:'Find one brand in your niche running AI-labeled ads. Write down what they sell and how the label shows.', tag:'10 minutes · eyes on the market', ru:'Найдите один бренд в вашей нише, который крутит рекламу с пометкой AI. Запишите, что они продают и как видна пометка.', tagRu:'10 минут · глаза на рынке'},
-  {id:'aicreator-q7', t:'Pitch one local brand today: ten AI ad variants for the price of one filmed video. One message.', tag:'10 minutes · one send', ru:'Предложите одному локальному бренду сегодня: десять вариантов рекламы с AI по цене одного снятого видео. Одно сообщение.', tagRu:'10 минут · одна отправка'},
-  {id:'aicreator-q8', t:'Share your verdict card. Your people should know their path is being eaten too.', tag:'5 minutes · share it', ru:'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.', tagRu:'5 минут · поделиться'},
-  {id:'aicreator-q9', t:'Dub one of your videos into a second language with the pipeline. Watch it fully once before posting.', tag:'15 minutes · one video', ru:'Продублируйте одно ваше видео на второй язык вашим процессом. Посмотрите его целиком один раз перед публикацией.', tagRu:'15 минут · одно видео'},
-  {id:'aicreator-q10', t:'Write this month’s numbers: pieces shipped, minutes per piece, money in. Three lines.', tag:'10 minutes · your numbers', ru:'Запишите числа этого месяца: сколько работ отправлено, минут на работу, денег пришло. Три строки.', tagRu:'10 минут · ваши числа'}
+  {id:'aicreator-q1', t:'Write one sentence about your path: a real face with AI helpers, or AI video for brands. Pin it where you work.', tag:'5 minutes · one decision', ru:'Напишите одно предложение о вашем пути: вы — живое лицо с AI-помощниками или делаете AI-видео для брендов. Повесьте его там, где работаете.', tagRu:'5 минут · одно решение'},
+  {id:'aicreator-q2', t:'Re-edit one old video with your AI tools. Time it. Write down the minutes. Faster work means more clients.', tag:'15 minutes · hands on', ru:'Перемонтируйте старое видео с AI-инструментами. Засеките время. Запишите минуты. Быстрее работа — больше клиентов.', tagRu:'15 минут · сделать самим'},
+  {id:'aicreator-q3', t:'Generate three hooks for one product. Pick the one a human would stop scrolling for.', tag:'10 minutes · three tries', ru:'Придумайте с AI три зацепки для одного продукта. Выберите ту, на которой человек перестанет листать.', tagRu:'10 минут · три попытки'},
+  {id:'aicreator-q4', t:'Read the FTC rule on fake reviews (FTC protects US shoppers). Check your scripts against it. No AI person may pretend to be a real customer.', tag:'10 minutes · one check', ru:'Прочитайте правило FTC (защита покупателей в США) о поддельных отзывах. Проверьте по нему ваши сценарии. AI-персонаж не должен выдавать себя за покупателя.', tagRu:'10 минут · одна проверка'},
+  {id:'aicreator-q5', t:'Make one before/after pair: the same ad, filmed vs made with AI. Save both for your price list.', tag:'15 minutes · one page', ru:'Сделайте пару «до/после»: одна и та же реклама — снятая и сделанная AI. Сохраните обе для вашего прайс-листа.', tagRu:'15 минут · одна страница'},
+  {id:'aicreator-q6', t:'Find one brand in your niche with ads marked as AI. Write down what they sell and how the label looks.', tag:'10 minutes · look at real jobs', ru:'Найдите бренд в вашей нише, у которого реклама помечена как AI. Запишите, что они продают и как выглядит пометка.', tagRu:'10 минут · смотрим вакансии'},
+  {id:'aicreator-q7', t:'Send one offer to a local brand today: ten AI ads for the price of one filmed video. One message.', tag:'10 minutes · one message', ru:'Напишите сегодня одному местному бренду. Предложите десять AI-реклам по цене одного снятого видео. Одно сообщение.', tagRu:'10 минут · одно сообщение'},
+  {id:'aicreator-q8', t:'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.', tag:'5 minutes · share it', ru:'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.', tagRu:'5 минут · поделиться'},
+  {id:'aicreator-q9', t:'Use your AI tools to dub one video into another language. Watch it all once before posting.', tag:'15 minutes · one video', ru:'Переозвучьте одно ваше видео на другой язык с помощью AI-инструментов. Перед публикацией посмотрите его целиком.', tagRu:'15 минут · одно видео'},
+  {id:'aicreator-q10', t:'Write this month’s numbers: pieces done, minutes per piece, money earned. Three lines.', tag:'10 minutes · your numbers', ru:'Запишите цифры этого месяца: сколько работ сделано, сколько минут на одну, сколько денег пришло. Три строки.', tagRu:'10 минут · ваши числа'}
 ]
 };
 
@@ -144,64 +144,64 @@ aicreator: [
    the license, the money seat — shown as the GOAL, never as a task.
    Lines distill the packages' own door copy; digits unchanged. */
 var BIGGOALS = {
-  specialist:'The big goal: the specialist job that runs the AI — senior postings pay $135K–$200K, privacy postings pay $212K–$319K.',
-  paralegal:'The big goal: leave the generalist job — middle pay $62,890, growth 0% — and move into one specialty. Specialist postings pay up to $150K–$200K.',
-  docreview:'The big goal: leave document review and move into the senior specialist job that runs the review AI — $150K–$200K.',
-  lawstudent:'The big goal: a law degree (J.D.) aimed at one specialty — privacy and AI-rules postings pay $212K–$319K.',
-  bookkeeper:'The big goal: bachelor’s → CPA license → controller owning the ERP (company money software), $130–200K + bonus.',
-  tax:'The big goal: specialized tax — firms taxed through their owners, and very rich clients, at $125–200K, with the license managers demand.',
-  staff:'The big goal: a CPA aimed at one specialty — specialized tax at $125–200K, transaction advisory up to $225K.',
-  audit:'The big goal: use audit as a bridge, not your final home — transaction advisory posts up to $225K.',
-  technical:'The big goal: the SEC-reporting signature — postings pay $120–184K, and 6 of 6 require an active CPA license.',
-  fdd:'The big goal: transaction advisory (checking firms pre-sale) — top money in our scan, up to $225K.',
-  controller:'The big goal: controller who owns the ERP system and the monthly close — $130–200K + bonus, on the CFO path.',
-  medsurg:'The big goal: med-surg (the general ward) as a ramp only, then a specialty such as ICU, ER, or OR, where travel, NP, and CRNA money opens.',
-  specialty:'The big goal: one deep specialty, then the next step by the posted numbers: travel pay, a specialty NP job, or CRNA.',
-  travel:'The big goal: specialty years first, then travel money saved for the NP or CRNA decision.',
-  nstudent:'The big goal: get the RN license the cheap way, start in a specialty job, and let your employer pay for the next study step.',
-  np:'The big goal: pick an NP specialty that pays a premium. Psych NP postings pay $200K–$257K.',
-  crna:'The big goal: become a CRNA. Here the degree is the license itself, and the median pay is $236,590.',
-  lpn:'The big goal: become an RN, not an LPN. Enter through the ADN program and skip the low pay ceiling.',
-  reporting:'The big goal: move one job over. An FP&A partner posts up to $276,250, and the BI hybrid posts $138K–$180,600.',
-  fpa:'The big goal: own one unit’s P&L (its profit-and-loss sheet) next to that unit. They pay for judgment, and top postings reach $276,250.',
-  strategic:'The big goal: work in strategic finance, doing real case work on top of SQL. Top postings pay $231,940–$276,250.',
-  hybrid:'The big goal: take the BI / analytics hybrid seat. It is the fastest way into finance, and it posts $138K–$180,600.',
-  corpdev:'The big goal: enter corporate development inside its early window, or take the same pay on the FP&A partner path.',
-  faceless:'The big goal: directed work with your face or voice inside it — the version that kept its pay.',
-  streamer:'The big goal: a creator with a business — the stream is the shop window, the list and products are the shop.',
-  personality:'The big goal: deals plus a business you control — a product line and an email list you own.',
-  ugc:'The big goal: a UGC trade with a buyer file — raise the rate toward $500 as paid deliveries stack.',
-  educator:'The big goal: one problem your audience pays to solve, taught by a face they can check — plus a product in your name.',
-  creatorbiz:'The big goal: income you own — no single platform controls most of your money.',
-  brandcreator:'The big goal: get a brand seat where you are the whole studio and do everything yourself. Then add the scarce half — the rare skill — that lifts your pay toward $115–125K.',
-  facecreator:'The big goal: be a trusted face with real knowledge behind it. Face seats post $110K–$160K.',
-  perfcreator:'The big goal: get a performance seat where your content carries a revenue number. The pay is $65–100K as base, plus KPI bonuses — extra money when your content hits the company’s numbers.',
-  agencycreator:'The big goal: use the agency as a 1–3-year school. Then leave, portfolio in hand, for a brand, face or performance seat at $100K+.',
-  mediacreator:'The big goal: get off the writing desk and into a brand or performance seat. The skills are the same, and the pay is $15–25K higher.',
-  genba:'The big goal: a decision-making job — your years with managers carry to product analyst or strategy work. Document years do not.',
-  reportda:'The big goal: keep SQL, the database language, but aim it at product analyst or analytics engineer work, which pays for decisions, not reports.',
-  prodan:'The big goal: a product analyst who runs experiments from start to finish. Job postings pay $106K–$300,067.',
-  aneng:'The big goal: analytics engineer. The data tool dbt is named in 7 of 7 postings, and pay for senior staff reaches $244,100.',
-  bizops:'The big goal: strategy & operations — Google posts $124K–$177K. The way in is to show one decision you changed, with numbers to prove it.',
-  dsgate:'The big goal: data scientist, a different job, not a promotion. Median pay $120,230, growing +35%.',
-  aimass:'The big goal: the same video-making process, but with a real face or a paying client in it — the version of this work that kept its pay.',
-  persona:'The big goal: a studio brands pay for AI characters — the service, not the character itself, is where the income is.',
-  aistreamer:'The big goal: skills you can sell without the stream — what you built is software; sell it like software.',
-  aipipeline:'The big goal: a face brands pay $154 a video for — helped by an AI team and by working in a second language.',
-  aiservice:'The big goal: a list of clients who pay you every month — your judgment priced per month, never per clip.'
+  specialist:'The big goal: a specialist job where you are the boss of the AI. Senior jobs pay $135K–$200K. Privacy jobs pay $212K–$319K.',
+  paralegal:'The big goal: grow out of the general paralegal job. It pays $62,890 in the middle and isn’t growing (0%). Pick one specialty instead. Specialists can earn up to $150K–$200K.',
+  docreview:'The big goal: move up from document review. Become the senior specialist who runs the review AI. That pays $150K–$200K.',
+  lawstudent:'The big goal: a law degree (J.D.) with one specialty in mind. Jobs in privacy and AI rules pay $212K–$319K.',
+  bookkeeper:'The big goal: bachelor’s → CPA license → controller. You run the ERP (company money software). Pay: $130–200K + bonus.',
+  tax:'The big goal: special tax work. For example, firms taxed through their owners, or very rich clients. It pays $125–200K. Managers there want the license.',
+  staff:'The big goal: a CPA license and one specialty. Special tax work pays $125–200K. Deal advice (checking firms before a sale) pays up to $225K.',
+  audit:'The big goal: use audit as a bridge, not your last stop. Deal advice jobs pay up to $225K.',
+  technical:'The big goal: be the one who signs SEC reports (reports for public companies). Jobs pay $120–184K. 6 of 6 need an active CPA license.',
+  fdd:'The big goal: deal advice (checking firms before a sale). It paid the most in the jobs we checked: up to $225K.',
+  controller:'The big goal: a controller who runs the ERP system and closes the books each month. Pay: $130–200K + bonus. Next stop: CFO.',
+  medsurg:'The big goal: use med-surg (the general ward) as a starting step. Then move to a specialty like ICU, ER, or OR. That opens travel, NP, and CRNA money.',
+  specialty:'The big goal: get really good at one specialty. Then pick your next step by real pay: travel jobs, a specialty NP job, or CRNA.',
+  travel:'The big goal: a few years in a specialty first. Then travel jobs. Save that money for your NP or CRNA choice.',
+  nstudent:'The big goal: get the RN license the cheap way. Start in a specialty job. Let your employer pay for your next studies.',
+  np:'The big goal: pick an NP specialty that pays extra. Psych NP jobs pay $200K–$257K.',
+  crna:'The big goal: become a CRNA. Here your degree is your license. Typical pay is $236,590.',
+  lpn:'The big goal: become an RN, not an LPN. Start with an ADN program (a short nursing degree). That way your pay can keep growing.',
+  reporting:'The big goal: step over to a nearby job. An FP&A partner can earn up to $276,250. A finance + data (BI) job pays $138K–$180,600.',
+  fpa:'The big goal: own one team’s P&L (its profit-and-loss sheet) and work right next to that team. You get paid for good judgment. Top jobs pay $276,250.',
+  strategic:'The big goal: work in strategic finance. You use SQL and solve real business problems. Top jobs pay $231,940–$276,250.',
+  hybrid:'The big goal: a job that mixes finance and data (BI). It’s the fastest way into finance. It pays $138K–$180,600.',
+  corpdev:'The big goal: get into corporate development (company deals) while it still hires early. Or get the same pay as an FP&A partner.',
+  faceless:'The big goal: content you lead, with your face or voice in it. That kind still pays well.',
+  streamer:'The big goal: a creator with a business. Your stream is the shop window. Your email list and products are the shop.',
+  personality:'The big goal: brand deals plus a business you control. That means your own products and your own email list.',
+  ugc:'The big goal: make UGC (videos for brands) your real trade, with a list of buyers. Raise your price toward $500 as paid orders add up.',
+  educator:'The big goal: solve one problem your audience will pay for. Teach it as a real person they can trust. Add a product with your name on it.',
+  creatorbiz:'The big goal: money that is truly yours. No one app controls most of what you earn.',
+  brandcreator:'The big goal: a job at a brand where you do it all yourself. Then add one rare skill. That lifts your pay toward $115–125K.',
+  facecreator:'The big goal: be a face people trust, with real knowledge. On-camera jobs pay $110K–$160K.',
+  perfcreator:'The big goal: a job where your content brings in sales. Base pay is $65–100K. You get bonuses when your content hits the company’s goals.',
+  agencycreator:'The big goal: treat the agency as a 1–3-year school. Then leave with a great portfolio. Go to a brand, on-camera or sales job at $100K+.',
+  mediacreator:'The big goal: move from writing to a brand or sales job. You already have the skills. The pay is $15–25K higher.',
+  genba:'The big goal: a job where you help make decisions. Your years working with managers count for product analyst or strategy jobs. Years of writing documents count less.',
+  reportda:'The big goal: keep using SQL (the database language). Use it as a product analyst or analytics engineer. Those jobs pay for decisions, not reports.',
+  prodan:'The big goal: a product analyst who runs experiments from start to finish. Jobs pay $106K–$300,067.',
+  aneng:'The big goal: analytics engineer. 7 of 7 jobs ask for dbt (a data tool). Senior pay reaches $244,100.',
+  bizops:'The big goal: strategy & operations. Google pays $124K–$177K. To get in, show one decision you changed, with numbers.',
+  dsgate:'The big goal: data scientist. It’s a new job, not a promotion. Typical pay is $120,230. Jobs are growing +35%.',
+  aimass:'The big goal: make videos the same way, but with a real face or a paying client. That kind of work still pays well.',
+  persona:'The big goal: a studio that makes AI characters for brands. The money is in your service, not in the character.',
+  aistreamer:'The big goal: skills you can sell without streaming. What you built is software. So sell it like software!',
+  aipipeline:'The big goal: be a face brands pay $154 a video for. AI helpers and a second language get you there.',
+  aiservice:'The big goal: clients who pay you every month. You charge monthly for your good judgment, never per video.'
 };
 
 /* Grid (whole-map) leads: the profession-level big goal. */
 var BIGGOAL_PROF = {
-  law:'The big goal: pick one specialty — privacy and the rules for AI — where job postings pay $212K–$319K.',
-  cpa:'The big goal: bachelor’s degree → CPA license → a chosen specialty at $120K–$225K.',
-  nurse:'The big goal: get the RN license, then pick a specialty. Psych NP jobs post $200K–$257K, and the median pay for a CRNA is $236,590.',
-  fin:'The big goal: a partner seat in FP&A, the money-planning team, next to one unit. Top postings reach $276,250.',
-  creator:'The big goal: get a staff creator seat in a YES segment — brand, face or performance. The center of that market is about $77K, and the top seats post $140–160K.',
-  analyst:'The big goal: a decision-making job, as a product analyst or an analytics engineer, at $96K–$300K.',
-  dataanalyst:'The big goal: a decision-making job, as a product analyst or an analytics engineer, at $96K–$300K.',
-  businessanalyst:'The big goal: a job where you help make decisions — strategy & operations pays $96K–$177K, and your years with managers count there. Years writing documents do not.',
-  aicreator:'The big goal: AI as your team of helpers, not your product — a real face, or a list of clients that is yours.'
+  law:'The big goal: a top job in one specialty, like privacy and AI rules. AI does the routine; specialists earn $212K–$319K.',
+  cpa:'The big goal: bachelor’s degree → CPA license → one chosen specialty at $120K–$225K. No extra courses on the way.',
+  nurse:'The big goal: get the RN license, then pick a specialty. Psych NP jobs pay $200K–$257K. A CRNA’s typical pay is $236,590.',
+  fin:'The big goal: a partner job in FP&A (the money-planning team), working next to one team. Top jobs pay $276,250.',
+  creator:'The big goal: a staff creator job in an area that got a YES: brand, on-camera or sales. Typical pay is about $77K. Top jobs pay $140–160K.',
+  analyst:'The big goal: a job where you help make decisions, not just reports. Product analyst or analytics engineer, at $96K–$300K.',
+  dataanalyst:'The big goal: a job where you help make decisions, not just reports. Product analyst or analytics engineer, at $96K–$300K.',
+  businessanalyst:'The big goal: a job where you help make decisions. Strategy & operations pays $96K–$177K. Your years with managers count there. Years of writing documents count less.',
+  aicreator:'The big goal: AI is your helper, not your product. Be a real face, or build your own list of clients.'
 };
 
 /* ================= HEALTHCARE ADMINISTRATOR QUESTS (wave 2) =================
@@ -209,97 +209,97 @@ var BIGGOAL_PROF = {
    (index i <-> 'healthadmin-q<i+1>'). Texts trace to the package. */
 Object.assign(QUESTS, {
 healthadmin: [
-  {id:'healthadmin-q1', t:'Write one sentence: which of the four seats is yours — hospital, practice, nursing home, or paperwork?', tag:'5 minutes · pen and paper', ru:'Напишите одно предложение: какое из четырёх мест — ваше: больница, врачебная практика, дом престарелых или бумажная очередь?', tagRu:'5 минут · ручка и бумага'},
-  {id:'healthadmin-q2', t:'Open one live posting for your seat and save its pay line. One posting, one line.', tag:'10 minutes · job boards', ru:'Откройте одну живую вакансию вашего места и сохраните строку с зарплатой. Одна вакансия, одна строка.', tagRu:'10 минут · сайты вакансий'},
-  {id:'healthadmin-q3', t:'Check the gate for your seat: your state’s nursing home licence rules, or your FACHE or CMPE eligibility page.', tag:'10 minutes · official sites', ru:'Проверьте ворота вашего места: правила лицензии штата для домов престарелых или страницу требований FACHE или CMPE (сертификатов вашего места).', tagRu:'10 минут · официальные сайты'},
-  {id:'healthadmin-q4', t:'Read Epic’s own page about revenue cycle work. Write down which tasks it says it automates.', tag:'10 minutes · one page', ru:'Прочтите страницу самой Epic о работе цикла выручки. Запишите, какие задачи, по её словам, она автоматизирует.', tagRu:'10 минут · одна страница'},
-  {id:'healthadmin-q5', t:'Write down one budget number you have touched at work — or one line from a practice budget you can explain.', tag:'10 minutes · pen and paper', ru:'Запишите одну цифру бюджета, к которой вы прикасались на работе, — или одну строку бюджета практики, которую вы можете объяснить.', tagRu:'10 минут · ручка и бумага'},
-  {id:'healthadmin-q6', t:'Upload your resume on this page. Confirm one piece of evidence it finds.', tag:'10 minutes · on this page', ru:'Загрузите резюме на этой странице. Подтвердите одно доказательство, которое оно найдёт.', tagRu:'10 минут · на этой странице'},
-  {id:'healthadmin-q7', t:'Read today’s radar signal below. One item, with a date. That is the market moving.', tag:'5 minutes · on this page', ru:'Прочтите сегодняшний сигнал радара ниже. Один пункт, с датой. Это рынок в движении.', tagRu:'5 минут · на этой странице'},
-  {id:'healthadmin-q8', t:'Share your verdict card. Your people should know their path is being eaten too.', tag:'5 minutes · share it', ru:'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.', tagRu:'5 минут · поделиться'},
-  {id:'healthadmin-q9', t:'Time one paperwork task you repeat — a prior authorisation, a schedule, a denial follow-up. Write down the minutes.', tag:'15 minutes · a timer', ru:'Замерьте одну бумажную задачу, которую вы повторяете: предварительное согласование (prior authorisation), расписание или работу с отказом страховой. Запишите минуты.', tagRu:'15 минут · таймер'},
-  {id:'healthadmin-q10', t:'Read the BLS line for this job — $123,860 median, +24.2% growth, 155,100 new jobs — and write what it means for your seat.', tag:'10 minutes · one page', ru:'Прочтите строку BLS (бюро статистики труда США) об этой профессии — медиана $123 860, рост +24,2%, 155 100 новых рабочих мест — и напишите, что это значит для вашего места.', tagRu:'10 минут · одна страница'}
+  {id:'healthadmin-q1', t:'Write one sentence: which of four jobs is yours? Hospital, doctor’s office, nursing home, or paperwork.', tag:'5 minutes · pen and paper', ru:'Напишите одно предложение: какая из четырёх работ ваша? Больница, частная клиника, дом престарелых или работа с бумагами.', tagRu:'5 минут · ручка и бумага'},
+  {id:'healthadmin-q2', t:'Open one current job post for your role. Save how much it pays.', tag:'10 minutes · job boards', ru:'Откройте одну открытую вакансию для вашей роли. Сохраните, сколько там платят.', tagRu:'10 минут · сайты вакансий'},
+  {id:'healthadmin-q3', t:'Check what your role requires. Nursing home: your state’s licence rules. Others: who can get FACHE or CMPE.', tag:'10 minutes · official sites', ru:'Проверьте, что нужно для вашей роли. Для дома престарелых — правила лицензии вашего штата. Для других — кто может получить FACHE или CMPE (сертификаты руководителей).', tagRu:'10 минут · официальные сайты'},
+  {id:'healthadmin-q4', t:'Read Epic’s page about billing work (revenue cycle). Write down which tasks it says it automates.', tag:'10 minutes · one page', ru:'Прочитайте страницу Epic о работе со счетами и оплатой (revenue cycle). Запишите, какие задачи, по её словам, она автоматизирует.', tagRu:'10 минут · одна страница'},
+  {id:'healthadmin-q5', t:'Write down one budget number you worked with. Or one line from a clinic budget you can explain.', tag:'10 minutes · pen and paper', ru:'Запишите одну цифру из бюджета, с которой вы работали. Или одну строку бюджета клиники, которую можете объяснить.', tagRu:'10 минут · ручка и бумага'},
+  {id:'healthadmin-q6', t:'Upload your resume and confirm one fact the app finds. Your experience counts.', tag:'10 minutes · on this page', ru:'Загрузите резюме и подтвердите один найденный факт. Ваш опыт — уже часть пути.', tagRu:'10 минут · на этой странице'},
+  {id:'healthadmin-q7', t:'Read one radar news item below, with its date. You’ll see changes before others do.', tag:'5 minutes · on this page', ru:'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.', tagRu:'5 минут · на этой странице'},
+  {id:'healthadmin-q8', t:'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.', tag:'5 minutes · share it', ru:'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.', tagRu:'5 минут · поделиться'},
+  {id:'healthadmin-q9', t:'Time one paperwork task you repeat. For example: a prior authorisation, a schedule, or a denied claim. Write down the minutes.', tag:'15 minutes · a timer', ru:'Засеките время на одну бумажную задачу, которую вы повторяете. Например: согласование со страховой, расписание или отказ страховой. Запишите минуты.', tagRu:'15 минут · таймер'},
+  {id:'healthadmin-q10', t:'Read the BLS numbers (US government job data) for this job: $123,860 typical pay, +24.2% growth, 155,100 new jobs. Write what this means for you.', tag:'10 minutes · one page', ru:'Прочитайте данные BLS (госстатистика США) об этой работе: типичная зарплата $123 860, рост +24,2%, 155 100 новых мест. Напишите, что это значит для вас.', tagRu:'10 минут · одна страница'}
 ]});
 Object.assign(BIGGOALS, {
-  hosops:'Run the operations of a hospital or a health system — its budget, its buildings, its staffing — the seat the BLS pays a $133,580 median.',
-  clinicadmin:'Run a practice’s money like an owner: a P&L across one site, then several — the version of this seat that posts at $120,000–$160,000.',
-  ltcadmin:'Hold the licence and a building whose survey record and budget both hold — the seat that pays $130,000–$150,000.',
-  revcycle:'Own the automation of the money flow — denials, eligibility, prior authorisations — instead of working its queue. That job posts at $145,900–$170,200.'
+  hosops:'Run a hospital or health system: its budget, buildings and staff. The typical pay is $133,580.',
+  clinicadmin:'Run a clinic’s money like an owner. First one location, then several. This job pays $120,000–$160,000.',
+  ltcadmin:'Hold the licence and run a nursing home that passes inspections and stays on budget. This job pays $130,000–$150,000.',
+  revcycle:'Be the one who makes billing work automatic: denials, insurance checks, prior approvals. Not the one stuck in the queue. That job pays $145,900–$170,200.'
 });
-BIGGOAL_PROF.healthadmin = 'Become the administrator owners and systems call when a building, a budget or a licence is on the line — in one of the three seats that grow.';
+BIGGOAL_PROF.healthadmin = 'Become the go-to manager when a building, budget or licence needs saving. Pick one of the three jobs that are growing.';
 
 /* ================= DATA SCIENTIST QUESTS (wave 2) =================
    Pool order matches api/_lib/quests.mjs (index i <-> 'datascientist-q<i+1>'). */
 Object.assign(QUESTS, {
 datascientist: [
-  {id:'datascientist-q1', t:'Write down the ONE seat you aim at. Product, core, ML, or research.', tag:'5 minutes · one decision', ru:'Запишите ОДНО место, в которое целитесь. Product, core, ML или research.', tagRu:'5 минут · одно решение'},
-  {id:'datascientist-q2', t:'Open 3 data scientist postings in your seat. Count the ones that ask for a master’s. In our scan: 16 of 42 ask for a master’s or a PhD.', tag:'10 minutes · eyes on the market', ru:'Откройте 3 вакансии data scientist в вашем месте. Посчитайте те, что просят магистратуру. В нашем скане: 16 из 42 просят магистратуру или PhD.', tagRu:'10 минут · глаза на рынке'},
-  {id:'datascientist-q3', t:'Write one SQL query on paper. One table, one filter, one group. Ten minutes, no computer.', tag:'10 minutes · paper first', ru:'Напишите один SQL-запрос на бумаге. Одна таблица, один фильтр, одна группировка. Десять минут, без компьютера.', tagRu:'10 минут · сначала бумага'},
+  {id:'datascientist-q1', t:'Pick ONE role and write it down: product, core, ML, or research.', tag:'5 minutes · one decision', ru:'Выберите ОДНУ роль: продукт, основа (core), машинное обучение или исследования. Запишите.', tagRu:'5 минут · одно решение'},
+  {id:'datascientist-q2', t:'Open 3 data scientist job posts for your role. Count how many ask for a master’s. In the jobs we checked: 16 of 42 ask for a master’s or PhD. Most don’t.', tag:'10 minutes · look at real jobs', ru:'Откройте 3 вакансии специалиста по данным для вашей роли. Сколько просят магистратуру? У нас: 16 из 42 просят магистратуру или PhD. Большинство — нет.', tagRu:'10 минут · смотрим вакансии'},
+  {id:'datascientist-q3', t:'Write one SQL query on paper. One table, one filter, one grouping. Ten minutes, no computer.', tag:'10 minutes · pen and paper', ru:'Напишите один SQL-запрос на бумаге. Одна таблица, один фильтр, одна группировка. Десять минут, без компьютера.', tagRu:'10 минут · ручка и бумага'},
   {id:'datascientist-q4', t:'Take one old analysis of yours. Write the decision it should have ended with. One sentence.', tag:'10 minutes · one sentence', ru:'Возьмите один ваш старый анализ. Напишите решение, которым он должен был закончиться. Одно предложение.', tagRu:'10 минут · одно предложение'},
-  {id:'datascientist-q5', t:'Find one product data scientist posting. Check the experiment line: 10 of 12 product postings name experiments or causal work.', tag:'10 minutes · eyes on the market', ru:'Найдите одну вакансию product data scientist. Проверьте строку экспериментов: 10 из 12 вакансий product называют эксперименты или причинную работу.', tagRu:'10 минут · глаза на рынке'},
-  {id:'datascientist-q6', t:'Upload your resume on this page. Confirm one piece of evidence it finds.', tag:'10 minutes · your file', ru:'Загрузите резюме на этой странице. Подтвердите одно доказательство, которое оно найдёт.', tagRu:'10 минут · ваш файл'},
-  {id:'datascientist-q7', t:'Read today’s radar signal below. One item, with a date. That is the market moving.', tag:'5 minutes · one signal', ru:'Прочитайте сегодняшний сигнал радара ниже. Один пункт, с датой. Это рынок в движении.', tagRu:'5 минут · один сигнал'},
-  {id:'datascientist-q8', t:'Share your verdict card. Your people should know their path is being eaten too.', tag:'5 minutes · share it', ru:'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.', tagRu:'5 минут · поделиться'},
+  {id:'datascientist-q5', t:'Find one product data scientist job post. Look for experiments. 10 of 12 product job posts ask for experiments or cause-and-effect analysis.', tag:'10 minutes · look at real jobs', ru:'Найдите вакансию специалиста по данным в продукте. Поищите там эксперименты. 10 из 12 таких вакансий просят эксперименты или анализ причин и следствий.', tagRu:'10 минут · смотрим вакансии'},
+  {id:'datascientist-q6', t:'Upload your resume and confirm one fact the app finds. Your experience counts.', tag:'10 minutes · your file', ru:'Загрузите резюме и подтвердите один найденный факт. Ваш опыт — уже часть пути.', tagRu:'10 минут · ваш файл'},
+  {id:'datascientist-q7', t:'Read one radar news item below, with its date. You’ll see changes before others do.', tag:'5 minutes · one news item', ru:'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.', tagRu:'5 минут · одна новость'},
+  {id:'datascientist-q8', t:'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.', tag:'5 minutes · share it', ru:'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.', tagRu:'5 минут · поделиться'},
   {id:'datascientist-q9', t:'Pick one model you trained. Write down how you knew it was good. One honest paragraph.', tag:'10 minutes · one page', ru:'Выберите одну модель, которую вы обучили. Запишите, как вы поняли, что она хорошая. Один честный абзац.', tagRu:'10 минут · одна страница'},
-  {id:'datascientist-q10', t:'Read the BLS data-scientist line: median $120,230, growth +34.6%. Write down what it means for your seat.', tag:'10 minutes · one number', ru:'Прочитайте строку BLS про data scientists: медиана $120,230, рост +34.6%. Запишите, что это значит для вашего места.', tagRu:'10 минут · одна цифра'}
+  {id:'datascientist-q10', t:'Read the BLS numbers (US government job data) for data scientists: typical pay $120,230, growth +34.6%. Write down what this means for you.', tag:'10 minutes · one number', ru:'Прочитайте данные BLS (госстатистика США) о специалистах по данным: типичная зарплата $120,230, рост +34.6%. Запишите, что это значит для вас.', tagRu:'10 минут · одна цифра'}
 ]});
 Object.assign(BIGGOALS, {
-  prodds:'The big goal: a product data scientist who calls what ships — postings pay $250K–$380,000 for tested, defended calls.',
-  coreds:'The big goal: a data scientist with a shipped model and a named specialty — senior core seats post to $250,000.',
-  mlds:'The big goal: an ML data scientist who ships AI and can prove its output is good — the seat posts to $285,000.',
-  ressci:'The big goal: research from inside a paying seat first — publish from the product or ML seat, and let the $320K–$400K research teams recruit you.'
+  prodds:'The big goal: a product data scientist who decides what gets launched. Jobs pay $250K–$380,000 for decisions backed by tests.',
+  coreds:'The big goal: a data scientist with a launched model and a clear specialty. Senior core jobs pay up to $250,000.',
+  mlds:'The big goal: an ML data scientist who launches AI and can prove it works well. This job pays up to $285,000.',
+  ressci:'The big goal: do research while you hold a paid job. Publish from a product or ML job. Then research teams paying $320K–$400K will come to you.'
 });
-BIGGOAL_PROF.datascientist = 'The big goal: a seat picked on purpose — product, ML, or specialized core — at $180K–$380K, reached with models and experiments, not with more certificates.';
+BIGGOAL_PROF.datascientist = 'The big goal: a job you picked yourself: product, ML, or specialized core. It pays $180K–$380K. You get there with models and experiments, not more certificates.';
 
 /* --- TRUCK DRIVER pool (truckdriver-q1..q10) ---
    Every quest is doable from the cab or on a break, phone-only,
    in 5–15 minutes, never while driving (package spec §6). */
 Object.assign(QUESTS, {
 truckdriver: [
- {id:'truckdriver-q1', t:'Write your target seat in one sentence: local, tanker, flatbed, regional, long-haul or your own truck', tag:'5 min', ru:'Напишите ваше целевое место одним предложением: город, цистерна, платформа, региональные рейсы, дальние рейсы или свой грузовик', tagRu:'5 мин'},
- {id:'truckdriver-q2', t:'Check one CDL school on the federal Training Provider Registry — is it listed and active?', tag:'10 min', ru:'Проверьте одну школу CDL (коммерческие права на грузовик) в федеральном реестре Training Provider Registry — она в списке и активна?', tagRu:'10 мин'},
- {id:'truckdriver-q3', t:'From memory, list the checks you make before the truck moves (pre-trip inspection). Anything missed goes on the list', tag:'10 min', ru:'По памяти перечислите проверки перед выездом (pre-trip inspection — осмотр грузовика перед рейсом). Всё, что забыли, — в список', tagRu:'10 мин'},
- {id:'truckdriver-q4', t:'Find one driverless-truck headline from this month and write down which lane or state it names', tag:'10 min', ru:'Найдите один заголовок этого месяца про беспилотные грузовики и запишите, какой маршрут или штат там назван', tagRu:'10 мин'},
- {id:'truckdriver-q5', t:'Photograph the endorsement letters on your own CDL (H, N, T, X). Got none yet? The photo step is your shopping list', tag:'5 min', ru:'Сфотографируйте буквы-допуски на ваших правах CDL (H, N, T, X — опасные грузы, цистерна, двойные прицепы, цистерна+опасные грузы). Пока нет ни одной? Этот шаг — ваш список покупок', tagRu:'5 мин'},
- {id:'truckdriver-q6', t:'Add your work history on this page — carriers, years, freight hauled. Confirm one piece of evidence it finds.', tag:'10 min', ru:'Добавьте вашу историю работы на этой странице — перевозчики, годы, какой груз возили. Подтвердите одно найденное доказательство.', tagRu:'10 мин'},
- {id:'truckdriver-q7', t:'Open the PathCheck Radar for this week and do the one move it names.', tag:'10 min', ru:'Откройте PathCheck Radar за эту неделю и сделайте тот один шаг, который там назван.', tagRu:'10 мин'},
- {id:'truckdriver-q8', t:'Share your verdict card. Your people should know their path is being eaten too.', tag:'5 min', ru:'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.', tagRu:'5 мин'},
- {id:'truckdriver-q9', t:'Write down your best pay week so far: miles run, gross pay, nights at home. Three numbers', tag:'5 min', ru:'Запишите вашу лучшую неделю по оплате: сколько миль проехали, сколько получили валом, сколько ночей были дома. Три числа', tagRu:'5 мин'},
- {id:'truckdriver-q10', t:'Read the BLS line for your job — median $58,640, +3.8% growth, about 214,500 openings a year — and write what it means for your seat', tag:'10 min', ru:'Прочитайте строку BLS (Бюро трудовой статистики США) про вашу работу: медиана 58 640 долларов, рост +3,8%, около 214 500 вакансий в год, — и напишите, что это значит для вашего места', tagRu:'10 мин'}
+ {id:'truckdriver-q1', t:'Write in one sentence which job you want: local, tanker, flatbed, regional, long-haul or your own truck', tag:'5 min', ru:'Напишите одним предложением, какую работу вы хотите: по городу, цистерна, платформа, региональные рейсы, дальние рейсы или свой грузовик', tagRu:'5 мин'},
+ {id:'truckdriver-q2', t:'Look up one CDL school on the federal Training Provider Registry. Is it listed and active?', tag:'10 min', ru:'Найдите одну школу CDL (права на грузовик) в федеральном реестре Training Provider Registry. Она там есть и работает?', tagRu:'10 мин'},
+ {id:'truckdriver-q3', t:'From memory, list what you check before you drive off (pre-trip inspection). Add anything you forgot. Ask AI to quiz you', tag:'10 min', ru:'По памяти перечислите, что проверяете перед выездом (pre-trip inspection). Допишите забытое. Попросите AI вас проверить', tagRu:'10 мин'},
+ {id:'truckdriver-q4', t:'Find one news headline about driverless trucks from this month. Write down which route or state it names', tag:'10 min', ru:'Найдите одну новость этого месяца про беспилотные грузовики. Запишите, какой маршрут или штат там назван', tagRu:'10 мин'},
+ {id:'truckdriver-q5', t:'Take a photo of the extra letters on your CDL (H, N, T, X). None yet? Then this is your list of what to get', tag:'5 min', ru:'Сфотографируйте буквы-допуски на ваших правах CDL (H, N, T, X — опасные грузы, цистерна, двойные прицепы, цистерна+опасные грузы). Пока ни одной? Тогда это ваш список, что получить', tagRu:'5 мин'},
+ {id:'truckdriver-q6', t:'Add your work history on this page: companies, years, what you hauled. Confirm one fact the app finds.', tag:'10 min', ru:'Добавьте на этой странице вашу историю работы: компании, годы, что возили. Подтвердите один факт, который найдёт приложение.', tagRu:'10 мин'},
+ {id:'truckdriver-q7', t:'Open this week’s PathCheck Radar. Do the one step it suggests.', tag:'10 min', ru:'Откройте PathCheck Radar этой недели. Сделайте один шаг, который он советует.', tagRu:'10 мин'},
+ {id:'truckdriver-q8', t:'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.', tag:'5 min', ru:'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.', tagRu:'5 мин'},
+ {id:'truckdriver-q9', t:'Write down your best paid week so far: miles driven, pay before tax, nights at home. Three numbers', tag:'5 min', ru:'Запишите вашу лучшую по деньгам неделю: сколько миль проехали, сколько получили до налогов, сколько ночей были дома. Три числа', tagRu:'5 мин'},
+ {id:'truckdriver-q10', t:'Read the BLS numbers (US government job data) for your job: typical pay $58,640, +3.8% growth, about 214,500 openings a year. Write what this means for you', tag:'10 min', ru:'Прочитайте данные BLS (госстатистика США) про вашу работу: типичная зарплата 58 640 долларов, рост +3,8%, около 214 500 вакансий в год. Напишите, что это значит для вас', tagRu:'10 мин'}
 ]});
 Object.assign(BIGGOALS, {
-  otr:'Turn the exposed seat into the bank: 12 clean months, the letter stack bought, then out — local, tanker or linehaul money with your record intact.',
-  regional:'Hold the home-weekly seat and make it pay like long-haul: endorsements added, record spotless, and a lane check every quarter so the robot map never surprises you.',
-  local:'Top of the city game: LTL money at $36 an hour, home daily, and the linehaul board — $100,000–$107,000 posted averages — as your seniority prize.',
-  tanker:'Be the driver the law itself protects: full hazmat stack, spotless paperwork, first call for the loads no robot is allowed to touch.',
-  flatbed:'Specialist money for specialist hands: oversize, step-deck or car haul — the $70,000–$120,000+ postings — with a securement album that hires you on sight.',
-  ownerop:'A real small business on wheels: 85%+ of the load, bills known to the dollar, freight relationships that are yours — not the carrier’s.'
+  otr:'Use this job to build savings and skills. Get 12 clean months and your extra license letters. Then move up to local, tanker or linehaul pay, with a clean record.',
+  regional:'Keep the job that gets you home every week, but earn like long-haul. Add extra license letters. Keep a spotless record. Check your routes four times a year, so driverless trucks never surprise you.',
+  local:'The best city job: LTL pay (shared loads) at $36 an hour, home every day. As you gain years, you can move to linehaul runs. Those average $100,000–$107,000.',
+  tanker:'Be the driver the law protects. Get every hazmat letter (for dangerous loads). Keep your paperwork spotless. You get first call on loads no robot may carry.',
+  flatbed:'Special skills, special pay: oversize, step-deck or car hauling. These jobs pay $70,000–$120,000+. Keep photos of loads you tied down well. They help you get hired fast.',
+  ownerop:'A real small business on wheels. You keep 85%+ of the load pay. You know your costs to the dollar. Your clients are yours, not the carrier’s.'
 });
-BIGGOAL_PROF.truckdriver = 'A seat the robots can’t price down: chosen on purpose, licensed to the top, with a clean-record file that makes carriers compete for you.';
+BIGGOAL_PROF.truckdriver = 'A job robots can’t make cheaper. You choose it yourself. You get every license you can. Your clean record makes companies compete for you.';
 
 /* --- MENTAL HEALTH COUNSELOR pool (counselor-q1..q10) --- */
 Object.assign(QUESTS, {
 counselor: [
-  {id:'counselor-q1', t:'Open one licensed counselor posting in a group practice. Save it. Bands there run $75,000–$135,000 — that is the shape of your target.', tag:'5 minutes · eyes on the market', ru:'Откройте одну вакансию лицензированного консультанта в групповой практике. Сохраните её. Вилки там идут $75,000–$135,000 — это форма вашей цели.', tagRu:'5 минут · глаза на рынке'},
-  {id:'counselor-q2', t:'Write down the ONE seat you aim at. One line: group practice, agency, or the license first — the gig is not a seat.', tag:'5 minutes · one decision', ru:'Запишите ОДНО место, в которое целитесь. Одна строка: групповая практика, агентство или сначала лицензия — платформа местом не является.', tagRu:'5 минут · одно решение'},
-  {id:'counselor-q3', t:'Open 3 counselor postings. Write the license each one asks for: full license, associate, or certificate.', tag:'10 minutes · proof over paper', ru:'Откройте 3 вакансии консультантов. Запишите лицензию, которую просит каждая: полная лицензия, младший статус (associate) или сертификат.', tagRu:'10 минут · доказательство вместо бумаг'},
-  {id:'counselor-q4', t:'Find your state’s supervised-hours number: 2,000, 3,000, or another figure. Write it down with your exam: NCE or NCMHCE.', tag:'10 minutes · one page', ru:'Найдите число часов под супервизией в вашем штате: 2,000, 3,000 или другая цифра. Запишите его вместе с вашим экзаменом: NCE или NCMHCE.', tagRu:'10 минут · одна страница'},
-  {id:'counselor-q5', t:'Find one associate posting that offers free supervision in writing. Save it. That line is worth money — it is the toll, paid for you.', tag:'10 minutes · eyes on the market', ru:'Найдите одну вакансию младшего специалиста, которая предлагает бесплатную супервизию письменно. Сохраните её. Эта строка стоит денег — это пошлина, оплаченная за вас.', tagRu:'10 минут · глаза на рынке'},
-  {id:'counselor-q6', t:'Upload your resume on this page. Confirm one piece of evidence it finds.', tag:'10 minutes · your file', ru:'Загрузите резюме на этой странице. Подтвердите одно доказательство, которое оно найдёт.', tagRu:'10 минут · ваш файл'},
-  {id:'counselor-q7', t:'Read today’s radar signal below. One item, with a date. That is the market moving.', tag:'5 minutes · one signal', ru:'Прочитайте сегодняшний сигнал радара ниже. Один пункт, с датой. Это рынок в движении.', tagRu:'5 минут · один сигнал'},
-  {id:'counselor-q8', t:'Share your verdict card. Your people should know their path is being eaten too.', tag:'5 minutes · share it', ru:'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.', tagRu:'5 минут · поделиться'},
-  {id:'counselor-q9', t:'Pick one named method — CBT, DBT, EMDR, or motivational interviewing. Find one real training in it and write down its price and dates.', tag:'10 minutes · one method', ru:'Выберите один названный метод — CBT, DBT, EMDR или мотивационное интервью. Найдите одно настоящее обучение по нему и запишите его цену и даты.', tagRu:'10 минут · один метод'},
-  {id:'counselor-q10', t:'Check your state on the Counseling Compact map: enacted, live, or not in. Eleven states are live today. Write down which yours is.', tag:'10 minutes · one check', ru:'Проверьте ваш штат на карте Counseling Compact (соглашения штатов о лицензиях консультантов): закон принят, работает или штата нет. Одиннадцать штатов работают сегодня. Запишите, какой ваш.', tagRu:'10 минут · одна проверка'}
+  {id:'counselor-q1', t:'Open one job post for a licensed counselor in a group practice. Save it. These pay $75,000–$135,000. This is the job you aim for.', tag:'5 minutes · look at real jobs', ru:'Откройте одну вакансию лицензированного консультанта в групповой практике. Сохраните её. Там платят $75,000–$135,000. Это работа, к которой вы идёте.', tagRu:'5 минут · смотрим вакансии'},
+  {id:'counselor-q2', t:'Pick ONE path and write it down: group practice, agency, or the license first. Gig apps don’t count.', tag:'5 minutes · one decision', ru:'Выберите ОДИН путь и запишите его: групповая практика, агентство или сначала лицензия. Подработка через приложения не в счёт.', tagRu:'5 минут · одно решение'},
+  {id:'counselor-q3', t:'Open 3 counselor job posts. Write down which license each one wants: full license, associate, or certificate.', tag:'10 minutes · skills over diplomas', ru:'Откройте 3 вакансии консультантов. Запишите, какую лицензию просит каждая: полную, младшую (associate) или сертификат.', tagRu:'10 минут · навыки важнее дипломов'},
+  {id:'counselor-q4', t:'Find how many supervised hours your state needs: 2,000, 3,000, or another number. Write it down with your exam: NCE or NCMHCE.', tag:'10 minutes · one page', ru:'Узнайте, сколько часов под присмотром опытного коллеги (супервизии) требует ваш штат: 2,000, 3,000 или другое число. Запишите его и ваш экзамен: NCE или NCMHCE.', tagRu:'10 минут · одна страница'},
+  {id:'counselor-q5', t:'Find one associate job post that promises free supervision in writing. Save it. That is worth real money. Someone else pays for your supervision.', tag:'10 minutes · look at real jobs', ru:'Найдите вакансию для младшего специалиста, где письменно обещают бесплатную супервизию. Сохраните её. Это стоит денег: за вашу супервизию платят за вас.', tagRu:'10 минут · смотрим вакансии'},
+  {id:'counselor-q6', t:'Upload your resume and confirm one fact the app finds. Your experience counts.', tag:'10 minutes · your file', ru:'Загрузите резюме и подтвердите один найденный факт. Ваш опыт — уже часть пути.', tagRu:'10 минут · ваш файл'},
+  {id:'counselor-q7', t:'Read one radar news item below, with its date. You’ll see changes before others do.', tag:'5 minutes · one news item', ru:'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.', tagRu:'5 минут · одна новость'},
+  {id:'counselor-q8', t:'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.', tag:'5 minutes · share it', ru:'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.', tagRu:'5 минут · поделиться'},
+  {id:'counselor-q9', t:'Pick one method: CBT, DBT, EMDR, or motivational interviewing. Find one real training in it. Write down its price and dates.', tag:'10 minutes · one method', ru:'Выберите один метод терапии: CBT, DBT, EMDR или мотивационное интервью. Найдите настоящее обучение по нему. Запишите цену и даты.', tagRu:'10 минут · один метод'},
+  {id:'counselor-q10', t:'Find your state on the Counseling Compact map (one license, many states). Is it passed, live, or not in? Eleven states are live today. Write yours down.', tag:'10 minutes · one check', ru:'Найдите ваш штат на карте Counseling Compact (одна лицензия для нескольких штатов): закон принят, уже работает или штата нет. Сегодня работают одиннадцать штатов. Запишите, что у вас.', tagRu:'10 минут · одна проверка'}
 ]
 });
 Object.assign(BIGGOALS, {
-  groupcns:'The big goal: a full license sold where it is priced highest — a group or private practice at $75,000–$135,000, with one specialty that fills a waiting list.',
-  agencycns:'The big goal: the stable licensed seat — agency pay with the quota read and accepted on purpose, or the supervision seat that carries you to the full license.',
-  platform:'The big goal: hours you own — a practice or a group seat where the client list and the rate are yours, with the platform kept, if at all, as a side caseload.',
-  sudcns:'The big goal: across the bridge — from the certificate seat into the licensed level, where your addiction experience finally meets the $75,000–$135,000 bands.',
-  associate:'The big goal: the full license — 2,000–3,000 supervised hours, logged, with supervision you did not have to buy.'
+  groupcns:'The big goal: a full license, used where it pays most. A group or private practice pays $75,000–$135,000. Add one specialty so clients line up to see you.',
+  agencycns:'The big goal: a steady licensed job. Either agency pay, where you know and accept how many clients you must see. Or a job with supervision that leads to the full license.',
+  platform:'The big goal: be the boss of your own hours. Work in a practice or group where your clients and prices are yours. Keep app work only as a side job, if at all.',
+  sudcns:'The big goal: step up from a certificate to a full license. There your addiction work experience pays $75,000–$135,000.',
+  associate:'The big goal: the full license. Log 2,000–3,000 supervised hours. Try to get your supervision for free.'
 });
-BIGGOAL_PROF.counselor = 'The big goal: the full license, in the seat that prices it highest — group or private practice at $75,000–$135,000.';
+BIGGOAL_PROF.counselor = 'The big goal: the full license, in the job that pays most for it. That’s group or private practice, at $75,000–$135,000.';
 
 /* ===== Skilled trades quest pools (Nov 1 2026) — verbatim from
    ~/workspace/cg-staging/trades/spec.md §6 of each part. ===== */
@@ -307,298 +307,298 @@ Object.assign(QUESTS, {
   electrician: [
     {
       id: 'electrician-q1',
-      t: 'Write down your state’s journeyman license name and the hours it needs. One page, from your state board’s site.',
+      t: 'Find your state’s journeyman license (the license to work on your own). Write its name and the hours it needs. Ask AI where to look.',
       tag: '10 minutes · one page',
-      ru: 'Запишите название лицензии подмастерья (journeyman — лицензия электрика, который может работать сам) вашего штата и сколько часов она требует. Одна страница, с сайта board вашего штата.',
+      ru: 'Найдите в вашем штате лицензию journeyman (с ней электрик работает сам). Запишите название и нужные часы. Спросите AI, где искать.',
       tagRu: '10 минут · одна страница'
     },
     {
       id: 'electrician-q2',
-      t: 'Find the next apprenticeship application window near you — union or non-union. Put the date in your calendar.',
+      t: 'Find when the next apprenticeship near you takes applications. Union or not, both count. Put the date in your calendar.',
       tag: '10 minutes · one date',
-      ru: 'Найдите ближайшее окно приёма в ученичество (apprenticeship — оплачиваемое обучение на рабочем месте) рядом с вами — профсоюзное или нет. Поставьте дату в календарь.',
+      ru: 'Узнайте, когда рядом следующий набор в ученичество (обучение на работе за зарплату). С профсоюзом или без. Поставьте дату в календарь.',
       tagRu: '10 минут · одна дата'
     },
     {
       id: 'electrician-q3',
-      t: 'Compare two doors in writing: a registered apprenticeship ($0 tuition, paid) and one private school program (its real price).',
+      t: 'Compare two ways in, on paper: a registered apprenticeship ($0 tuition, and you get paid) and one private school (its real price). Pick the cheaper path.',
       tag: '15 minutes · two prices',
-      ru: 'Сравните две двери письменно: зарегистрированное ученичество ($0 за обучение, вам платят) и одну частную школу (её настоящую цену).',
+      ru: 'Сравните на бумаге два пути: зарегистрированное ученичество ($0 за учёбу, и вам платят) и одну частную школу (её настоящую цену).',
       tagRu: '15 минут · две цены'
     },
     {
       id: 'electrician-q4',
-      t: 'Read one live journeyman posting fully. Write down the license it names and the pay it posts.',
-      tag: '10 minutes · one posting',
-      ru: 'Прочитайте одну живую вакансию подмастерья целиком. Запишите лицензию, которую она называет, и оплату, которую публикует.',
+      t: 'Read one current journeyman job post to the end. Write down which license it asks for and what it pays.',
+      tag: '10 minutes · one job post',
+      ru: 'Прочитайте до конца одну вакансию электрика с лицензией journeyman. Запишите, какую лицензию она просит и сколько платит.',
       tagRu: '10 минут · одна вакансия'
     },
     {
       id: 'electrician-q5',
-      t: 'Start your hours log today: date, site, work type. Backfill this week from memory.',
+      t: 'Start a log of your work hours today: date, site, type of work. Fill in this week from memory.',
       tag: '10 minutes · your log',
-      ru: 'Начните журнал часов сегодня: дата, объект, вид работы. Заполните эту неделю по памяти.',
+      ru: 'Начните сегодня журнал рабочих часов: дата, объект, вид работы. Эту неделю заполните по памяти.',
       tagRu: '10 минут · ваш журнал'
     },
     {
       id: 'electrician-q6',
-      t: 'Upload your resume on this page. Confirm one license or certificate it finds.',
+      t: 'Upload your resume and confirm one license or certificate it finds. It counts.',
       tag: '10 minutes · your file',
-      ru: 'Загрузите резюме на этой странице. Подтвердите одну лицензию или сертификат, который оно найдёт.',
+      ru: 'Загрузите резюме здесь. Подтвердите одну найденную лицензию или сертификат. Они уже в счёт.',
       tagRu: '10 минут · ваш файл'
     },
     {
       id: 'electrician-q7',
-      t: 'Read today’s radar signal below. One item, with a date. That is the market moving.',
-      tag: '5 minutes · one signal',
-      ru: 'Прочитайте сегодняшний сигнал радара ниже. Один пункт, с датой. Это рынок в движении.',
-      tagRu: '5 минут · один сигнал'
+      t: 'Read one radar news item below, with its date. You’ll see changes before others do.',
+      tag: '5 minutes · one news item',
+      ru: 'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.',
+      tagRu: '5 минут · одна новость'
     },
     {
       id: 'electrician-q8',
-      t: 'Share your verdict card. Your people should know their path is being eaten too.',
+      t: 'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.',
       tag: '5 minutes · share it',
-      ru: 'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.',
+      ru: 'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.',
       tagRu: '5 минут · поделиться'
     },
     {
       id: 'electrician-q9',
-      t: 'Write down the pay gap in your city: one residential posting and one industrial or data-center posting, side by side.',
+      t: 'Compare pay in your city. Take two job posts: one in homes, one in factories or data centers. Write down the gap.',
       tag: '10 minutes · two numbers',
-      ru: 'Запишите разрыв оплаты в вашем городе: одна вакансия в жилом секторе и одна в промышленном или в дата-центрах, рядом.',
+      ru: 'Сравните оплату в вашем городе. Возьмите две вакансии: одну в жилых домах, другую на заводе или в дата-центре. Запишите разницу.',
       tagRu: '10 минут · два числа'
     },
     {
       id: 'electrician-q10',
-      t: 'Read the BLS electrician line: median $63,190, growth +9.2%, about 72,700 openings a year. Write down what it means for your seat.',
+      t: 'Read the BLS numbers (US government job data) for electricians: typical pay $63,190, growth +9.2%, about 72,700 openings a year. Write down what this means for you.',
       tag: '10 minutes · one number',
-      ru: 'Прочитайте строку BLS про электриков: медиана $63,190, рост +9.2%, около 72,700 открытых мест в год. Запишите, что это значит для вашего места.',
+      ru: 'Прочитайте данные BLS (госстатистика США) про электриков: типичная зарплата $63,190, рост +9.2%, около 72,700 вакансий в год. Запишите, что это значит для вас.',
       tagRu: '10 минут · одно число'
     }
   ],
   hvac: [
     {
       id: 'hvac-q1',
-      t: 'Check which EPA 608 types you hold — or book the exam. Universal is the version commercial shops ask for.',
+      t: 'Check which EPA 608 types you have (the card for working with refrigerant). Or book the exam. Commercial companies want Universal.',
       tag: '10 minutes · one card',
-      ru: 'Проверьте, какие типы EPA 608 (федеральный сертификат на работу с хладагентом; Universal — все типы) у вас есть, — или запишитесь на экзамен. Universal — версия, которую просят коммерческие фирмы.',
-      tagRu: '10 минут · одна карта'
+      ru: 'Проверьте, какие типы EPA 608 у вас есть (сертификат на работу с хладагентом). Или запишитесь на экзамен. Фирмы, которые обслуживают бизнес, просят Universal — все типы сразу.',
+      tagRu: '10 минут · один сертификат'
     },
     {
       id: 'hvac-q2',
-      t: 'Start your system log: last five systems you touched — type, tonnage, fault, fix. Paper is fine.',
+      t: 'Start a log of your jobs. List the last five systems you worked on: type, size, problem, fix. Paper is fine.',
       tag: '10 minutes · your log',
-      ru: 'Начните журнал систем: последние пять систем, которых вы касались, — тип, тоннаж (tonnage — мощность охлаждения), неисправность, ремонт. Бумага подойдёт.',
+      ru: 'Начните журнал работ. Запишите последние пять систем, с которыми работали: тип, мощность, поломка, ремонт. Можно на бумаге.',
       tagRu: '10 минут · ваш журнал'
     },
     {
       id: 'hvac-q3',
-      t: 'Compare two doors in writing: the EPA 608 exam (a few hundred dollars) and one private HVAC program (its real price).',
+      t: 'Compare two ways in, on paper: the EPA 608 exam (a few hundred dollars) and one private HVAC school (its real price).',
       tag: '15 minutes · two prices',
-      ru: 'Сравните две двери письменно: экзамен EPA 608 (несколько сотен долларов) и одну частную программу HVAC (её настоящую цену).',
+      ru: 'Сравните на бумаге два пути: экзамен EPA 608 (несколько сотен долларов) и частную школу по отоплению и кондиционерам (её настоящую цену).',
       tagRu: '15 минут · две цены'
     },
     {
       id: 'hvac-q4',
-      t: 'Read one live controls posting fully. Write down the platform it names and the pay it posts.',
-      tag: '10 minutes · one posting',
-      ru: 'Прочитайте одну живую вакансию по системам управления (controls — автоматика зданий) целиком. Запишите платформу, которую она называет, и оплату, которую публикует.',
+      t: 'Read one current controls job post (building automation) to the end. Write down which system it names and what it pays.',
+      tag: '10 minutes · one job post',
+      ru: 'Прочитайте до конца одну вакансию по автоматике зданий. Запишите, какую систему она называет и сколько платит.',
       tagRu: '10 минут · одна вакансия'
     },
     {
       id: 'hvac-q5',
-      t: 'Write your on-call terms as they are today: rotation, pay, nights per month. One honest page.',
+      t: 'Write down your on-call deal today: shift schedule, pay, nights per month. One honest page.',
       tag: '10 minutes · one page',
-      ru: 'Запишите ваши условия дежурств (on-call — вызовы ночью и в выходные) как они есть сегодня: ротация, оплата, ночей в месяц. Одна честная страница.',
+      ru: 'Запишите, как устроены ваши дежурства (вызовы ночью и в выходные): график, оплата, ночей в месяц. Одна честная страница.',
       tagRu: '10 минут · одна страница'
     },
     {
       id: 'hvac-q6',
-      t: 'Upload your resume on this page. Confirm one license or certificate it finds.',
+      t: 'Upload your resume and confirm one license or certificate it finds. It counts.',
       tag: '10 minutes · your file',
-      ru: 'Загрузите резюме на этой странице. Подтвердите одну лицензию или сертификат, который оно найдёт.',
+      ru: 'Загрузите резюме здесь. Подтвердите одну найденную лицензию или сертификат. Они уже в счёт.',
       tagRu: '10 минут · ваш файл'
     },
     {
       id: 'hvac-q7',
-      t: 'Read today’s radar signal below. One item, with a date. That is the market moving.',
-      tag: '5 minutes · one signal',
-      ru: 'Прочитайте сегодняшний сигнал радара ниже. Один пункт, с датой. Это рынок в движении.',
-      tagRu: '5 минут · один сигнал'
+      t: 'Read one radar news item below, with its date. You’ll see changes before others do.',
+      tag: '5 minutes · one news item',
+      ru: 'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.',
+      tagRu: '5 минут · одна новость'
     },
     {
       id: 'hvac-q8',
-      t: 'Share your verdict card. Your people should know their path is being eaten too.',
+      t: 'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.',
       tag: '5 minutes · share it',
-      ru: 'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.',
+      ru: 'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.',
       tagRu: '5 минут · поделиться'
     },
     {
       id: 'hvac-q9',
-      t: 'Ask one commercial tech or controls tech one question: what platform should you learn first? Write the answer down.',
+      t: 'Ask one commercial or controls tech: which system should I learn first? Their answer saves you months.',
       tag: '10 minutes · one question',
-      ru: 'Задайте одному коммерческому технику или технику по автоматике один вопрос: какую платформу учить первой? Запишите ответ.',
+      ru: 'Спросите техника по коммерческим объектам или автоматике: какую систему учить первой? Его ответ сэкономит вам месяцы.',
       tagRu: '10 минут · один вопрос'
     },
     {
       id: 'hvac-q10',
-      t: 'Read the BLS HVAC line: median $61,010, growth +11%, about 40,600 openings a year. Write down what it means for your seat.',
+      t: 'Read the BLS numbers (US government job data) for HVAC: typical pay $61,010, growth +11%, about 40,600 openings a year. Write down what this means for you.',
       tag: '10 minutes · one number',
-      ru: 'Прочитайте строку BLS про HVAC: медиана $61,010, рост +11%, около 40,600 открытых мест в год. Запишите, что это значит для вашего места.',
+      ru: 'Прочитайте данные BLS (госстатистика США) о мастерах HVAC (отопление и кондиционеры): типичная зарплата $61,010, рост +11%, около 40,600 вакансий в год. Что это значит для вас?',
       tagRu: '10 минут · одно число'
     }
   ],
   plumber: [
     {
       id: 'plumber-q1',
-      t: 'Write down your state’s ladder in order: apprentice, journeyman, master — and the years each step needs.',
+      t: 'Write down your state’s license steps in order: apprentice, journeyman, master. Add how many years each step takes.',
       tag: '10 minutes · one ladder',
-      ru: 'Запишите лестницу вашего штата по порядку: ученик (apprentice), подмастерье (journeyman — лицензия, с которой можно работать самому), мастер (master) — и сколько лет нужно на каждую ступень.',
+      ru: 'Запишите ступени лицензии в вашем штате по порядку: ученик, journeyman (работает сам), мастер. Добавьте, сколько лет нужно на каждую.',
       tagRu: '10 минут · одна лестница'
     },
     {
       id: 'plumber-q2',
-      t: 'Find one registered apprenticeship near you and its next application date. Put the date in your calendar.',
+      t: 'Find one registered apprenticeship near you. Find its next application date. Put it in your calendar.',
       tag: '10 minutes · one date',
-      ru: 'Найдите одно зарегистрированное ученичество (apprenticeship — оплачиваемое обучение на рабочем месте) рядом с вами и его следующую дату приёма. Поставьте дату в календарь.',
+      ru: 'Найдите рядом зарегистрированное ученичество (обучение на работе за зарплату). Узнайте дату следующего набора. Поставьте её в календарь.',
       tagRu: '10 минут · одна дата'
     },
     {
       id: 'plumber-q3',
-      t: 'Read one chain training offer’s pay text fully. Write down what pay looks like after the training ends.',
+      t: 'Find a training offer from a big plumbing chain. Read the pay part to the end. Write down what you earn after training.',
       tag: '10 minutes · one contract',
-      ru: 'Прочитайте текст оплаты одного предложения обучения от крупной сети целиком. Запишите, как выглядит оплата после конца обучения.',
+      ru: 'Найдите предложение обучения от крупной сети. Дочитайте до конца, что там про оплату. Запишите, сколько будете получать после учёбы.',
       tagRu: '10 минут · один договор'
     },
     {
       id: 'plumber-q4',
-      t: 'Start your hours log today: date, site, work type — service, construction, commercial, industrial.',
+      t: 'Start a log of your work hours today: date, site, type of work — service, construction, commercial, industrial.',
       tag: '10 minutes · your log',
-      ru: 'Начните журнал часов сегодня: дата, объект, вид работы — сервис, строительство, коммерческая, промышленная.',
+      ru: 'Начните сегодня журнал рабочих часов: дата, объект, вид работы — сервис, стройка, коммерческие объекты, заводы.',
       tagRu: '10 минут · ваш журнал'
     },
     {
       id: 'plumber-q5',
-      t: 'Find the backflow rule in your city: who must test backflow devices, and how often. One page of notes.',
+      t: 'Find your city’s backflow rule (backflow devices keep dirty water out of clean pipes). Who must test them, and how often? Write it down.',
       tag: '10 minutes · one rule',
-      ru: 'Найдите правило обратных клапанов (backflow — устройства, которые не дают грязной воде уйти в чистую сеть) в вашем городе: кто обязан их проверять и как часто. Одна страница заметок.',
+      ru: 'Найдите правило вашего города про обратные клапаны (backflow: не пускают грязную воду в чистые трубы). Кто их проверяет и как часто? Запишите.',
       tagRu: '10 минут · одно правило'
     },
     {
       id: 'plumber-q6',
-      t: 'Upload your resume on this page. Confirm one license or certificate it finds.',
+      t: 'Upload your resume and confirm one license or certificate it finds. It counts.',
       tag: '10 minutes · your file',
-      ru: 'Загрузите резюме на этой странице. Подтвердите одну лицензию или сертификат, который оно найдёт.',
+      ru: 'Загрузите резюме здесь. Подтвердите одну найденную лицензию или сертификат. Они уже в счёт.',
       tagRu: '10 минут · ваш файл'
     },
     {
       id: 'plumber-q7',
-      t: 'Read today’s radar signal below. One item, with a date. That is the market moving.',
-      tag: '5 minutes · one signal',
-      ru: 'Прочитайте сегодняшний сигнал радара ниже. Один пункт, с датой. Это рынок в движении.',
-      tagRu: '5 минут · один сигнал'
+      t: 'Read one radar news item below, with its date. You’ll see changes before others do.',
+      tag: '5 minutes · one news item',
+      ru: 'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.',
+      tagRu: '5 минут · одна новость'
     },
     {
       id: 'plumber-q8',
-      t: 'Share your verdict card. Your people should know their path is being eaten too.',
+      t: 'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.',
       tag: '5 minutes · share it',
-      ru: 'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.',
+      ru: 'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.',
       tagRu: '5 минут · поделиться'
     },
     {
       id: 'plumber-q9',
-      t: 'Compare two postings side by side: one guaranteed-hourly and one commission. Write the slow-week pay for each.',
+      t: 'Compare two job posts: one with fixed hourly pay, one paid by commission. Write what each pays in a slow week.',
       tag: '10 minutes · two offers',
-      ru: 'Сравните две вакансии рядом: одну с гарантированной почасовой оплатой и одну с комиссией. Запишите оплату медленной недели для каждой.',
+      ru: 'Сравните две вакансии: одну с гарантированной почасовой оплатой, другую с процентом от продаж. Запишите, сколько каждая платит в неделю, когда мало заказов.',
       tagRu: '10 минут · два предложения'
     },
     {
       id: 'plumber-q10',
-      t: 'Read the BLS plumber line: median $63,800, growth +7%, about 42,000 openings a year. Write down what it means for your seat.',
+      t: 'Read the BLS numbers (US government job data) for plumbers: typical pay $63,800, growth +7%, about 42,000 openings a year. Write down what this means for you.',
       tag: '10 minutes · one number',
-      ru: 'Прочитайте строку BLS про сантехников: медиана $63,800, рост +7%, около 42,000 открытых мест в год. Запишите, что это значит для вашего места.',
+      ru: 'Прочитайте данные BLS (госстатистика США) про сантехников: типичная зарплата $63,800, рост +7%, около 42,000 вакансий в год. Запишите, что это значит для вас.',
       tagRu: '10 минут · одно число'
     }
   ]
 });
 Object.assign(BIGGOALS, {
-  elcapp: 'Big goal: the journeyman license — earned inside a paid apprenticeship, with 8,000 logged hours and $0 of school debt.',
-  elcjour: 'Big goal: the license aimed at the buildings that pay — industrial and data-center bands, not the residential floor.',
-  elcdata: 'Big goal: the seat that wires the AI economy — $62.00/hr scale work with the safety cards the big sites screen for.',
-  elcown: 'Big goal: a shop with your name on it — the master license, the contractor license, and a maintenance book a buyer would pay for.',
-  elcsales: 'Big goal: the same license under a pay structure that pays for fixing — hourly, guaranteed, or your own name on the truck.',
-  hvcapp: 'Big goal: the federal card plus a paid seat — a technician a shop can bill out, inside your first year, without a five-figure loan.',
-  hvctech: 'Big goal: lead-tech pay on hourly terms — $30–$50 an hour for diagnosis people trust, with on-call priced in writing.',
-  hvcomm: 'Big goal: the controls seat — one platform mastered, $60K–$125K of salary work, and no sales quota anywhere in the pay line.',
-  hvcown: 'Big goal: a shop whose book is the asset — maintenance agreements and a local name a buyer prices in multiples.',
-  hvcsales: 'Big goal: the same hands on a pay structure that pays for fixing — hourly, commercial, or your own name on the truck.',
-  plbapp: 'Big goal: the journeyman license at the end of a wage-paid apprenticeship — 4–5 years that pay you while they make you.',
-  plbserv: 'Big goal: the licensed seat on a guaranteed floor — $110K–$130K posted work, commission only ever as an option on top.',
-  plbfit: 'Big goal: the industrial branch on union scale — plant work at $40.64–$54/hr posted, $60.50/hr on the published Chicago scale.',
-  plbown: 'Big goal: a shop standing on your master license — with a maintenance book an acquirer prices in multiples.',
-  plbsales: 'Big goal: the same hands on a guaranteed floor — hourly at a shop, industrial on scale, or your own name on the truck.'
+  elcapp: 'Big goal: the journeyman license (you can work on your own). Earn it in a paid apprenticeship: 8,000 logged hours and $0 school debt.',
+  elcjour: 'Big goal: use your license where it pays most. Factories and data centers pay more than homes.',
+  elcdata: 'Big goal: wire the data centers that run AI. Union pay is $62.00/hr. Get the safety cards big sites ask for.',
+  elcown: 'Big goal: your own business with your name on it. Get the master and contractor licenses. Build a list of regular clients a buyer would pay for.',
+  elcsales: 'Big goal: same license, but paid for fixing, not selling. Hourly, guaranteed pay, or your own business.',
+  hvcapp: 'Big goal: the federal card plus a paid job. Become a tech a company sends to clients in your first year. No big student loan.',
+  hvctech: 'Big goal: lead tech pay, by the hour. $30–$50 an hour for finding problems people trust you with. Get your on-call pay in writing.',
+  hvcomm: 'Big goal: a controls job (building automation). Master one system. Salary is $60K–$125K, with no sales targets.',
+  hvcown: 'Big goal: your own business that’s worth a lot. Service contracts and a good local name make buyers pay many times your yearly profit.',
+  hvcsales: 'Big goal: same skills, but paid for fixing, not selling. Hourly, commercial work, or your own business.',
+  plbapp: 'Big goal: the journeyman license after a paid apprenticeship. 4–5 years where you learn and get paid.',
+  plbserv: 'Big goal: a licensed job with guaranteed base pay. Jobs pay $110K–$130K. Commission only as a bonus on top.',
+  plbfit: 'Big goal: factory work at union pay. Plant jobs pay $40.64–$54/hr. Chicago’s union pay is $60.50/hr.',
+  plbown: 'Big goal: your own business, built on your master license. Regular service clients make it worth many times its yearly profit.',
+  plbsales: 'Big goal: same skills, with guaranteed pay. Hourly at a company, factory work at union pay, or your own business.'
 });
-BIGGOAL_PROF.electrician = 'Big goal: a license the shortage keeps repricing upward — and a seat chosen by building type, not by habit.';
-BIGGOAL_PROF.hvac = 'Big goal: the trade AI cannot offshore and cannot do — aimed at the buildings AI lives in.';
-BIGGOAL_PROF.plumber = 'Big goal: the license the whole market bids for — earned once, priced every year the shortage lasts.';
+BIGGOAL_PROF.electrician = 'Big goal: a license that pays more each year, because electricians are scarce. Choose your job by building type, not by habit.';
+BIGGOAL_PROF.hvac = 'Big goal: a trade AI can’t do and can’t send abroad. Aim at the data centers where AI lives.';
+BIGGOAL_PROF.plumber = 'Big goal: a license every employer wants. You earn it once. It keeps paying more while plumbers are scarce.';
 /* ===== Cybersecurity quest pool (Nov 1 2026) — verbatim from
    ~/workspace/cg-staging/cybersecurity/spec.md §6 (time-tags composed
    in house style; the spec's strand tags live in DNA_QUEST_TAGS). ===== */
 Object.assign(QUESTS, {cybersecurity: [
   {
     id: 'cybersecurity-q1',
-    t: 'Read 3 live SOC analyst postings. Write down the years each one asks for.',
-    tag: '10 minutes · three postings',
-    ru: 'Прочитайте 3 живые вакансии аналитика SOC — центра мониторинга атак. Запишите, сколько лет опыта просит каждая.',
+    t: 'Read 3 current job posts for SOC analysts (people who watch for attacks). Write down how many years of experience each wants.',
+    tag: '10 minutes · three job posts',
+    ru: 'Прочитайте 3 открытые вакансии аналитика SOC (центр, который следит за атаками). Запишите, сколько лет опыта просит каждая.',
     tagRu: '10 минут · три вакансии'
   },
   {
     id: 'cybersecurity-q2',
-    t: 'Spend 10 minutes in a free Splunk or Sentinel practice lab. Sort one alert.',
+    t: 'Spend 10 minutes in a free Splunk or Sentinel practice lab (tools that show attack alerts). Sort one alert.',
     tag: '10 minutes · one lab',
-    ru: 'Проведите 10 минут в бесплатной учебной лаборатории Splunk или Sentinel — систем разбора оповещений об атаках. Разберите одно оповещение.',
-    tagRu: '10 минут · одна лаборатория'
+    ru: 'Потратьте 10 минут на бесплатный тренажёр Splunk или Sentinel (программы, которые показывают тревоги об атаках). Разберите одну тревогу.',
+    tagRu: '10 минут · один тренажёр'
   },
   {
     id: 'cybersecurity-q3',
-    t: 'Write 5 plain lines: what a SOC analyst actually does all day.',
+    t: 'Write 5 plain lines: what a SOC analyst does all day. Ask AI, then check a real job post.',
     tag: '10 minutes · five lines',
-    ru: 'Напишите 5 простых строк: чем аналитик SOC — центра мониторинга атак — занимается весь день на самом деле.',
+    ru: 'Напишите 5 простых строк: чем весь день занят аналитик SOC. Спросите AI и сверьте с вакансией.',
     tagRu: '10 минут · пять строк'
   },
   {
     id: 'cybersecurity-q4',
     t: 'Ask an AI to explain one security alert like you are 12. Then check one fact it gave you.',
     tag: '10 minutes · one alert',
-    ru: 'Попросите ИИ объяснить одно оповещение об атаке так, будто вам 12 лет. Потом проверьте один факт из его ответа.',
+    ru: 'Попросите AI объяснить одно оповещение об атаке так, будто вам 12 лет. Потом проверьте один факт из его ответа.',
     tagRu: '10 минут · одно оповещение'
   },
   {
     id: 'cybersecurity-q5',
-    t: 'List your IT time: every month of help desk, support or admin work counts. Count it.',
+    t: 'Count your time in IT. Every month of help desk, support or admin work counts. It’s your way in.',
     tag: '10 minutes · your list',
-    ru: 'Перечислите своё время в IT: засчитывается каждый месяц в поддержке, помощи пользователям и администрировании. Посчитайте его.',
+    ru: 'Посчитайте, сколько вы проработали в IT. Считается каждый месяц в поддержке пользователей или администрировании. Это ваш вход.',
     tagRu: '10 минут · ваш список'
   },
   {
     id: 'cybersecurity-q6',
-    t: 'Upload your resume on this page. Confirm one piece of evidence it finds.',
+    t: 'Upload your resume and confirm one fact the app finds. Your experience counts.',
     tag: '10 minutes · your file',
-    ru: 'Загрузите своё резюме на этой странице. Подтвердите одно найденное им доказательство.',
+    ru: 'Загрузите резюме и подтвердите один найденный факт. Ваш опыт — уже часть пути.',
     tagRu: '10 минут · ваш файл'
   },
   {
     id: 'cybersecurity-q7',
-    t: 'Read today’s radar signal below. One item, with a date. That is the market moving.',
-    tag: '5 minutes · one signal',
-    ru: 'Прочитайте сегодняшний сигнал радара ниже. Один пункт, с датой. Так рынок и движется.',
-    tagRu: '5 минут · один сигнал'
+    t: 'Read one radar news item below, with its date. You’ll see changes before others do.',
+    tag: '5 minutes · one news item',
+    ru: 'Прочитайте одну новость радара ниже, с датой. Вы увидите перемены раньше других.',
+    tagRu: '5 минут · одна новость'
   },
   {
     id: 'cybersecurity-q8',
-    t: 'Share your verdict card. Your people should know their path is being eaten too.',
+    t: 'Share your verdict card with friends. AI is changing their jobs too. Help them get ready.',
     tag: '5 minutes · share it',
-    ru: 'Поделитесь карточкой вашего вердикта. Ваши люди тоже должны знать, что их путь едят.',
+    ru: 'Покажите друзьям вашу карточку. AI меняет и их работу — помогите им подготовиться.',
     tagRu: '5 минут · поделиться'
   },
   {
@@ -617,64 +617,64 @@ Object.assign(QUESTS, {cybersecurity: [
   }
 ]});
 Object.assign(BIGGOALS, {
-  socanalyst: 'The big goal: reach Tier 2 investigation work within your first year — before the sorting rung shrinks under you.',
-  secengineer: 'The big goal: own a detection area end to end: rules you wrote, numbers that prove they catch real attacks.',
-  cloudsec: 'The big goal: guard a whole cloud estate on AWS or Azure — accounts, permissions and alerts — with the certificate the postings repeat.',
-  pentester: 'The big goal: earn the OSCP after real security years, and test systems companies pay to have attacked before criminals do.',
-  grcanalyst: 'The big goal: arrive at GRC from inside security work — with the years every posting demands, not with a bootcamp receipt.'
+  socanalyst: 'The big goal: move up to Tier 2 (looking into attacks) in your first year. Alert-sorting jobs are getting fewer, so moving up early keeps you safe.',
+  secengineer: 'The big goal: own one area of catching attacks. Write the rules yourself. Show numbers that prove they catch real attacks.',
+  cloudsec: 'The big goal: protect a company’s whole cloud on AWS or Azure: accounts, access and alerts. Get the certificate jobs keep asking for.',
+  pentester: 'The big goal: get the OSCP (a hacking certificate) after years in security. Then companies pay you to attack their systems before criminals do.',
+  grcanalyst: 'The big goal: move into GRC (security rules and risk) from a security job. Every job wants years of experience, not just a bootcamp.'
 });
-BIGGOAL_PROF.cybersecurity = 'The big goal: become the analyst who investigates, not the one who only sorts: real IT time, one specialty, and proof you can show.';
+BIGGOAL_PROF.cybersecurity = 'The big goal: be the analyst who digs into attacks, not just sorts alerts. Get real IT experience, one specialty, and proof you can show.';
 /* ===== AI PRODUCT MANAGER — quest pool (Nov 1 2026, spec §6).
    Specialty pool written to the scan. House slots (q6/q7/q8) reuse
    the standing texts verbatim. aipm-q1 is the seat-pick quest. ===== */
 Object.assign(QUESTS, {aipm: [
   {
     id: 'aipm-q1',
-    t: 'Decide your seat: platform, evals, feature, enterprise, growth, or the program door. Write it on this path. The six seats post $83,000 to $490,000 and screen for different pasts.',
+    t: 'Pick your role: AI core (platform), checking AI answers (evals), one AI feature, AI for big clients, growth, or an entry program. Write it here. These six roles pay $83,000 to $490,000. Each wants different experience.',
     tag: '10 min',
-    ru: 'Решите, какое у вас место: platform, evals, feature, enterprise, growth — или дверь программ. Запишите его на этом пути. Шесть мест публикуют от $83,000 до $490,000 и проверяют разное прошлое.',
+    ru: 'Выберите роль: ядро AI, проверка ответов AI, AI-функция, AI для крупных клиентов, рост продукта или программа для новичков. Запишите её здесь. Эти шесть ролей платят от $83,000 до $490,000. Каждой нужен свой опыт.',
     tagRu: '10 минут'
   },
   {
     id: 'aipm-q2',
-    t: 'Count how many real postings in your seat ask for 5+ years. Write the number down. 20 of 26 postings that state years ask for 5+ — know your seat’s number before you plan.',
+    t: 'Count how many real job posts for your role ask for 5+ years. Write the number down. Of 26 posts that name years, 20 ask for 5+. Know your number before you plan.',
     tag: '10 min · a count',
-    ru: 'Посчитайте, сколько настоящих вакансий вашего места просят 5+ лет. Запишите число. 20 из 26 вакансий, которые называют годы, просят 5+, — знайте число вашего места до планирования.',
+    ru: 'Посчитайте, сколько настоящих вакансий для вашей роли просят 5+ лет опыта. Запишите число. Из 26 вакансий, где указан опыт, 20 просят 5+. Узнайте ваше число до того, как строить план.',
     tagRu: '10 минут · подсчёт'
   },
   {
     id: 'aipm-q3',
-    t: 'Grade one AI answer today: take a chatbot you use, ask it a hard question, and write down what its answer got wrong — confidently wrong counts double.',
+    t: 'Check one AI answer today. Ask your chatbot a hard question. Write down what it got wrong. Wrong but sure of itself counts double.',
     tag: '5 min',
-    ru: 'Оцените один ответ AI сегодня: возьмите чат-бота, которым пользуетесь, задайте ему трудный вопрос и запишите, что его ответ сказал не так, — уверенная неправда считается вдвойне.',
+    ru: 'Проверьте сегодня один ответ AI. Задайте вашему чат-боту трудный вопрос. Запишите, в чём он ошибся. Уверенная ошибка считается вдвойне.',
     tagRu: '5 минут'
   },
   {
     id: 'aipm-q4',
-    t: 'Write 5 test questions for the AI feature you know best, each with the right answer next to it. That is the start of an eval set.',
+    t: 'Write 5 test questions for an AI product you know well. Put the right answer next to each. Done! This shows your skill faster than any course.',
     tag: '15 min',
-    ru: 'Напишите 5 тестовых вопросов для AI-функции, которую вы знаете лучше всего, — с правильным ответом рядом с каждым. Это начало набора evals.',
+    ru: 'Напишите 5 проверочных вопросов для AI в знакомом продукте. Рядом — правильные ответы. Готово! Это быстрее любого курса показывает, что вы умеете.',
     tagRu: '15 минут'
   },
   {
     id: 'aipm-q5',
-    t: 'Read one real platform PM posting end to end. Save the one requirement you cannot show yet.',
-    tag: '10 min · one posting',
-    ru: 'Прочитайте одну настоящую вакансию platform PM от начала до конца. Сохраните одно требование, которое вы пока не можете показать.',
+    t: 'Read one real job post for a platform PM (decides what the AI can do) to the end. Save one requirement you can’t prove yet.',
+    tag: '10 min · one job post',
+    ru: 'Прочитайте до конца вакансию продакт-менеджера, который решает, что умеет AI. Сохраните одно требование, которое пока не подтвердить.',
     tagRu: '10 минут · одна вакансия'
   },
   {
     id: 'aipm-q6',
     t: 'Upload or update your resume in this app and tap Confirm on your steps.',
     tag: '5 min · proof',
-    ru: 'Загрузите или обновите резюме в этом приложении и нажмите Confirm на ваших шагах.',
+    ru: 'Загрузите или обновите резюме здесь и подтвердите ваши шаги.',
     tagRu: '5 минут · доказательство'
   },
   {
     id: 'aipm-q7',
-    t: 'Read this week’s Radar slowly. Save the one signal that changes your plan.',
+    t: 'Read this week’s Radar slowly. Save the one news item that changes your plan.',
     tag: '5 min · radar',
-    ru: 'Медленно прочитайте Радар этой недели. Сохраните один сигнал, который меняет ваш план.',
+    ru: 'Спокойно прочитайте Радар этой недели. Сохраните одну новость, которая меняет ваш план.',
     tagRu: '5 минут · радар'
   },
   {
@@ -686,25 +686,25 @@ Object.assign(QUESTS, {aipm: [
   },
   {
     id: 'aipm-q9',
-    t: 'Write down one failure your AI feature made with a real user — or would make. One honest line.',
+    t: 'Write down one mistake the AI in your product made with a real user. Or one it could make. One honest line.',
     tag: '5 min',
-    ru: 'Запишите одну ошибку, которую ваша AI-функция сделала с настоящим пользователем, — или сделает. Одна честная строка.',
+    ru: 'Запишите одну ошибку, которую AI в вашем продукте сделал с настоящим пользователем. Или мог бы сделать. Одна честная строка.',
     tagRu: '5 минут'
   },
   {
     id: 'aipm-q10',
-    t: 'Say the honest market line about this job out loud: “The official statistics do not count this job.” Then look at your seat’s band again.',
+    t: 'Say out loud: “The official statistics do not count this job yet.” So there are no exact numbers for it. Now look again at what your role pays.',
     tag: '5 min',
-    ru: 'Скажите честно вслух строку рынка об этой работе: «Официальная статистика не считает эту работу». Потом посмотрите на вилку вашего места ещё раз.',
+    ru: 'Скажите вслух: «Государство эту работу пока не считает». Значит, точных цифр по ней нет. Теперь ещё раз посмотрите, сколько платят на вашей работе.',
     tagRu: '5 минут'
   }
 ]});
 Object.assign(BIGGOALS, {
-  platpm: 'The big goal: platform PM who owns what the model can do — the postings pay $347K–$490K for that judgment.',
-  evalpm: 'The big goal: the person who can prove an AI’s answer is good — the seat eating the profession, $151K–$253K.',
-  featpm: 'The big goal: an AI feature PM whose features survive evals — the biggest seat, grown from ordinary product work.',
-  entpm: 'The big goal: agent PM inside one industry’s real work — law, health or finance, $149K–$300K.',
-  growpm: 'The big goal: growth PM on an AI product where experiments are the proof — $275K–$305K.',
-  apmpm: 'The big goal: inside a program or an adjacent seat by year two — the ladder, climbed honestly.'
+  platpm: 'The big goal: decide what AI can do inside a big company. It’s the top-paying role: $347K–$490K. People who understand tech go here.',
+  evalpm: 'The big goal: be the person who proves an AI’s answers are good. This job is growing fast. It pays $151K–$253K.',
+  featpm: 'The big goal: run one AI feature that passes its tests. It’s the most common job. People grow into it from regular product work.',
+  entpm: 'The big goal: run AI helpers for one industry: law, health or finance. It pays $149K–$300K.',
+  growpm: 'The big goal: grow an AI product with experiments. Your results are your proof. It pays $275K–$305K.',
+  apmpm: 'The big goal: by year two, get into an entry program or a nearby job. Then climb step by step. You’ve got this!'
 });
-BIGGOAL_PROF.aipm = 'The big goal: a seat picked on purpose from the scan’s real bands ($117K–$490K), reached with evals and shipped features, not with certificates.';
+BIGGOAL_PROF.aipm = 'Become a top 1% AI product manager. They earn up to $490K a year (a usual start is $117K+). You can get there without extra years of school: only the steps employers really pay for.';

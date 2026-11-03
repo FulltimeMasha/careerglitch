@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PathCheck by Career Glitch — Check your path before you pay for it</title>
-<meta name="description" content="A free verdict on your career path — from real postings, platform rules and BLS data, not generic advice. Pilots: law, accounting/CPA, nursing, finance, content creator.">
+<title>PathCheck — your shortest path to a job and the top 1%</title>
+<meta name="description" content="AI now does part of your job. Pick your profession: we show what still pays and the shortest path to it and to the top 1%, from real job posts. Free.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
@@ -268,14 +268,14 @@ footer .heart{color:var(--hot)}
       <span class="lid lid-l" aria-hidden="true"></span>
       <span class="lid lid-r" aria-hidden="true"></span>
     </div>
-    <h1><span class="h1a">Don't let AI kill your career.</span><span class="h1c">Use it to become <span class="hl">top 1%</span>.</span></h1>
+    <h1><span class="h1a">AI now does part of your job. Which part still pays?</span><span class="h1c">See your shortest path to work and the <span class="hl">top 1%</span>.</span></h1>
     <button class="bigbtn" onclick="startCheck()">
-      <span class="t1"><span class="ht">♥︎</span> Check your path before you pay for it</span><span class="freepill">FREE</span>
+      <span class="t1"><span class="ht">♥︎</span> Pick your job — see what still pays</span><span class="freepill">FREE</span>
     </button>
     <div id="myPathBar" style="display:none;margin-top:16px">
       <a class="btn butter" id="myPathLink" href="/app" style="text-decoration:none">♥ Your path is saved — Open my path →</a>
     </div>
-    <div class="radar-mod" id="radarMod" aria-label="AI Radar — this week's legal market signals">
+    <div class="radar-mod" id="radarMod" aria-label="AI Radar — how AI is changing jobs this week">
       <div class="radar-row">
         <div class="radar-scope" aria-hidden="true">
           <div class="sweep"></div>
@@ -287,7 +287,7 @@ footer .heart{color:var(--hot)}
         </div>
         <div class="radar-side">
           <div class="radar-head"><span class="livedot" aria-hidden="true"></span>AI RADAR LIVE<span class="tdots" id="tdots"></span></div>
-          <div class="radar-cap">Scanning the market 24/7 — so your plan never goes stale.</div>
+          <div class="radar-cap">You spent years on your job. AI changes what employers ask for in it. We read job posts 24/7 and show what still pays.</div>
         </div>
       </div>
       <div class="ticker">
@@ -308,13 +308,13 @@ footer .heart{color:var(--hot)}
 
     <!-- STEP 0 — TYPE YOUR PROFESSION -->
     <div class="screen" id="s0">
-      <div class="q-kicker">Step 0 — your path</div>
-      <div class="q-title">What path are you on?</div>
-      <label class="fl" for="jobInput" style="margin-top:0">Type your job — or the path you're about to pay for</label>
+      <div class="q-kicker">Step 0 — your job</div>
+      <div class="q-title">Which job is yours?</div>
+      <label class="fl" for="jobInput" style="margin-top:0">Type your job now, or the one you want</label>
       <input class="txt" id="jobInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="bookkeeper · paralegal · nurse · welder · teacher…">
       <div class="check-nav"><button class="backlink" onclick="backHome()">← back</button><button class="btn" id="jobGo" onclick="submitJob()" disabled>Continue →</button></div>
       <div class="readyline">
-        <span class="rl-lab">Deep checks ready now:</span>
+        <span class="rl-lab">Full checks ready now:</span>
         <div class="chips">
           <button class="chip" onclick="pickChip('law')">Law</button>
           <button class="chip" onclick="pickChip('cpa')">Accounting &amp; CPA</button>
@@ -327,19 +327,19 @@ footer .heart{color:var(--hot)}
 
     <!-- SEAT RESULT — instant verdict for one sub-niche, no questions -->
     <div class="screen" id="s8">
-      <div class="q-kicker">Your instant verdict — no questions, just the data</div>
+      <div class="q-kicker">Your answer — straight from real job posts</div>
       <p class="typedline" id="seatTyped"></p>
       <div class="vcard" id="vcard2"></div>
       <div class="pers" id="persBlock">
-        <span class="slab">Personalize my door</span>
-        <p class="psub">Three quick taps — and the first step on your card adjusts to you.</p>
+        <span class="slab">Make my first step fit me</span>
+        <p class="psub">Three quick taps, and your first step fits you.</p>
         <div class="plab">Where are you on this path?</div>
         <div class="pchips" id="pStage"></div>
         <div class="plab">Your state</div>
         <input class="txt" id="pState" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="FL — or Florida">
-        <div class="plab">Already invested in this path</div>
+        <div class="plab">Already spent on this path</div>
         <div class="pchips" id="pInv"></div>
-        <div class="check-nav" style="margin-top:14px"><button class="backlink" onclick="resetPers()">Skip — show the standard door</button><span></span></div>
+        <div class="check-nav" style="margin-top:14px"><button class="backlink" onclick="resetPers()">Skip — show the usual first step</button><span></span></div>
       </div>
       <div class="strip">
         <div id="seatForm">
@@ -350,7 +350,7 @@ footer .heart{color:var(--hot)}
             <button class="btn" onclick="saveStrip('seat')">Send ♥</button>
           </div>
           <p class="fineprint" id="seatErr" style="color:var(--deep);display:none">Please add your first name and a valid email.</p>
-          <p class="fineprint">Saved with your verdict in our lead file — no spam, no selling your email.</p>
+          <p class="fineprint">Saved with your verdict — no spam, and we never sell your email.</p>
         </div>
         <div class="sok" id="seatOk"></div>
       </div>
@@ -361,11 +361,11 @@ footer .heart{color:var(--hot)}
           <button class="btn butter" onclick="toggleShare('sharebox2')">Get it free — share your link</button>
           <button class="btn ghost" onclick="openModal('mParents')">Ask your parents</button>
         </div>
-        <p class="insider-v">We can&rsquo;t hand this insider data to everyone — it&rsquo;s our clients&rsquo; edge in the job market, and it stops being an edge if everyone has it.</p>
+        <p class="insider-v">We can&rsquo;t give this inside info to everyone. It helps our clients get ahead in the job market. If everyone had it, it wouldn&rsquo;t help anymore.</p>
         <div class="sharebox" id="sharebox2">
           <b>Your personal link.</b> Your Full Report unlocks free when <b>1 person completes their own Path Check</b> through it — not a repost, a finished check.
           <div class="linkrow"><input id="shareLink2" readonly value=""><button class="copybtn" onclick="copyShare('shareLink2',this)">Copy</button></div>
-          <p class="fineprint">Pilot link — it carries your name so completions count to you.</p>
+          <p class="fineprint">Pilot link — it has your name, so finished checks count for you.</p>
         </div>
         <div class="check-nav"><button class="backlink" id="seatBack" onclick="restart()">↺ check a different path</button><span></span></div>
       </div>
@@ -373,14 +373,14 @@ footer .heart{color:var(--hot)}
 
     <!-- CLUSTER MAP — the package's segmentation grid -->
     <div class="screen" id="s9">
-      <div class="q-kicker">Your instant verdict — the whole map</div>
+      <div class="q-kicker">Your answer — every job in this field</div>
       <p class="typedline" id="gridTyped"></p>
       <p class="ghook" id="gridHook"></p>
       <div class="q-title" id="gridHead"></div>
       <p style="color:var(--ink2);margin-bottom:14px" id="gridSub"></p>
       <p class="ghuman" id="gridHuman"></p>
       <div class="gridrows" id="gridRows"></div>
-      <p class="fineprint" style="margin-top:10px">Tap any row for that job&rsquo;s full verdict — facts, the door, the numbers.</p>
+      <p class="fineprint" style="margin-top:10px">Tap a row to see that job: facts, first step, pay.</p>
       <div class="corner" id="gridCorner"></div>
       <div class="gquote" id="gridQuote"></div>
       <p class="gnext" id="gridNext"></p>
@@ -393,7 +393,7 @@ footer .heart{color:var(--hot)}
             <button class="btn" onclick="saveStrip('grid')">Send ♥</button>
           </div>
           <p class="fineprint" id="gridErr" style="color:var(--deep);display:none">Please add your first name and a valid email.</p>
-          <p class="fineprint">Saved with your verdict in our lead file — no spam, no selling your email.</p>
+          <p class="fineprint">Saved with your verdict — no spam, and we never sell your email.</p>
         </div>
         <div class="sok" id="gridOk"></div>
       </div>
@@ -404,11 +404,11 @@ footer .heart{color:var(--hot)}
           <button class="btn butter" onclick="toggleShare('sharebox3')">Get it free — share your link</button>
           <button class="btn ghost" onclick="openModal('mParents')">Ask your parents</button>
         </div>
-        <p class="insider-v">We can&rsquo;t hand this insider data to everyone — it&rsquo;s our clients&rsquo; edge in the job market, and it stops being an edge if everyone has it.</p>
+        <p class="insider-v">We can&rsquo;t give this inside info to everyone. It helps our clients get ahead in the job market. If everyone had it, it wouldn&rsquo;t help anymore.</p>
         <div class="sharebox" id="sharebox3">
           <b>Your personal link.</b> Your Full Report unlocks free when <b>1 person completes their own Path Check</b> through it — not a repost, a finished check.
           <div class="linkrow"><input id="shareLink3" readonly value=""><button class="copybtn" onclick="copyShare('shareLink3',this)">Copy</button></div>
-          <p class="fineprint">Pilot link — it carries your name so completions count to you.</p>
+          <p class="fineprint">Pilot link — it has your name, so finished checks count for you.</p>
         </div>
         <div class="check-nav"><button class="backlink" onclick="restart()">↺ check a different path</button><span></span></div>
       </div>
@@ -418,20 +418,20 @@ footer .heart{color:var(--hot)}
     <div class="screen" id="s7">
       <div id="wlForm">
         <div class="q-kicker">Your Path Check</div>
-        <div class="q-title">We'll run &ldquo;<span class="wlT"></span>&rdquo; through the 5 filters.</div>
-        <p class="wl-lede">Every check is built from real postings, platform rules, BLS data and hiring reports — we don't guess. We build them in demand order, and yours just moved up the list.</p>
-        <p class="wl-lede"><b>Where do we send your verdict?</b></p>
+        <div class="q-title">We'll check &ldquo;<span class="wlT"></span>&rdquo; through our 5 filters.</div>
+        <p class="wl-lede">AI is changing what employers ask for in this job. So we read real job posts, official job data (BLS) and hiring reports. We never guess. The most-asked jobs go first, and yours just moved up!</p>
+        <p class="wl-lede"><b>Where do we send your path?</b></p>
         <label class="fl" for="wlEmail">Email</label>
         <input class="txt" id="wlEmail" type="email" autocomplete="email" placeholder="you@example.com">
-        <p class="fineprint" id="wlErr" style="color:var(--deep);display:none">Please add a valid email — that's how we reach you when it's live.</p>
-        <div class="check-nav"><button class="backlink" onclick="show('s0',1)">← back</button><button class="btn" onclick="submitWaitlist()">Start researching ♥</button></div>
+        <p class="fineprint" id="wlErr" style="color:var(--deep);display:none">Please add a valid email — that's how we reach you when it's ready.</p>
+        <div class="check-nav"><button class="backlink" onclick="show('s0',1)">← back</button><button class="btn" onclick="submitWaitlist()">Start my check ♥</button></div>
         <p class="fineprint">Your email goes straight to our research queue — that&rsquo;s the only thing we use it for.</p>
       </div>
       <div id="wlDone" style="display:none">
         <div class="q-kicker">Research started</div>
         <div class="q-title">&ldquo;<span class="wlT"></span>&rdquo; is being checked right now.</div>
-        <p class="wl-lede">Real job postings, BLS data, hiring reports — the full 5 filters. When your verdict is ready, it lands in your inbox.</p>
-        <p class="wl-lede">Meanwhile — five deep checks are ready right now:</p>
+        <p class="wl-lede">We're reading real job posts, official job data (BLS) and hiring reports: all 5 filters. When your path is ready, it lands in your inbox.</p>
+        <p class="wl-lede">Meanwhile, five full checks are ready now:</p>
         <div class="readyline" style="margin-top:16px">
           <div class="chips">
             <button class="chip" onclick="pickChip('law')">Law</button>
@@ -449,23 +449,23 @@ footer .heart{color:var(--hot)}
   </div>
 </div>
 
-<div class="mission"><span class="mheart" aria-hidden="true">♥</span><span class="goal">Our goal: help all our clients become the <span class="hl">top 1%</span> of their field — and stay there.</span><span class="msub">We check the path, the radar watches the market, you do the steps.</span><span class="msub"><a class="trlink" href="/track-record">Our forecasts, scored in public — see the track record →</a></span></div>
-<footer>PathCheck <span class="heart">♥</span> by Career Glitch — pilots: law · accounting/CPA · nursing · finance · content creator · <a class="trlink" href="/track-record">Track record</a></footer>
+<div class="mission"><span class="mheart" aria-hidden="true">♥</span><span class="goal">Our goal: help all our clients become the <span class="hl">top 1%</span> of their field — and stay there.</span><span class="msub">With AI you can learn the part that pays in weeks, not years. We keep only the steps employers pay for. You take them.</span><span class="msub"><a class="trlink" href="/track-record">Our forecasts, scored in public — see the track record →</a></span></div>
+<footer>PathCheck <span class="heart">♥</span> by Career Glitch — ready now: law · accounting/CPA · nursing · finance · content creator · <a class="trlink" href="/track-record">Track record</a></footer>
 
 <!-- CHECKOUT MODAL -->
 <div class="mback" id="mCheckout">
   <div class="modal">
     <button class="x" onclick="closeModal('mCheckout')">×</button>
-    <h3>Full Report — pilot cohort</h3>
-    <p>PathCheck is in pilot. Paid checkout opens with the first pilot cohort — and if you ran the check, your email is already saved with your answers, so you're first in line when it opens. No charge today, nothing fake about it.</p>
-    <p><b>Inside the report</b> — the strongest signals from <span id="coCount">46</span> real <span id="coWhat">postings</span>, applied to you:</p>
+    <h3>Full Report — first test group</h3>
+    <p>PathCheck is brand new, and we're still testing it. You can pay once the first test group starts. Ran the check? Your email and answers are saved. You'll be first in line! No charge today, honest.</p>
+    <p><b>Inside the report</b> — the most important facts from <span id="coCount">46</span> real <span id="coWhat">job posts</span>, made for you:</p>
     <ul class="facts" id="coFacts">
-      <li><b>Bachelor's degree in 19 of 21</b> senior paralegal postings — the top pay quietly demands more than the "typical" credential.</li>
-      <li><b>CIPP in 3 of 3</b> privacy postings that name a certification — and privacy posted the highest pay in the scan ($212K–$319K).</li>
-      <li><b>Named AI tools (Kira, Harvey)</b> already required in top senior-paralegal postings — the paralegal at the top runs the AI diligence.</li>
+      <li><b>Bachelor's degree in 19 of 21</b> senior paralegal job posts. The top pay quietly asks for more than the "typical" degree.</li>
+      <li><b>CIPP in 3 of 3</b> privacy job posts that name a certificate. And privacy jobs paid the most of all ($212K–$319K).</li>
+      <li><b>Named AI tools (Kira, Harvey)</b> already required in top senior-paralegal job posts. The best-paid paralegals run the AI that checks deals.</li>
     </ul>
-    <p class="insider">We can&rsquo;t hand this insider data to everyone — it&rsquo;s our clients&rsquo; edge in the job market, and it stops being an edge if everyone has it.</p>
-    <p><b>Want it free instead?</b> Share your personal link from the verdict card — when 1 person completes their check through it, your report unlocks.</p>
+    <p class="insider">We can&rsquo;t give this inside info to everyone. It helps our clients get ahead in the job market. If everyone had it, it wouldn&rsquo;t help anymore.</p>
+    <p><b>Want it free instead?</b> Share your personal link from the verdict card. When 1 person finishes a check through it, your report unlocks.</p>
     <p><b>No card?</b> Use “Ask your parents” on your card — it sends them your verdict and the payment link.</p>
     <div class="mrow"><button class="btn" onclick="closeModal('mCheckout')">Got it</button></div>
   </div>
@@ -476,7 +476,7 @@ footer .heart{color:var(--hot)}
   <div class="modal">
     <button class="x" onclick="closeModal('mParents')">×</button>
     <h3>Ask your parents</h3>
-    <p>Copy this letter and send it however your family talks — text, email, messenger. It carries your verdict and the payment ask. Parents see the plan too; that's the point.</p>
+    <p>Copy this letter and send it the way your family usually talks — text, email, messenger. It has your verdict and asks for the payment. Your parents see the plan too. That's the idea!</p>
     <div class="letter" id="parentLetter"></div>
     <div class="mrow"><button class="btn" onclick="copyLetter(this)">Copy the letter</button><button class="btn ghost" onclick="closeModal('mParents')">Close</button></div>
   </div>
@@ -512,24 +512,24 @@ var PROFS = {
 
 var COFACTS = {
 law: [
-  '<b>Bachelor’s degree in 19 of 21</b> senior paralegal postings — the top pay quietly demands more than the “typical” credential.',
-  '<b>CIPP in 3 of 3</b> privacy postings that name a certification — and privacy posted the highest pay in the scan ($212K–$319K).',
-  '<b>Named AI tools (Kira, Harvey)</b> already required in top senior-paralegal postings — the paralegal at the top runs the AI diligence.'
+  '<b>Bachelor’s degree in 19 of 21</b> senior paralegal job posts. Top pay quietly asks for more than the “typical” degree.',
+  '<b>CIPP in 3 of 3</b> privacy job posts that name a certificate. Privacy also paid the most ($212K–$319K).',
+  '<b>Named AI tools (Kira, Harvey)</b> already asked for in top paralegal job posts. The best-paid paralegal runs the AI.'
 ],
 cpa: [
-  '<b>CPA required in 8 of 10</b> tax-manager postings — and in 6 of 6 SEC-reporting postings. The license is a gate, not a raise.',
-  '<b>Transaction advisory (FDD) posted up to $225K</b> — the top pay in our 54-posting scan.',
-  '<b>32 states now license at 120 credits</b> + 2 years of experience — your state decides if you even need the 150-credit fifth year.'
+  '<b>CPA required in 8 of 10</b> tax-manager job posts, and in 6 of 6 SEC-reporting ones. The license opens the door; it is not a raise.',
+  '<b>Transaction advisory (FDD) paid up to $225K</b>, the top pay in our 54 job posts.',
+  '<b>32 states now license at 120 credits</b> + 2 years of work. Your state decides if you need a fifth year (150 credits).'
 ],
 nurse: [
-  '<b>DNP required in 0 of 16</b> top advanced-practice postings opened this week — while DNP programs charge $73K–$195K.',
-  '<b>Psych NP postings at $200K–$257K</b> — the specialty carries the premium, not the doctorate.',
-  '<b>27 full-practice states</b> — and CA, TX and FL are not among them. Your state changes your pay. It is not a detail.'
+  '<b>DNP required in 0 of 16</b> top NP-level job posts this week. DNP programs charge $73K–$195K.',
+  '<b>Psych NP job posts at $200K–$257K.</b> The specialty pays more, not the doctorate.',
+  '<b>27 full-practice states</b> CA, TX and FL are not among them. Your state changes your pay.'
 ],
 fin: [
-  '<b>SQL in 31 of 40</b> top-money analyst postings (78%) — the skills they ask for run SQL → platform → BI, most wanted first.',
-  '<b>A required CFA in 0 of 40</b> top-money postings — the certificate-first plan is a detour — this market does not ask for it.',
-  '<b>Junior analyst postings down 21%</b> — seniors are hired 3-to-1 over juniors. The way in now is proof of real work, not a pile of applications.'
+  '<b>SQL in 31 of 40</b> top-paying analyst job posts (78%). Most wanted first: SQL → platform → BI (dashboards).',
+  '<b>A required CFA in 0 of 40</b> top-paying job posts. Starting with a certificate is a detour.',
+  '<b>Beginner analyst job posts down 21%</b>. Firms hire 3 experienced people per beginner. Get in with proof of real work, not a pile of applications.'
 ],
 creator: [
   '<b>48.7% of US creators earn under $10,000 a year</b> — and the median payment to a creator is $3,000 (CreatorIQ).',
@@ -543,20 +543,20 @@ var SEATS = {
 specialist: {prof:'law', label:'Specialist paralegal — privacy / diligence / healthcare',
   head:'SPECIALIST PARALEGAL — <span class="pink">YES</span>. THE TOP PAY IN LEGAL SUPPORT.',
   facts:[
-    ['Top pay in our 46-posting scan','Privacy &amp; AI-governance postings <span class="pink">$212K–$319K</span>'],
-    ['Senior specialist postings','Real pay <span class="pink">$135K–$200K</span> (Cooley · Gibson Dunn)'],
-    ['What the top jobs ask for','Bachelor’s in <span class="pink">19 of 21</span> senior postings · 5–10+ yrs in ONE practice area']
+    ['Top pay in our 46 job posts','Privacy &amp; AI-rules job posts <span class="pink">$212K–$319K</span>'],
+    ['Senior specialist job posts','Real pay <span class="pink">$135K–$200K</span> (Cooley · Gibson Dunn)'],
+    ['What the top jobs ask for','Bachelor’s in <span class="pink">19 of 21</span> senior job posts · 5–10+ yrs in ONE practice area']
   ],
-  door:'The highest paralegal posting in our scan ($150K–$200K) has the paralegal <b>running Kira &amp; Harvey AI</b> diligence and running the closing platforms. What to do: pick ONE specialty — privacy &amp; AI governance, corporate diligence, healthcare regulatory — and own the AI tools inside it.',
+  door:'The best-paid paralegal job post we found ($150K–$200K) has the paralegal <b>running the AI tools Kira &amp; Harvey</b> to check deals. Your shortcut: pick ONE specialty (privacy &amp; AI rules, checking deals, health-care rules) and learn its AI tools. That puts you ahead fast.',
   short:'the specialist paralegal jobs are the yes in legal support — privacy & AI-governance postings ran $212K–$319K in our 46-posting scan, while the generalist job has 0% growth'},
 paralegal: {prof:'law', label:'Paralegal (generalist)',
   head:'GENERALIST PARALEGAL — <span class="pink">NO</span> AS YOUR FINAL STOP.',
   facts:[
     ['Stay a generalist','Median <span class="pink">$62,890</span> · field growth <span class="pink">0%</span> (BLS 2025–35)'],
-    ['Where the money actually is','Specialist postings up to <span class="pink">$150K–$200K</span> (Gibson Dunn)'],
+    ['Where the money actually is','Specialist job posts up to <span class="pink">$150K–$200K</span> (Gibson Dunn)'],
     ['The job AI eats first','Document review is AI’s #1 legal use case — <span class="pink">77%</span> of legal orgs']
   ],
-  door:'What to do instead: don’t climb the generalist ladder — step sideways into one specialty (privacy &amp; AI governance, corporate diligence, healthcare regulatory) and run the AI tools instead of competing with them. A J.D. only pays aimed at the same specialties.',
+  door:'What to do instead: don’t stay a helper for everything. Move into one specialty (privacy &amp; AI rules, checking deals, health-care rules). Learn to run its AI tools, don’t race them. A J.D. pays only when aimed the same way.',
   short:'the generalist paralegal job is a no — median $62,890 with 0% growth — while specialist jobs post up to $150K–$200K and privacy / AI governance to $319K'},
 docreview: {prof:'law', label:'Document review',
   head:'DOCUMENT REVIEW — <span class="pink">NO</span> AS A CAREER.',
@@ -565,44 +565,44 @@ docreview: {prof:'law', label:'Document review',
     ['The wider blast radius','<span class="pink">44%</span> of legal tasks can be automated (Goldman Sachs)'],
     ['The job underneath it','Generalist paralegal median <span class="pink">$62,890</span> · 0% growth']
   ],
-  door:'What to do instead: treat review as paid training, not a final stop — move up to the senior specialist job that <b>runs</b> the review AI (the $150K–$200K posting has the paralegal running Kira &amp; Harvey), or aim a J.D. at a YES specialty.',
+  door:'What to do instead: treat review as paid training. Then move up to the specialist who <b>runs</b> the review AI (that job post paid $150K–$200K, with Kira &amp; Harvey). Or aim a J.D. at a YES specialty.',
   short:'document review as a career is a no — it is the #1 job AI does in law firms, and the money moved to the specialists who run the AI'},
 lawstudent: {prof:'law', label:'Law student / law school',
   head:'LAW SCHOOL — <span class="pink">YES</span>, IF YOU PICK YOUR SPECIALTY FIRST. “IN GENERAL” IS A <span class="pink">NO</span>.',
   facts:[
     ['If you don’t aim','Median first salary <span class="pink">$100,000</span> vs. median J.D. debt <span class="pink">$112,500</span> (median debt at the median school)'],
     ['The profession’s center','Attorney median <span class="pink">$159,670</span> · top 10% $351,600+'],
-    ['The aimed specialty','Privacy &amp; AI-governance postings <span class="pink">$212K–$319K</span> — top pay in our scan']
+    ['The aimed specialty','Privacy &amp; AI-rules job posts <span class="pink">$212K–$319K</span> — top pay in our job posts']
   ],
-  door:'What to do instead of “law school in general”: pick the specialty before the debt — privacy &amp; AI governance, corporate diligence, healthcare regulatory — and build your record (clinics, certificates, platforms) toward it from year one, not at graduation.',
+  door:'What to do instead of “law school in general”: pick the specialty before the debt (privacy &amp; AI rules, checking deals, health-care rules). From year one, build your record toward it: clinics, certificates, tools. That saves years.',
   short:'law school only pays aimed at a top niche — with no aim, the middle outcome is a $100,000 first salary against $112,500 of median debt at the median school, while aimed specialties post $212K–$319K'},
 /* ——— CPA ——— */
 bookkeeper: {prof:'cpa', label:'Bookkeeper',
   head:'BOOKKEEPER — <span class="pink">NO</span> AS YOUR FINAL STOP.',
   facts:[
     ['The occupation, per BLS','Bookkeeping clerks <span class="pink">−6%</span> · accountants &amp; auditors <span class="pink">+5%</span>'],
-    ['Your pay ceiling today','Median <span class="pink">$50,670</span> · staff postings $50–80K, flat'],
+    ['Your pay ceiling today','Median <span class="pink">$50,670</span> · staff job posts $50–80K, flat'],
     ['Eaten from two sides','Bookkeeping is an AI use case at <span class="pink">60%</span> of tax firms · <span class="pink">29%</span> of firms offshore it (~$8/hr)']
   ],
-  door:'What to do instead: use this job as a launchpad, not a home — move to staff accountant, then aim at a specialty where you sign: <b>controller with ERP ownership ($130–200K + bonus)</b> or <b>specialized tax ($125–200K)</b>. The CPA pays only when it’s aimed at a niche — not at “accounting in general.”',
+  door:'What to do instead: use this job as a first step. Move to staff accountant. Then aim at a job where you sign: <b>controller who runs the ERP, the finance software ($130–200K + bonus)</b> or <b>special tax work ($125–200K)</b>. A CPA pays only when aimed at one niche.',
   short:'bookkeeping as your final job is a no — the occupation shrinks −6% while accountants grow +5%, AI takes the routine work and 29% of firms offshore it; the way out is staff accountant → controller ($130–200K + bonus) or specialized tax ($125–200K)'},
 tax: {prof:'cpa', label:'Tax — preparer / professional',
   head:'GENERALIST TAX PREP — <span class="pink">NO</span>. SPECIALIZED TAX — <span class="pink">YES</span>.',
   facts:[
-    ['The exposed seat','Generalist prep is the job AI is eating first in the building — tax research leads firm AI use at <span class="pink">69%</span>'],
+    ['The job AI hits','Generalist prep is the job AI is eating first in the building — tax research leads firm AI use at <span class="pink">69%</span>'],
     ['The aimed specialty','Specialized tax (pass-through / HNW) <span class="pink">$125–200K</span>'],
-    ['What managers ask for','CPA required in <span class="pink">8 of 10</span> tax-manager postings']
+    ['What managers ask for','CPA required in <span class="pink">8 of 10</span> tax-manager job posts']
   ],
-  door:'What to do instead: don’t sell hours of prep — specialize (pass-through entities, high-net-worth clients) and get the license that 8 of 10 manager postings demand. Your signature is what protects your pay. Prep is what AI does for almost nothing.',
+  door:'What to do instead: don’t sell hours of prep. AI does prep for almost nothing. Specialize (pass-through firms, very rich clients). Get the license 8 of 10 manager job posts ask for. Your signature protects your pay.',
   short:'generalist tax prep is a no — it’s the job AI is eating first in accounting — while specialized tax posts $125–200K with the CPA required in 8 of 10 manager postings'},
 staff: {prof:'cpa', label:'Staff accountant (generalist)',
   head:'GENERALIST STAFF ACCOUNTANT — <span class="pink">NO</span> AS YOUR FINAL STOP.',
   facts:[
-    ['The flat line','Staff postings pay <span class="pink">$50–80K</span> — and 2 years from now they pay $50–80K'],
-    ['The license at this level','CPA mentioned in <span class="pink">0 of 8</span> staff postings — this job doesn’t pay for it'],
+    ['The flat line','Staff job posts pay <span class="pink">$50–80K</span> — and 2 years from now they pay $50–80K'],
+    ['The license at this level','CPA mentioned in <span class="pink">0 of 8</span> staff job posts — this job doesn’t pay for it'],
     ['Where it leads, if aimed','Specialized tax <span class="pink">$125–200K</span> · transaction advisory up to <span class="pink">$225K</span>']
   ],
-  door:'What to do instead: pick the niche first, then the exam — specialized tax, technical accounting / SEC reporting, or transaction advisory. A license aimed at “accounting in general” lands you back in the same work AI is eating.',
+  door:'What to do instead: pick the niche first, then the exam. Special tax, technical accounting / SEC reporting, or transaction advisory. A license aimed at “accounting in general” puts you back in the work AI is taking.',
   short:'the generalist staff job is a no as your final stop — postings sit at $50–80K flat — while an aimed CPA opens specialized tax ($125–200K) and transaction advisory (up to $225K)'},
 audit: {prof:'cpa', label:'Audit',
   head:'GENERALIST AUDIT — <span class="pink">NO</span> AS YOUR FINAL STOP. <span class="pink">YES</span> AS A BRIDGE.',
@@ -611,34 +611,34 @@ audit: {prof:'cpa', label:'Audit',
     ['As a bridge','Transaction advisory (FDD) — the dataset’s top money — up to <span class="pink">$225K</span>'],
     ['What the bridge costs','FDD pays for an audit background + modeling — the license there is merely “preferred”']
   ],
-  door:'What to do instead: take the audit background and leave — build modeling skills and cross to FDD / transaction advisory or technical accounting before AI finishes eating the prep work you sit in.',
+  door:'What to do instead: take your audit experience and move on. Learn modeling (an AI tutor makes it faster). Then cross to FDD / transaction advisory or technical accounting, before AI takes the prep work you do now.',
   short:'generalist audit is a no as your final stop ($150K top pay, AI does the prep work) but a yes as a bridge — transaction advisory posts up to $225K and pays for the audit background'},
 technical: {prof:'cpa', label:'Technical accounting / SEC reporting',
   head:'TECHNICAL ACCOUNTING / SEC REPORTING — <span class="pink">YES</span>.',
   facts:[
-    ['The rule is absolute','Active CPA required in <span class="pink">6 of 6</span> postings'],
-    ['The pay','<span class="pink">$120–184K</span> posted'],
+    ['The rule is absolute','Active CPA required in <span class="pink">6 of 6</span> job posts'],
+    ['The pay','<span class="pink">$120–184K</span> in job posts'],
     ['Why it holds','The law reserves the SEC signature to licensed CPAs — judgment and liability, not routine tasks']
   ],
-  door:'What to do: this is already a YES specialty — deepen what protects you (SEC reporting craft, reporting platforms like Workiva) and price the signature. The Full Report sequences the bridge from a staff job and the state rule that decides your exam path.',
+  door:'What to do: this is already a YES job. Grow what protects you: SEC reporting skill and tools like Workiva. Charge for your signature. The Full Report shows the way from a staff job and your state’s exam rule.',
   short:'technical accounting / SEC reporting is a yes — $120–184K posted, with an active CPA required in 6 of 6 postings; the law reserves the signature to licensed CPAs'},
 fdd: {prof:'cpa', label:'Transaction advisory (FDD) / forensic',
   head:'TRANSACTION ADVISORY &amp; FORENSIC — <span class="pink">YES</span>. THE TOP MONEY IN THE SCAN.',
   facts:[
-    ['FDD pay','Up to <span class="pink">$225K</span> — the ceiling of our 54-posting scan'],
+    ['FDD pay','Up to <span class="pink">$225K</span> — the ceiling of our 54 job posts'],
     ['Forensic pay','<span class="pink">$143–162K</span> — court-facing; can’t be offshored'],
-    ['What it pays for','Audit pedigree + modeling — advisory postings mentioned the CPA itself in <span class="pink">0 of 9</span>']
+    ['What it pays for','Audit pedigree + modeling — advisory job posts mentioned the CPA itself in <span class="pink">0 of 9</span>']
   ],
-  door:'What to do instead of collecting credentials: this specialty pays for judgment on deals — the bridge runs through audit (the background) plus modeling practice. The Full Report prices that bridge from your current job.',
+  door:'What to do instead of collecting certificates: this job pays for judgment on deals. The way in is audit experience plus modeling practice. The Full Report shows that route from your job now.',
   short:'transaction advisory and forensic are the yes specialties of accounting — FDD posts up to $225K and forensic $143–162K, paying for an audit background and modeling rather than the license itself'},
 controller: {prof:'cpa', label:'Controller',
   head:'CONTROLLER — <span class="pink">YES</span>, IF YOU OWN THE SYSTEMS.',
   facts:[
-    ['The pay','<span class="pink">$130–200K + bonus</span> (CPA + systems postings)'],
-    ['The systems signal','NetSuite appears in <span class="pink">18 of 52</span> postings — and in <span class="pink">10 of 10</span> senior industry roles'],
+    ['The pay','<span class="pink">$130–200K + bonus</span> (CPA + systems job posts)'],
+    ['The systems signal','NetSuite appears in <span class="pink">18 of 52</span> job posts — and in <span class="pink">10 of 10</span> senior industry roles'],
     ['The dividing line','Run the systems — don’t be run by them']
   ],
-  door:'What to do instead of closing books forever: own the ERP and the whole close — the month-end count — and this job grows toward the CFO track. The Full Report maps the systems gaps HR actually screens for at this pay level.',
+  door:'What to do instead of closing books forever: run the ERP (finance software) and the whole month-end close. Then this job grows toward CFO. The Full Report shows the system skills HR checks at this pay.',
   short:'the controller job is a yes at $130–200K + bonus when it owns the systems — NetSuite shows up in 10 of 10 senior industry postings in our scan'},
 /* ——— NURSING ——— */
 medsurg: {prof:'nurse', label:'Med-surg nurse',
@@ -646,18 +646,18 @@ medsurg: {prof:'nurse', label:'Med-surg nurse',
   facts:[
     ['Your job today','RN median <span class="pink">$97,550</span> — med-surg is the field’s turnover trap'],
     ['Turnover signal','Med-surg / telemetry turnover runs <span class="pink">above</span> the 17.6% hospital average (NSI)'],
-    ['The specialty contrast','ICU postings at <span class="pink">$50–$75/hr</span> (CA)']
+    ['The specialty contrast','ICU job posts at <span class="pink">$50–$75/hr</span> (CA)']
   ],
-  door:'What to do instead: take the med-surg job as a ramp, not a home — move into a specialty (ICU / ER / OR) inside the first year or two. Specialty is what builds: it unlocks travel pay, CRNA eligibility, and the NP paths that actually pay.',
+  door:'What to do instead: take the med-surg job as a first step, not a home. Move into a specialty (ICU / ER / OR) in year one or two. That opens travel pay, the CRNA path and the NP paths that pay well.',
   short:'med-surg bedside as your final stop is a no — it’s the field’s turnover trap — while specialty jobs post $50–$75/hr and unlock the travel and CRNA money'},
 specialty: {prof:'nurse', label:'Specialty RN (ICU / ER / OR)',
   head:'SPECIALTY RN (ICU / ER / OR) — <span class="pink">YES</span>.',
   facts:[
-    ['Posted pay','ICU in CA <span class="pink">$50–$75/hr</span> · RN median $97,550'],
+    ['Pay in job posts','ICU in CA <span class="pink">$50–$75/hr</span> · RN median $97,550'],
     ['What it unlocks at 2 years','Travel RN · CRNA eligibility · the NP paths that pay'],
-    ['The ceiling beyond','CRNA median <span class="pink">$236,590</span> · postings up to $400K base']
+    ['The ceiling beyond','CRNA median <span class="pink">$236,590</span> · job posts up to $400K base']
   ],
-  door:'What to do: this is a YES specialty — deepen the specialty, then choose your next step (travel money, the CRNA path, or specialty NP) with the posted numbers, not feelings. The Full Report puts the steps in order.',
+  door:'What to do: this is a YES job. Go deeper in your specialty. Then pick your next step by real pay numbers: travel money, the CRNA path or a specialty NP. The Full Report puts the steps in order.',
   short:'the specialty RN job is a yes — ICU postings run $50–$75/hr, and two years of specialty unlock travel pay and the CRNA path (median $236,590)'},
 travel: {prof:'nurse', label:'Travel nurse',
   head:'TRAVEL RN — <span class="pink">YES</span>, AFTER 2 YEARS OF SPECIALTY.',
@@ -666,80 +666,80 @@ travel: {prof:'nurse', label:'Travel nurse',
     ['The entry rule','Contracts gate on ~<span class="pink">2 years</span> of specialty experience'],
     ['The window','<span class="pink">70.7%</span> of hospitals plan to cut agency use — the window is closing, and it is not a forever job']
   ],
-  door:'What to do instead: build the specialty first (ICU / ER / OR), then take the travel money while the window is open — and bank it toward the NP or CRNA decision instead of spending it as a lifestyle.',
+  door:'What to do instead: build the specialty first (ICU / ER / OR). Then take the travel money while it lasts. Save it toward the NP or CRNA step instead of spending it.',
   short:'travel nursing is a yes after two years of specialty — median $2,134 a week (Dec 2025 snapshot, and shrinking) — but 70.7% of hospitals plan to cut agency use, so it’s a window, not a final stop'},
 nstudent: {prof:'nurse', label:'Nursing student',
   head:'NURSING IS A <span class="pink">YES</span>. THE MOST EXPENSIVE WAY IN IS A <span class="pink">NO</span>.',
   facts:[
     ['The cheapest legal way in','ADN total tuition <span class="pink">$5,472</span> (Wake Tech) — the same NCLEX as the BSN'],
     ['The fork, priced','RN median <span class="pink">$97,550</span> → NP median <span class="pink">$132,300</span>'],
-    ['The tuition trap','DNP required in <span class="pink">0 of 16</span> top postings · programs charge $73K–$195K']
+    ['The tuition trap','DNP required in <span class="pink">0 of 16</span> top job posts · programs charge $73K–$195K']
   ],
-  door:'What to do instead of buying the longest degree first: license cheap (ADN), take a specialty first job, and let employers fund the bridge (RN-to-BSN) while you earn. NP comes later — pick it by specialty, not because everyone does it.',
+  door:'What to do instead of buying the longest degree first: get licensed cheap (ADN). Take a specialty first job. Let your employer pay for RN-to-BSN while you earn. Pick NP later, by specialty, not because everyone does.',
   short:'nursing is a yes but the most expensive way in is a no — an ADN licenses you for $5,472 total with the same NCLEX, while DNP programs charging $73K–$195K were required in 0 of 16 top postings'},
 np: {prof:'nurse', label:'Nurse practitioner (NP)',
   head:'NP — <span class="pink">YES</span>, IF YOU PICK A SPECIALTY. GENERALIST FNP — <span class="pink">NO</span> IN BIG CITIES AND RESTRICTED STATES, WHERE TOO MANY PEOPLE ALREADY DO IT. IT STILL WORKS WHERE NURSES ARE SCARCE AND IN FULL-PRACTICE STATES.',
   facts:[
     ['The center','NP median <span class="pink">$132,300</span> (RN median $97,550)'],
-    ['The specialty premium','Psych NP (PMHNP) postings <span class="pink">$200K–$257K</span>'],
-    ['Two traps, priced','DNP required in <span class="pink">0 of 16</span> top postings · CA, TX, FL are <span class="pink">Restricted</span>-practice states (27 are full-practice)']
+    ['The specialty premium','Psych NP (PMHNP) job posts <span class="pink">$200K–$257K</span>'],
+    ['Two traps, priced','DNP required in <span class="pink">0 of 16</span> top job posts · CA, TX, FL are <span class="pink">Restricted</span>-practice states (27 are full-practice)']
   ],
-  door:'What to do instead of “FNP because everyone does FNP”: pick the specialty with the posted premium (psych is the current leader) and check what your state lets an NP do before the tuition — the same license is worth different money across a state line.',
+  door:'What to do instead of “FNP because everyone does FNP”: pick the specialty that pays more (psych leads now). Check what your state lets an NP do before paying for school. The same license pays differently across a state line.',
   short:'the NP path pays by specialty, not by crowd — psych NP postings run $200K–$257K — while generalist FNP is a no in big cities and restricted states, where too many people already do it (it still works where nurses are scarce and in full-practice states), and a $73K–$195K DNP is the other trap (DNP required in 0 of 16 top postings)'},
 crna: {prof:'nurse', label:'CRNA (nurse anesthetist)',
   head:'CRNA — <span class="pink">YES</span>. THE HARDEST GATE, THE BIGGEST MONEY.',
   facts:[
     ['The ceiling','CRNA median <span class="pink">$236,590</span> — nursing’s top pay'],
-    ['Posted','Up to <span class="pink">$400K base</span> + signing bonuses in this week’s scan'],
+    ['In job posts','Up to <span class="pink">$400K base</span> + signing bonuses in this week’s job posts'],
     ['The way in','The doctorate here IS the license — ICU experience is the entry ticket']
   ],
-  door:'What to do: build the ICU years deliberately — they are the real application. This is the one specialty where the expensive degree is not a trap, because here the degree IS the license itself.',
+  door:'What to do: build your ICU years on purpose. They are your real application. Here the expensive degree is not a trap, because the degree IS the license.',
   short:'CRNA is nursing’s top pay — median $236,590, postings up to $400K base — and the one specialty where the doctorate is the license itself, not a trap'},
 lpn: {prof:'nurse', label:'LPN / LVN',
   head:'STARTING AS AN LPN — <span class="pink">NO</span>.',
   facts:[
     ['The outlook','LPN growth just <span class="pink">+3%</span> (BLS) — the shallow end of the field'],
     ['Where the jobs aren’t','Only <span class="pink">16%</span> of LPNs work in hospitals — the money and the ladders sit elsewhere'],
-    ['The better door','The ADN licenses you as an RN for <span class="pink">$5,472</span> total (Wake Tech) — same NCLEX as a BSN']
+    ['The better way in','The ADN licenses you as an RN for <span class="pink">$5,472</span> total (Wake Tech) — same NCLEX as a BSN']
   ],
-  door:'What to do instead: skip the LPN detour and enter as an RN via the ADN — or, if you’re already an LPN, price the LPN-to-RN bridge instead of spending years in a job with a low pay ceiling.',
+  door:'What to do instead: skip the LPN detour and become an RN through the ADN. Already an LPN? Price the LPN-to-RN bridge. Don’t spend years under a low pay ceiling.',
   short:'starting as an LPN is a no — +3% growth and only 16% work in hospitals — while the ADN licenses you as an RN for $5,472 total'},
 /* ——— FINANCE ——— */
 reporting: {prof:'fin', label:'Generalist reporting analyst',
   head:'GENERALIST REPORTING ANALYST — <span class="pink">NO</span>.',
   facts:[
     ['The job today','Report assembly, variance decks, month-end packs — median <span class="pink">$103,570</span>'],
-    ['The squeeze','AI does the draft · offshore does it cheaper · junior postings <span class="pink">down 21%</span>'],
+    ['The squeeze','AI does the draft · offshore does it cheaper · junior job posts <span class="pink">down 21%</span>'],
     ['The trap, in one line','Thinking it’s a ladder. It’s a <span class="pink">treadmill</span>']
   ],
-  door:'What to do instead: move one job over — <b>FP&amp;A business partner</b> (posted to $276,250) or the <b>BI / analytics hybrid</b> (the fastest way in, $138K–$180,600). The postings print the skills they want: SQL → platform → BI.',
+  door:'What to do instead: move one job over. <b>FP&amp;A business partner</b> (paid up to $276,250) or the <b>BI / analytics hybrid</b> (fastest way in, $138K–$180,600). Job posts list the skills: SQL → platform → BI. With an AI tutor, SQL takes weeks, not years.',
   short:'the generalist reporting job is a no — median $103,570, junior postings down 21%, and AI drafts the reports now; the money is in FP&A partnering and the analytics hybrid'},
 fpa: {prof:'fin', label:'FP&A analyst / business partner',
   head:'FP&amp;A BUSINESS PARTNER — <span class="pink">YES</span>.',
   facts:[
-    ['Posted ceiling','Up to <span class="pink">$231,940–$276,250</span> (Roblox, senior manager)'],
+    ['Top pay in job posts','Up to <span class="pink">$231,940–$276,250</span> (Roblox, senior manager)'],
     ['Why this job survives','Only <span class="pink">5%</span> of CFOs trust AI with a board report unchecked — the human who owns the number is the job'],
-    ['The demanded stack','SQL in <span class="pink">31 of 40</span> top-money postings · a required CFA in <span class="pink">0 of 40</span>']
+    ['The demanded stack','SQL in <span class="pink">31 of 40</span> top-money job posts · a required CFA in <span class="pink">0 of 40</span>']
   ],
-  door:'What to do instead of assembling reports: own a P&amp;L next to a business unit. They pay for judgment and trust, not decks. The Full Report lines up your skills (SQL → platform → BI) against your gaps.',
+  door:'What to do instead of building reports: own a P&amp;L (a team’s money plan) next to one business team. They pay for judgment and trust, not slides. The Full Report compares your skills (SQL → platform → BI) with what’s missing.',
   short:'the FP&A partner job is a yes — posted up to $276,250 — because only 5% of CFOs trust AI with a board report unchecked; the job is owning the number, not assembling it'},
 strategic: {prof:'fin', label:'Strategic finance',
   head:'STRATEGIC FINANCE — <span class="pink">YES</span>.',
   facts:[
-    ['Posted at analyst level','Google <span class="pink">$113K–$167K</span>'],
-    ['What they ask','SQL — <span class="pink">not a CFA</span> (required in 0 of 40 top-money postings)'],
+    ['Pay at analyst level','Google <span class="pink">$113K–$167K</span>'],
+    ['What they ask','SQL — <span class="pink">not a CFA</span> (required in 0 of 40 top-money job posts)'],
     ['The work','Pricing, unit economics, investment cases — judgment AI can draft but not own']
   ],
-  door:'What to do instead of certificate-first planning: build the case-work portfolio (pricing, unit economics) on top of real SQL. The Full Report picks your entry cases and sequences the stack.',
+  door:'What to do instead of a certificate first: build real SQL, then sample work on pricing and unit economics (profit per customer). The Full Report picks your first projects and their order.',
   short:'strategic finance is a yes — Google posts $113K–$167K at analyst level and asks for SQL, not a CFA (required in 0 of 40 top-money postings)'},
 hybrid: {prof:'fin', label:'BI / analytics hybrid',
   head:'BI / ANALYTICS HYBRID — <span class="pink">YES</span>, THE FASTEST WAY IN.',
   facts:[
-    ['Posted','Snowflake <span class="pink">$138K–$180,600</span> — “AI-first” finance analyst, 1–3 yrs in'],
+    ['In job posts','Snowflake <span class="pink">$138K–$180,600</span> — “AI-first” finance analyst, 1–3 yrs in'],
     ['Why it’s fast','Finance brain + data hands — AI drafts the model; the hybrid owns the data under it and the story on top'],
-    ['The credential myth','CFA required in <span class="pink">0 of 40</span> top-money postings · SQL in <span class="pink">31 of 40</span>']
+    ['The credential myth','CFA required in <span class="pink">0 of 40</span> top-money job posts · SQL in <span class="pink">31 of 40</span>']
   ],
-  door:'What to do instead: if you have any data aptitude, this way in beats the queue — a 1–3-year hybrid job posts above the generalist median ($103,570). The Full Report puts the skills in order against your current job.',
+  door:'What to do instead: if you like data, this way in skips the line. A hybrid job with 1–3 years pays above typical analyst pay ($103,570). The Full Report puts the skills in order from your job now.',
   short:'the analytics hybrid is the fastest way in in finance — Snowflake posts $138K–$180,600 at 1–3 years for an “AI-first” analyst, and 0 of 40 top-money postings required a CFA'},
 corpdev: {prof:'fin', label:'Corporate development',
   head:'CORPORATE DEVELOPMENT — <span class="pink">YES</span>, BUT THE WAY IN IS EARLY AND NARROW.',
@@ -748,7 +748,7 @@ corpdev: {prof:'fin', label:'Corporate development',
     ['The entry rule','Entry runs through an investment-banking / consulting background'],
     ['The clock','Miss the first ~2 years and this way in mostly closes']
   ],
-  door:'What to do instead: if you’re inside the window — or can borrow the background via a banking / consulting job — move now. If the window has closed, the FP&amp;A partner and hybrid paths pay about the same without it.',
+  door:'What to do instead: still early, or can you get banking / consulting experience? Move now. If that window has closed, FP&amp;A partner and hybrid jobs pay about the same without it.',
   short:'corporate development is a yes with a narrow early window — pay to $184K, but entry runs through a banking/consulting background and mostly closes after the first two years'},
 /* ——— CREATOR ——— */
 faceless: {prof:'creator', label:'Faceless / AI-mass channel',
@@ -811,12 +811,12 @@ creatorbiz: {prof:'creator', label:'Creator with a business',
 var GRIDS = {
 law: {head:'LAW IS A YES — IN A SPECIALTY. THE MOST COMMON WAY IN IS A NO.',
   sub:'“Law” is seven different jobs wearing one title. Here is the verdict for each:',
-  corner:'Privacy &amp; AI governance — the top pay in our 46-posting scan ($212K–$319K), with the CIPP named in 3 of 3 privacy postings that name a certification. The trap, priced: median debt at the median school, $112,500, vs. a $100,000 median first salary.',
+  corner:'Privacy &amp; AI rules — the top pay in our 46 job posts ($212K–$319K), with the CIPP named in 3 of 3 privacy job posts that name a certification. The trap, priced: median debt at the median school, $112,500, vs. a $100,000 median first salary.',
   short:'“law” breaks into very different jobs — privacy & AI governance, corporate diligence and healthcare regulatory are yes (postings to $319K); the generalist paralegal job and law school with no aim are no',
   rows:[
-    ['Privacy & AI governance','YES','postings $212K–$319K','specialist'],
+    ['Privacy & AI rules','YES','job posts $212K–$319K','specialist'],
     ['Corporate diligence specialist','YES','senior pay $135K–$200K','specialist'],
-    ['Healthcare regulatory','YES','a YES specialty in our scan','specialist'],
+    ['Healthcare regulatory','YES','a YES specialty in our job posts','specialist'],
     ['Law school aimed at a YES specialty','YES','the median outcome beats the debt','lawstudent'],
     ['Generalist paralegal','NO','median $62,890 · 0% growth','paralegal'],
     ['Document review as a career','NO','AI’s #1 legal use case','docreview'],
@@ -824,7 +824,7 @@ law: {head:'LAW IS A YES — IN A SPECIALTY. THE MOST COMMON WAY IN IS A NO.',
   ]},
 cpa: {head:'ACCOUNTING IS A YES — IN A SPECIALTY. THE MOST COMMON SEATS ARE A NO.',
   sub:'“Accountant” is nine different jobs. The verdict changes with the job:',
-  corner:'Transaction advisory (FDD) — up to $225K, the top money in our 54-posting scan. And the exam is real: FAR, the hardest CPA section, passes at 42%. Aim first, then sit. Pay priced on 2026 scarcity — re-check 2028.',
+  corner:'Transaction advisory (FDD) — up to $225K, the top money in our 54 job posts. And the exam is real: FAR, the hardest CPA section, passes at 42%. Aim first, then sit. Pay priced on 2026 scarcity — re-check 2028.',
   short:'“accountant” is nine jobs — the generalist jobs (bookkeeping, prep, audit as a final stop) are no, and the aimed specialties (specialized tax, SEC reporting, FDD, forensic, controller) post $120K–$225K',
   rows:[
     ['Bookkeeping / generalist staff','NO','the occupation shrinks −6%','bookkeeper'],
@@ -838,11 +838,11 @@ cpa: {head:'ACCOUNTING IS A YES — IN A SPECIALTY. THE MOST COMMON SEATS ARE A 
   ]},
 nurse: {head:'NURSING IS A YES. THE MOST COMMON WAY IN IS A NO.',
   sub:'Your path, part by part:',
-  corner:'CRNA (median $236,590) and psych NP ($200K–$257K posted). The trap: DNP schools charging $73K–$195K for a degree required in 0 of 16 top postings.',
+  corner:'CRNA (median $236,590) and psych NP ($200K–$257K posted). The trap: DNP schools charging $73K–$195K for a degree required in 0 of 16 top job posts.',
   short:'nursing breaks into very different jobs — specialty RN, psych NP, CRNA and travel are yes; med-surg as a final stop and starting as an LPN are no, and generalist FNP is no in big cities where too many people already do it',
   rows:[
     ['ICU / ER / OR specialty RN','YES','$50–$75/hr posted (ICU, CA)','specialty'],
-    ['Psych NP (PMHNP)','YES','postings $200K–$257K','np'],
+    ['Psych NP (PMHNP)','YES','job posts $200K–$257K','np'],
     ['CRNA','YES','median $236,590 · the hardest gate, the biggest money','crna'],
     ['Travel RN, after 2 years of specialty','YES','median $2,134/wk · Dec 2025 snapshot — and shrinking','travel'],
     ['Med-surg bedside as your final stop','NO','the field’s turnover trap','medsurg'],
@@ -850,14 +850,14 @@ nurse: {head:'NURSING IS A YES. THE MOST COMMON WAY IN IS A NO.',
     ['Starting as an LPN','NO','+3% growth · only 16% in hospitals','lpn']
   ]},
 fin: {head:'“FINANCIAL ANALYST” IS FIVE JOBS. THREE ARE GROWING. ONE IS A TRAP. ONE HAS A LOCKED DOOR.',
-  sub:'The verdicts, per sub-niche:',
-  corner:'SQL sits in 31 of 40 top-money postings; a required CFA in 0 of 40; seniors are hired 3-to-1 over juniors. The certificate-first plan is the detour.',
+  sub:'Each job gets its own answer:',
+  corner:'SQL sits in 31 of 40 top-money job posts; a required CFA in 0 of 40; seniors are hired 3-to-1 over juniors. The certificate-first plan is the detour.',
   short:'“financial analyst” is five jobs — the generalist reporting one is a trap (median $103,570, juniors down 21%), and FP&A partnering, strategic finance and the analytics hybrid post up to $276,250',
   rows:[
-    ['Generalist reporting analyst','NO','median $103,570 · junior postings down 21%','reporting'],
+    ['Generalist reporting analyst','NO','median $103,570 · junior job posts down 21%','reporting'],
     ['FP&A business partner','YES','posted to $231,940–$276,250','fpa'],
     ['Strategic finance','YES','Google $113K–$167K at analyst level','strategic'],
-    ['BI / analytics hybrid','YES','Snowflake $138K–$180,600 · the fastest door','hybrid'],
+    ['BI / analytics hybrid','YES','Snowflake $138K–$180,600 · the fastest way in','hybrid'],
     ['Corporate development','YES · NARROW','to $184K · banking background entry, early window','corpdev']
   ]},
 creator: {head:'CONTENT CREATOR IS A NO. A CREATOR WITH A BUSINESS IS A YES.',
@@ -945,7 +945,7 @@ function submitJob(){
   document.getElementById('wlDone').style.display = 'none';
   document.getElementById('wlErr').style.display = 'none';
   var wlBtn = document.querySelector('#wlForm button.btn');
-  if (wlBtn) { wlBtn.disabled = false; wlBtn.textContent = 'Start researching \u2665'; }
+  if (wlBtn) { wlBtn.disabled = false; wlBtn.textContent = 'Start my check \u2665'; }
   show('s7', 5);
 }
 function pickChip(prof){ S.typed = ''; showGrid(prof); }
@@ -1006,7 +1006,7 @@ function submitWaitlist(){
       document.getElementById('checkPanel').scrollIntoView({behavior:'smooth', block:'start'});
     })
     .catch(function(){
-      if (btn) { btn.disabled = false; btn.textContent = 'Start researching \u2665'; }
+      if (btn) { btn.disabled = false; btn.textContent = 'Start my check \u2665'; }
       err.textContent = 'That didn\u2019t save — check the email and try again.';
       err.style.display='block';
     });
@@ -1032,7 +1032,7 @@ function restart(){ show('s0', 1); }
 
 /* ===== Result rendering ===== */
 function withheldHTML(P){
-  return '<b>What this doesn’t show:</b> your personal gaps against what HR actually requires in this specialty, and your step-by-step plan for the next 12 months. That’s the Full Report — built from the same ' + P.count + ' ' + (P.srcWhat || 'postings') + ', applied to you.';
+  return '<b>What this doesn’t show:</b> what you still lack for this job, and your step-by-step plan for the next 12 months. That’s the Full Report: the same ' + P.count + ' ' + (P.srcWhat || 'job posts') + ', applied to you.';
 }
 function humanLine(short){
   if (!short) return '';
@@ -1051,7 +1051,7 @@ function cardHTML(P, pathLine, st){
     (v.hook ? '<div class="vhook">' + v.hook + '</div>' : '') +
     '<h3>' + st.head + '</h3>' +
     (v.conf ? '<div><span class="vconf">Confidence: ' + v.conf + '</span></div>' : '') +
-    (human ? '<p class="vhuman"><b>In human words:</b> ' + human + '</p>' : '') +
+    (human ? '<p class="vhuman"><b>In plain words:</b> ' + human + '</p>' : '') +
     '<div class="vnums">' + nums + '</div>' +
     (Q ? '<div class="vquote">&ldquo;' + Q.q + '&rdquo;<span class="vqby">— ' + Q.by + ' · <a href="' + Q.url + '" target="_blank" rel="noopener">source</a></span></div>' : '') +
     (v.coe ? '<div class="vcoe">' + v.coe + '</div>' : '') +
@@ -1102,7 +1102,7 @@ function showGrid(prof){
   document.getElementById('gridHook').textContent = GV11[prof].hook;
   document.getElementById('gridHead').innerHTML = G.head + ' <span class="vconf">Confidence: High</span>';
   document.getElementById('gridSub').textContent = G.sub;
-  document.getElementById('gridHuman').textContent = 'In human words: ' + humanLine(G.short);
+  document.getElementById('gridHuman').textContent = 'In plain words: ' + humanLine(G.short);
   document.getElementById('gridRows').innerHTML = G.rows.map(function(r){
     var cls = (r[1].indexOf('YES') === 0) ? 'yes' : 'no';
     return '<button class="grow" onclick="showSeat(\'' + prof + '\',\'' + r[3] + '\',true)">' +
@@ -1152,7 +1152,7 @@ function saveStrip(pre){
 function openCheckout(){
   var P = PROFS[S.prof];
   document.getElementById('coCount').textContent = P.count;
-  document.getElementById('coWhat').textContent = P.srcWhat || 'postings';
+  document.getElementById('coWhat').textContent = P.srcWhat || 'job posts';
   document.getElementById('coFacts').innerHTML = COFACTS[S.prof].map(function(f){ return '<li>' + f + '</li>'; }).join('');
   openModal('mCheckout');
 }
@@ -1165,7 +1165,7 @@ function buildLetter(){
   var txt =
 'Hi Mom and Dad —\n\n' +
 'I just ran a free PathCheck on the career path I\u2019m planning (' + label + ' — ' + P.kick + '). The verdict: ' + short + '.\n\n' +
-'There\u2019s a Full Report with the exact plan — the specialty to aim at, my gaps against what top-paying employers actually require (it\u2019s built from ' + (P.srcLine || 'real job postings') + ', not generic advice), and a 12-month sequence. It costs $19, and there\u2019s a $9/month follow-up that tracks changes in the profession every week so my plan doesn\u2019t go stale while I\u2019m on it.\n\n' +
+'There\u2019s a Full Report with the exact plan — the specialty to aim at, my gaps against what top-paying employers actually require (it\u2019s built from ' + (P.srcLine || 'real job posts') + ', not generic advice), and a 12-month sequence. It costs $19, and there\u2019s a $9/month follow-up that tracks changes in the profession every week so my plan doesn\u2019t go stale while I\u2019m on it.\n\n' +
 'I don\u2019t have a card I can use for this — could you cover it? You\u2019ll see my verdict and the plan too, and the weekly updates, so you can see I\u2019m actually on track.\n\n' +
 'My verdict and the payment link: ' + link + '\n\n' +
 '\u2014 ' + (S.name || 'your kid');
@@ -1192,7 +1192,7 @@ var SIGNALS = [
   {h:'AI isn\u2019t cutting junior legal jobs — it\u2019s repricing them', d:'Oct 26, 2026 · Clio Legal Trends', tag:'→ your checklist: build an AI workflow'},
   {h:'AI-native firms are now poaching Big Law partners by name', d:'Oct 14, 2026 · Reuters', tag:'→ your checklist: law + AI hybrid'},
   {h:'Partner pay hit a record $1.55M — a $2B firm voted to dissolve', d:'Oct 29, 2026 · Reuters', tag:'→ your checklist: take your skills with you'},
-  {h:'Posting of the week: Harvey Senior Product Counsel — $251K–$317K', d:'Oct 2026 · 46-posting scan', tag:'→ your checklist: Specialty #1 — privacy/AI'}
+  {h:'Job post of the week: Harvey Senior Product Counsel — $251K–$317K', d:'Oct 2026 · 46 job posts', tag:'→ your checklist: Specialty #1 — privacy/AI'}
 ];
 var sigIdx = 0, sigTimer = null;
 var sigRM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
