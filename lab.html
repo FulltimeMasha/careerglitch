@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Career Glitch Lab — No experience? Get it in 30 days.</title>
+<meta name="description" content="A one-month first-experience lab for juniors in accounting, marketing and data: real small-business clients, AI tools and a pro who checks every task.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<meta name="theme-color" content="#FFEEF5">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Instrument+Sans:wght@400;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFCF6;
+  --ink:#1C1A1F;
+  --ink2:#3a2b4d;
+  --mut:#7a7285;
+  --pink:#FF8CBE;
+  --hot:#F92A82;
+  --deep:#c2185b;
+  --blush:#FFD8EA;
+  --soft:#FFEEF5;
+  --butter:#F0E6CF;
+  --line:#eedfe8;
+  --white:#fff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;
+  color:var(--ink);
+  font-family:'Instrument Sans',system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  background:linear-gradient(180deg,#FFFCF6 0%,#FFF3F8 46%,#FFEEF5 78%,#FFE3F0 100%);
+  background-attachment:fixed;
+  overflow-x:hidden;
+}
+h1,h2,h3,.disp{font-family:'Outfit',sans-serif}
+.mono{font-family:'DM Mono',monospace}
+.sky{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(58px)}
+.b1{width:340px;height:340px;background:#FFD8EA;opacity:.75;top:-110px;left:-90px}
+.b2{width:280px;height:280px;background:#FFE9B8;opacity:.5;top:16%;right:-110px}
+.b3{width:300px;height:300px;background:#FFC7DE;opacity:.55;bottom:-130px;left:22%}
+.skyheart{position:absolute;color:var(--pink);opacity:.14;line-height:1}
+.sh1{font-size:110px;top:9%;left:6%}
+.sh2{font-size:64px;top:58%;right:7%}
+.topbar{display:flex;align-items:center;justify-content:flex-start;padding:14px 24px;max-width:1100px;margin:0 auto}
+.logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.logo span{color:var(--deep)}
+.logo .heart{color:var(--hot)}
+.logo .by{font-family:'DM Mono',monospace;font-weight:400;font-size:11px;letter-spacing:.14em;color:var(--mut);margin-left:8px;text-transform:uppercase}
+.page{max-width:760px;margin:0 auto;padding:0 20px 72px}
+.hero{text-align:center;padding:38px 0 34px}
+.kicker{
+  display:inline-block;
+  font-family:'DM Mono',monospace;
+  font-size:11.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  background:var(--blush);
+  color:var(--ink);
+  border-radius:999px;
+  padding:7px 13px;
+  transform:rotate(-1.2deg);
+  box-shadow:0 5px 14px rgba(23,18,43,.10);
+}
+.hero h1{
+  font-size:clamp(38px,8vw,62px);
+  font-weight:900;
+  line-height:.98;
+  letter-spacing:-.035em;
+  max-width:680px;
+  margin:28px auto 0;
+}
+.hero h1 .hl{background:linear-gradient(transparent 64%,var(--blush) 64%)}
+.hero .sub{font-size:clamp(17px,2.8vw,20px);color:var(--ink2);max-width:38em;margin:22px auto 0}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Outfit',sans-serif;
+  font-weight:800;
+  font-size:17px;
+  border:none;
+  border-radius:999px;
+  padding:16px 28px;
+  background:linear-gradient(135deg,#F92A82,#FF8CBE);
+  color:#fff;
+  text-decoration:none;
+  cursor:pointer;
+  box-shadow:0 14px 30px rgba(249,42,130,.34);
+  transition:transform .12s ease,box-shadow .12s ease;
+  text-align:center;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 18px 36px rgba(249,42,130,.40)}
+.btn:active{transform:scale(.98);box-shadow:0 7px 18px rgba(249,42,130,.30)}
+.btn:disabled{opacity:.55;cursor:wait;transform:none}
+.hero .btn{width:min(100%,520px);margin-top:34px}
+.under-btn{font-size:15px;color:var(--mut);margin-top:13px}
+section{margin-top:30px}
+.card{
+  background:rgba(255,255,255,.82);
+  border:1.5px solid var(--line);
+  border-radius:26px;
+  padding:clamp(24px,5vw,38px);
+  box-shadow:0 20px 46px rgba(23,18,43,.07);
+}
+.section-label{
+  display:inline-block;
+  font-family:'DM Mono',monospace;
+  font-size:11.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--deep);
+  background:var(--soft);
+  border-radius:999px;
+  padding:6px 11px;
+  margin-bottom:16px;
+}
+h2{font-size:clamp(28px,5.4vw,40px);font-weight:900;line-height:1.08;letter-spacing:-.025em;margin-bottom:18px}
+h3{line-height:1.25}
+.lede{font-size:19px;color:var(--ink2)}
+.pain-lines{display:grid;gap:13px;font-size:clamp(18px,3.2vw,21px);line-height:1.45}
+.pain-lines p:last-child{font-family:'Outfit',sans-serif;font-weight:900;color:var(--deep)}
+.steps{display:grid;gap:13px;counter-reset:step;list-style:none}
+.steps li{
+  display:flex;
+  gap:15px;
+  align-items:flex-start;
+  background:var(--paper);
+  border:1.5px solid var(--line);
+  border-radius:18px;
+  padding:17px;
+}
+.steps li::before{
+  counter-increment:step;
+  content:counter(step);
+  flex:0 0 auto;
+  width:34px;height:34px;
+  border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--hot);color:#fff;
+  font-family:'Outfit',sans-serif;font-weight:900;font-size:16px;
+  box-shadow:0 7px 16px rgba(249,42,130,.28);
+}
+.tracks{display:grid;gap:13px}
+.track{
+  border-radius:18px;
+  padding:19px;
+  background:var(--soft);
+  border:1.5px solid #f6cddf;
+}
+.track strong{font-family:'Outfit',sans-serif;font-size:19px}
+.checks{display:grid;gap:12px;list-style:none}
+.checks li{display:flex;gap:11px;align-items:flex-start;background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:15px 16px}
+.checks li::before{content:'♥';color:var(--hot);font-weight:900;line-height:1.35}
+.honest{
+  background:var(--ink);
+  color:#fff;
+  border-radius:26px;
+  padding:clamp(26px,5vw,40px);
+  box-shadow:0 24px 50px rgba(23,18,43,.24);
+}
+.honest .section-label{background:rgba(255,255,255,.10);color:var(--pink)}
+.honest p{font-family:'Outfit',sans-serif;font-size:clamp(23px,4.8vw,33px);font-weight:800;line-height:1.22;letter-spacing:-.015em}
+.form-card{background:#fff}
+.form-intro{color:var(--ink2);margin-top:-6px}
+form{margin-top:24px}
+.field{margin-top:21px}
+label.fl,legend.fl{display:block;font-weight:700;font-size:15.5px;margin-bottom:8px;padding:0}
+label.fl .optional,legend.fl .optional{font-weight:400;color:var(--mut);font-size:14px}
+input.txt,textarea.txt{
+  width:100%;
+  font-family:'Instrument Sans',sans-serif;
+  font-size:17px;
+  line-height:1.45;
+  padding:14px 15px;
+  border:1.5px solid var(--line);
+  border-radius:15px;
+  background:#fff;
+  color:var(--ink);
+}
+textarea.txt{min-height:112px;resize:vertical}
+input.txt:focus,textarea.txt:focus{outline:3px solid rgba(255,140,190,.35);border-color:var(--hot)}
+fieldset{border:0}
+.choices{display:grid;gap:9px}
+.choices.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.choice{position:relative}
+.choice input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.choice label{
+  display:flex;
+  align-items:center;
+  min-height:52px;
+  padding:12px 14px;
+  border:1.5px solid var(--line);
+  border-radius:15px;
+  background:var(--paper);
+  font-size:16.5px;
+  font-weight:600;
+  line-height:1.35;
+  cursor:pointer;
+  transition:background .12s,border-color .12s,box-shadow .12s;
+}
+.choice label::before{
+  content:'';
+  flex:0 0 auto;
+  width:17px;height:17px;
+  border:2px solid #d9a9c3;
+  border-radius:50%;
+  margin-right:10px;
+  background:#fff;
+}
+.choice input:checked + label{background:var(--soft);border-color:var(--hot);box-shadow:0 0 0 2px rgba(249,42,130,.10)}
+.choice input:checked + label::before{background:var(--hot);border-color:var(--hot);box-shadow:inset 0 0 0 4px #fff}
+.choice input:focus-visible + label{outline:3px solid rgba(255,140,190,.45);outline-offset:2px}
+.deposit-box{background:var(--soft);border:1.5px solid #f6cddf;border-radius:18px;padding:17px}
+.deposit-box legend{float:left;width:100%;margin-bottom:11px}
+.deposit-box .choices{clear:both}
+.small-note{font-size:13.5px;color:var(--mut);margin-top:11px;line-height:1.45}
+.form-error{
+  display:none;
+  margin-top:18px;
+  border:1.5px solid #ef9bbd;
+  background:#fff0f6;
+  color:#8d1047;
+  border-radius:14px;
+  padding:13px 14px;
+  font-weight:600;
+}
+.form-error.on{display:block}
+.submit{width:100%;margin-top:26px}
+.success{
+  display:none;
+  text-align:center;
+  padding:10px 0 4px;
+}
+.success.on{display:block}
+.success .check{
+  width:58px;height:58px;margin:0 auto 16px;border-radius:50%;
+  display:grid;place-items:center;background:var(--soft);color:var(--hot);font-size:30px;
+}
+.success h3{font-size:30px;font-weight:900;margin-bottom:10px}
+.success p{color:var(--ink2);max-width:34em;margin:0 auto}
+.share-link{
+  display:flex;
+  gap:8px;
+  margin:20px auto 0;
+  max-width:590px;
+}
+.share-link input{
+  flex:1;min-width:0;
+  font-family:'DM Mono',monospace;
+  font-size:16px;
+  padding:13px;
+  border:1.5px solid var(--line);
+  border-radius:13px;
+  background:var(--paper);
+  color:var(--ink);
+}
+.copybtn{font-family:'Outfit',sans-serif;font-weight:700;border:none;background:var(--ink);color:#fff;border-radius:13px;padding:12px 16px;cursor:pointer;white-space:nowrap}
+.copy-status{min-height:24px;font-size:14px;color:var(--deep);margin-top:8px}
+.faq-list{display:grid;gap:12px}
+.faq-item{background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:19px}
+.faq-item h3{font-size:19px;font-weight:800;margin-bottom:7px}
+.faq-item p{color:var(--ink2)}
+.footer-note{text-align:center;color:var(--mut);font-size:14px;margin-top:28px}
+@media (max-width:560px){
+  .topbar{padding:13px 17px}
+  .logo .by{display:none}
+  .page{padding:0 15px 54px}
+  .hero{padding-top:28px}
+  .choices.two{grid-template-columns:1fr}
+  .share-link{flex-direction:column}
+  .copybtn{width:100%}
+  .steps li{padding:15px}
+}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="skyheart sh1">♥</div><div class="skyheart sh2">♥</div>
+</div>
+
+<header class="topbar">
+  <a class="logo" href="/">Path<span>Check</span> <span class="heart">♥</span><span class="by">by Career Glitch</span></a>
+</header>
+
+<main class="page">
+  <div class="hero">
+    <div class="kicker">Career Glitch Lab · first cohort waitlist</div>
+    <h1>No experience? <span class="hl">Get it in 30 days.</span> With real clients.</h1>
+    <p class="sub">AI does the junior work now. So nobody hires without experience. We give you that experience: a month of real work for real small businesses, with AI tools and a pro who checks every task.</p>
+    <a class="btn" href="#waitlist">Join the waitlist ♥</a>
+    <p class="under-btn">Free to join. Accounting, marketing, data. US first.</p>
+  </div>
+
+  <section class="card" aria-labelledby="trap-title">
+    <div class="section-label">The pain</div>
+    <h2 id="trap-title">The trap you're in</h2>
+    <div class="pain-lines">
+      <p>Every job post says ‘1–2 years of experience.’</p>
+      <p>But the entry jobs that gave people experience? AI does them now.</p>
+      <p>So you sent 200 applications. Zero interviews. The first rung of the ladder is gone.</p>
+      <p>We're building a new one.</p>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="how-title">
+    <div class="section-label">How it works</div>
+    <h2 id="how-title">How it works</h2>
+    <ol class="steps">
+      <li><span><strong>Pick your track.</strong> Accounting, marketing or data. One track, one month.</span></li>
+      <li><span><strong>Get real clients.</strong> Small businesses that need help: a coffee shop with a shoebox of receipts, a Shopify store with no reports.</span></li>
+      <li><span><strong>Work like a 2027 junior.</strong> You use the AI tools companies use now. One AI-native junior does the work that used to take three.</span></li>
+      <li><span><strong>A pro checks your work.</strong> A working accountant, marketer or analyst reviews every task before it goes to the client.</span></li>
+      <li><span><strong>Meet companies that hire.</strong> The best grads get intros to our partner companies.</span></li>
+    </ol>
+  </section>
+
+  <section class="card" aria-labelledby="tracks-title">
+    <div class="section-label">Pick one</div>
+    <h2 id="tracks-title">Three tracks</h2>
+    <div class="tracks">
+      <div class="track"><strong>Accounting:</strong> bookkeeping, bank recs, monthly P&amp;L in QuickBooks or Xero</div>
+      <div class="track"><strong>Marketing:</strong> content, ads, email and funnels for real small brands</div>
+      <div class="track"><strong>Data:</strong> dashboards and reports a shop owner actually uses</div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="get-title">
+    <div class="section-label">The outcome</div>
+    <h2 id="get-title">What you get</h2>
+    <ul class="checks">
+      <li>Real client work on your resume, not ‘finished a course’</li>
+      <li>3–5 case studies with numbers (‘closed 3 months of books in 2 weeks’)</li>
+      <li>A reference from a pro who saw your work</li>
+      <li>AI tools you can show you use on the job</li>
+      <li>Intros to companies that are hiring juniors</li>
+    </ul>
+  </section>
+
+  <section class="honest" aria-label="Honest note">
+    <div class="section-label">Honestly</div>
+    <p>We won't turn you into a senior in a month. Nobody can. We turn you into an AI-native junior with real work to show.</p>
+  </section>
+
+  <section class="card form-card" id="waitlist" aria-labelledby="waitlist-title">
+    <div class="section-label">First cohort waitlist</div>
+    <h2 id="waitlist-title">Join the waitlist</h2>
+
+    <form id="lab-form" novalidate>
+      <div class="field">
+        <label class="fl" for="email">Email</label>
+        <input class="txt" id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+
+      <div class="field">
+        <label class="fl" for="name">Name <span class="optional">(optional)</span></label>
+        <input class="txt" id="name" name="name" type="text" autocomplete="name">
+      </div>
+
+      <fieldset class="field">
+        <legend class="fl">Your track</legend>
+        <div class="choices two">
+          <div class="choice"><input id="track-accounting" type="radio" name="track" value="Accounting" required><label for="track-accounting">Accounting</label></div>
+          <div class="choice"><input id="track-marketing" type="radio" name="track" value="Marketing"><label for="track-marketing">Marketing</label></div>
+          <div class="choice"><input id="track-data" type="radio" name="track" value="Data"><label for="track-data">Data</label></div>
+          <div class="choice"><input id="track-else" type="radio" name="track" value="Something else"><label for="track-else">Something else</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend class="fl">Where are you now</legend>
+        <div class="choices">
+          <div class="choice"><input id="stage-studying" type="radio" name="stage" value="Still studying" required><label for="stage-studying">Still studying</label></div>
+          <div class="choice"><input id="stage-graduated" type="radio" name="stage" value="Just graduated"><label for="stage-graduated">Just graduated</label></div>
+          <div class="choice"><input id="stage-switching" type="radio" name="stage" value="Switching careers"><label for="stage-switching">Switching careers</label></div>
+          <div class="choice"><input id="stage-working" type="radio" name="stage" value="Working, want better"><label for="stage-working">Working, want better</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend class="fl">Where do you live</legend>
+        <div class="choices two">
+          <div class="choice"><input id="country-usa" type="radio" name="country" value="USA" required><label for="country-usa">USA</label></div>
+          <div class="choice"><input id="country-canada" type="radio" name="country" value="Canada"><label for="country-canada">Canada</label></div>
+          <div class="choice"><input id="country-elsewhere" type="radio" name="country" value="Somewhere else"><label for="country-elsewhere">Somewhere else</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="field deposit-box">
+        <legend class="fl">The first cohort is small. Would you put down a refundable $39 deposit to hold your seat? You get it back if you finish the month.</legend>
+        <div class="choices">
+          <div class="choice"><input id="deposit-yes" type="radio" name="deposit" value="Yes, hold my seat" required><label for="deposit-yes">Yes, hold my seat</label></div>
+          <div class="choice"><input id="deposit-maybe" type="radio" name="deposit" value="Maybe, tell me more"><label for="deposit-maybe">Maybe, tell me more</label></div>
+          <div class="choice"><input id="deposit-free" type="radio" name="deposit" value="Only if it's free"><label for="deposit-free">Only if it's free</label></div>
+        </div>
+        <p class="small-note">No payment today. We just want to know.</p>
+      </fieldset>
+
+      <div class="field">
+        <label class="fl" for="barrier">What's stopping you from getting hired right now? <span class="optional">(optional)</span></label>
+        <textarea class="txt" id="barrier" name="barrier"></textarea>
+      </div>
+
+      <div class="form-error" id="form-error" role="alert" aria-live="polite"></div>
+      <button class="btn submit" id="submit-btn" type="submit">Join the waitlist ♥</button>
+    </form>
+
+    <div class="success" id="success" aria-live="polite">
+      <div class="check">♥</div>
+      <h3>You're on the list</h3>
+      <div class="share-link">
+        <input id="share-url" type="text" readonly aria-label="Your personal waitlist link">
+        <button class="copybtn" id="copy-btn" type="button">Copy link</button>
+      </div>
+      <div class="copy-status" id="copy-status"></div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="faq-title">
+    <div class="section-label">Questions</div>
+    <h2 id="faq-title">FAQ</h2>
+    <div class="faq-list">
+      <article class="faq-item">
+        <h3>Is this a job?</h3>
+        <p>No. It's a one-month training lab where the practice work is real client work. You pay for the training, not for a job.</p>
+      </article>
+      <article class="faq-item">
+        <h3>Do you guarantee a job?</h3>
+        <p>No. Nobody honest can. We guarantee real work to show, a pro who reviews it, and intros.</p>
+      </article>
+      <article class="faq-item">
+        <h3>How much will it cost?</h3>
+        <p>We're setting the price with the first cohort. Waitlist gets the founding price.</p>
+      </article>
+      <article class="faq-item">
+        <h3>Do I need experience?</h3>
+        <p>No. You need the basics of your field and about 15 hours a week.</p>
+      </article>
+      <article class="faq-item">
+        <h3>Why not IT or coding?</h3>
+        <p>There are already a hundred coding bootcamps. Accounting, marketing and data juniors have nowhere to get real experience.</p>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const src = (params.get('src') || '').trim();
+  const inboundRef = (params.get('ref') || '').trim();
+  const requestedTrack = (params.get('track') || '').trim().toLowerCase();
+
+  if (['accounting', 'marketing', 'data'].includes(requestedTrack)) {
+    const radio = Array.from(document.querySelectorAll('input[name="track"]')).find((el) => el.value.toLowerCase() === requestedTrack);
+    if (radio) radio.checked = true;
+  }
+
+  const form = document.getElementById('lab-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const errorBox = document.getElementById('form-error');
+  const success = document.getElementById('success');
+  const shareUrl = document.getElementById('share-url');
+  const copyBtn = document.getElementById('copy-btn');
+  const copyStatus = document.getElementById('copy-status');
+
+  function chosen(name) {
+    const el = form.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : '';
+  }
+
+  function showError(message) {
+    errorBox.textContent = message;
+    errorBox.classList.add('on');
+  }
+
+  function clearError() {
+    errorBox.textContent = '';
+    errorBox.classList.remove('on');
+  }
+
+  function emailCode(email) {
+    let h = 0;
+    for (let i = 0; i < email.length; i++) h = ((h * 31) + email.charCodeAt(i)) >>> 0;
+    return h.toString(36);
+  }
+
+  copyBtn.addEventListener('click', async () => {
+    shareUrl.select();
+    shareUrl.setSelectionRange(0, shareUrl.value.length);
+    try {
+      await navigator.clipboard.writeText(shareUrl.value);
+      copyStatus.textContent = 'Copied.';
+    } catch (e) {
+      document.execCommand('copy');
+      copyStatus.textContent = 'Copied.';
+    }
+  });
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    clearError();
+
+    const email = document.getElementById('email').value.trim();
+    const payload = {
+      email,
+      name: document.getElementById('name').value.trim(),
+      track: chosen('track'),
+      stage: chosen('stage'),
+      country: chosen('country'),
+      deposit: chosen('deposit'),
+      barrier: document.getElementById('barrier').value.trim(),
+      src,
+      ref: inboundRef,
+      ua: /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'mobile' : 'desktop'
+    };
+
+    if (!email || !payload.track || !payload.stage || !payload.country || !payload.deposit) {
+      showError('Please add your email and choose one answer in each section.');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Joining…';
+
+    try {
+      const response = await fetch('/api/lab-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || 'That did not save — check the email and try again.');
+      }
+
+      const refCode = data.lead_id || emailCode(email.toLowerCase());
+      shareUrl.value = 'https://careerglitch.com/lab?ref=' + encodeURIComponent(refCode);
+      form.style.display = 'none';
+      success.classList.add('on');
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (e) {
+      showError(e.message || 'That did not save — check the email and try again.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Join the waitlist ♥';
+    }
+  });
+})();
+</script>
+</body>
+</html>
