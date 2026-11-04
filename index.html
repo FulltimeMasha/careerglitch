@@ -1153,13 +1153,32 @@ window.WD_MODE = 'storefront';
     monthly_reporting_portfolio: 'scene-8', advisory_kpi_package: 'scene-9',
     linkedin_visibility: 'scene-10'
   };
+  // Personalized profiles carry their own item ids/texts (the 8-item era),
+  // so fall back to matching the item's words to the scene that trains it.
+  function labSceneFor(it){
+    if (!it) return null;
+    if (LAB_SCENE_BY_ITEM[it.id]) return LAB_SCENE_BY_ITEM[it.id];
+    var t = String(it.item || '').toLowerCase();
+    if (/cleanup|catch-up|catch up|messy books/.test(t)) return 'scene-1';
+    if (/quickbooks|xero|bank feed/.test(t)) return 'scene-2';
+    if (/payroll|1099|sales tax/.test(t)) return 'scene-4';
+    if (/shopify|e-?commerce/.test(t)) return 'scene-5';
+    if (/ai[- ]assisted|ai workflow|receipt|anomal/.test(t)) return 'scene-6';
+    if (/cash[- ]flow|forecast/.test(t)) return 'scene-9';
+    if (/portfolio/.test(t)) return 'scene-8';
+    if (/advisory|kpi/.test(t)) return 'scene-9';
+    if (/niche|speciali[sz]ed|specialty/.test(t)) return 'scene-5';
+    if (/linkedin|visibility|posts/.test(t)) return 'scene-10';
+    if (/month-end|month end|reconcil|close workflow|\bclose\b/.test(t)) return 'scene-3';
+    return null;
+  }
   function showDetail(id){
     var p = state.wd.profile;
     var it = null;
     (p.top1_profile || []).forEach(function(x){ if (x.id === id) it = x; });
     if (!it) return;
     var isBookkeeper = String(p.profession || '').toLowerCase().indexOf('book') >= 0;
-    var labScene = isBookkeeper ? LAB_SCENE_BY_ITEM[id] : null;
+    var labScene = isBookkeeper ? labSceneFor(it) : null;
     var box = $('top1-detail');
     box.innerHTML =
       '<div class="detail"><span class="section-label">Where to get it</span>' +
