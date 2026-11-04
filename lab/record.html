@@ -97,8 +97,10 @@ footer a{color:var(--deep)}
     <div id="r-bullets"></div>
     <div class="rowflex">
       <a class="btn" id="r-linkedin" href="#" target="_blank" rel="noopener">Add to LinkedIn — Licenses & Certifications</a>
+      <button class="btn ghost" type="button" id="r-share-btn">Make my share card 📣</button>
       <button class="btn ghost" type="button" onclick="window.print()">Download PDF (print)</button>
     </div>
+    <div id="r-share-out" class="hidden" style="margin-top:14px;text-align:center"></div>
     <p class="note">The LinkedIn button pre-fills the certification form — name, organization, dates, credential ID and this page as the credential URL. You check it and press Save; the entry then sits on your profile with a working verification link.</p>
   </section>
 
@@ -188,6 +190,42 @@ footer a{color:var(--deep)}
         var text = el.textContent.replace(/Copy$/, '').trim();
         if (navigator.clipboard) navigator.clipboard.writeText(text);
         this.textContent = 'Copied ✓';
+      });
+
+      $('r-share-btn').addEventListener('click', function(){
+        var btn = this; var out = $('r-share-out');
+        btn.disabled = true; btn.textContent = 'Painting your card…';
+        fetch('/api/share-card', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ kind: 'lab', lead_id: rec.id }) })
+          .then(function(r){ return r.json(); })
+          .then(function(j){
+            btn.disabled = false; btn.textContent = 'Make my share card 📣';
+            if (!j.ok) { out.classList.remove('hidden'); out.innerHTML = '<p class="note">' + esc(j.error || 'That did not work — try again.') + '</p>'; return; }
+            var img = new Image();
+            img.onload = function(){
+              var c = document.createElement('canvas'); c.width = 1080; c.height = 1080;
+              var x = c.getContext('2d');
+              var iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
+              var scale = Math.max(1080 / iw, 1080 / ih);
+              x.drawImage(img, (1080 - iw * scale) / 2, (1080 - ih * scale) / 2, iw * scale, ih * scale);
+              x.textAlign = 'center';
+              x.fillStyle = 'rgba(255,252,246,.92)'; x.font = "700 54px Outfit, sans-serif";
+              x.fillText('BOOKKEEPER · LAB', 540, 400);
+              x.fillStyle = '#F92A82'; x.font = "900 170px Outfit, sans-serif";
+              x.fillText(j.headline, 540, 585);
+              x.fillStyle = 'rgba(255,252,246,.85)'; x.font = "600 44px 'Instrument Sans', sans-serif";
+              x.fillText(j.subline, 540, 662);
+              x.fillStyle = '#FFD8EA'; x.font = "28px 'DM Mono', monospace";
+              x.fillText('Check yours free ♥ careerglitch.com', 540, 1018);
+              var url = c.toDataURL('image/png');
+              out.classList.remove('hidden');
+              out.innerHTML = '<img src="' + url + '" alt="My Lab share card" style="width:min(100%,420px);border-radius:18px;border:1.5px solid var(--line)">' +
+                '<div class="rowflex" style="justify-content:center"><a class="btn small" href="' + url + '" download="my-lab-record.png" style="text-decoration:none">Download the card</a></div>' +
+                '<p class="note">Art by Muse Image · your numbers typed on top, always exact.</p>';
+            };
+            img.onerror = function(){ out.classList.remove('hidden'); out.innerHTML = '<p class="note">The picture did not load — try once more.</p>'; };
+            img.src = 'data:image/' + (j.format || 'webp') + ';base64,' + j.b64;
+          })
+          .catch(function(){ btn.disabled = false; btn.textContent = 'Make my share card 📣'; out.classList.remove('hidden'); out.innerHTML = '<p class="note">That did not work — check your connection and try again.</p>'; });
       });
 
       var now = new Date();

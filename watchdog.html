@@ -585,6 +585,10 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
         <a class="btn" href="/lab/bookkeeper" style="width:100%">No experience yet? Get it in the Lab →</a>
         <p class="formnote" style="margin-top:10px">The Lab simulator: 10 real bookkeeping scenes. Every passed scene leaves you an artifact — and flips the matching item on your checklist here, with that artifact as proof.</p>
       </div>
+      <div id="home-share" style="margin-top:16px">
+        <button class="btn ghost" id="home-share-btn" type="button" style="width:100%">Share my Score — make my card 📣</button>
+        <div id="home-share-out" class="hidden" style="margin-top:12px;text-align:center"></div>
+      </div>
     </section>
 
     <section class="card hidden" id="panel-top1">
@@ -1407,6 +1411,51 @@ window.WD_MODE = 'service';
     try { sessionStorage.setItem(OB_SKIP_KEY, state.leadId); } catch (err) {}
     show('view-app');
   });
+
+  /* ---------------- share card (Muse Image art + typed text) ---------------- */
+  function shareCardDraw(img, profession, headline, subline){
+    var c = document.createElement('canvas'); c.width = 1080; c.height = 1080;
+    var x = c.getContext('2d');
+    var iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
+    var scale = Math.max(1080 / iw, 1080 / ih);
+    x.drawImage(img, (1080 - iw * scale) / 2, (1080 - ih * scale) / 2, iw * scale, ih * scale);
+    x.textAlign = 'center';
+    x.fillStyle = 'rgba(255,252,246,.92)';
+    x.font = "700 54px Outfit, sans-serif";
+    x.fillText(String(profession || '').toUpperCase(), 540, 400);
+    x.fillStyle = '#F92A82';
+    x.font = "900 190px Outfit, sans-serif";
+    x.fillText(String(headline || ''), 540, 590);
+    x.fillStyle = 'rgba(255,252,246,.85)';
+    x.font = "600 44px 'Instrument Sans', sans-serif";
+    x.fillText(String(subline || ''), 540, 668);
+    x.fillStyle = '#FFD8EA';
+    x.font = "28px 'DM Mono', monospace";
+    x.fillText('Check yours free ♥ careerglitch.com', 540, 1018);
+    return c.toDataURL('image/png');
+  }
+  $('home-share-btn').addEventListener('click', function(){
+    var btn = $('home-share-btn'); var out = $('home-share-out');
+    btn.disabled = true; btn.textContent = 'Painting your card…';
+    fetch('/api/share-card', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ kind: 'watchdog', lead_id: state.leadId }) })
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        btn.disabled = false; btn.textContent = 'Share my Score — make my card 📣';
+        if (!j.ok) { out.classList.remove('hidden'); out.innerHTML = '<p class="formnote">' + esc(j.error || 'That did not work — try again.') + '</p>'; return; }
+        var img = new Image();
+        img.onload = function(){
+          var url = shareCardDraw(img, j.profession, j.headline, j.subline);
+          out.classList.remove('hidden');
+          out.innerHTML = '<img src="' + url + '" alt="My AI-Proof Score card" style="width:min(100%,420px);border-radius:18px;border:1.5px solid var(--line)">' +
+            '<div style="margin-top:10px"><a class="btn small" href="' + url + '" download="my-ai-proof-score.png" style="text-decoration:none">Download the card</a></div>' +
+            '<p class="formnote" style="margin-top:8px">Art by Muse Image · your numbers typed on top, always exact.</p>';
+        };
+        img.onerror = function(){ out.classList.remove('hidden'); out.innerHTML = '<p class="formnote">The picture did not load — try once more.</p>'; };
+        img.src = 'data:image/' + (j.format || 'webp') + ';base64,' + j.b64;
+      })
+      .catch(function(){ btn.disabled = false; btn.textContent = 'Share my Score — make my card 📣'; out.classList.remove('hidden'); out.innerHTML = '<p class="formnote">That did not work — check your connection and try again.</p>'; });
+  });
+
   $('home-personal-btn').addEventListener('click', startOnboard);
   $('home-alert-btn').addEventListener('click', function(){ switchTab('radar'); });
   var appCheckoutBtns = document.getElementsByClassName('app-checkout-btn');
