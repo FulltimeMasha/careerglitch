@@ -165,7 +165,7 @@ module.exports = async (req, res) => {
         model,
         instructions: instructions.join('\n'),
         input,
-        maxOutputTokens: 420,
+        maxOutputTokens: 1200, // reasoning tokens come out of the same budget — 420 starved the reply entirely (verified live)
         reasoning: { effort: 'low' },
       });
       const reply = clean(text, 1600);
@@ -273,7 +273,7 @@ module.exports = async (req, res) => {
           model,
           instructions: gradeInstructions + (attempt > 0 ? '\nIMPORTANT: your previous reply was not valid JSON in the exact shape required. Reply with the JSON object only.' : ''),
           input: `THE JUNIOR'S SUBMITTED ARTIFACT:\n"""\n${artifactText}\n"""`,
-          maxOutputTokens: 700,
+          maxOutputTokens: 1600, // same reasoning-budget headroom as chat
           reasoning: { effort: 'low' },
         });
         grade = validateGrade(extractJson(text), scene.rubric.length);
