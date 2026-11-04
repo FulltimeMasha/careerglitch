@@ -1147,11 +1147,11 @@ window.WD_MODE = 'service';
     }
   }
   var LAB_SCENE_BY_ITEM = {
-    cleanup_sop_system: 'scene-1', qbo_xero_proficiency: 'scene-2',
-    month_end_mastery: 'scene-3', payroll_tax_basics: 'scene-4',
-    niche_ecommerce: 'scene-5', ai_reconciliation_workflow: 'scene-6',
-    monthly_reporting_portfolio: 'scene-8', advisory_kpi_package: 'scene-9',
-    linkedin_visibility: 'scene-10'
+    cleanup_sop_system: 'bk-01-cleanup-plan', qbo_xero_proficiency: 'bk-02-qbo-bank-rules',
+    month_end_mastery: 'bk-03-bank-rec', payroll_tax_basics: 'bk-04-payroll-entry',
+    niche_ecommerce: 'bk-05-ecommerce-payout', ai_reconciliation_workflow: 'bk-06-ai-anomaly-review',
+    monthly_reporting_portfolio: 'bk-08-month-end-report', advisory_kpi_package: 'bk-09-cash-flow-advisory',
+    linkedin_visibility: 'bk-10-linkedin-post'
   };
   // Personalized profiles carry their own item ids/texts (the 8-item era),
   // so fall back to matching the item's words to the scene that trains it.
@@ -1159,17 +1159,17 @@ window.WD_MODE = 'service';
     if (!it) return null;
     if (LAB_SCENE_BY_ITEM[it.id]) return LAB_SCENE_BY_ITEM[it.id];
     var t = String(it.item || '').toLowerCase();
-    if (/cleanup|catch-up|catch up|messy books/.test(t)) return 'scene-1';
-    if (/quickbooks|xero|bank feed/.test(t)) return 'scene-2';
-    if (/payroll|1099|sales tax/.test(t)) return 'scene-4';
-    if (/shopify|e-?commerce/.test(t)) return 'scene-5';
-    if (/ai[- ]assisted|ai workflow|receipt|anomal/.test(t)) return 'scene-6';
-    if (/cash[- ]flow|forecast/.test(t)) return 'scene-9';
-    if (/portfolio/.test(t)) return 'scene-8';
-    if (/advisory|kpi/.test(t)) return 'scene-9';
-    if (/niche|speciali[sz]ed|specialty/.test(t)) return 'scene-5';
-    if (/linkedin|visibility|posts/.test(t)) return 'scene-10';
-    if (/month-end|month end|reconcil|close workflow|\bclose\b/.test(t)) return 'scene-3';
+    if (/cleanup|catch-up|catch up|messy books/.test(t)) return 'bk-01-cleanup-plan';
+    if (/quickbooks|xero|bank feed/.test(t)) return 'bk-02-qbo-bank-rules';
+    if (/payroll|1099|sales tax/.test(t)) return 'bk-04-payroll-entry';
+    if (/shopify|e-?commerce/.test(t)) return 'bk-05-ecommerce-payout';
+    if (/ai[- ]assisted|ai workflow|receipt|anomal/.test(t)) return 'bk-06-ai-anomaly-review';
+    if (/cash[- ]flow|forecast/.test(t)) return 'bk-09-cash-flow-advisory';
+    if (/portfolio/.test(t)) return 'bk-08-month-end-report';
+    if (/advisory|kpi/.test(t)) return 'bk-09-cash-flow-advisory';
+    if (/niche|speciali[sz]ed|specialty/.test(t)) return 'bk-05-ecommerce-payout';
+    if (/linkedin|visibility|posts/.test(t)) return 'bk-10-linkedin-post';
+    if (/month-end|month end|reconcil|close workflow|\bclose\b/.test(t)) return 'bk-03-bank-rec';
     return null;
   }
   function showDetail(id){

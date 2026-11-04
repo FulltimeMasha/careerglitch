@@ -37,16 +37,16 @@ const EMAIL_RE = /^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']{2,}$/;
 // simulator scene is allowed to prove. Mirrors lab-scenes-bookkeeper.js.
 const LAB_PROF = 'bookkeeper';
 const LAB_CHECKLIST = {
-  'scene-1': 'cleanup_sop_system',
-  'scene-2': 'qbo_xero_proficiency',
-  'scene-3': 'month_end_mastery',
-  'scene-4': 'payroll_tax_basics',
-  'scene-5': 'niche_ecommerce',
-  'scene-6': 'ai_reconciliation_workflow',
-  'scene-7': 'month_end_mastery',
-  'scene-8': 'monthly_reporting_portfolio',
-  'scene-9': 'advisory_kpi_package',
-  'scene-10': 'linkedin_visibility',
+  'bk-01-cleanup-plan': 'cleanup_sop_system',
+  'bk-02-qbo-bank-rules': 'qbo_xero_proficiency',
+  'bk-03-bank-rec': 'month_end_mastery',
+  'bk-04-payroll-entry': 'payroll_tax_basics',
+  'bk-05-ecommerce-payout': 'niche_ecommerce',
+  'bk-06-ai-anomaly-review': 'ai_reconciliation_workflow',
+  'bk-07-month-end-adjustments': 'month_end_mastery',
+  'bk-08-month-end-report': 'monthly_reporting_portfolio',
+  'bk-09-cash-flow-advisory': 'advisory_kpi_package',
+  'bk-10-linkedin-post': 'linkedin_visibility',
 };
 
 function cors(req, res) {
@@ -85,11 +85,46 @@ module.exports = async (req, res) => {
     }
     if (!body || typeof body !== 'object') body = {};
 
+    const action = typeof body.action === 'string' ? body.action : '';
+
+    // Public graduate record: the lead id is the credential — an
+    // unguessable UUID. Returns only what the record page shows:
+    // name, profession, passed scenes and their artifacts. Never email.
+    if (action === 'record') {
+      const leadId = clean(body.lead_id, 40);
+      if (!/^[0-9a-f-]{36}$/i.test(leadId)) {
+        return res.status(400).json({ ok: false, error: 'That record id does not look right.' });
+      }
+      const { leadStoreConfig } = await import('./_lib/leads.mjs');
+      const cfgR = leadStoreConfig();
+      if (!cfgR) return res.status(503).json({ ok: false, error: 'Records are not switched on yet.' });
+      const r = await fetch(`${cfgR.url}/rest/v1/cg_leads?id=eq.${encodeURIComponent(leadId)}&select=id,name,created_at,recommended`, {
+        headers: { apikey: cfgR.key, Authorization: `Bearer ${cfgR.key}` },
+      });
+      if (!r.ok) return res.status(500).json({ ok: false, error: 'That record could not be loaded.' });
+      const found = await r.json();
+      const row = Array.isArray(found) ? found[0] : null;
+      const rec = row && Array.isArray(row.recommended) ? row.recommended[0] : null;
+      if (!row || !rec || rec.product !== 'lab' || !rec.cycle) {
+        return res.status(404).json({ ok: false, error: 'No Lab record with that id.' });
+      }
+      return res.status(200).json({
+        ok: true,
+        record: {
+          id: row.id,
+          name: row.name || '',
+          prof: rec.cycle.prof,
+          started_at: row.created_at,
+          passed: rec.cycle.passed || [],
+          artifacts: rec.cycle.artifacts || {},
+        },
+      });
+    }
+
     const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
     if (!EMAIL_RE.test(email) || email.length > 254) {
       return res.status(400).json({ ok: false, error: 'That email does not look right — check it and try again.' });
     }
-    const action = typeof body.action === 'string' ? body.action : '';
 
     const { leadStoreConfig, insertLead, updateLead } = await import('./_lib/leads.mjs');
     const cfg = leadStoreConfig();
@@ -142,6 +177,7 @@ module.exports = async (req, res) => {
       const cycle = labRow ? cycleOf(labRow) : { prof: LAB_PROF, passed: [], artifacts: {} };
       return res.status(200).json({
         ok: true,
+        lead_id: labRow ? labRow.id : null,
         cycle: { passed: cycle.passed || [], artifacts: cycle.artifacts || {} },
         watchdog: await watchdogView(),
       });
@@ -157,16 +193,19 @@ module.exports = async (req, res) => {
       const artifactName = clean(body.artifact_name, 120) || sceneId;
       const rubric = Array.isArray(body.rubric) ? body.rubric.slice(0, 10).map((x) => x === true) : [];
       const passed = rubric.length >= 3 && rubric.every(Boolean) && artifactText.length >= 40;
+      const durationSec = Math.max(0, Math.min(21600, Math.round(Number(body.duration_sec) || 0)));
       const nowIso = new Date().toISOString();
 
       // 1) Save the artifact into the Lab lead (create the lead if needed).
       let cycle = labRow ? cycleOf(labRow) : { prof: LAB_PROF, passed: [], artifacts: {} };
+      let savedLeadId = labRow ? labRow.id : null;
       cycle.artifacts = cycle.artifacts || {};
       cycle.artifacts[sceneId] = {
         name: artifactName,
         text: artifactText,
         rubric_ok: passed,
         at: nowIso,
+        duration_sec: durationSec || (cycle.artifacts[sceneId] ? cycle.artifacts[sceneId].duration_sec || 0 : 0),
       };
       cycle.passed = Array.isArray(cycle.passed) ? cycle.passed : [];
       if (passed && !cycle.passed.includes(sceneId)) cycle.passed.push(sceneId);
@@ -178,7 +217,7 @@ module.exports = async (req, res) => {
           recommended: [{ ...rec, product: 'lab', track: LAB_PROF, cycle }],
         });
       } else {
-        await insertLead(cfg, {
+        savedLeadId = await insertLead(cfg, {
           name: clean(body.name, 80) || null,
           email,
           self_role: LAB_PROF,
@@ -225,6 +264,7 @@ module.exports = async (req, res) => {
       return res.status(200).json({
         ok: true,
         passed,
+        lead_id: savedLeadId,
         cycle: { passed: cycle.passed, artifacts: cycle.artifacts },
         flipped,
         watchdog: await watchdogView(flippedState || undefined),

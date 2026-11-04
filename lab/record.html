@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Career Glitch Lab — Verified Record of Simulated Work</title>
+<meta name="description" content="A public, verifiable portfolio of simulated bookkeeping work: scenes passed, artifacts produced, skills proven against an employer checklist.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<meta name="theme-color" content="#FFEEF5">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Instrument+Sans:wght@400;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FFFCF6;--ink:#1C1A1F;--ink2:#3a2b4d;--mut:#7a7285;--pink:#FF8CBE;--hot:#F92A82;--deep:#c2185b;--blush:#FFD8EA;--soft:#FFEEF5;--butter:#F0E6CF;--line:#eedfe8;--green:#1d7a4f}
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;color:var(--ink);font-family:'Instrument Sans',system-ui,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;background:linear-gradient(180deg,#FFFCF6 0%,#FFF3F8 46%,#FFEEF5 100%);background-attachment:fixed}
+h1,h2,h3{font-family:'Outfit',sans-serif}
+.mono{font-family:'DM Mono',monospace}
+.topbar{display:flex;align-items:center;padding:14px 24px;max-width:1100px;margin:0 auto}
+.logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.logo span{color:var(--deep)} .logo .heart{color:var(--hot)}
+.logo .by{font-family:'DM Mono',monospace;font-weight:400;font-size:11px;letter-spacing:.14em;color:var(--mut);margin-left:8px;text-transform:uppercase}
+.page{max-width:820px;margin:0 auto;padding:0 20px 72px}
+.hero{text-align:center;padding:34px 0 8px}
+.kicker{display:inline-block;font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;background:var(--blush);border-radius:999px;padding:7px 13px;transform:rotate(-1.2deg)}
+.hero h1{font-size:clamp(34px,7vw,54px);font-weight:900;line-height:1.02;letter-spacing:-.03em;margin:24px auto 0}
+.hero .sub{font-size:18px;color:var(--ink2);max-width:36em;margin:16px auto 0}
+.card{background:rgba(255,255,255,.88);border:1.5px solid var(--line);border-radius:26px;padding:clamp(22px,5vw,34px);box-shadow:0 20px 46px rgba(23,18,43,.07);margin-top:26px}
+.section-label{display:inline-block;font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);background:var(--soft);border-radius:999px;padding:6px 11px;margin-bottom:14px}
+h2{font-size:clamp(24px,5vw,32px);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:22px}
+.stat{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:16px;text-align:center}
+.stat .big{font-family:'Outfit',sans-serif;font-weight:900;font-size:26px;color:var(--deep)}
+.stat .cap{font-size:13px;color:var(--mut);margin-top:3px}
+.numbers{display:grid;gap:10px}
+.numbers div{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 15px;font-size:15.5px}
+.skills{display:grid;gap:8px}
+.skills div{font-size:15.5px}
+.art{border:1.5px solid var(--line);border-radius:20px;background:#fff;padding:20px 22px;margin-top:16px}
+.art h3{font-size:19px;font-weight:800}
+.art .meta{font-family:'DM Mono',monospace;font-size:12px;color:var(--mut);margin-top:4px}
+.art .body{white-space:pre-wrap;background:var(--soft);border-radius:14px;padding:14px 16px;margin-top:12px;font-size:15.5px}
+.art .rubric{margin-top:10px;font-size:14.5px;color:var(--ink2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:15.5px;border:none;border-radius:999px;padding:13px 22px;background:linear-gradient(135deg,#F92A82,#FF8CBE);color:#fff;text-decoration:none;cursor:pointer;box-shadow:0 12px 26px rgba(249,42,130,.32)}
+.btn.ghost{background:#fff;color:var(--deep);border:1.5px solid var(--blush);box-shadow:none}
+.btn.small{padding:9px 16px;font-size:13.5px}
+.rowflex{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.note{font-size:14.5px;color:var(--mut);margin-top:10px}
+.bullet{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:13px 15px;font-size:15px;margin-top:10px}
+footer{margin-top:40px;text-align:center;color:var(--mut);font-size:13.5px}
+footer a{color:var(--deep)}
+.hidden{display:none}
+@media print{ .noprint{display:none} body{background:#fff} .card,.art{box-shadow:none} }
+</style>
+</head>
+<body>
+<div class="topbar"><a class="logo" href="/">Career<span>Glitch</span> <span class="heart">♥</span><span class="by">Lab · Verified record</span></a></div>
+<div class="page">
+  <div class="hero">
+    <span class="kicker">Career Glitch Lab · Bookkeeper</span>
+    <h1 id="r-title">Verified record of simulated work</h1>
+    <p class="sub" id="r-sub">Loading the record…</p>
+  </div>
+  <div class="stats" id="r-stats"></div>
+
+  <section class="card" id="r-numbers-card">
+    <span class="section-label">By the numbers</span>
+    <h2>What the work actually was</h2>
+    <div class="numbers" id="r-numbers"></div>
+  </section>
+
+  <section class="card">
+    <span class="section-label">Skills proven</span>
+    <h2>Against the employer checklist</h2>
+    <p class="note" style="margin:0 0 12px">The same top-1% checklist Career Glitch Watchdog tracks for working bookkeepers — built from real job postings. A skill is listed only when a passed scene's artifact proves it.</p>
+    <div class="skills" id="r-skills"></div>
+  </section>
+
+  <section id="r-arts-wrap">
+    <h2 style="margin-top:34px">The artifacts</h2>
+    <p style="color:var(--ink2)">The actual deliverables, in full — not samples, not descriptions.</p>
+    <div id="r-arts"></div>
+  </section>
+
+  <section class="card">
+    <span class="section-label">For employers</span>
+    <h2>What this record is — and is not</h2>
+    <p>It <strong>is</strong> a verified record of simulated work: real first-month bookkeeping tasks, completed to a published checklist, with the full artifacts on this page. It is issued by Career Glitch Lab and verifiable at this URL — the record ID below is the credential.</p>
+    <p style="margin-top:10px">It is <strong>not</strong> a diploma, a state license, or a claim of employment experience. What it shows is narrower and, for a junior hire, more useful: this person can already do the tasks listed above, to a standard you can read yourself.</p>
+    <p class="mono" id="r-id" style="margin-top:14px;font-size:13px;color:var(--mut)"></p>
+  </section>
+
+  <section class="card noprint" id="r-kit">
+    <span class="section-label">Résumé kit</span>
+    <h2>Put it in your résumé</h2>
+    <p class="note" style="margin:0">Copy-paste lines, written from this record's facts only.</p>
+    <div id="r-bullets"></div>
+    <div class="rowflex">
+      <a class="btn" id="r-linkedin" href="#" target="_blank" rel="noopener">Add to LinkedIn — Licenses & Certifications</a>
+      <button class="btn ghost" type="button" onclick="window.print()">Download PDF (print)</button>
+    </div>
+    <p class="note">The LinkedIn button pre-fills the certification form — name, organization, dates, credential ID and this page as the credential URL. You check it and press Save; the entry then sits on your profile with a working verification link.</p>
+  </section>
+
+  <footer>Career Glitch Lab — simulated work, honestly labelled, verifiable by design. <a href="/lab/bookkeeper">The Bookkeeper simulator</a> · <a href="/privacy">Privacy</a></footer>
+</div>
+
+<script src="/lab-scenes-bookkeeper.js"></script>
+<script>
+(function(){
+  var ITEM_LABELS = {
+    month_end_mastery: 'Month-end close mastery (Craft)',
+    qbo_xero_proficiency: 'QuickBooks / Xero daily proficiency (Craft)',
+    payroll_tax_basics: 'Payroll, sales tax & 1099 basics (Craft)',
+    ai_reconciliation_workflow: 'AI-assisted reconciliation workflow (AI leverage)',
+    cleanup_sop_system: 'Cleanup & catch-up system (Craft)',
+    monthly_reporting_portfolio: 'Reporting portfolio (Proof)',
+    advisory_kpi_package: 'Advisory KPI package (Niche)',
+    niche_ecommerce: 'E-commerce niche (Niche)',
+    linkedin_visibility: 'Expert visibility (Voice)'
+  };
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]; }); }
+  function $(id){ return document.getElementById(id); }
+  var scenes = (window.LAB_SCENES_BOOKKEEPER || []).slice().sort(function(a,b){ return a.order - b.order; });
+  var byId = {}; scenes.forEach(function(s){ byId[s.id] = s; });
+  var id = new URLSearchParams(window.location.search).get('id') || '';
+
+  function fmtDur(sec){
+    if (!sec) return null;
+    if (sec < 90) return sec + ' sec';
+    var m = Math.round(sec / 60);
+    if (m < 60) return m + ' min';
+    return Math.floor(m / 60) + ' h ' + (m % 60 ? (m % 60) + ' min' : '').trim();
+  }
+  function fmtDate(iso){
+    if (!iso) return '';
+    var d = new Date(iso);
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  }
+
+  fetch('/api/lab', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'record', lead_id: id }) })
+    .then(function(r){ return r.json(); })
+    .then(function(j){
+      if (!j.ok) { $('r-sub').textContent = j.error || 'That record could not be found.'; return; }
+      var rec = j.record;
+      var passed = (rec.passed || []).filter(function(sid){ return byId[sid]; });
+      var arts = rec.artifacts || {};
+      var totalSec = passed.reduce(function(a, sid){ return a + (arts[sid] && arts[sid].duration_sec || 0); }, 0);
+      var provenItems = {};
+      passed.forEach(function(sid){ provenItems[byId[sid].checklist_id] = true; });
+      var done = passed.length === scenes.length;
+
+      $('r-title').textContent = (rec.name ? rec.name + ' — ' : '') + 'Bookkeeper, Lab ' + (done ? 'graduate' : 'in progress');
+      $('r-sub').innerHTML = 'Completed <strong>' + passed.length + ' of ' + scenes.length + ' scenes</strong> of the Career Glitch Lab bookkeeper simulator — one simulated month of junior bookkeeping work, every scene closed with a real artifact checked against a published standard.';
+      $('r-stats').innerHTML =
+        '<div class="stat"><div class="big">' + passed.length + '/' + scenes.length + '</div><div class="cap">scenes passed</div></div>' +
+        '<div class="stat"><div class="big">' + (passed.length * 100) + '</div><div class="cap">XP earned</div></div>' +
+        '<div class="stat"><div class="big">' + (fmtDur(totalSec) || '—') + '</div><div class="cap">hands-on time in scenes</div></div>' +
+        '<div class="stat"><div class="big">' + Object.keys(provenItems).length + '</div><div class="cap">employer-checklist skills proven</div></div>';
+
+      $('r-numbers').innerHTML = passed.map(function(sid){ return '<div>📌 ' + esc(byId[sid].proof || byId[sid].title) + '</div>'; }).join('') ||
+        '<div>No scenes passed yet.</div>';
+
+      $('r-skills').innerHTML = Object.keys(ITEM_LABELS).map(function(k){
+        return '<div>' + (provenItems[k] ? '✅' : '⬜') + ' <strong>' + esc(ITEM_LABELS[k]) + '</strong>' + (provenItems[k] ? '' : ' — not yet proven in the Lab') + '</div>';
+      }).join('');
+
+      $('r-arts').innerHTML = passed.map(function(sid){
+        var sc = byId[sid]; var a = arts[sid] || {};
+        return '<article class="art"><h3>Scene ' + sc.order + ': ' + esc(sc.title) + '</h3>' +
+          '<div class="meta">Artifact: ' + esc(a.name || sc.artifact) + (a.at ? ' · ' + fmtDate(a.at) : '') + (a.duration_sec ? ' · done in ' + fmtDur(a.duration_sec) : '') + '</div>' +
+          '<div class="body">' + esc(a.text || '') + '</div>' +
+          '<div class="rubric">Checked against the scene standard: ' + sc.rubric.map(function(r){ return '✓ ' + esc(r); }).join(' &nbsp;·&nbsp; ') + '</div></article>';
+      }).join('');
+
+      $('r-id').textContent = 'Record ID: ' + rec.id + ' · Verify at: ' + window.location.href;
+
+      var recUrl = window.location.href;
+      var bullets = [
+        'Bookkeeping simulator graduate — Career Glitch Lab: completed ' + passed.length + ' of ' + scenes.length + ' verified first-month scenes (bank reconciliation to a $0 difference, payroll journal entries, month-end close, Shopify payout reconciliation, client cash-flow forecast). Full work portfolio: ' + recUrl,
+      ].concat(passed.slice(0, 4).map(function(sid){ return byId[sid].proof; }));
+      $('r-bullets').innerHTML = bullets.map(function(b, i){
+        return '<div class="bullet" id="bullet-' + i + '">' + esc(b) + ' <button type="button" class="btn ghost small noprint" data-copy="' + i + '" style="float:right">Copy</button></div>';
+      }).join('');
+      var cbtns = document.querySelectorAll('[data-copy]');
+      for (var i = 0; i < cbtns.length; i++) cbtns[i].addEventListener('click', function(){
+        var el = $('bullet-' + this.getAttribute('data-copy'));
+        var text = el.textContent.replace(/Copy$/, '').trim();
+        if (navigator.clipboard) navigator.clipboard.writeText(text);
+        this.textContent = 'Copied ✓';
+      });
+
+      var now = new Date();
+      var li = 'https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME' +
+        '&name=' + encodeURIComponent('Bookkeeper Simulator — Career Glitch Lab') +
+        '&organizationName=' + encodeURIComponent('Career Glitch') +
+        '&issueYear=' + now.getFullYear() + '&issueMonth=' + (now.getMonth() + 1) +
+        '&certId=' + encodeURIComponent(rec.id) +
+        '&certUrl=' + encodeURIComponent(recUrl);
+      $('r-linkedin').href = li;
+    })
+    .catch(function(){ $('r-sub').textContent = 'That record could not be loaded — check the connection and reload.'; });
+})();
+</script>
+</body>
+</html>

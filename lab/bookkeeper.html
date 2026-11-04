@@ -139,6 +139,7 @@ footer a{color:var(--deep)}
       <div class="progressbar" style="margin-top:9px"><div id="progress-bar" style="width:0%"></div></div>
       <div class="rowflex" style="justify-content:space-between;margin-top:10px"><span id="xp-text" style="font-family:'Outfit',sans-serif;font-weight:800;color:var(--deep)">⭐ 0 XP</span><span id="rank-text" style="font-family:'DM Mono',monospace;font-size:12.5px;color:var(--mut)">Rank: Newcomer</span></div>
       <div id="map-dots" style="display:flex;gap:6px;margin-top:11px;flex-wrap:wrap"></div>
+      <p class="note hidden" id="record-line" style="margin-top:12px"></p>
     </div>
   </section>
 
@@ -174,7 +175,8 @@ footer a{color:var(--deep)}
     linkedin_visibility: 'Expert visibility (Voice)'
   };
   var scenes = (window.LAB_SCENES_BOOKKEEPER || []).slice().sort(function(a,b){ return a.order - b.order; });
-  var state = { email: '', name: '', cycle: { passed: [], artifacts: {} }, watchdog: { linked: false } };
+  var state = { email: '', name: '', leadId: null, cycle: { passed: [], artifacts: {} }, watchdog: { linked: false } };
+  var sceneStart = {};
 
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]; }); }
   function $(id){ return document.getElementById(id); }
@@ -209,6 +211,11 @@ footer a{color:var(--deep)}
     $('scenes').innerHTML = html;
     var btns = document.querySelectorAll('[data-save]');
     for (var i = 0; i < btns.length; i++) btns[i].addEventListener('click', function(){ saveScene(this.getAttribute('data-save')); });
+    var tas = document.querySelectorAll('textarea[id^="ta-"]');
+    for (var j = 0; j < tas.length; j++) tas[j].addEventListener('focus', function(){
+      var sid = this.id.slice(3);
+      if (!sceneStart[sid]) sceneStart[sid] = Date.now();
+    });
     renderProgress();
   }
 
@@ -232,6 +239,12 @@ footer a{color:var(--deep)}
     $('wd-status').textContent = state.watchdog && state.watchdog.linked
       ? 'Watchdog linked · Score ' + state.watchdog.score
       : 'No Watchdog card on this email yet';
+    if (state.leadId && n > 0) {
+      $('record-line').classList.remove('hidden');
+      $('record-line').innerHTML = '🌍 Your public record (portfolio): <a href="/lab/record?id=' + state.leadId + '" style="color:var(--deep);font-weight:700">careerglitch.com/lab/record?id=' + state.leadId.slice(0, 8) + '…</a> — send it to employers, put it in your résumé.';
+    } else {
+      $('record-line').classList.add('hidden');
+    }
     var arts = state.cycle.artifacts || {};
     var ids = Object.keys(arts);
     if (!ids.length) { $('debrief').classList.add('hidden'); return; }
@@ -294,11 +307,13 @@ footer a{color:var(--deep)}
     for (var i = 0; i < boxes.length; i++) rubric.push(boxes[i].checked);
     var btn = document.querySelector('[data-save="' + sceneId + '"]');
     btn.disabled = true;
-    api({ action: 'scene', email: email, name: state.name, scene_id: sceneId, artifact_name: sc.artifact, artifact_text: text, rubric: rubric })
+    var dur = sceneStart[sceneId] ? Math.round((Date.now() - sceneStart[sceneId]) / 1000) : 0;
+    api({ action: 'scene', email: email, name: state.name, scene_id: sceneId, artifact_name: sc.artifact, artifact_text: text, rubric: rubric, duration_sec: dur })
       .then(function(r){
         btn.disabled = false;
         if (!r.ok || !r.j.ok) { setMsg(sceneId, (r.j && r.j.error) || 'That did not save — try again.', false); return; }
         state.cycle = r.j.cycle;
+        if (r.j.lead_id) state.leadId = r.j.lead_id;
         state.watchdog = r.j.watchdog || state.watchdog;
         if (r.j.passed) {
           var msg = '🎉 You win this scene! +100 XP. Your work is saved.';
@@ -323,6 +338,7 @@ footer a{color:var(--deep)}
     api({ action: 'progress', email: email }).then(function(r){
       if (r.ok && r.j.ok) {
         state.cycle = r.j.cycle;
+        if (r.j.lead_id) state.leadId = r.j.lead_id;
         state.watchdog = r.j.watchdog;
         $('id-note').textContent = state.watchdog.linked
           ? 'Watchdog found on this email — passed scenes flip its checklist automatically.'
