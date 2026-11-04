@@ -188,6 +188,10 @@ async function generateProfessionProfile(WD, professionRaw) {
     try {
       const { radar: _r, score: _s, ...rest } = parsed;
       profile = WD.validateProfile(WD.professionRawToBaseline(rest));
+      // Profession baselines carry the full top-1% structure: 12–16
+      // items, every DNA strand present, weights summing to 100.
+      const problems = WD.professionProfileProblems(profile);
+      if (problems.length) throw new Error(problems.join('; '));
     } catch (e) {
       lastErrors = e.message;
       profile = null;
@@ -526,6 +530,60 @@ module.exports = async (req, res) => {
 
     if (action === 'get') {
       return res.status(200).json({ ok: true, lead_id: row.id, email: row.email || '', watchdog: withFreshScore(WD, stored) });
+    }
+
+    if (action === 'resume-scan') {
+      // The résumé file was parsed in the browser; only its TEXT is
+      // sent here, and the text itself is never stored — the model
+      // maps evidence onto the lead's existing checklist ids, every
+      // mark is validated (id exists + quote appears verbatim in the
+      // text), and only the evidence quotes are kept on the state.
+      // The flips themselves go through the normal 'update' action
+      // from the client, exactly like a manual flip.
+      const { sanitizeUserText } = await import('./_lib/engine/llm.mjs');
+      const text = sanitizeUserText(typeof body.text === 'string' ? body.text : '', 12000);
+      if (text.trim().length < 50) {
+        return res.status(400).json({ ok: false, error: 'That file gave us almost no text to read — try a TXT copy, or a résumé with more detail.' });
+      }
+      const { metaRespond, MODELS } = await import('./_lib/engine/llm.mjs');
+      const checklistContext = (stored.profile.top1_profile || []).map((i) => ({ id: i.id, item: i.item }));
+      const input = `The profession: ${stored.profile.profession}\n\nThe checklist (mark ONLY these ids):\n${JSON.stringify(checklistContext)}\n\nThe résumé text:\n${text}\n\nReturn the marks JSON now.`;
+      let marks = null;
+      let lastErrors = '';
+      let rawText = '';
+      for (let attempt = 0; attempt < 2 && !marks; attempt++) {
+        const instructions = attempt === 0
+          ? WD.RESUME_SCAN_INSTRUCTIONS
+          : `${WD.RESUME_SCAN_INSTRUCTIONS}\n\nYour previous output failed validation: ${lastErrors}. Return the corrected JSON only.`;
+        let out = '';
+        try {
+          ({ text: out } = await callModel(metaRespond, {
+            model: MODELS.interview,
+            instructions,
+            input: attempt === 0 ? input : `${input}\n\nYour previous (invalid) output was:\n${rawText.slice(0, 2000)}\n\nReturn the corrected JSON only.`,
+            maxOutputTokens: 2500,
+          }));
+        } catch (e) {
+          lastErrors = `model call failed: ${e && e.message ? e.message.slice(0, 160) : 'unknown'}`;
+          continue;
+        }
+        rawText = out;
+        const parsed = extractJsonObject(out);
+        if (!parsed || !Array.isArray(parsed.marks)) { lastErrors = 'output was not the marks JSON'; continue; }
+        marks = WD.validateResumeMarks(parsed, stored.profile, text);
+      }
+      if (!marks) {
+        console.error('watchdog resume-scan failed:', lastErrors);
+        return res.status(502).json({ ok: false, error: 'My nose glitched reading that — try the résumé once more.' });
+      }
+      // Keep only the evidence quotes on the state (never the text).
+      try {
+        const evidence = { ...((stored && stored.resume_evidence) || {}) };
+        for (const m of marks) evidence[m.id] = m.evidence;
+        const next = { ...stored, resume_evidence: evidence, updated_at: new Date().toISOString() };
+        await updateLead(cfg, leadId, { recommended: [{ ...rec, watchdog: next }] });
+      } catch { /* evidence keeping is best-effort; the marks still return */ }
+      return res.status(200).json({ ok: true, marks });
     }
 
     if (action === 'update') {

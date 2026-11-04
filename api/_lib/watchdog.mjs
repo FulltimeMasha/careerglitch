@@ -19,9 +19,13 @@
 //             HAS. Weights are normalized to sum to 100 across the whole
 //             checklist, so base is "how much of the top-1% kit is
 //             already yours", in points.
-//   penalty = 40 x (share of the user's daily tasks with HIGH AI
-//             exposure). A person whose whole day is highly automatable
-//             loses up to 40 points until their task mix changes.
+//   penalty = round(30 x share of daily tasks with HIGH AI exposure
+//             + 10 x share with MEDIUM exposure), capped at 35
+//             (rebalanced 2026-11-03: the old flat 40 x high-share
+//             could single-handedly zero a hands-on practitioner who
+//             holds real kit items — the owner's own lead scored 0
+//             with 27 kit points. The penalty stays meaningful but
+//             can no longer wipe out a held kit by itself.)
 //   bonus   = sum of the points of this week's tasks the user marked
 //             done. Doing the work raises the gauge immediately.
 //   score   = clamp(round(base - penalty + bonus), 0, 100)
@@ -41,6 +45,57 @@ export { matchRadarFeed, RADAR_FEED_SCANNED_AT };
 
 const EXPOSURES = new Set(['low', 'medium', 'high']);
 const ID_RE = /^[a-z0-9_]{2,40}$/;
+
+// The seven Career Glitch DNA strands. A top-1% profile is not only
+// tools and certificates: every strand must be present in a generated
+// profession checklist (proof = portfolio/case results, voice = public
+// visibility, niche = a chosen specialty, network = community and
+// referrals, ai_leverage = AI workflows that multiply the output).
+export const PROFILE_STRANDS = ['craft', 'experience', 'proof', 'voice', 'niche', 'network', 'ai_leverage'];
+const STRAND_SET = new Set(PROFILE_STRANDS);
+
+// Legacy profiles (and the chat-built ones) predate strands: derive one
+// from the item's category so every validated item carries a strand.
+function strandFromCategory(category) {
+  const c = String(category || '').toLowerCase();
+  if (c === 'tool' || c === 'tools' || c === 'ai_tool' || c === 'ai_tools') return 'ai_leverage';
+  if (c === 'certification' || c === 'certifications' || c === 'certificate' || c === 'credential' || c === 'credentials' || c === 'license') return 'experience';
+  if (c === 'experience') return 'experience';
+  if (c === 'portfolio' || c === 'proof') return 'proof';
+  if (c === 'personal_brand' || c === 'content' || c === 'voice') return 'voice';
+  if (c === 'niche' || c === 'specialization' || c === 'specialty') return 'niche';
+  if (c === 'community' || c === 'network') return 'network';
+  return 'craft';
+}
+
+function cleanStrand(v, category) {
+  const s = typeof v === 'string' ? v.toLowerCase().trim() : '';
+  return STRAND_SET.has(s) ? s : strandFromCategory(category);
+}
+
+// Structural requirements for a GENERATED profession profile (the
+// cached baseline a whole profession's cards start from). Returns a
+// list of problems; the generator feeds it into the same one-shot
+// repair retry as validateProfile errors. Stored user profiles are
+// never held to this — they keep whatever checklist they were born
+// with (8-item era included); personalization maps onto them as-is.
+export function professionProfileProblems(profile) {
+  const problems = [];
+  const items = (profile && profile.top1_profile) || [];
+  if (items.length < 12 || items.length > 16) {
+    problems.push(`top1_profile must have 12 to 16 items for a profession profile (got ${items.length})`);
+  }
+  const have = new Set(items.map((i) => i.strand));
+  const missing = PROFILE_STRANDS.filter((s) => !have.has(s));
+  if (missing.length) {
+    problems.push(`top1_profile is missing strands: ${missing.join(', ')} — every strand (craft, experience, proof, voice, niche, network, ai_leverage) needs at least one item`);
+  }
+  const sum = items.reduce((a, i) => a + i.weight, 0);
+  if (items.length && sum !== 100) {
+    problems.push(`checklist weights must sum to 100 (got ${sum})`);
+  }
+  return problems;
+}
 
 function str(v, max) {
   return sanitizeUserText(typeof v === 'string' ? v : '', max);
@@ -86,20 +141,24 @@ export function validateProfile(raw, opts = {}) {
   }
   if (dailyTasks.length < 1) errors.push('daily_tasks needs at least 1 task');
 
-  // top1_profile: 4..12 items; weights normalized to sum 100 below.
+  // top1_profile: 4..16 items; weights normalized to sum 100 below.
+  // (Generated profession profiles are held to 12..16 + full strand
+  // coverage separately — see professionProfileProblems.)
   const itemsIn = Array.isArray(raw.top1_profile) ? raw.top1_profile : [];
   const items = [];
   const seenIds = new Set();
-  for (const it of itemsIn.slice(0, 12)) {
+  for (const it of itemsIn.slice(0, 16)) {
     if (!it || typeof it !== 'object') continue;
     const id = typeof it.id === 'string' ? it.id.toLowerCase().trim() : '';
     const item = str(it.item, 160);
     if (!ID_RE.test(id) || seenIds.has(id) || !item) continue;
     seenIds.add(id);
+    const category = str(it.category, 30) || 'skill';
     items.push({
       id,
       item,
-      category: str(it.category, 30) || 'skill',
+      category,
+      strand: cleanStrand(it.strand, category),
       weight: num(it.weight, 1, 40, 10),
       user_has: it.user_has === true,
       // typical_has: does a TYPICAL practitioner of this profession
@@ -177,10 +236,10 @@ export function computeScore(profile) {
   const items = profile.top1_profile || [];
   const base = items.reduce((a, i) => a + (i.user_has ? i.weight : 0), 0);
   const daily = profile.daily_tasks || [];
-  const highShare = daily.length
-    ? daily.filter((t) => t.ai_exposure === 'high').length / daily.length
-    : 0;
-  const penalty = 40 * highShare;
+  const share = (lvl) => (daily.length
+    ? daily.filter((t) => t.ai_exposure === lvl).length / daily.length
+    : 0);
+  const penalty = Math.min(35, Math.round(30 * share('high') + 10 * share('medium')));
   const bonus = (profile.tasks || []).reduce((a, t) => a + (t.done ? t.points : 0), 0);
   return Math.min(100, Math.max(0, Math.round(base - penalty + bonus)));
 }
@@ -538,12 +597,12 @@ export const PROFESSION_PROFILE_INSTRUCTIONS = [
   '  "location": "",',
   '  "goal": "a plain line like: Be in the top 1% of bookkeepers by 2027",',
   '  "daily_tasks": [{"task": "...", "ai_exposure": "low|medium|high"}] — 4 to 6 tasks from a typical practitioner\u2019s day; ai_exposure is how much of that task today\u2019s AI tools can already do, judged honestly,',
-  '  "top1_profile": [{"id": "snake_case_id", "item": "what a top 1% person in this profession has in 2027", "category": "skill|tool|certification|experience|portfolio", "weight": 5–20, "typical_has": true/false, "how_to_get": "concrete: a named course, tool, certificate or grant and how to get it", "free_option": "a free way to start"}] — 7 to 10 items; weights roughly sum to 100; typical_has is true ONLY when a typical working practitioner in 2026 already has or does this (the basics of the trade) — the things that make someone top 1% are typical_has false,',
+  '  "top1_profile": [{"id": "snake_case_id", "item": "what a top 1% person in this profession has in 2027", "category": "skill|tool|certification|experience|portfolio", "strand": "craft|experience|proof|voice|niche|network|ai_leverage", "weight": 4–14, "typical_has": true/false, "how_to_get": "concrete: a named course, tool, certificate or grant and how to get it", "free_option": "a free way to start"}] — 12 to 16 items; weights roughly sum to 100; EVERY one of the seven strands must appear at least once. The strands are the parts of a top-1% career: craft = mastery of the trade itself; experience = track record and credentials earned over time; proof = a portfolio, case results, reviews — evidence others can check; voice = public visibility, being known and findable; niche = a chosen specialty they are known for; network = community, mentors and referral partners; ai_leverage = AI tools and workflows that multiply their output. A checklist of only tools and certificates is WRONG — spread the items across all seven strands. typical_has is true ONLY when a typical working practitioner in 2026 already has or does this (the basics of the trade) — the things that make someone top 1% are typical_has false,',
   '  "score_reason": "one plain line, at most 30 words, about a typical practitioner of this profession today: name the main strength or the main risk",',
   '  "tasks": [{"title": "one small action for this week", "points": 3–5, "checklist_id": "<id of a top1_profile item with typical_has false>"}] — exactly 3 tasks, each tied to a different typical_has:false item',
   '}',
   'Rules: honest, no flattery and no fear-mongering. Facts about the profession must be mainstream and checkable; do not invent statistics, salaries or product names.',
-  'Calibrating typical_has: a typical practitioner honestly has the working basics — the standard tools of the trade used daily, the common entry credential, a year-plus of ordinary experience items. That is usually 2–4 items true. Marking everything false misreads the profession, and so does marking top-1% differentiators (AI workflows, advisory offers, a niche, a public portfolio, premium certifications) as typical.',
+  'Calibrating typical_has: a typical practitioner honestly has the working basics — the standard tools of the trade used daily, the common entry credential, a year-plus of ordinary experience items. That is usually 3–5 items true out of the 12–16. Marking everything false misreads the profession, and so does marking top-1% differentiators (AI workflows, advisory offers, a niche, a public portfolio, premium certifications) as typical.',
 ].join('\n');
 
 // Map a validated-shaped raw profession profile into the baseline form:
@@ -661,4 +720,44 @@ export function validatePersonalizedProfile(raw, baseline) {
   p.profession = baseline.profession;
   p.personalized = true;
   return p;
+}
+
+// ---------------------------------------------------------------------------
+// Résumé scan. The user uploads a résumé; the file is parsed IN THE
+// BROWSER and only the extracted TEXT reaches this action (the file
+// itself is never uploaded or stored, and the text is not persisted —
+// only the resulting checklist flips and the short evidence quotes).
+// The model maps evidence onto the lead's EXISTING checklist ids; the
+// server then validates every mark twice: the id must exist in the
+// stored profile, and the evidence quote must appear verbatim in the
+// submitted text (whitespace/case-normalized) — a mark the model
+// cannot anchor to a real quote is dropped.
+// ---------------------------------------------------------------------------
+
+export const RESUME_SCAN_INSTRUCTIONS = [
+  'You scan a résumé for evidence against a fixed top-1% checklist for the person\u2019s profession.',
+  'Reply with ONLY a JSON object, no markdown, no extra text: {"marks": [{"id": "<checklist id>", "evidence": "<short quote>"}]}.',
+  'Mark a checklist item ONLY when the résumé text explicitly evidences it: a named tool, a named certificate or credential, a role duty that is plainly that item, or a measurable result. A job title alone is NOT evidence. Do not guess, do not stretch — if the text does not clearly show the thing, leave the item unmarked.',
+  'The evidence must be a quote copied EXACTLY from the résumé text, word for word, at most 20 words — the server checks it against the text and drops marks whose quote does not appear.',
+  'Mark each item at most once. If nothing on the checklist is evidenced, reply {"marks": []}.',
+].join('\n');
+
+export function validateResumeMarks(raw, profile, resumeText) {
+  const byId = new Map(((profile && profile.top1_profile) || []).map((i) => [i.id, i]));
+  const hay = String(resumeText || '').toLowerCase().replace(/\s+/g, ' ');
+  const marks = [];
+  const seen = new Set();
+  for (const m of Array.isArray(raw && raw.marks) ? raw.marks : []) {
+    if (!m || typeof m !== 'object') continue;
+    const id = typeof m.id === 'string' ? m.id.toLowerCase().trim() : '';
+    if (!byId.has(id) || seen.has(id)) continue;
+    const evidence = str(m.evidence, 220);
+    if (!evidence) continue;
+    const needle = evidence.toLowerCase().replace(/\s+/g, ' ').trim();
+    if (!needle || !hay.includes(needle)) continue;
+    seen.add(id);
+    const item = byId.get(id);
+    marks.push({ id, item: item.item, weight: item.weight, evidence });
+  }
+  return marks;
 }

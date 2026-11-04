@@ -231,6 +231,21 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
 .detail p{font-size:16px;color:var(--ink2);margin-bottom:8px}
 .detail .free{background:#241431;border-radius:12px;padding:10px 13px;font-size:15.5px}
 .detail .btn{margin-top:12px}
+/* ---------- top1 strands + resume ---------- */
+.strandrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.strandchip{
+  font-family:'Instrument Sans',sans-serif;font-size:14.5px;font-weight:600;
+  background:var(--soft);color:var(--ink2);border:1.5px solid #4A2A56;
+  border-radius:999px;padding:8px 13px;cursor:pointer;transition:transform .1s ease,background .1s ease,border-color .1s ease;
+}
+.strandchip:hover{transform:translateY(-1px)}
+.strandchip.on{background:var(--pink);border-color:var(--pink);color:#fff}
+.strandchip.off{opacity:.38;cursor:default}
+.strandchip .cnt{font-family:'DM Mono',monospace;font-size:12px;opacity:.85}
+.resumeblock{margin-top:26px;border-top:1.5px solid var(--line);padding-top:20px}
+.resumeblock h3{font-size:19px;margin-bottom:8px}
+.resumeblock .marked{margin-top:12px}
+.resumeblock .ev{font-size:14.5px;color:var(--mut);font-style:italic}
 .sentblock{margin-top:22px;background:var(--soft);border:1.5px dashed var(--pink);border-radius:18px;padding:20px 18px;text-align:center}
 .sentline{font-size:16.5px;color:var(--ink2);margin-bottom:14px}
 /* ---------- offer ---------- */
@@ -572,8 +587,18 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
       <span class="section-label">Top 1% checklist</span>
       <h2 id="top1-title">What the top 1% has in 2027</h2>
       <p class="lede">Tap any ❗ to see where to get it — and how many points it adds to your Score.</p>
+      <div class="strandrow" id="top1-strands"></div>
       <div id="top1-detail"></div>
       <div id="top1-list"></div>
+      <div class="resumeblock" id="resume-block">
+        <span class="section-label">Résumé check</span>
+        <h3>Upload your résumé — we will mark what you already have.</h3>
+        <p class="lede">Your résumé is read right here in your browser — the file itself is never uploaded or stored. We keep only the checkmarks.</p>
+        <label class="btn ghost small" style="margin-top:12px;cursor:pointer">Choose a résumé — PDF, DOCX or TXT<input type="file" id="wd-resume-file" accept=".pdf,.docx,.txt,.md" style="display:none"></label>
+        <p class="err" id="wd-resume-err"></p>
+        <p class="formnote" id="wd-resume-status"></p>
+        <div id="wd-resume-result"></div>
+      </div>
     </section>
 
     <section class="card hidden" id="panel-week">
@@ -737,6 +762,71 @@ window.WD_MODE = 'storefront';
       }).join('');
       return '<div class="checkgroup"><h3>' + esc(label) + '</h3>' + rows + '</div>';
     }).join('');
+  }
+
+  /* ---------------- top 1%: DNA strand switcher ---------------- */
+  var STRAND_DEFS = [
+    { id: 'all', icon: '✦', label: 'All' },
+    { id: 'craft', icon: '🛠', label: 'Craft' },
+    { id: 'experience', icon: '🎓', label: 'Experience' },
+    { id: 'proof', icon: '🏆', label: 'Proof' },
+    { id: 'voice', icon: '📣', label: 'Voice' },
+    { id: 'niche', icon: '🎯', label: 'Niche' },
+    { id: 'network', icon: '🤝', label: 'Network' },
+    { id: 'ai_leverage', icon: '⚡', label: 'AI leverage' }
+  ];
+  var strandFilter = 'all';
+  function itemStrand(it){
+    // New profiles carry `strand` directly. Stored profiles from the
+    // 8-item era carry only `category` — map it onto the strands.
+    var s = String((it && it.strand) || '').toLowerCase();
+    for (var i = 1; i < STRAND_DEFS.length; i++) if (STRAND_DEFS[i].id === s) return s;
+    var c = String((it && it.category) || '').toLowerCase();
+    if (c === 'tool' || c === 'tools' || c === 'ai_tool' || c === 'ai_tools') return 'ai_leverage';
+    if (c === 'certification' || c === 'certifications' || c === 'certificate' || c === 'credential' || c === 'credentials' || c === 'license' || c === 'experience') return 'experience';
+    if (c === 'portfolio' || c === 'proof') return 'proof';
+    if (c === 'personal_brand' || c === 'content' || c === 'voice') return 'voice';
+    if (c === 'niche' || c === 'specialization' || c === 'specialty') return 'niche';
+    if (c === 'community' || c === 'network') return 'network';
+    return 'craft';
+  }
+  function strandCounts(p){
+    var counts = {};
+    STRAND_DEFS.forEach(function(d){ counts[d.id] = { have: 0, total: 0 }; });
+    (p.top1_profile || []).forEach(function(it){
+      var s = itemStrand(it);
+      counts[s].total++; counts.all.total++;
+      if (it.user_has) { counts[s].have++; counts.all.have++; }
+    });
+    return counts;
+  }
+  function renderStrandChips(){
+    var p = state.wd.profile;
+    var counts = strandCounts(p);
+    var box = $('top1-strands');
+    box.innerHTML = STRAND_DEFS.map(function(d){
+      var c = counts[d.id];
+      var dis = d.id !== 'all' && c.total === 0;
+      return '<button type="button" class="strandchip' + (strandFilter === d.id ? ' on' : '') + (dis ? ' off' : '') + '" data-strand="' + d.id + '"' + (dis ? ' disabled' : '') + '>' +
+        d.icon + ' ' + d.label + ' <span class="cnt">' + c.have + '/' + c.total + '</span></button>';
+    }).join('');
+    var btns = box.querySelectorAll('[data-strand]');
+    for (var i = 0; i < btns.length; i++){
+      btns[i].addEventListener('click', function(){
+        strandFilter = this.getAttribute('data-strand');
+        $('top1-detail').innerHTML = '';
+        renderTop1();
+      });
+    }
+  }
+  function checkRowHTML(it, interactive){
+    var pts = it.user_has ? '' : '<span class="pts">+' + it.weight + ' pts</span>';
+    var inner = '<span class="mark">' + (it.user_has ? '✅' : '❗') + '</span><span>' + esc(it.item) + '</span>' + pts;
+    if (interactive && !it.user_has) return '<button type="button" class="checkitem" data-item="' + esc(it.id) + '">' + inner + '</button>';
+    return '<div class="checkitem">' + inner + '</div>';
+  }
+  function checklistFlatHTML(items, interactive){
+    return '<div style="margin-top:18px">' + items.map(function(it){ return checkRowHTML(it, interactive); }).join('') + '</div>';
   }
 
   /* ---------------- short entry: profession + email -> card ---------------- */
@@ -1037,7 +1127,13 @@ window.WD_MODE = 'storefront';
   }
   function renderTop1(){
     var p = state.wd.profile;
-    $('top1-list').innerHTML = checklistHTML(p, true);
+    renderStrandChips();
+    if (strandFilter === 'all') {
+      $('top1-list').innerHTML = checklistHTML(p, true);
+    } else {
+      var items = (p.top1_profile || []).filter(function(it){ return itemStrand(it) === strandFilter; });
+      $('top1-list').innerHTML = items.length ? checklistFlatHTML(items, true) : '<p class="lede" style="margin-top:16px">Nothing in this strand yet.</p>';
+    }
     var btns = $('top1-list').querySelectorAll('[data-item]');
     for (var i = 0; i < btns.length; i++){
       btns[i].addEventListener('click', function(){ showDetail(this.getAttribute('data-item')); });
@@ -1080,6 +1176,96 @@ window.WD_MODE = 'storefront';
     renderTop1();
     persistProfile(oldScore);
   }
+
+  /* ---------------- résumé scan (file parsed in the browser) ----------------
+     Same approach as the PathCheck /app: pdf.js for PDF, mammoth for
+     DOCX, plain read for TXT — all in the browser. The file itself is
+     never uploaded or stored; only the extracted text goes to the
+     resume-scan action, which returns evidenced checklist ids; the
+     flips then travel the normal update path like a manual flip. */
+  function wdLoadScript(src){
+    return new Promise(function(resolve, reject){
+      var s = document.createElement('script');
+      s.src = src; s.onload = resolve; s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+  function wdExtractPdf(file){
+    return wdLoadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js').then(function(){
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      return file.arrayBuffer();
+    }).then(function(buf){
+      return window.pdfjsLib.getDocument({ data: buf }).promise;
+    }).then(function(pdf){
+      var pages = [];
+      for (var i = 1; i <= pdf.numPages; i++) pages.push(i);
+      return pages.reduce(function(chain, n){
+        return chain.then(function(acc){
+          return pdf.getPage(n).then(function(page){ return page.getTextContent(); }).then(function(tc){
+            acc.push(tc.items.map(function(it){ return it.str; }).join(' '));
+            return acc;
+          });
+        });
+      }, Promise.resolve([]));
+    }).then(function(chunks){ return chunks.join('\n'); });
+  }
+  function wdExtractDocx(file){
+    return wdLoadScript('https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js')
+      .then(function(){ return file.arrayBuffer(); })
+      .then(function(buf){ return window.mammoth.extractRawText({ arrayBuffer: buf }); })
+      .then(function(r){ return r.value || ''; });
+  }
+  function wdResumeError(msg){ var e = $('wd-resume-err'); if (e) { e.textContent = msg || ''; e.classList.toggle('on', !!msg); } }
+  function wdResumeStatus(msg){ var e = $('wd-resume-status'); if (e) e.textContent = msg || ''; }
+  function handleWdResumeFile(file){
+    wdResumeError('');
+    $('wd-resume-result').innerHTML = '';
+    if (file.size > 5 * 1024 * 1024) { wdResumeError('That file is over 5 MB — a résumé should be much smaller.'); return; }
+    wdResumeStatus('Reading ' + file.name + '…');
+    var lower = file.name.toLowerCase();
+    var job;
+    if (lower.slice(-4) === '.pdf') job = wdExtractPdf(file);
+    else if (lower.slice(-5) === '.docx') job = wdExtractDocx(file);
+    else job = file.text();
+    job.then(function(text){
+      text = String(text || '');
+      if (text.trim().length < 50) { wdResumeStatus(''); wdResumeError('We could not read any real text from that file — try a TXT copy.'); return null; }
+      wdResumeStatus('Your Watchdog is matching it against your checklist…');
+      return api({ action: 'resume-scan', leadId: state.leadId, text: text.slice(0, 12000) });
+    }).then(function(r){
+      if (!r) return;
+      if (!r.j || !r.j.ok) throw new Error((r.j && r.j.error) || 'scan failed');
+      var marks = r.j.marks || [];
+      wdResumeStatus('');
+      if (!marks.length) {
+        $('wd-resume-result').innerHTML = '<p class="lede" style="margin-top:12px">Nothing we could mark from this résumé yet. If you do have some of these, tap the ❗ items above and hit “I have this now”.</p>';
+        return;
+      }
+      var oldScore = state.wd.score;
+      var fresh = [];
+      marks.forEach(function(m){
+        (state.wd.profile.top1_profile || []).forEach(function(x){
+          if (x.id === m.id && !x.user_has) { x.user_has = true; fresh.push(m); }
+        });
+      });
+      if (!fresh.length) {
+        $('wd-resume-result').innerHTML = '<p class="lede" style="margin-top:12px">Your résumé backs ' + marks.length + ' item' + (marks.length === 1 ? '' : 's') + ' you already have marked — nothing new to add.</p>';
+        return;
+      }
+      $('wd-resume-result').innerHTML = '<div class="marked"><p><strong>From your résumé we marked ' + fresh.length + ':</strong></p>' +
+        fresh.map(function(m){ return '<div class="checkitem"><span class="mark">✅</span><span>' + esc(m.item) + '<br><span class="ev">“' + esc(m.evidence) + '”</span></span><span class="pts">+' + m.weight + ' pts</span></div>'; }).join('') +
+        '<p class="formnote">Marks come only from words in your résumé — the quotes above are the exact lines we used.</p></div>';
+      renderTop1();
+      persistProfile(oldScore);
+    }).catch(function(){
+      wdResumeStatus('');
+      wdResumeError('That did not scan — check your connection and try the résumé once more.');
+    });
+  }
+  (function(){
+    var rf = $('wd-resume-file');
+    if (rf) rf.addEventListener('change', function(){ if (rf.files && rf.files[0]) handleWdResumeFile(rf.files[0]); rf.value = ''; });
+  })();
   function renderWeek(){
     if (state.asleep){
       // The weekly watch sleeps in the free layer — the moves come
