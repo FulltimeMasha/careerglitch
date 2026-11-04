@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Career Glitch Lab — New tool lesson</title>
+<meta name="description" content="A new AI tool landed in your profession. Here is what it is, what changes, and a simulator scene where you learn to work with it.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<meta name="theme-color" content="#FFEEF5">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Instrument+Sans:wght@400;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFCF6; --ink:#1C1A1F; --ink2:#3a2b4d; --mut:#7a7285;
+  --pink:#FF8CBE; --hot:#F92A82; --deep:#c2185b; --blush:#FFD8EA;
+  --soft:#FFEEF5; --butter:#F0E6CF; --line:#eedfe8; --white:#fff;
+  --green:#1d7a4f;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{min-height:100vh;color:var(--ink);font-family:'Instrument Sans',system-ui,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;background:linear-gradient(180deg,#FFFCF6 0%,#FFF3F8 46%,#FFEEF5 78%,#FFE3F0 100%);background-attachment:fixed;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Outfit',sans-serif}
+.mono{font-family:'DM Mono',monospace}
+.sky{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(58px)}
+.b1{width:340px;height:340px;background:#FFD8EA;opacity:.75;top:-110px;left:-90px}
+.b2{width:280px;height:280px;background:#FFE9B8;opacity:.5;top:16%;right:-110px}
+.b3{width:300px;height:300px;background:#FFC7DE;opacity:.55;bottom:-130px;left:22%}
+.topbar{display:flex;align-items:center;justify-content:flex-start;padding:14px 24px;max-width:1100px;margin:0 auto}
+.logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.logo span{color:var(--deep)} .logo .heart{color:var(--hot)}
+.logo .by{font-family:'DM Mono',monospace;font-weight:400;font-size:11px;letter-spacing:.14em;color:var(--mut);margin-left:8px;text-transform:uppercase}
+.page{max-width:760px;margin:0 auto;padding:0 20px 72px}
+.hero{padding:30px 0 6px}
+.kicker{display:inline-block;font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;background:var(--blush);color:var(--ink);border-radius:999px;padding:7px 13px;transform:rotate(-1.2deg);box-shadow:0 5px 14px rgba(23,18,43,.10)}
+.hero h1{font-size:clamp(30px,6.4vw,46px);font-weight:900;line-height:1.04;letter-spacing:-.03em;margin:22px auto 0}
+.hero .sub{font-size:clamp(16.5px,2.6vw,19px);color:var(--ink2);max-width:40em;margin:16px auto 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;border:none;border-radius:999px;padding:14px 24px;background:linear-gradient(135deg,#F92A82,#FF8CBE);color:#fff;text-decoration:none;cursor:pointer;box-shadow:0 14px 30px rgba(249,42,130,.34);transition:transform .12s ease,box-shadow .12s ease;text-align:center}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.55;cursor:wait;transform:none}
+.btn.ghost{background:#fff;color:var(--deep);border:1.5px solid var(--blush);box-shadow:none}
+.btn.small{padding:10px 18px;font-size:14.5px}
+section{margin-top:30px}
+.card{background:rgba(255,255,255,.85);border:1.5px solid var(--line);border-radius:26px;padding:clamp(22px,5vw,34px);box-shadow:0 20px 46px rgba(23,18,43,.07)}
+.section-label{display:inline-block;font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);background:var(--soft);border-radius:999px;padding:6px 11px;margin-bottom:14px}
+h2{font-size:clamp(24px,5vw,32px);font-weight:900;line-height:1.1;letter-spacing:-.025em;margin-bottom:12px}
+.lede{font-size:17.5px;color:var(--ink2)}
+.meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:14px;font-size:14.5px}
+.meta a{color:var(--deep);font-weight:600}
+.meta .date{font-family:'DM Mono',monospace;font-size:12.5px;color:var(--mut)}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media (max-width:560px){.twocol{grid-template-columns:1fr}}
+.minibox{border:1.5px solid var(--line);border-radius:16px;padding:16px 18px;background:#fff}
+.minibox h3{font-size:16.5px;font-weight:800;margin-bottom:8px}
+.minibox ul{list-style:none;display:grid;gap:7px}
+.minibox li{font-size:15.5px;padding-left:20px;position:relative}
+.minibox li:before{content:'—';position:absolute;left:0;color:var(--mut)}
+.howto{list-style:none;counter-reset:step;display:grid;gap:11px;margin-top:6px}
+.howto li{display:flex;gap:12px;align-items:flex-start;font-size:16.5px}
+.howto .n{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--hot);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.field{margin-top:14px}
+.field label{display:block;font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:7px}
+input[type=email],input[type=text]{width:100%;font-size:16px;font-family:'Instrument Sans',sans-serif;padding:13px 15px;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink)}
+textarea{width:100%;font-size:16px;font-family:'Instrument Sans',sans-serif;padding:13px 15px;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);min-height:170px;resize:vertical;line-height:1.5}
+input:focus,textarea:focus{outline:2px solid var(--pink);outline-offset:1px}
+.rowflex{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.note{font-size:14.5px;color:var(--mut);margin-top:10px}
+.okline{font-size:15px;color:var(--green);font-weight:600;margin-top:10px}
+.errline{font-size:15px;color:var(--deep);font-weight:600;margin-top:10px}
+.scene{border:1.5px solid var(--line);border-radius:22px;background:rgba(255,255,255,.9);padding:clamp(20px,4.5vw,30px);margin-top:18px;box-shadow:0 14px 34px rgba(23,18,43,.06)}
+.scene .shead{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
+.scene h3{font-size:21px;font-weight:800;letter-spacing:-.01em}
+.badge{flex:0 0 auto;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:5px 10px;background:var(--soft);color:var(--deep)}
+.badge.pass{background:#e3f4ea;color:var(--green)}
+.badge.draft{background:var(--butter);color:#7a5b12}
+.frombox{background:var(--soft);border-radius:16px;padding:15px 17px;margin-top:15px}
+.frombox .who{font-family:'Outfit',sans-serif;font-weight:700;font-size:15px}
+.frombox p{margin-top:6px;white-space:pre-wrap}
+.pressure{background:#fff7e8;border:1.5px solid #f0dfae;border-radius:16px;padding:13px 16px;margin-top:12px;font-size:15.5px}
+.pressure .plabel{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7a5b12;display:block;margin-bottom:5px}
+.taskbox{margin-top:14px}
+.taskbox .tlabel{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--deep);display:block;margin-bottom:6px}
+.rubric{margin-top:14px;border-top:1.5px dashed var(--line);padding-top:13px}
+.rubric .rlabel{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:8px}
+.rubric div{font-size:15.5px;padding:4px 0}
+.sactions{margin-top:15px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.hidden{display:none}
+.chatbox{margin-top:16px;border-top:1.5px dashed var(--line);padding-top:14px}
+.chatbox .tlabel{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--deep);display:block;margin-bottom:9px}
+.chatlog{display:grid;gap:8px;margin-bottom:10px;max-height:340px;overflow-y:auto}
+.msg{max-width:88%;padding:10px 13px;border-radius:15px;font-size:15.5px;white-space:pre-wrap;line-height:1.45}
+.msg.them{background:var(--soft);border-bottom-left-radius:5px;justify-self:start}
+.msg.me{background:#fff;border:1.5px solid var(--blush);border-bottom-right-radius:5px;justify-self:end}
+.msg .who{display:block;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:3px}
+.chatrow{display:flex;gap:8px}
+.chatrow input{flex:1}
+.feedback{margin-top:14px;border-radius:16px;padding:14px 16px;font-size:15.5px;display:none}
+.feedback.show{display:block}
+.feedback.pass{background:#e3f4ea;border:1.5px solid #bfe6cf}
+.feedback.fail{background:#fff7e8;border:1.5px solid #f0dfae}
+.feedback ul{margin:8px 0 0 2px;list-style:none;display:grid;gap:4px}
+.feedback li{font-size:14.5px}
+footer{margin-top:44px;text-align:center;color:var(--mut);font-size:13.5px}
+footer a{color:var(--deep)}
+</style>
+</head>
+<body>
+<div class="sky"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="topbar">
+  <a class="logo" href="/">Career<span>Glitch</span> <span class="heart">♥</span><span class="by">Lab</span></a>
+</div>
+<div class="page">
+
+  <div class="hero">
+    <span class="kicker">Career Glitch Lab · New tool on the radar</span>
+    <h1 id="h-headline">Loading the news…</h1>
+    <p class="sub" id="h-sowhat"></p>
+    <div class="meta" id="h-meta"></div>
+  </div>
+
+  <p class="errline hidden" id="load-error"></p>
+
+  <section class="card hidden" id="lesson-card">
+    <span class="section-label">The lesson — 3 minutes</span>
+    <h2 id="l-title"></h2>
+    <p class="lede" id="l-what"></p>
+    <p style="margin-top:12px" id="l-changes"></p>
+    <div class="twocol">
+      <div class="minibox"><h3>🤖 What the tool now does</h3><ul id="l-auto"></ul></div>
+      <div class="minibox"><h3>🧑 What you do instead</h3><ul id="l-human"></ul></div>
+    </div>
+    <h3 style="margin-top:20px;font-size:18px;font-weight:800">How to work with it</h3>
+    <ol class="howto" id="l-how"></ol>
+    <p class="note" id="l-source"></p>
+  </section>
+
+  <section class="hidden" id="scene-wrap">
+    <h2 style="margin-top:34px">🎮 Now practice it — the simulator</h2>
+    <p class="lede">Reading is not the skill. Below, the tool is already running at a (simulated) firm — and its first output needs your review before anything posts.</p>
+
+    <div class="card" style="margin-top:18px">
+      <span class="section-label">Your Lab record</span>
+      <div class="rowflex">
+        <div style="flex:1 1 210px"><input type="text" id="f-name" placeholder="Your name" autocomplete="name"></div>
+        <div style="flex:1 1 210px"><input type="email" id="f-email" placeholder="Your email" autocomplete="email"></div>
+      </div>
+      <p class="note" id="id-note">Tool scenes run under your email — your reviewed artifact is saved as proof on your Lab record. Use the same email as your Watchdog card.</p>
+    </div>
+
+    <article class="scene" id="scene-box"></article>
+  </section>
+
+  <footer>
+    Career Glitch Lab — learn the tool the week it lands. <a href="/lab/bookkeeper">Bookkeeper Lab</a> · <a href="/watchdog">Open your Watchdog</a> · <a href="/lab">All Lab tracks</a> · <a href="/privacy">Privacy</a>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var q = new URLSearchParams(window.location.search);
+  var ITEM_ID = q.get('id') || '';
+  var state = { email: '', name: '', pkg: null, chat: [], passed: false, artifactRec: null, startedAt: 0 };
+
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]; }); }
+  function $(id){ return document.getElementById(id); }
+  function fmtDate(iso){ try { return new Date(iso + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); } catch (e) { return iso || ''; } }
+
+  function post(path, body){
+    return fetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); });
+  }
+
+  function currentEmail(){
+    var e = ($('f-email').value || '').trim().toLowerCase();
+    return e || state.email || '';
+  }
+
+  function renderPackage(){
+    var p = state.pkg;
+    var it = p.item, L = p.lesson;
+    document.title = 'Career Glitch Lab — ' + L.title;
+    $('h-headline').textContent = it.headline;
+    $('h-sowhat').textContent = it.so_what;
+    $('h-meta').innerHTML =
+      (it.date ? '<span class="date">' + esc(fmtDate(it.date)) + '</span>' : '') +
+      (it.source_url ? '<a href="' + esc(it.source_url) + '" target="_blank" rel="noopener">Read the original source</a>' : '') +
+      '<span class="date">Spotted by your Watchdog radar</span>';
+    $('l-title').textContent = L.title;
+    $('l-what').textContent = L.what_it_is;
+    $('l-changes').textContent = L.what_changes;
+    $('l-auto').innerHTML = L.automates.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('');
+    $('l-human').innerHTML = L.human_does.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('');
+    $('l-how').innerHTML = L.how_to.map(function(x){ return '<li><span class="n">✓</span><span>' + esc(x) + '</span></li>'; }).join('');
+    $('l-source').innerHTML = 'This lesson sticks to what the source reports — no invented features, no invented numbers.' +
+      (it.source_url ? ' Source: <a href="' + esc(it.source_url) + '" target="_blank" rel="noopener" style="color:var(--deep)">' + esc(it.source_url.replace(/^https?:\/\//, '').split('/')[0]) + '</a>' : '');
+    $('lesson-card').classList.remove('hidden');
+    $('scene-wrap').classList.remove('hidden');
+    renderScene();
+  }
+
+  function renderScene(){
+    var sc = state.pkg.scene;
+    var art = state.artifactRec;
+    var status = state.passed ? '<span class="badge pass">Passed ✓</span>' : (art ? '<span class="badge draft">Draft saved</span>' : '<span class="badge">Tool scene</span>');
+    $('scene-box').innerHTML =
+      '<div class="shead"><div><h3>' + esc(sc.title) + '</h3>'
+      + '<div class="note" style="margin-top:4px">Standalone scene — it trains this one tool. It does not change your month cycle or your graduate record.</div></div>' + status + '</div>'
+      + '<div class="frombox"><div class="who">📩 ' + esc(sc.from_name) + ' (' + esc(sc.from_role) + ') writes to you:</div><p>' + esc(sc.setup) + '</p></div>'
+      + (sc.pressure ? '<div class="pressure"><span class="plabel">😬 Heads up — a complication is coming</span>It lands mid-conversation, like real work. Talk to ' + esc(sc.from_name) + ' below to get it.</div>' : '')
+      + '<div class="taskbox"><span class="tlabel">✍️ Your job</span><p>' + esc(sc.task) + '</p></div>'
+      + '<div class="chatbox"><span class="tlabel">💬 Talk it through — ' + esc(sc.from_name) + ' is live</span>'
+      + '<div class="chatlog hidden" id="chatlog"></div>'
+      + '<button type="button" class="btn ghost small" id="btn-chatstart">💬 Start the conversation with ' + esc(sc.from_name) + '</button>'
+      + '<div class="chatrow hidden" id="chatrow"><input type="text" id="chatin" placeholder="Ask, clarify, push back…" autocomplete="off"><button type="button" class="btn small" id="btn-chatsend">Send</button></div>'
+      + '</div>'
+      + '<div class="field"><label for="ta-art">Write your work here — this is your artifact: ' + esc(sc.artifact) + '</label>'
+      + '<textarea id="ta-art" placeholder="' + esc(sc.answer_hint || 'Write the deliverable here…') + '">' + esc(art ? art.text : '') + '</textarea></div>'
+      + '<div class="rubric"><span class="rlabel">✅ The standard — ' + esc(sc.from_name) + ' reviews your artifact against every line below. All lines true = you win the scene.</span>'
+      + sc.rubric.map(function(r){ return '<div>• ' + esc(r) + '</div>'; }).join('')
+      + '</div>'
+      + '<div class="sactions"><button type="button" class="btn small" id="btn-grade">Submit for review 📩</button>'
+      + '<span class="note" id="scene-msg"></span></div>'
+      + '<div class="feedback" id="fb"></div>';
+    $('btn-chatstart').addEventListener('click', startChat);
+    $('btn-chatsend').addEventListener('click', sendChat);
+    $('chatin').addEventListener('keydown', function(ev){ if (ev.key === 'Enter') { ev.preventDefault(); sendChat(); } });
+    $('btn-grade').addEventListener('click', submitGrade);
+    $('ta-art').addEventListener('focus', function(){ if (!state.startedAt) state.startedAt = Date.now(); });
+    if (state.chat.length) renderChat();
+    if (art && art.grade_feedback) renderGrade({ verdict: art.rubric_ok ? 'pass' : 'needs_work', per_rubric: art.grade_rubric || [], feedback: art.grade_feedback, artifact_summary: art.grade_summary || '' }, !!art.rubric_ok);
+  }
+
+  function setMsg(text, ok){
+    var el = $('scene-msg');
+    if (el) { el.textContent = text; el.style.color = ok ? 'var(--green)' : 'var(--deep)'; el.style.fontWeight = '600'; }
+  }
+
+  function requireEmail(){
+    var email = currentEmail();
+    if (!email) {
+      $('id-note').textContent = 'Add your email above first — tool scenes run under it, and your reviewed artifact is saved as proof.';
+      $('id-note').style.color = 'var(--deep)';
+      $('f-email').focus();
+      return '';
+    }
+    state.email = email;
+    state.name = ($('f-name').value || '').trim();
+    try { localStorage.setItem('lab_email', email); localStorage.setItem('lab_name', state.name); } catch (e) {}
+    return email;
+  }
+
+  function renderChat(){
+    var log = $('chatlog');
+    if (!log) return;
+    var sc = state.pkg.scene;
+    log.innerHTML = state.chat.map(function(m){
+      return '<div class="msg ' + m.who + '"><span class="who">' + (m.who === 'them' ? esc(sc.from_name) : 'You') + '</span>' + esc(m.text) + '</div>';
+    }).join('');
+    if (state.chat.length) {
+      log.classList.remove('hidden');
+      var sb = $('btn-chatstart'); if (sb) sb.classList.add('hidden');
+      var row = $('chatrow'); if (row) row.classList.remove('hidden');
+    }
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function chatBusy(busy){
+    var s = $('btn-chatsend'); if (s) s.disabled = busy;
+    var st = $('btn-chatstart'); if (st) st.disabled = busy;
+  }
+
+  function startChat(){
+    var email = requireEmail();
+    if (!email) return;
+    var sc = state.pkg.scene;
+    if (!state.startedAt) state.startedAt = Date.now();
+    if (state.chat.length) { renderChat(); return; }
+    var log = $('chatlog'); if (log) log.classList.remove('hidden');
+    var sb = $('btn-chatstart'); if (sb) sb.classList.add('hidden');
+    var row = $('chatrow'); if (row) row.classList.remove('hidden');
+    chatBusy(true);
+    state.chat.push({ who: 'them', text: '…' });
+    renderChat();
+    post('/api/lab-ai', { action: 'chat', scene_id: sc.id, email: email, history: [], kickoff: true })
+      .then(function(r){
+        chatBusy(false);
+        state.chat.pop();
+        if (r.ok && r.j.ok) state.chat.push({ who: 'them', text: r.j.reply });
+        else state.chat.push({ who: 'them', text: '(' + ((r.j && r.j.error) || 'The line glitched — write any word below and press Send to retry.') + ')' });
+        renderChat();
+      })
+      .catch(function(){
+        chatBusy(false);
+        state.chat.pop();
+        state.chat.push({ who: 'them', text: '(Connection problem — try again in a moment.)' });
+        renderChat();
+      });
+  }
+
+  function sendChat(){
+    var email = requireEmail();
+    if (!email) return;
+    var inp = $('chatin');
+    var text = (inp.value || '').trim();
+    if (!text) return;
+    var sc = state.pkg.scene;
+    var history = state.chat.filter(function(m){ return m.text !== '…'; }).slice();
+    state.chat.push({ who: 'me', text: text });
+    inp.value = '';
+    renderChat();
+    chatBusy(true);
+    state.chat.push({ who: 'them', text: '…' });
+    renderChat();
+    post('/api/lab-ai', { action: 'chat', scene_id: sc.id, email: email, history: history, message: text })
+      .then(function(r){
+        chatBusy(false);
+        state.chat.pop();
+        if (r.ok && r.j.ok) state.chat.push({ who: 'them', text: r.j.reply });
+        else state.chat.push({ who: 'them', text: '(' + ((r.j && r.j.error) || 'The line glitched — try again.') + ')' });
+        renderChat();
+      })
+      .catch(function(){
+        chatBusy(false);
+        state.chat.pop();
+        state.chat.push({ who: 'them', text: '(Connection problem — try again in a moment.)' });
+        renderChat();
+      });
+  }
+
+  function renderGrade(grade, passed){
+    var fb = $('fb');
+    if (!fb || !grade) return;
+    var sc = state.pkg.scene;
+    var lines = (grade.per_rubric || []).map(function(ok, i){
+      return '<li>' + (ok ? '✓' : '✗') + ' ' + esc(sc.rubric[i] || '') + '</li>';
+    }).join('');
+    fb.className = 'feedback show ' + (passed ? 'pass' : 'fail');
+    fb.innerHTML = '<strong>' + (passed ? '🏆 Scene won — reviewed and passed.' : '↩️ Not yet — here is exactly what to fix:') + '</strong>'
+      + (lines ? '<ul>' + lines + '</ul>' : '')
+      + '<p style="margin-top:8px">' + esc(grade.feedback || '') + '</p>'
+      + (grade.artifact_summary ? '<p class="note" style="margin-top:6px">On your record as: “' + esc(grade.artifact_summary) + '”</p>' : '');
+  }
+
+  function submitGrade(){
+    var email = requireEmail();
+    if (!email) return;
+    if (state.passed) { setMsg('Already passed ✓ — the reviewed artifact on file is your proof.', true); return; }
+    var sc = state.pkg.scene;
+    var text = $('ta-art').value;
+    var btn = $('btn-grade');
+    btn.disabled = true;
+    btn.textContent = 'Reviewing… ⏳';
+    var dur = state.startedAt ? Math.round((Date.now() - state.startedAt) / 1000) : 0;
+    post('/api/lab-ai', { action: 'grade', email: email, name: state.name, scene_id: sc.id, artifact_text: text, duration_sec: dur })
+      .then(function(r){
+        btn.disabled = false;
+        btn.textContent = 'Submit for review 📩';
+        if (!r.ok || !r.j.ok) { setMsg((r.j && r.j.error) || 'The review did not go through — try again.', false); return; }
+        var cyc = r.j.cycle || {};
+        if (cyc.tool_artifacts && cyc.tool_artifacts[sc.id]) state.artifactRec = cyc.tool_artifacts[sc.id];
+        state.passed = (cyc.tool_passed || []).indexOf(sc.id) >= 0 || !!r.j.passed;
+        renderScene();
+        renderGrade(r.j.grade, r.j.passed);
+        if (r.j.passed) {
+          setMsg('🎉 You win this scene. The tool is now a skill with proof attached — saved on your Lab record under ' + email + '.', true);
+        } else {
+          setMsg('Reviewed honestly: not yet. The exact fixes are listed under your work — edit and submit again.', false);
+        }
+      })
+      .catch(function(){ btn.disabled = false; btn.textContent = 'Submit for review 📩'; setMsg('That did not go through — check your connection and try again.', false); });
+  }
+
+  function loadProgress(){
+    var email = currentEmail();
+    if (!email || !state.pkg) return;
+    post('/api/lab', { action: 'progress', email: email }).then(function(r){
+      if (r.ok && r.j.ok) {
+        var cyc = r.j.cycle || {};
+        var sc = state.pkg.scene;
+        state.passed = (cyc.tool_passed || []).indexOf(sc.id) >= 0;
+        if (cyc.tool_artifacts && cyc.tool_artifacts[sc.id]) state.artifactRec = cyc.tool_artifacts[sc.id];
+        renderScene();
+        if (state.passed) {
+          $('id-note').textContent = 'You already passed this tool scene — your reviewed artifact is on your Lab record. Re-reading the lesson is free, any time.';
+          $('id-note').style.color = 'var(--green)';
+        }
+      }
+    }).catch(function(){});
+  }
+
+  // ---- boot ------------------------------------------------------------
+  try {
+    if (q.get('email')) $('f-email').value = q.get('email');
+    else {
+      var saved = localStorage.getItem('lab_email');
+      if (saved) $('f-email').value = saved;
+      var savedName = localStorage.getItem('lab_name');
+      if (savedName) $('f-name').value = savedName;
+    }
+  } catch (e) {}
+
+  if (!ITEM_ID) {
+    $('h-headline').textContent = 'This link is missing its tool.';
+    $('h-sowhat').textContent = 'Open a “Learn it in the Lab” link from your Watchdog radar — every tool lesson hangs off one radar item.';
+  } else {
+    post('/api/lab-tool', { action: 'package', item_id: ITEM_ID }).then(function(r){
+      if (!r.ok || !r.j.ok) {
+        $('h-headline').textContent = 'That lesson is not ready yet.';
+        var err = $('load-error');
+        err.textContent = (r.j && r.j.error) || 'Could not load this tool — try again in a moment.';
+        err.classList.remove('hidden');
+        return;
+      }
+      state.pkg = r.j;
+      renderPackage();
+      loadProgress();
+    }).catch(function(){
+      $('h-headline').textContent = 'That lesson is not ready yet.';
+      var err = $('load-error');
+      err.textContent = 'Could not load this tool — check your connection and try again.';
+      err.classList.remove('hidden');
+    });
+  }
+})();
+</script>
+</body>
+</html>

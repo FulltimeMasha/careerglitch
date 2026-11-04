@@ -178,7 +178,14 @@ module.exports = async (req, res) => {
       return res.status(200).json({
         ok: true,
         lead_id: labRow ? labRow.id : null,
-        cycle: { passed: cycle.passed || [], artifacts: cycle.artifacts || {} },
+        cycle: {
+          passed: cycle.passed || [],
+          artifacts: cycle.artifacts || {},
+          // Standalone radar-tool scenes (api/lab-ai grades them):
+          // tracked apart from the cycle on purpose.
+          tool_passed: cycle.tool_passed || [],
+          tool_artifacts: cycle.tool_artifacts || {},
+        },
         watchdog: await watchdogView(),
         record_ready: !!(labRow && recOf(labRow).record),
       });

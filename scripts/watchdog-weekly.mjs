@@ -14,6 +14,12 @@
 //      profession with no real news gets no items and the report says
 //      so. Save as scripts/watchdog-cycle-YYYY-MM-DD.json (shape at the
 //      bottom of this header).
+//      CLASSIFY every item: when the news IS a specific new AI tool
+//      or feature entering the profession's stack (a product/feature
+//      launch practitioners will now work with), set "kind": "tool"
+//      on the item. Policy, program changes, grants, market data and
+//      events are NOT tools — when in doubt, leave kind off. Only
+//      tool items get a Lab package in step 4.
 //   2. THIS SCRIPT merges the findings into the cumulative item store
 //      (scripts/watchdog-cycle-items.json), regenerates the radar
 //      extra feed (api/_lib/watchdog-radar-extra.mjs — commit + push
@@ -22,6 +28,13 @@
 //      applyNewsToState (idempotent: ids already in a user's
 //      news.applied are skipped, so re-running a cycle is a no-op).
 //   3. The script prints the cycle report; the agent relays it.
+//   4. LAB PACKAGES: for every NEW tool-tagged item this cycle, the
+//      script generates its Lab package (lesson + simulator scene,
+//      api/_lib/lab-tools.mjs) in the same run and caches it in
+//      cg_leads (product 'lab-tool'). Idempotent (a cached package
+//      is never regenerated); a generation failure is logged and
+//      never blocks the cycle — the package then generates on the
+//      first open of its Lab page instead.
 //
 // Fresh-user rule (enforced in api/_lib/watchdog.mjs): news applies
 // only to users who already exist when the cycle runs. A brand-new
@@ -44,9 +57,11 @@
 //     "professions": [ { "slug": "bookkeeper", "items": [
 //       { "id": "stable-item-id", "headline": "...", "so_what": "...",
 //         "source_url": "https://...", "impact": -1, "date": "2026-11-02",
+//         "kind": "tool",
 //         "reason": "one plain line used in score_history and on Home",
 //         "task": { "title": "...", "points": 3, "checklist_id": null }
 //       } ] } ] }
+// ("kind" is optional and only ever "tool" — see step 1.)
 // ---------------------------------------------------------------------------
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -91,6 +106,7 @@ const cumulative = existsSync(CUMULATIVE_PATH)
   : [];
 const knownIds = new Set(cumulative.map((it) => it.id));
 const addedToFeed = [];
+const newToolItems = [];
 for (const [slug, items] of bySlug) {
   for (const item of items) {
     if (!item || typeof item.id !== 'string' || knownIds.has(item.id)) continue;
@@ -104,10 +120,12 @@ for (const [slug, items] of bySlug) {
       source_url: item.source_url || '',
       impact: typeof item.impact === 'number' ? item.impact : 0,
       date: item.date || cycleDate,
+      ...(item.kind === 'tool' ? { kind: 'tool' } : {}),
       reason: item.reason || '',
       task: item.task || null,
     });
     addedToFeed.push(`${slug}/${item.id}`);
+    if (item.kind === 'tool') newToolItems.push({ slug, item });
   }
 }
 
@@ -126,6 +144,7 @@ export const RADAR_EXTRA_ITEMS = ${JSON.stringify(
     source_url: it.source_url,
     impact: it.impact,
     date: it.date,
+    ...(it.kind === 'tool' ? { kind: 'tool' } : {}),
   })),
   null,
   2
@@ -210,4 +229,22 @@ for (const [slug, entry] of report) {
     console.log(`    ${c.email}: Score ${c.before} -> ${c.after} (applied: ${c.items.join(', ')})`);
   }
 }
+// --- 4. Lab packages for the cycle's NEW tool items ------------------
+if (!dryRun && newToolItems.length) {
+  try {
+    const LT = await import(join(ROOT, 'api', '_lib', 'lab-tools.mjs'));
+    const { insertLead } = await import(join(ROOT, 'api', '_lib', 'leads.mjs'));
+    for (const { item } of newToolItems) {
+      try {
+        const pkg = await LT.getOrGenerateToolPackage(cfg, item.id, insertLead);
+        console.log(`[watchdog-weekly] lab package ${item.id}: ${pkg.source} — "${pkg.lesson.title}" (/lab/tool?id=${item.id})`);
+      } catch (e) {
+        console.log(`[watchdog-weekly] lab package FAILED ${item.id}: ${e && e.message ? e.message : e} — cycle unaffected; it will generate on first open of its Lab page.`);
+      }
+    }
+  } catch (e) {
+    console.log(`[watchdog-weekly] lab package step skipped: ${e && e.message ? e.message : e}`);
+  }
+}
+
 console.log('[watchdog-weekly] done. Commit + push the regenerated radar feed so the new items deploy.');

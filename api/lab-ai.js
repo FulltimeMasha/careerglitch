@@ -12,6 +12,18 @@
 //          Chat is stateless — the page carries the transcript — and never
 //          grades: passing is decided only by 'grade'.
 //
+//   { action:'chat'|'grade', scene_id:'tool-<radar item id>', ... }
+//       -> TOOL SCENES (radar -> Lab pipeline, api/_lib/lab-tools.mjs):
+//          when the radar catches a new tool for a profession, a Lab
+//          package (lesson + scene) is generated once and cached. Its
+//          scene loads HERE from the cache row — same chat persona,
+//          same rubric grading — but it is STANDALONE: passing stores
+//          the artifact under cycle.tool_artifacts / tool_passed on
+//          the junior's Lab lead, never joins the 10-scene cycle,
+//          never flips a Watchdog item and never completes the
+//          graduate record. Tool scenes require the junior's email
+//          (chat included) because the work attaches to their lead.
+//
 //   { action:'grade', email, name?, scene_id, artifact_text, duration_sec }
 //       -> an AI review of the artifact against the scene's rubric (the
 //          same standard the page shows). Strict-JSON reply, validated
@@ -107,7 +119,24 @@ module.exports = async (req, res) => {
 
     const action = typeof body.action === 'string' ? body.action : '';
     const { LAB_SCENE_MAP, LAB_SCENES_BOOKKEEPER } = await import('./_lib/lab-scenes-bookkeeper.mjs');
-    const scene = LAB_SCENE_MAP[clean(body.scene_id, 40)];
+    const sceneIdRaw = clean(body.scene_id, 90);
+    let scene = LAB_SCENE_MAP[sceneIdRaw];
+    if (!scene && sceneIdRaw.startsWith('tool-')) {
+      // Dynamic scene: a radar tool package cached in cg_leads. The
+      // tool page generates the package first (api/lab-tool), so this
+      // is normally a cache read; getOrGenerate covers a cold cache.
+      try {
+        const { leadStoreConfig, insertLead } = await import('./_lib/leads.mjs');
+        const cfgT = leadStoreConfig();
+        if (!cfgT) return res.status(503).json({ ok: false, error: 'Saving is not switched on yet.' });
+        const LT = await import('./_lib/lab-tools.mjs');
+        const pkg = await LT.getOrGenerateToolPackage(cfgT, sceneIdRaw.slice(5), insertLead);
+        scene = pkg.scene;
+      } catch (e) {
+        console.error('lab-ai tool scene load failed:', e && e.message);
+        return res.status(502).json({ ok: false, error: 'That tool scene is still being written — open its Lab page first, then come back.' });
+      }
+    }
     if (!scene) {
       return res.status(400).json({ ok: false, error: 'That scene is not part of this Lab cycle.' });
     }
@@ -119,6 +148,14 @@ module.exports = async (req, res) => {
     // CHAT — the client/manager, live, in character. Never grades.
     // ------------------------------------------------------------------
     if (action === 'chat') {
+      if (scene.tool) {
+        // Tool scenes attach to a lead, so they run under an email
+        // from the very first message (the tool page collects it).
+        const chatEmail = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
+        if (!EMAIL_RE.test(chatEmail) || chatEmail.length > 254) {
+          return res.status(400).json({ ok: false, error: 'Tool scenes run under your email — add it on the page first, then start the conversation.' });
+        }
+      }
       const historyIn = Array.isArray(body.history) ? body.history.slice(-16) : [];
       const history = historyIn
         .filter((m) => m && (m.who === 'them' || m.who === 'me'))
@@ -282,6 +319,65 @@ module.exports = async (req, res) => {
         return res.status(502).json({ ok: false, error: 'The review glitched — your work is not graded yet. Submit it again in a moment.' });
       }
       const passed = grade.verdict === 'pass' && grade.per_rubric.every(Boolean);
+
+      // --- Tool scenes: standalone persistence. The artifact + grade
+      // land on the junior's Lab lead under tool_artifacts/tool_passed
+      // — the cycle (passed/artifacts), the Watchdog flip and the
+      // graduate record are deliberately NOT touched.
+      if (scene.tool) {
+        const tCycle = labRow ? cycleOf(labRow) : { prof: LAB_PROF, passed: [], artifacts: {} };
+        tCycle.tool_artifacts = tCycle.tool_artifacts || {};
+        tCycle.tool_passed = Array.isArray(tCycle.tool_passed) ? tCycle.tool_passed : [];
+        const alreadyToolPassed = tCycle.tool_passed.includes(scene.id);
+        let savedToolLeadId = labRow ? labRow.id : null;
+        if (!alreadyToolPassed) {
+          tCycle.tool_artifacts[scene.id] = {
+            name: scene.artifact,
+            text: artifactText,
+            rubric_ok: passed,
+            at: nowIso,
+            duration_sec: durationSec || (tCycle.tool_artifacts[scene.id] ? tCycle.tool_artifacts[scene.id].duration_sec || 0 : 0),
+            grade_feedback: grade.feedback,
+            grade_summary: grade.artifact_summary,
+            grade_rubric: grade.per_rubric,
+            item_id: scene.item_id,
+          };
+          if (passed) tCycle.tool_passed.push(scene.id);
+        }
+        if (labRow) {
+          const rec = recOf(labRow);
+          await updateLead(cfg, labRow.id, {
+            recommended: [{ ...rec, product: 'lab', track: LAB_PROF, cycle: tCycle }],
+          });
+        } else {
+          savedToolLeadId = await insertLead(cfg, {
+            name: clean(body.name, 80) || null,
+            email,
+            self_role: LAB_PROF,
+            current_job: 'lab-cycle',
+            recommended: [{ product: 'lab', track: LAB_PROF, cycle: tCycle }],
+            top1_slug: 'lab',
+            ua: null,
+          });
+        }
+        return res.status(200).json({
+          ok: true,
+          passed,
+          grade,
+          lead_id: savedToolLeadId,
+          cycle: {
+            passed: tCycle.passed || [],
+            artifacts: tCycle.artifacts || {},
+            tool_passed: tCycle.tool_passed,
+            tool_artifacts: tCycle.tool_artifacts,
+          },
+          flipped: null,
+          watchdog: await watchdogView(),
+          record_ready: baseState.record_ready,
+          record_url: baseState.record_url,
+          tool_scene: true,
+        });
+      }
 
       // --- Persist into the Lab lead. ---------------------------------
       let cycle = labRow ? cycleOf(labRow) : { prof: LAB_PROF, passed: [], artifacts: {} };

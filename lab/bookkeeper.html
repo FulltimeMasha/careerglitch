@@ -141,6 +141,13 @@ footer a{color:var(--deep)}
     <p class="note" style="margin-top:12px">5 more lines on that checklist — years on the job, a ProAdvisor badge, client reviews, referral partners, community — cannot be faked in a simulator, so the Lab honestly does not sell them. Those come from real work, and your Watchdog keeps track of them.</p>
   </section>
 
+  <section class="card hidden" id="newtools">
+    <span class="section-label">Fresh from the radar</span>
+    <h2>🆕 New tools — learn them the week they land</h2>
+    <p class="lede">The Watchdog radar spots new AI tools entering bookkeeping. Each one gets a Lab lesson and a practice scene, so the tool starts working for you — not instead of you.</p>
+    <div class="artlist" id="newtools-list" style="margin-top:14px"></div>
+  </section>
+
   <section class="card" id="idcard">
     <span class="section-label">Your Lab record</span>
     <div class="rowflex">
@@ -552,6 +559,22 @@ footer a{color:var(--deep)}
       var orders = byItem[k] || [];
       return '<div>✅ <strong>' + esc(ITEM_LABELS[k].replace(/\s*\([^)]*\)\s*$/, '')) + '</strong> — scene' + (orders.length > 1 ? 's ' : ' ') + orders.join(' + ') + ' · strand: ' + esc((ITEM_LABELS[k].match(/\(([^)]*)\)/) || [])[1] || '') + '</div>';
     }).join('');
+  })();
+
+  (function loadNewTools(){
+    fetch('/api/lab-tool', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'list', profession: 'bookkeeper' }) })
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if (!j || !j.ok || !Array.isArray(j.tools)) return;
+        var withPkg = j.tools.filter(function(t){ return t.has_package; });
+        if (!withPkg.length) return;
+        $('newtools-list').innerHTML = withPkg.map(function(t){
+          var email = ($('f-email').value || '').trim();
+          return '<div>🛠️ <strong>' + esc(t.headline) + '</strong><br><a href="/lab/tool?id=' + encodeURIComponent(t.id) + (email ? '&email=' + encodeURIComponent(email) : '') + '" style="color:var(--deep);font-weight:700">Learn it in the Lab →</a>' + (t.date ? ' <span class="mono" style="font-size:12px;color:var(--mut)">' + esc(t.date) + '</span>' : '') + '</div>';
+        }).join('');
+        $('newtools').classList.remove('hidden');
+      })
+      .catch(function(){});
   })();
 
   $('btn-load').addEventListener('click', loadProgress);

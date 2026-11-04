@@ -277,6 +277,29 @@ function withFreshScore(WD, state) {
   try { return WD.viewWatchdogState(state); } catch { return state; }
 }
 
+// Radar -> Lab: the ids of this profession's TOOL-tagged radar items
+// that already have a Lab learning package (lesson + simulator scene)
+// cached. The app renders a "Learn it in the Lab" action on exactly
+// those radar items and their news-derived tasks. Best-effort: any
+// store hiccup answers with an empty list, never an error — the app
+// simply shows no Lab links.
+async function attachLabTools(cfg, WD, view) {
+  if (!view || typeof view !== 'object') return view;
+  view.lab_tools = [];
+  try {
+    if (!view.profile || typeof view.profile.profession !== 'string') return view;
+    const toolItems = WD.matchRadarFeed(view.profile.profession).filter((it) => it.kind === 'tool');
+    if (!toolItems.length) return view;
+    const LT = await import('./_lib/lab-tools.mjs');
+    const have = await LT.toolPackageIds(cfg);
+    view.lab_tools = toolItems.filter((it) => have.has(it.id)).map((it) => it.id);
+  } catch (e) {
+    console.error('watchdog lab_tools attach failed:', e && e.message);
+    view.lab_tools = [];
+  }
+  return view;
+}
+
 module.exports = async (req, res) => {
   const corsOk = cors(req, res);
   if (req.method === 'OPTIONS') {
@@ -510,7 +533,8 @@ module.exports = async (req, res) => {
       for (const row of Array.isArray(rows) ? rows : []) {
         const rec = watchdogRec(row);
         if (rec) {
-          return res.status(200).json({ ok: true, lead_id: row.id, email: row.email || email, watchdog: withFreshScore(WD, rec.watchdog) });
+          const view = await attachLabTools(cfg, WD, withFreshScore(WD, rec.watchdog));
+          return res.status(200).json({ ok: true, lead_id: row.id, email: row.email || email, watchdog: view });
         }
       }
       return res.status(404).json({ ok: false, error: 'No Watchdog is saved for that email yet — run the free check first.' });
@@ -529,7 +553,8 @@ module.exports = async (req, res) => {
     const stored = rec.watchdog;
 
     if (action === 'get') {
-      return res.status(200).json({ ok: true, lead_id: row.id, email: row.email || '', watchdog: withFreshScore(WD, stored) });
+      const view = await attachLabTools(cfg, WD, withFreshScore(WD, stored));
+      return res.status(200).json({ ok: true, lead_id: row.id, email: row.email || '', watchdog: view });
     }
 
     if (action === 'resume-scan') {
@@ -595,7 +620,8 @@ module.exports = async (req, res) => {
       }
       const okSave = await updateLead(cfg, leadId, { recommended: [{ ...rec, watchdog: next }] });
       if (!okSave) return res.status(404).json({ ok: false, error: 'That Watchdog could not be found.' });
-      return res.status(200).json({ ok: true, watchdog: withFreshScore(WD, next) });
+      const view = await attachLabTools(cfg, WD, withFreshScore(WD, next));
+      return res.status(200).json({ ok: true, watchdog: view });
     }
 
     if (action === 'trial') {
@@ -706,9 +732,10 @@ module.exports = async (req, res) => {
       };
       const okSave = await updateLead(cfg, leadId, { recommended: [{ ...rec, watchdog: next }] });
       if (!okSave) return res.status(404).json({ ok: false, error: 'That Watchdog could not be found.' });
+      const view = await attachLabTools(cfg, WD, withFreshScore(WD, next));
       return res.status(200).json({
         ok: true,
-        watchdog: withFreshScore(WD, next),
+        watchdog: view,
         last_scanned: WD.RADAR_FEED_SCANNED_AT,
         mode: next.scan.mode || 'cached-feed',
       });

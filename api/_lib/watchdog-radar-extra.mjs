@@ -17,7 +17,8 @@ export const RADAR_EXTRA_ITEMS = [
     "so_what": "An add-on now plugs a firm's own Claude or ChatGPT into every client QuickBooks or Xero file — and it just learned Stripe, Square and Ramp. The AI drafts payout entries, revenue-recognition journals and reconciliations across all client books in one conversation; a person approves anything that posts. The drafting layer of bookkeeping is being automated in the open — the paid skill is reviewing drafts and catching what they got wrong.",
     "source_url": "https://www.morningstar.com/news/pr-newswire/20261102la86985/numbersgame-adds-stripe-square-and-ramp-to-its-quickbooks-online-and-xero-mcp-for-accounting-firms-using-claude-or-chatgpt",
     "impact": -1,
-    "date": "2026-11-02"
+    "date": "2026-11-02",
+    "kind": "tool"
   },
   {
     "id": "lokation-jefe-voice-ai-2026-11-03",
@@ -30,7 +31,8 @@ export const RADAR_EXTRA_ITEMS = [
     "so_what": "LoKation, a brokerage across six states, now gives every agent Jefe — a voice-first AI that runs the CRM, the transaction platform, email and calendar by voice or text. When the brokerage itself hands every agent an AI that does the follow-up, the unaided agent is the one at a disadvantage. The human work that stays scarce: negotiation, pricing judgment, local advice.",
     "source_url": "https://www.globenewswire.com/news-release/2026/11/03/3394454/0/en/lokation-real-estate-partners-with-lundy-to-launch-jefe-a-custom-ai-assistant-for-every-lokation-agent.html",
     "impact": -1,
-    "date": "2026-11-03"
+    "date": "2026-11-03",
+    "kind": "tool"
   },
   {
     "id": "adobe-for-startups-2026-11-03",

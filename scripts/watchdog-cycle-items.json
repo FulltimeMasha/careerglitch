@@ -18,7 +18,8 @@
       "checklist_id": null,
       "points": 3,
       "title": "Connect one client file to an AI assistant (Claude or ChatGPT) and check one payout entry it drafts before it posts"
-    }
+    },
+    "kind": "tool"
   },
   {
     "slug": "realtor",
@@ -38,7 +39,8 @@
       "checklist_id": null,
       "points": 3,
       "title": "Set up one AI follow-up routine in your CRM — or ask your brokerage which AI assistant it provides — and let it run this week's lead follow-ups"
-    }
+    },
+    "kind": "tool"
   },
   {
     "slug": "graphic-designer",
