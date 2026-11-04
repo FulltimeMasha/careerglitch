@@ -240,15 +240,15 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
       <img class="hero-mascot" src="/masha.webp" alt="Masha, the founder of Career Glitch">
       <p class="sub">Everyone tells you AI is coming for your job. Your Watchdog checks your profession <strong>every day</strong> — new AI tools, grants, jobs and rule changes — so you can do your work in peace. Once a week you get one short briefing: what changed, and what to do about it. Plus one honest number: your AI-Proof Score.</p>
       <button class="btn" id="start-btn" type="button">Check my career — free</button>
-      <p class="under-btn">Free · No sign-up before your result · Takes about a minute</p>
+      <p class="under-btn">Free · One question and your email · Takes under a minute</p>
     </div>
 
     <section class="card">
       <span class="section-label">How it works</span>
       <ul class="howlist">
-        <li><span class="n">1</span><span><strong>Talk to the Watchdog.</strong> Five short questions about your work — or just answer in your own words. No forms.</span></li>
-        <li><span class="n">2</span><span><strong>Get your AI-Proof Score.</strong> A number from 0 to 100, the top-1% checklist for your profession, and what to fix first.</span></li>
-        <li><span class="n">3</span><span><strong>We watch, you work.</strong> The Watchdog re-checks your profession every day and speaks up when something actually touches you.</span></li>
+        <li><span class="n">1</span><span><strong>One question.</strong> Which profession do you want checked? That is all we ask before your card — plus the email to send it to.</span></li>
+        <li><span class="n">2</span><span><strong>Get your card.</strong> The profession's AI-Proof Score from 0 to 100, its top-1% checklist, and the biggest gaps — shown here and emailed to you.</span></li>
+        <li><span class="n">3</span><span><strong>We watch, you work.</strong> The Watchdog re-checks your profession every day and speaks up when something actually touches you. Inside, your Score becomes personal.</span></li>
       </ul>
     </section>
 
@@ -263,27 +263,65 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     </section>
   </div>
 
-  <!-- ======================= CHAT ======================= -->
-  <div id="view-chat" class="hidden">
+  <!-- ======================= START (short entry) ======================= -->
+  <div id="view-start" class="hidden">
     <section class="card" style="margin-top:34px">
-      <span class="section-label">Talk to your Watchdog</span>
-      <div id="chat-main">
-        <div class="chatlog" id="chat-log" aria-live="polite"></div>
-        <div class="chips" id="chat-chips"></div>
-        <form class="chatform" id="chat-form">
-          <input type="text" id="chat-input" placeholder="Type your answer…" autocomplete="off">
-          <button class="btn" type="submit" id="chat-send">Send</button>
-        </form>
+      <div id="start-steps">
+        <div id="start-step1">
+          <span class="section-label">Step 1 of 2</span>
+          <h2>Which profession do you want checked?</h2>
+          <form class="chatform" id="prof-form" style="margin-top:6px">
+            <input type="text" id="prof-input" placeholder="e.g. Bookkeeper" autocomplete="off">
+            <button class="btn" type="submit">Continue</button>
+          </form>
+          <div class="chips" id="prof-chips"></div>
+          <div class="err" id="prof-err"></div>
+        </div>
+        <div id="start-step2" class="hidden">
+          <span class="section-label">Step 2 of 2</span>
+          <h2>Where do we send your card?</h2>
+          <p class="lede">We will show it right here and email you a copy too.</p>
+          <form class="formrow" id="card-form" style="margin-top:16px">
+            <input type="email" id="card-email" placeholder="you@example.com" autocomplete="email" required>
+            <button class="btn" type="submit" id="card-btn">Get my card — free</button>
+          </form>
+          <p class="formnote">Checking <strong id="card-prof-name"></strong>. No password, nothing to pay. Your card shows on this screen either way.</p>
+          <div class="err" id="card-err"></div>
+        </div>
       </div>
-      <div id="chat-sniff" class="hidden">
+      <div id="start-sniff" class="hidden">
         <div class="sniff">
           <img src="/masha.webp" alt="">
           <p>Watchdog is sniffing your career…</p>
-          <p class="sub2">Your daily tasks against today's AI tools. Your kit against the top 1%. One moment.</p>
+          <p class="sub2">The profession's daily tasks against today's AI tools. Its kit against the top 1%. One moment.</p>
         </div>
-        <div class="err" id="build-err"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================= ONBOARDING (post-payment) ======================= -->
+  <div id="view-onboard" class="hidden">
+    <section class="card" style="margin-top:34px">
+      <span class="section-label">Your trial is on</span>
+      <h2>Let's make your Score yours — 4 quick questions.</h2>
+      <div id="ob-main">
+        <div class="chatlog" id="ob-log" aria-live="polite"></div>
+        <div class="chips" id="ob-chips"></div>
+        <form class="chatform" id="ob-form">
+          <input type="text" id="ob-input" placeholder="Type your answer…" autocomplete="off">
+          <button class="btn" type="submit" id="ob-send">Send</button>
+        </form>
+        <p class="formnote" style="margin-top:14px"><a href="#" id="ob-skip" style="color:var(--deep);font-weight:600">Do it later</a> — your Watchdog keeps working with the typical profile meanwhile.</p>
+      </div>
+      <div id="ob-sniff" class="hidden">
+        <div class="sniff">
+          <img src="/masha.webp" alt="">
+          <p>Watchdog is re-checking with your answers…</p>
+          <p class="sub2">Your real tasks and your real tools, against the top 1% checklist. One moment.</p>
+        </div>
+        <div class="err" id="ob-err"></div>
         <div style="text-align:center;margin-top:14px">
-          <button class="btn ghost small hidden" id="build-retry" type="button">Try again</button>
+          <button class="btn ghost small hidden" id="ob-retry" type="button">Try again</button>
         </div>
       </div>
     </section>
@@ -297,6 +335,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
         <div class="scorebig"><span id="res-score">–</span><small>/100</small></div>
         <div class="mono" style="font-size:12px;letter-spacing:.14em;color:var(--mut)">YOUR AI-PROOF SCORE</div>
         <p class="scorereason" id="res-reason"></p>
+        <p class="formnote" id="res-typical" style="text-align:center"></p>
       </div>
       <div id="res-checklist"></div>
     </section>
@@ -306,12 +345,10 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
       <h2>Let Watchdog guard your career.</h2>
       <p class="lede">Your Watchdog keeps checking your profession every day, sends you one short briefing a week, and warns you the moment something really affects you.</p>
       <p class="price" style="margin-top:12px">Try everything free for 1 month. Don't love it? Cancel in one tap. Then $9/month.</p>
-      <form class="formrow" id="save-form" style="margin-top:18px">
-        <input type="email" id="save-email" placeholder="you@example.com" autocomplete="email" required>
-        <button class="btn" type="submit" id="save-btn">Start free month</button>
-      </form>
+      <div style="margin-top:18px">
+        <a class="btn" id="res-checkout" href="#" style="width:100%">Start free month</a>
+      </div>
       <p class="formnote">Free for 30 days, then $9/month. A card is asked at checkout — nothing is charged today. Cancel in one tap.</p>
-      <div class="err" id="save-err"></div>
     </section>
   </div>
 
@@ -323,6 +360,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
         <div class="scorebig"><span id="app-score">–</span><small>/100</small></div>
         <div class="mono" style="font-size:12px;letter-spacing:.14em;color:var(--mut)">YOUR AI-PROOF SCORE</div>
         <div><span class="delta" id="app-delta"></span></div>
+        <p class="scorereason hidden" id="app-personal-note" style="font-weight:700"></p>
         <p class="scorereason" id="app-reason"></p>
         <p class="formnote" id="app-trial"></p>
         <div id="app-offer" class="hidden" style="margin-top:14px">
@@ -343,6 +381,10 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
       <span class="section-label">Your Watchdog is on duty</span>
       <p class="lede" id="home-text"></p>
       <div id="home-stats" style="margin-top:16px"></div>
+      <div id="home-personal" class="hidden" style="margin-top:16px">
+        <button class="btn" id="home-personal-btn" type="button" style="width:100%">Make my Score personal</button>
+        <p class="formnote" style="margin-top:10px">Four quick questions about your real work — your Score stops being the typical one and becomes yours.</p>
+      </div>
     </section>
 
     <section class="card hidden" id="panel-top1">
@@ -381,8 +423,9 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
   'use strict';
   var API = '/api/watchdog';
   var LS_KEY = 'cg_watchdog_lead';
+  var OB_SKIP_KEY = 'cg_watchdog_ob_skip';
   var STRIPE_LINK = 'https://buy.stripe.com/3cI14m2690Ip8r6dZ1eEo0v';
-  var state = { leadId: null, email: null, wd: null, transcript: [], busy: false, tab: 'home' };
+  var state = { leadId: null, email: null, wd: null, profession: '', obTranscript: [], obBusy: false, justPersonalized: null, tab: 'home' };
 
   // The payment link carries the lead id + email so every Stripe
   // checkout can be reconciled back to this exact Watchdog.
@@ -396,7 +439,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
   function $(id){ return document.getElementById(id); }
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
   function show(view){
-    ['view-landing','view-chat','view-result','view-app'].forEach(function(v){ $(v).classList.toggle('hidden', v !== view); });
+    ['view-landing','view-start','view-onboard','view-result','view-app'].forEach(function(v){ $(v).classList.toggle('hidden', v !== view); });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function api(body){
@@ -450,9 +493,61 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     }).join('');
   }
 
-  /* ---------------- chat ---------------- */
-  function addMsg(role, text){
-    var log = $('chat-log');
+  /* ---------------- short entry: profession + email -> card ---------------- */
+  var PROF_CHIPS = ['Bookkeeper', 'Realtor', 'Graphic Designer', 'Nurse', 'Data Analyst'];
+  function renderProfChips(){
+    var box = $('prof-chips'); box.innerHTML = '';
+    PROF_CHIPS.forEach(function(c){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'chip'; b.textContent = c;
+      b.addEventListener('click', function(){ $('prof-input').value = c; goStep2(); });
+      box.appendChild(b);
+    });
+  }
+  function startEntry(){
+    $('start-steps').classList.remove('hidden');
+    $('start-sniff').classList.add('hidden');
+    $('start-step1').classList.remove('hidden');
+    $('start-step2').classList.add('hidden');
+    showErr('prof-err', ''); showErr('card-err', '');
+    renderProfChips();
+    show('view-start');
+    setTimeout(function(){ $('prof-input').focus(); }, 350);
+  }
+  function goStep2(){
+    var prof = $('prof-input').value.trim();
+    if (prof.length < 2) { showErr('prof-err', 'Type the profession you want checked — or tap one below.'); return; }
+    showErr('prof-err', '');
+    state.profession = prof;
+    $('card-prof-name').textContent = prof;
+    $('start-step1').classList.add('hidden');
+    $('start-step2').classList.remove('hidden');
+    setTimeout(function(){ $('card-email').focus(); }, 200);
+  }
+  function submitCard(){
+    var email = $('card-email').value.trim();
+    showErr('card-err', '');
+    $('start-steps').classList.add('hidden');
+    $('start-sniff').classList.remove('hidden');
+    api({ action: 'card', profession: state.profession, email: email }).then(function(r){
+      if (!r.j || !r.j.ok) throw new Error((r.j && r.j.error) || 'card failed');
+      state.leadId = r.j.lead_id;
+      state.email = email;
+      state.wd = r.j.watchdog;
+      try { localStorage.setItem(LS_KEY, state.leadId); } catch (e) {}
+      try { history.replaceState(null, '', '#' + state.leadId); } catch (e) {}
+      renderResult();
+      show('view-result');
+    }).catch(function(){
+      $('start-steps').classList.remove('hidden');
+      $('start-sniff').classList.add('hidden');
+      showErr('card-err', 'My nose glitched on that one — tap "Get my card" once more.');
+    });
+  }
+
+  /* ---------------- post-payment onboarding chat ---------------- */
+  function obAddMsg(role, text){
+    var log = $('ob-log');
     var row = document.createElement('div');
     row.className = 'msg ' + role;
     if (role === 'agent'){
@@ -464,74 +559,90 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     row.scrollIntoView({ behavior: 'smooth', block: 'end' });
     return row;
   }
-  function addTyping(){
+  function obAddTyping(){
     var row = document.createElement('div');
-    row.className = 'msg agent'; row.id = 'typing-row';
+    row.className = 'msg agent'; row.id = 'ob-typing-row';
     row.innerHTML = '<img class="avatar" src="/masha.webp" alt=""><div class="bubble"><span class="typing"><i></i><i></i><i></i></span></div>';
-    $('chat-log').appendChild(row);
+    $('ob-log').appendChild(row);
     row.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }
-  function removeTyping(){ var t = $('typing-row'); if (t) t.remove(); }
-  function renderChips(chips){
-    var box = $('chat-chips'); box.innerHTML = '';
+  function obRemoveTyping(){ var t = $('ob-typing-row'); if (t) t.remove(); }
+  function obRenderChips(chips){
+    var box = $('ob-chips'); box.innerHTML = '';
     (chips || []).forEach(function(c){
       var b = document.createElement('button');
       b.type = 'button'; b.className = 'chip'; b.textContent = c;
-      b.addEventListener('click', function(){ sendUser(c); });
+      b.addEventListener('click', function(){ obSendUser(c); });
       box.appendChild(b);
     });
   }
-  function setChatBusy(b){
-    state.busy = b;
-    $('chat-send').disabled = b;
-    $('chat-input').disabled = b;
+  function obSetBusy(b){
+    state.obBusy = b;
+    $('ob-send').disabled = b;
+    $('ob-input').disabled = b;
   }
-  function agentTurn(){
-    setChatBusy(true); addTyping();
-    api({ action: 'chat', messages: state.transcript }).then(function(r){
-      removeTyping(); setChatBusy(false);
-      if (!r.j || !r.j.ok) { addMsg('agent', 'My nose glitched for a second — say that once more?'); return; }
-      addMsg('agent', r.j.say);
-      state.transcript.push({ role: 'agent', text: r.j.say });
-      renderChips(r.j.chips || []);
-      if (r.j.done) startBuild();
+  function obAgentTurn(){
+    obSetBusy(true); obAddTyping();
+    api({ action: 'chat', mode: 'personalize', profession: state.wd ? state.wd.profile.profession : '', messages: state.obTranscript }).then(function(r){
+      obRemoveTyping(); obSetBusy(false);
+      if (!r.j || !r.j.ok) { obAddMsg('agent', 'My nose glitched for a second — say that once more?'); return; }
+      obAddMsg('agent', r.j.say);
+      state.obTranscript.push({ role: 'agent', text: r.j.say });
+      obRenderChips(r.j.chips || []);
+      if (r.j.done) obBuild();
     }).catch(function(){
-      removeTyping(); setChatBusy(false);
-      addMsg('agent', 'My nose glitched for a second — say that once more?');
+      obRemoveTyping(); obSetBusy(false);
+      obAddMsg('agent', 'My nose glitched for a second — say that once more?');
     });
   }
-  function sendUser(text){
+  function obSendUser(text){
     text = String(text || '').trim();
-    if (!text || state.busy) return;
-    addMsg('user', text);
-    state.transcript.push({ role: 'user', text: text });
-    $('chat-input').value = '';
-    renderChips([]);
-    agentTurn();
+    if (!text || state.obBusy) return;
+    obAddMsg('user', text);
+    state.obTranscript.push({ role: 'user', text: text });
+    $('ob-input').value = '';
+    obRenderChips([]);
+    obAgentTurn();
   }
-  function startChat(){
-    show('view-chat');
-    state.transcript = [];
-    $('chat-log').innerHTML = '';
-    $('chat-main').classList.remove('hidden');
-    $('chat-sniff').classList.add('hidden');
-    agentTurn();
-    setTimeout(function(){ $('chat-input').focus(); }, 350);
+  function startOnboard(){
+    state.obTranscript = [];
+    $('ob-log').innerHTML = '';
+    $('ob-main').classList.remove('hidden');
+    $('ob-sniff').classList.add('hidden');
+    showErr('ob-err', '');
+    $('ob-retry').classList.add('hidden');
+    show('view-onboard');
+    obAgentTurn();
+    setTimeout(function(){ $('ob-input').focus(); }, 350);
   }
-  function startBuild(){
-    $('chat-main').classList.add('hidden');
-    $('chat-sniff').classList.remove('hidden');
-    showErr('build-err', '');
-    $('build-retry').classList.add('hidden');
-    api({ action: 'build', messages: state.transcript }).then(function(r){
-      if (!r.j || !r.j.ok) throw new Error((r.j && r.j.error) || 'build failed');
+  function obBuild(){
+    $('ob-main').classList.add('hidden');
+    $('ob-sniff').classList.remove('hidden');
+    showErr('ob-err', '');
+    $('ob-retry').classList.add('hidden');
+    api({ action: 'personalize-build', leadId: state.leadId, messages: state.obTranscript }).then(function(r){
+      if (!r.j || !r.j.ok) throw new Error((r.j && r.j.error) || 'personalize failed');
+      var base = typeof r.j.baseline_score === 'number' ? r.j.baseline_score : (state.wd && state.wd.baseline ? state.wd.baseline.score : null);
       state.wd = r.j.watchdog;
-      renderResult();
-      show('view-result');
+      state.justPersonalized = { score: r.j.watchdog.score, baseline: base };
+      openApp(state.leadId, state.wd, state.email);
     }).catch(function(){
-      showErr('build-err', 'My nose glitched on that one — tap Try again and I will re-check your career.');
-      $('build-retry').classList.remove('hidden');
+      showErr('ob-err', 'My nose glitched on that one — tap Try again.');
+      $('ob-retry').classList.remove('hidden');
     });
+  }
+  // The deep onboarding is the FIRST app screen for a trial user whose
+  // profile is still the profession baseline — until they finish it or
+  // park it with "Do it later" for this session.
+  function maybeOnboard(){
+    var wd = state.wd;
+    if (!wd || !wd.trial || wd.trial.status !== 'active') return false;
+    if (wd.profile && wd.profile.personalized) return false;
+    var skipped = false;
+    try { skipped = sessionStorage.getItem(OB_SKIP_KEY) === state.leadId; } catch (e) {}
+    if (skipped) return false;
+    startOnboard();
+    return true;
   }
 
   /* ---------------- result ---------------- */
@@ -540,6 +651,8 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     $('res-prof').textContent = p.profession + ' · AI-Proof Score';
     $('res-score').textContent = wd.score;
     $('res-reason').textContent = wd.score_reason || p.score_reason || '';
+    $('res-typical').textContent = 'This is the score for a typical ' + p.profession + ' today. Inside, you make it yours.';
+    $('res-checkout').setAttribute('href', stripeHref(state.leadId, state.email));
     $('res-checklist').innerHTML = checklistHTML(p, false);
   }
 
@@ -565,6 +678,15 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     var deltaEl = $('app-delta');
     deltaEl.className = 'delta ' + d.cls;
     deltaEl.textContent = d.text;
+    var noteEl = $('app-personal-note');
+    if (state.justPersonalized) {
+      noteEl.textContent = 'Your personal Score: ' + state.justPersonalized.score +
+        (typeof state.justPersonalized.baseline === 'number' ? ' — the profession baseline was ' + state.justPersonalized.baseline + '.' : '.');
+      noteEl.classList.remove('hidden');
+    } else {
+      noteEl.classList.add('hidden');
+      noteEl.textContent = '';
+    }
     $('app-reason').textContent = wd.score_reason || p.score_reason || '';
     var trialOn = wd.trial && wd.trial.status === 'active';
     $('app-trial').textContent = trialOn
@@ -581,6 +703,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
       '<div class="checkitem"><span class="mark">📅</span><span>This week: <strong>' + doneTasks + ' of ' + (p.tasks || []).length + '</strong> moves done</span></div>' +
       '<div class="checkitem"><span class="mark">🎯</span><span>Your goal: <strong>' + esc(p.goal) + '</strong></span></div>';
     $('top1-title').textContent = 'What the top 1% ' + p.profession.toLowerCase() + 's has in 2027';
+    $('home-personal').classList.toggle('hidden', !(trialOn && !p.personalized));
     renderTop1();
     renderWeek();
     renderRadar();
@@ -683,40 +806,33 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     if (location.hash !== '#' + leadId) { try { history.replaceState(null, '', '#' + leadId); } catch (e) {} }
     renderApp(null);
     switchTab('home');
-    show('view-app');
+    if (!maybeOnboard()) show('view-app');
   }
 
   /* ---------------- wiring ---------------- */
-  $('start-btn').addEventListener('click', startChat);
-  $('chat-form').addEventListener('submit', function(e){ e.preventDefault(); sendUser($('chat-input').value); });
-  $('build-retry').addEventListener('click', startBuild);
-  $('save-form').addEventListener('submit', function(e){
+  $('start-btn').addEventListener('click', startEntry);
+  $('prof-form').addEventListener('submit', function(e){ e.preventDefault(); goStep2(); });
+  $('card-form').addEventListener('submit', function(e){ e.preventDefault(); submitCard(); });
+  $('res-checkout').addEventListener('click', function(e){
     e.preventDefault();
-    showErr('save-err', '');
-    var email = $('save-email').value.trim();
-    var btn = $('save-btn');
-    btn.disabled = true; btn.textContent = 'Saving…';
-    api({ action: 'save', email: email, profile: state.wd.profile }).then(function(r){
-      if (!r.j || !r.j.ok) throw new Error((r.j && r.j.error) || 'save failed');
-      var leadId = r.j.lead_id;
-      state.leadId = leadId;
-      state.email = email;
-      state.wd = r.j.watchdog;
-      // Remember this Watchdog on this device before leaving for
-      // Stripe, so coming back lands in the app with progress intact.
-      try { localStorage.setItem(LS_KEY, leadId); } catch (e) {}
-      try { history.replaceState(null, '', '#' + leadId); } catch (e) {}
-      btn.textContent = 'Taking you to secure checkout…';
-      // Record the checkout start on the lead (that is what switches
-      // the free month on), then hand over to Stripe. If recording
-      // fails, go anyway — the checkout URL carries the lead id.
-      var go = function(){ window.location.href = stripeHref(leadId, email); };
-      api({ action: 'trial', leadId: leadId }).then(go, go);
-    }).catch(function(err){
-      btn.disabled = false; btn.textContent = 'Start free month';
-      showErr('save-err', err.message || 'That did not save — try again.');
+    var href = stripeHref(state.leadId, state.email);
+    // Record the checkout start on the lead (that is what switches
+    // the free month on), then hand over to Stripe. If recording
+    // fails, go anyway — the checkout URL carries the lead id.
+    api({ action: 'trial', leadId: state.leadId }).then(function(){
+      window.location.href = href;
+    }, function(){
+      window.location.href = href;
     });
   });
+  $('ob-form').addEventListener('submit', function(e){ e.preventDefault(); obSendUser($('ob-input').value); });
+  $('ob-retry').addEventListener('click', obBuild);
+  $('ob-skip').addEventListener('click', function(e){
+    e.preventDefault();
+    try { sessionStorage.setItem(OB_SKIP_KEY, state.leadId); } catch (err) {}
+    show('view-app');
+  });
+  $('home-personal-btn').addEventListener('click', startOnboard);
   $('app-checkout').addEventListener('click', function(e){
     e.preventDefault();
     var href = stripeHref(state.leadId, state.email);

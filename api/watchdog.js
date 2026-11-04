@@ -16,8 +16,26 @@
 //   top1_slug = 'watchdog'. No schema change, no new tables.
 //
 // Actions (all POST, JSON):
-//   { action:'chat',    messages }            -> next agent message
+//   { action:'chat',    messages, mode?, profession? }
+//                                             -> next agent message.
+//                                                mode 'personalize' runs
+//                                                the post-payment 4-
+//                                                question variant
 //   { action:'build',   messages }            -> validated profile + state
+//   { action:'card',    profession, email, test? }
+//                                             -> SHORT entry (2026-11-03
+//                                                evening): profession
+//                                                profile (cached per
+//                                                profession in cg_leads
+//                                                as product 'watchdog-
+//                                                profile' rows), lead
+//                                                saved, card emailed
+//   { action:'personalize-build', leadId, messages }
+//                                             -> post-payment onboarding:
+//                                                maps the user's answers
+//                                                onto their stored
+//                                                profession checklist
+//                                                (trial must be active)
 //   { action:'save',    email, profile }      -> lead row + state
 //   { action:'restore', email }               -> latest Watchdog by email
 //   { action:'get',     leadId }              -> state for a saved lead
@@ -107,6 +125,145 @@ function watchdogRec(row) {
   return rec;
 }
 
+// ---------------------------------------------------------------------------
+// Profession-profile cache. The short entry flow profiles a PROFESSION,
+// not a person, so one validated generation serves every visitor with
+// that profession. The cache lives in cg_leads itself (additive): one
+// row per profession with a synthetic email and product
+// 'watchdog-profile'. These rows are NOT users — anything counting
+// users/leads must exclude product='watchdog-profile' rows (and the
+// watchdog-cache+*@careerglitch.com emails).
+// ---------------------------------------------------------------------------
+
+const CARD_FROM = 'Career Glitch <path@careerglitch.com>';
+
+function cacheEmailForSlug(slug) {
+  return `watchdog-cache+${slug}@careerglitch.com`;
+}
+
+async function fetchCachedProfile(cfg, WD, slug) {
+  const r = await fetch(
+    `${cfg.url}/rest/v1/cg_leads?email=eq.${encodeURIComponent(cacheEmailForSlug(slug))}&order=created_at.asc&limit=5&select=id,email,recommended,created_at`,
+    { headers: { apikey: cfg.key, Authorization: `Bearer ${cfg.key}` } }
+  );
+  if (!r.ok) return null;
+  const rows = await r.json().catch(() => null);
+  for (const row of Array.isArray(rows) ? rows : []) {
+    const rec = row && Array.isArray(row.recommended) ? row.recommended[0] : null;
+    if (rec && rec.product === 'watchdog-profile' && rec.profile) {
+      try { return WD.validateProfile(rec.profile); } catch { /* stale shape — regenerate */ }
+    }
+  }
+  return null;
+}
+
+async function generateProfessionProfile(WD, professionRaw) {
+  const { metaRespond, MODELS } = await import('./_lib/engine/llm.mjs');
+  const input = `The profession to profile: ${professionRaw}\n\nBuild the profession profile JSON now.`;
+  let profile = null;
+  let lastErrors = '';
+  let rawText = '';
+  for (let attempt = 0; attempt < 2 && !profile; attempt++) {
+    const instructions = attempt === 0
+      ? WD.PROFESSION_PROFILE_INSTRUCTIONS
+      : `${WD.PROFESSION_PROFILE_INSTRUCTIONS}\n\nYour previous output failed validation with these errors: ${lastErrors}. Return the corrected JSON only — the full object, every key.`;
+    const callInput = attempt === 0
+      ? input
+      : `The profession to profile: ${professionRaw}\n\nYour previous (invalid) output was:\n${rawText.slice(0, 3000)}\n\nReturn the corrected JSON only.`;
+    let text = '';
+    try {
+      ({ text } = await callModel(metaRespond, {
+        model: MODELS.interview,
+        instructions,
+        input: callInput,
+        maxOutputTokens: 6000,
+      }));
+    } catch (e) {
+      lastErrors = `model call failed: ${e && e.message ? e.message.slice(0, 160) : 'unknown'}`;
+      continue;
+    }
+    rawText = text;
+    const parsed = extractJsonObject(text);
+    if (!parsed) { lastErrors = 'output was not a JSON object'; continue; }
+    try {
+      const { radar: _r, score: _s, ...rest } = parsed;
+      profile = WD.validateProfile(WD.professionRawToBaseline(rest));
+    } catch (e) {
+      lastErrors = e.message;
+      profile = null;
+    }
+  }
+  if (!profile) throw new Error(`profession profile failed validation: ${lastErrors}`);
+  return profile;
+}
+
+async function getOrGenerateProfessionProfile(cfg, WD, professionRaw, insertLeadFn) {
+  const cached = await fetchCachedProfile(cfg, WD, WD.professionSlug(professionRaw)).catch(() => null);
+  if (cached) return { profile: cached, source: 'cache' };
+  const profile = await generateProfessionProfile(WD, professionRaw);
+  try {
+    const slug = WD.professionSlug(profile.profession);
+    await insertLeadFn(cfg, {
+      name: '',
+      email: cacheEmailForSlug(slug),
+      self_role: profile.profession,
+      current_job: 'watchdog-profile',
+      recommended: [{ product: 'watchdog-profile', kind: 'profile-cache', prof: slug, profile }],
+      top1_slug: 'watchdog-profile',
+      ua: 'desktop',
+    });
+  } catch (e) {
+    console.error('watchdog profile cache store failed:', e && e.message);
+  }
+  return { profile, source: 'generated' };
+}
+
+// Send the card email (same Resend pattern as api/send-mini.js) and
+// record the outcome on the lead as recommended[0].cardEmail. NEVER
+// throws: the visitor's flow does not depend on email delivery.
+async function sendWatchdogCardEmail(cfg, MAIL, updateLeadFn, leadId, rec, email, state, isTest) {
+  let cardEmail;
+  const apiKey = typeof process.env.RESEND_API_KEY === 'string' ? process.env.RESEND_API_KEY : '';
+  if (!apiKey) {
+    cardEmail = { status: 'queued', reason: 'no-key', at: new Date().toISOString() };
+  } else {
+    try {
+      const mail = MAIL.renderWatchdogCardEmail({
+        profession: state.profile.profession,
+        score: state.score,
+        scoreReason: state.score_reason,
+        profile: state.profile,
+        subjectPrefix: isTest ? '[Watchdog test] ' : '',
+      });
+      const r = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: CARD_FROM,
+          to: [email],
+          subject: mail.subject,
+          html: mail.html,
+          text: mail.text,
+          tags: [{ name: 'product', value: 'watchdog-card' }],
+        }),
+      });
+      if (!r.ok) {
+        const t = await r.text().catch(() => '');
+        cardEmail = { status: 'failed', at: new Date().toISOString(), error: `resend ${r.status}: ${t.slice(0, 140)}` };
+      } else {
+        const out = await r.json().catch(() => ({}));
+        cardEmail = { status: 'sent', at: new Date().toISOString(), id: out.id || null, via: 'resend' };
+      }
+    } catch (e) {
+      cardEmail = { status: 'failed', at: new Date().toISOString(), error: String(e && e.message ? e.message : 'send failed').slice(0, 160) };
+    }
+  }
+  try {
+    await updateLeadFn(cfg, leadId, { recommended: [{ ...rec, cardEmail }] });
+  } catch { /* recording is best-effort */ }
+  return cardEmail;
+}
+
 // Defensive: the score in a stored state is always recomputed from the
 // stored profile before it is shown or returned.
 function withFreshScore(WD, state) {
@@ -132,27 +289,39 @@ module.exports = async (req, res) => {
 
   try {
     const WD = await import('./_lib/watchdog.mjs');
+    const MAIL = await import('./_lib/watchdogemail.mjs');
 
     // ------------------------------------------------------------- chat
     if (action === 'chat') {
+      const personalize = body.mode === 'personalize';
       const messages = Array.isArray(body.messages) ? body.messages.slice(-20) : [];
       const userCount = messages.filter((m) => m && m.role === 'user').length;
-      if (userCount >= 5) {
-        return res.status(200).json({ ok: true, say: WD.CHAT_CLOSING, chips: [], done: true });
+      const limit = personalize ? 4 : 5;
+      if (userCount >= limit) {
+        return res.status(200).json({
+          ok: true,
+          say: personalize ? WD.PERSONAL_CHAT_CLOSING : WD.CHAT_CLOSING,
+          chips: [],
+          done: true,
+        });
       }
+      const questions = personalize ? WD.PERSONAL_CHAT_QUESTIONS : WD.CHAT_QUESTIONS;
       const fallback = () => {
-        const q = WD.CHAT_QUESTIONS[Math.min(userCount, WD.CHAT_QUESTIONS.length - 1)];
+        const q = questions[Math.min(userCount, questions.length - 1)];
         return { ok: true, say: q.say, chips: q.chips, done: false, fallback: true };
       };
       try {
         const { metaRespond, MODELS, sanitizeUserText } = await import('./_lib/engine/llm.mjs');
         const transcript = WD.transcriptToText(messages);
+        const opening = personalize
+          ? 'The user just started the personal check-in. Greet them warmly in one line and ask question 1. Reply with the JSON object described in your instructions.'
+          : 'The user just opened the chat. Greet them warmly in one line and ask question 1. Reply with the JSON object described in your instructions.';
         const input = transcript
           ? `Here is the chat so far:\n${transcript}\n\nReply with the next Watchdog message as the JSON object described in your instructions.`
-          : 'The user just opened the chat. Greet them warmly in one line and ask question 1. Reply with the JSON object described in your instructions.';
+          : opening;
         const { text } = await callModel(metaRespond, {
           model: MODELS.interview,
-          instructions: WD.CHAT_INSTRUCTIONS,
+          instructions: personalize ? WD.personalChatInstructions(body.profession) : WD.CHAT_INSTRUCTIONS,
           input,
           maxOutputTokens: 1500,
         });
@@ -226,6 +395,59 @@ module.exports = async (req, res) => {
     const cfg = leadStoreConfig();
     if (!cfg) {
       return res.status(503).json({ ok: false, error: 'Saving is not switched on yet.' });
+    }
+
+    // ------------------------------------------------------------- card
+    // The SHORT entry: one profession + one email -> the card. The
+    // profile is a profession baseline (cached per profession), the
+    // lead is saved exactly like a chat signup, and the card is emailed
+    // as a copy (best effort — the flow never depends on the send).
+    if (action === 'card') {
+      const email = cleanEmail(body.email);
+      if (!email) {
+        return res.status(400).json({ ok: false, error: 'That email does not look right — check it and try again.' });
+      }
+      const { sanitizeUserText } = await import('./_lib/engine/llm.mjs');
+      const professionRaw = sanitizeUserText(typeof body.profession === 'string' ? body.profession : '', 60);
+      if (professionRaw.length < 2) {
+        return res.status(400).json({ ok: false, error: 'Tell me which profession to check first.' });
+      }
+      let got;
+      try {
+        got = await getOrGenerateProfessionProfile(cfg, WD, professionRaw, insertLead);
+      } catch (e) {
+        console.error('watchdog card profile failed:', e && e.message);
+        return res.status(502).json({ ok: false, error: 'My nose glitched on that one — try again in a moment.' });
+      }
+      const profile = got.profile;
+      const state = WD.buildWatchdogState(profile, new Date().toISOString());
+      const uaHeader = typeof req.headers['user-agent'] === 'string' ? req.headers['user-agent'] : '';
+      const ua = /Mobi|Android|iPhone|iPad/i.test(uaHeader) ? 'mobile' : 'desktop';
+      const rec = {
+        product: 'watchdog',
+        kind: 'watchdog',
+        prof: WD.professionSlug(profile.profession),
+        watchdog: state,
+        ...(body.test === true ? { test: true } : {}),
+      };
+      const row = {
+        name: '',
+        email,
+        self_role: profile.profession,
+        current_job: 'watchdog',
+        recommended: [rec],
+        top1_slug: 'watchdog',
+        ua,
+      };
+      const leadId = await insertLead(cfg, row);
+      const cardEmail = await sendWatchdogCardEmail(cfg, MAIL, updateLead, leadId, rec, email, state, body.test === true);
+      return res.status(200).json({
+        ok: true,
+        lead_id: leadId,
+        watchdog: state,
+        profile_source: got.source,
+        email_status: cardEmail.status,
+      });
     }
 
     // ------------------------------------------------------------- save
@@ -335,6 +557,76 @@ module.exports = async (req, res) => {
       const okSave = await updateLead(cfg, leadId, { recommended: [{ ...rec, watchdog: next }] });
       if (!okSave) return res.status(404).json({ ok: false, error: 'That Watchdog could not be found.' });
       return res.status(200).json({ ok: true, watchdog: withFreshScore(WD, next) });
+    }
+
+    if (action === 'personalize-build') {
+      // Post-payment onboarding: the user's own answers mapped onto the
+      // stored profession checklist. The free month must be on — that
+      // is the moment this chat belongs to.
+      if (!stored.trial || stored.trial.status !== 'active') {
+        return res.status(403).json({ ok: false, error: 'The personal check-in opens with your free month — start it first, then come back.' });
+      }
+      const messages = Array.isArray(body.messages) ? body.messages.slice(-20) : [];
+      const userAnswers = messages.filter((m) => m && m.role === 'user' && typeof m.text === 'string' && m.text.trim());
+      if (userAnswers.length < 3) {
+        return res.status(400).json({ ok: false, error: 'I still need a few answers before I can make your Score yours — let\u2019s finish the questions.' });
+      }
+      const { metaRespond, MODELS } = await import('./_lib/engine/llm.mjs');
+      const checklistContext = (stored.profile.top1_profile || []).map((i) => ({
+        id: i.id, item: i.item, category: i.category, weight: i.weight,
+        typical_has: i.typical_has === true, how_to_get: i.how_to_get, free_option: i.free_option,
+      }));
+      const input = `The profession: ${stored.profile.profession}\n\nThe existing profession checklist (keep these items exactly — same ids, items, weights, how_to_get, free_option, typical_has):\n${JSON.stringify(checklistContext)}\n\nThe user\u2019s answers:\n${WD.personalAnswersToText(messages)}\n\nBuild the personalized profile JSON now.`;
+      let profile = null;
+      let lastErrors = '';
+      let rawText = '';
+      for (let attempt = 0; attempt < 2 && !profile; attempt++) {
+        const instructions = attempt === 0
+          ? WD.PERSONALIZE_INSTRUCTIONS
+          : `${WD.PERSONALIZE_INSTRUCTIONS}\n\nYour previous output failed validation with these errors: ${lastErrors}. Return the corrected JSON only — the full object, every key, the checklist items unchanged except user_has.`;
+        const callInput = attempt === 0 ? input : `${input}\n\nYour previous (invalid) output was:\n${rawText.slice(0, 3000)}\n\nReturn the corrected JSON only.`;
+        let text = '';
+        try {
+          ({ text } = await callModel(metaRespond, {
+            model: MODELS.interview,
+            instructions,
+            input: callInput,
+            maxOutputTokens: 6000,
+          }));
+        } catch (e) {
+          lastErrors = `model call failed: ${e && e.message ? e.message.slice(0, 160) : 'unknown'}`;
+          continue;
+        }
+        rawText = text;
+        const parsed = extractJsonObject(text);
+        if (!parsed) { lastErrors = 'output was not a JSON object'; continue; }
+        try {
+          const { radar: _r, score: _s, ...rest } = parsed;
+          profile = WD.validatePersonalizedProfile(rest, stored.profile);
+        } catch (e) {
+          lastErrors = e.message;
+          profile = null;
+        }
+      }
+      if (!profile) {
+        console.error('watchdog personalize failed validation:', lastErrors);
+        return res.status(502).json({ ok: false, error: 'My nose glitched on that one — tap Try again and I\u2019ll re-check with your answers.' });
+      }
+      const next = {
+        ...stored,
+        profile,
+        score: WD.computeScore(profile),
+        score_reason: profile.score_reason,
+        radar: WD.matchRadarFeed(profile.profession),
+        updated_at: new Date().toISOString(),
+      };
+      const okSave = await updateLead(cfg, leadId, { recommended: [{ ...rec, watchdog: next }] });
+      if (!okSave) return res.status(404).json({ ok: false, error: 'That Watchdog could not be found.' });
+      return res.status(200).json({
+        ok: true,
+        watchdog: next,
+        baseline_score: stored.baseline && typeof stored.baseline.score === 'number' ? stored.baseline.score : null,
+      });
     }
 
     if (action === 'scan') {
