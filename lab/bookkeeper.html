@@ -100,6 +100,15 @@ input:focus,textarea:focus{outline:2px solid var(--pink);outline-offset:1px}
 .feedback.fail{background:#fff7e8;border:1.5px solid #f0dfae}
 .feedback ul{margin:8px 0 0 2px;list-style:none;display:grid;gap:4px}
 .feedback li{font-size:14.5px}
+.scene.passed{padding-top:20px;padding-bottom:20px}
+.scene.current{border-color:var(--pink);box-shadow:0 16px 38px rgba(249,42,130,.16)}
+.scene.locked{background:rgba(255,255,255,.55)}
+.scene.locked h3{color:var(--ink2)}
+.locknote{font-size:14.5px;color:var(--mut);margin-top:9px}
+.review{margin-top:4px}
+.artview{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:13px 15px;white-space:pre-wrap;font-size:15.5px;line-height:1.5}
+.rubricview{list-style:none;display:grid;gap:4px}
+.rubricview li{font-size:15px}
 footer{margin-top:44px;text-align:center;color:var(--mut);font-size:13.5px}
 footer a{color:var(--deep)}
 </style>
@@ -167,7 +176,7 @@ footer a{color:var(--deep)}
 
   <section id="scenes-wrap">
     <h2 style="margin-top:34px">🎮 The month: 10 scenes</h2>
-    <p class="lede">Play them in order — 1, 2, 3… Like levels in a game. Each level is one real task from a bookkeeper's desk.</p>
+    <p class="lede">Play them in order — 1, 2, 3… Like levels in a game. Each level is one real task from a bookkeeper's desk. Locked levels show only a preview — pass the one before it to open the next.</p>
     <div id="scenes"></div>
   </section>
 
@@ -209,16 +218,24 @@ footer a{color:var(--deep)}
       .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); });
   }
 
-  function renderScenes(){
+  var openScene = null;   // id of the current scene whose full view is expanded
+  var reviewOpen = {};    // passed scene id -> its read-only review is open
+  var flash = {};         // scene id -> {text, ok} one-shot note rendered with the row
+
+  function currentScene(){
     var ps = passedSet();
-    var html = '';
-    scenes.forEach(function(sc){
-      var art = (state.cycle.artifacts || {})[sc.id];
-      var status = ps[sc.id] ? '<span class="badge pass">Passed ✓</span>' : (art ? '<span class="badge draft">Draft saved</span>' : (sc.order === 1 ? '<span class="badge">Free scene</span>' : '<span class="badge">Scene ' + sc.order + '</span>'));
-      html += '<article class="scene" id="' + sc.id + '">'
-        + '<div class="shead"><div><h3>' + sc.order + '. ' + esc(sc.title) + '</h3>'
-        + '<div class="skill">🏆 Win this scene → proves: ' + esc(ITEM_LABELS[sc.checklist_id] || sc.checklist_id) + ' · +100 XP · ⏱ about 20 min</div></div>' + status + '</div>'
-        + '<div class="frombox"><div class="who">📩 Step 1 — ' + esc(sc.from_name) + ' (' + esc(sc.from_role) + ') writes to you:</div><p>' + esc(sc.setup) + '</p></div>'
+    for (var i = 0; i < scenes.length; i++) { if (!ps[scenes[i].id]) return scenes[i]; }
+    return null;
+  }
+
+  function skillText(sc){ return esc(ITEM_LABELS[sc.checklist_id] || sc.checklist_id); }
+
+  // The full playable scene (brief, chat, artifact field, rubric) — rendered
+  // ONLY for the current scene. Locked scenes never get this markup at all.
+  function fullViewHtml(sc){
+    var art = (state.cycle.artifacts || {})[sc.id];
+    var ps = passedSet();
+    return '<div class="frombox"><div class="who">📩 Step 1 — ' + esc(sc.from_name) + ' (' + esc(sc.from_role) + ') writes to you:</div><p>' + esc(sc.setup) + '</p></div>'
         + (sc.pressure ? '<div class="pressure"><span class="plabel">😬 Step 2 — oh no, a problem</span>' + esc(sc.pressure) + '</div>' : '')
         + '<div class="taskbox"><span class="tlabel">✍️ Step 3 — your job</span><p>' + esc(sc.task) + '</p></div>'
         + '<div class="chatbox"><span class="tlabel">💬 Talk it through — ' + esc(sc.from_name) + ' is live</span>'
@@ -234,10 +251,75 @@ footer a{color:var(--deep)}
         + '<div class="sactions"><button type="button" class="btn small" data-grade="' + sc.id + '">Submit for review 📩</button>'
         + (ps[sc.id] ? '' : '<button type="button" class="btn ghost small" data-save="' + sc.id + '">Save draft 💾</button>')
         + '<span class="note" data-msg="' + sc.id + '"></span></div>'
-        + '<div class="feedback" id="fb-' + sc.id + '"></div>'
+        + '<div class="feedback" id="fb-' + sc.id + '"></div>';
+  }
+
+  // Read-only view of a passed scene: the task as it was, the junior's own
+  // submitted artifact and the reviewer's verdict. No inputs, no editing.
+  function reviewHtml(sc){
+    var art = (state.cycle.artifacts || {})[sc.id] || {};
+    var lines = sc.rubric.map(function(r, i){
+      var ok = art.grade_rubric ? !!art.grade_rubric[i] : !!art.rubric_ok;
+      return '<li>' + (ok ? '\u2713' : '\u2717') + ' ' + esc(r) + '</li>';
+    }).join('');
+    var fb = art.grade_feedback
+      ? '<div class="feedback show pass"><strong>The review</strong><p style="margin-top:6px">' + esc(art.grade_feedback) + '</p>' + (art.grade_summary ? '<p class="note" style="margin-top:6px">On your record as: \u201c' + esc(art.grade_summary) + '\u201d</p>' : '') + '</div>'
+      : '<p class="okline" style="margin-top:12px">Passed \u2014 every line of the standard was confirmed against your artifact.</p>';
+    return '<div class="frombox"><div class="who">Step 1 \u2014 ' + esc(sc.from_name) + ' (' + esc(sc.from_role) + ') wrote to you:</div><p>' + esc(sc.setup) + '</p></div>'
+      + (sc.pressure ? '<div class="pressure"><span class="plabel">Step 2 \u2014 the problem</span>' + esc(sc.pressure) + '</div>' : '')
+      + '<div class="taskbox"><span class="tlabel">Step 3 \u2014 the job was</span><p>' + esc(sc.task) + '</p></div>'
+      + '<div class="taskbox"><span class="tlabel">Your submitted artifact \u2014 ' + esc(art.name || sc.artifact) + '</span><div class="artview">' + esc(art.text || '') + '</div></div>'
+      + '<div class="rubric"><span class="rlabel">The standard \u2014 how your work scored</span><ul class="rubricview">' + lines + '</ul></div>'
+      + fb;
+  }
+
+  function renderScenes(){
+    var ps = passedSet();
+    var cur = currentScene();
+    var html = '';
+    scenes.forEach(function(sc){
+      var art = (state.cycle.artifacts || {})[sc.id];
+      if (ps[sc.id]) {
+        html += '<article class="scene passed" id="' + sc.id + '">'
+          + '<div class="shead"><div><h3>' + sc.order + '. ' + esc(sc.title) + '</h3>'
+          + '<div class="skill">\u2713 Proved: ' + skillText(sc) + ' \u00b7 +100 XP earned</div></div><span class="badge pass">Passed \u2713</span></div>'
+          + '<div class="sactions"><button type="button" class="btn ghost small" data-review="' + sc.id + '">' + (reviewOpen[sc.id] ? 'Hide review \u25b4' : 'Review \u25be') + '</button>'
+          + '<span class="note" data-msg="' + sc.id + '"></span></div>'
+          + '<div class="review' + (reviewOpen[sc.id] ? '' : ' hidden') + '" id="review-' + sc.id + '">' + (reviewOpen[sc.id] ? reviewHtml(sc) : '') + '</div>'
+          + '</article>';
+        return;
+      }
+      if (cur && sc.id === cur.id) {
+        var badge = art ? '<span class="badge draft">Draft saved</span>' : (sc.order === 1 ? '<span class="badge">Free scene</span>' : '<span class="badge">Scene ' + sc.order + '</span>');
+        var isOpen = openScene === sc.id;
+        html += '<article class="scene current" id="' + sc.id + '">'
+          + '<div class="shead"><div><h3>' + sc.order + '. ' + esc(sc.title) + '</h3>'
+          + '<div class="skill">🏆 Win this scene \u2192 proves: ' + skillText(sc) + ' \u00b7 +100 XP \u00b7 ⏱ about 20 min</div></div>' + badge + '</div>'
+          + (isOpen ? '' : '<div class="sactions"><button type="button" class="btn small" data-start="' + sc.id + '">' + ((art || (state.chats[sc.id] || []).length) ? 'Continue \u25b6' : 'Start \u25b6') + '</button></div>')
+          + '<div id="full-' + sc.id + '"' + (isOpen ? '' : ' class="hidden"') + '>' + fullViewHtml(sc) + '</div>'
+          + '</article>';
+        return;
+      }
+      html += '<article class="scene locked" id="' + sc.id + '">'
+        + '<div class="shead"><div><h3>\ud83d\udd12 ' + sc.order + '. ' + esc(sc.title) + '</h3>'
+        + '<div class="skill">🏆 Win this scene \u2192 proves: ' + skillText(sc) + ' \u00b7 +100 XP \u00b7 ⏱ about 20 min</div></div><span class="badge">Locked</span></div>'
+        + '<p class="locknote">A real task from the bookkeeper\u2019s desk is waiting in here \u2014 pass scene ' + (sc.order - 1) + ' to open it.</p>'
         + '</article>';
     });
     $('scenes').innerHTML = html;
+    var stbtns = document.querySelectorAll('[data-start]');
+    for (var st = 0; st < stbtns.length; st++) stbtns[st].addEventListener('click', function(){
+      openScene = this.getAttribute('data-start');
+      renderScenes();
+      var el = document.getElementById(openScene);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    var rvbtns = document.querySelectorAll('[data-review]');
+    for (var rv = 0; rv < rvbtns.length; rv++) rvbtns[rv].addEventListener('click', function(){
+      var rid = this.getAttribute('data-review');
+      reviewOpen[rid] = !reviewOpen[rid];
+      renderScenes();
+    });
     var btns = document.querySelectorAll('[data-save]');
     for (var i = 0; i < btns.length; i++) btns[i].addEventListener('click', function(){ saveScene(this.getAttribute('data-save')); });
     var gbtns = document.querySelectorAll('[data-grade]');
@@ -253,6 +335,11 @@ footer a{color:var(--deep)}
       var a2 = (state.cycle.artifacts || {})[sc.id];
       if (a2 && a2.grade_feedback) renderGrade(sc.id, { verdict: a2.rubric_ok ? 'pass' : 'needs_work', per_rubric: a2.grade_rubric || [], feedback: a2.grade_feedback, artifact_summary: a2.grade_summary || '' }, !!a2.rubric_ok);
     });
+    Object.keys(flash).forEach(function(sid){
+      var el = document.querySelector('[data-msg="' + sid + '"]');
+      if (el) { el.textContent = flash[sid].text; el.style.color = flash[sid].ok ? 'var(--green)' : 'var(--deep)'; el.style.fontWeight = '600'; }
+    });
+    flash = {};
     var tas = document.querySelectorAll('textarea[id^="ta-"]');
     for (var j = 0; j < tas.length; j++) tas[j].addEventListener('focus', function(){
       var sid = this.id.slice(3);
@@ -364,10 +451,13 @@ footer a{color:var(--deep)}
           if (r.j.flipped && !r.j.flipped.already) msg += ' Your Watchdog skill flipped to DONE — new Score ' + r.j.flipped.score + '.';
           else if (r.j.flipped && r.j.flipped.already) msg += ' That Watchdog skill was already done — your proof is now attached to it.';
           else if (!state.watchdog.linked) msg += ' Tip: get a free Watchdog card with this email and this proof counts there too.';
-          setMsg(sceneId, msg, true);
+          flash[sceneId] = { text: msg, ok: true };
+          reviewOpen[sceneId] = true;
+          var ncs = currentScene();
+          openScene = ncs ? ncs.id : null;
           confetti();
         } else {
-          setMsg(sceneId, 'Draft saved. When the work is finished, press “Submit for review” — it is checked against the standard above.', false);
+          flash[sceneId] = { text: 'Draft saved. When the work is finished, press \u201cSubmit for review\u201d \u2014 it is checked against the standard above.', ok: false };
         }
         renderScenes();
       })
@@ -512,6 +602,7 @@ footer a{color:var(--deep)}
         if (r.j.lead_id) state.leadId = r.j.lead_id;
         state.watchdog = r.j.watchdog || state.watchdog;
         if (r.j.record_url) state.recordUrl = r.j.record_url;
+        if (r.j.passed) { reviewOpen[sceneId] = true; var nc2 = currentScene(); openScene = nc2 ? nc2.id : null; }
         renderScenes();
         renderGrade(sceneId, r.j.grade, r.j.passed);
         var nb = document.querySelector('[data-grade="' + sceneId + '"]');
