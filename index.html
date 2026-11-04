@@ -469,7 +469,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
       </div>
       <div id="ob-sniff" class="hidden">
         <div class="sniff">
-          <img src="/masha.webp" alt="">
+          <img src="/watchdog-dog.webp" alt="">
           <p>Watchdog is re-checking with your answers…</p>
           <p class="sub2">Your real tasks and your real tools, against the top 1% checklist. One moment.</p>
         </div>
@@ -763,7 +763,7 @@ window.WD_MODE = 'storefront';
     var row = document.createElement('div');
     row.className = 'msg ' + role;
     if (role === 'agent'){
-      row.innerHTML = '<img class="avatar" src="/masha.webp" alt=""><div class="bubble">' + esc(text) + '</div>';
+      row.innerHTML = '<img class="avatar" src="/watchdog-dog.webp" alt=""><div class="bubble">' + esc(text) + '</div>';
     } else {
       row.innerHTML = '<div class="bubble">' + esc(text) + '</div>';
     }
@@ -774,7 +774,7 @@ window.WD_MODE = 'storefront';
   function obAddTyping(){
     var row = document.createElement('div');
     row.className = 'msg agent'; row.id = 'ob-typing-row';
-    row.innerHTML = '<img class="avatar" src="/masha.webp" alt=""><div class="bubble"><span class="typing"><i></i><i></i><i></i></span></div>';
+    row.innerHTML = '<img class="avatar" src="/watchdog-dog.webp" alt=""><div class="bubble"><span class="typing"><i></i><i></i><i></i></span></div>';
     $('ob-log').appendChild(row);
     row.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }
