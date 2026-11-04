@@ -180,6 +180,7 @@ module.exports = async (req, res) => {
         lead_id: labRow ? labRow.id : null,
         cycle: { passed: cycle.passed || [], artifacts: cycle.artifacts || {} },
         watchdog: await watchdogView(),
+        record_ready: !!(labRow && recOf(labRow).record),
       });
     }
 

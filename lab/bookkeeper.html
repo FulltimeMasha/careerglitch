@@ -85,6 +85,21 @@ input:focus,textarea:focus{outline:2px solid var(--pink);outline-offset:1px}
 .progressbar div{height:100%;background:linear-gradient(90deg,#F92A82,#FF8CBE);border-radius:99px;transition:width .4s ease}
 .artlist{margin-top:10px;display:grid;gap:7px}
 .artlist div{font-size:15px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:9px 13px}
+.chatbox{margin-top:16px;border-top:1.5px dashed var(--line);padding-top:14px}
+.chatbox .tlabel{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--deep);display:block;margin-bottom:9px}
+.chatlog{display:grid;gap:8px;margin-bottom:10px;max-height:340px;overflow-y:auto}
+.msg{max-width:88%;padding:10px 13px;border-radius:15px;font-size:15.5px;white-space:pre-wrap;line-height:1.45}
+.msg.them{background:var(--soft);border-bottom-left-radius:5px;justify-self:start}
+.msg.me{background:#fff;border:1.5px solid var(--blush);border-bottom-right-radius:5px;justify-self:end}
+.msg .who{display:block;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:3px}
+.chatrow{display:flex;gap:8px}
+.chatrow input{flex:1}
+.feedback{margin-top:14px;border-radius:16px;padding:14px 16px;font-size:15.5px;display:none}
+.feedback.show{display:block}
+.feedback.pass{background:#e3f4ea;border:1.5px solid #bfe6cf}
+.feedback.fail{background:#fff7e8;border:1.5px solid #f0dfae}
+.feedback ul{margin:8px 0 0 2px;list-style:none;display:grid;gap:4px}
+.feedback li{font-size:14.5px}
 footer{margin-top:44px;text-align:center;color:var(--mut);font-size:13.5px}
 footer a{color:var(--deep)}
 </style>
@@ -107,8 +122,8 @@ footer a{color:var(--deep)}
     <ul class="steps">
       <li><span class="n">1</span><span><strong>📩 You get a task.</strong> A client writes to you. Real numbers. Real mess.</span></li>
       <li><span class="n">2</span><span><strong>✍️ You do the work.</strong> You write the answer right here. That answer is your artifact — your proof of work.</span></li>
-      <li><span class="n">3</span><span><strong>✅ You check your work.</strong> A short list tells you what a good answer must have. Tick what is really in yours. All ticked = scene won.</span></li>
-      <li><span class="n">4</span><span><strong>🏆 You earn XP and proof.</strong> A won scene flips the same skill on your Watchdog card — done, with your artifact as the proof.</span></li>
+      <li><span class="n">3</span><span><strong>💬 You talk it through.</strong> The client or manager in the scene is live — ask questions, push back, get pushed. Then you write the work.</span></li>
+      <li><span class="n">4</span><span><strong>🏆 You get reviewed — and earn proof.</strong> Your artifact is checked against a short, public standard: every line true = scene won. A won scene flips the same skill on your Watchdog card, with your artifact as the proof.</span></li>
     </ul>
     <p class="note">Honest words: this is practice work, not a diploma and not a job promise. It is a record of real tasks, done well, that anyone can check.</p>
   </section>
@@ -175,7 +190,7 @@ footer a{color:var(--deep)}
     linkedin_visibility: 'Expert visibility (Voice)'
   };
   var scenes = (window.LAB_SCENES_BOOKKEEPER || []).slice().sort(function(a,b){ return a.order - b.order; });
-  var state = { email: '', name: '', leadId: null, cycle: { passed: [], artifacts: {} }, watchdog: { linked: false } };
+  var state = { email: '', name: '', leadId: null, cycle: { passed: [], artifacts: {} }, watchdog: { linked: false }, recordUrl: null, chats: {} };
   var sceneStart = {};
 
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]; }); }
@@ -199,18 +214,38 @@ footer a{color:var(--deep)}
         + '<div class="frombox"><div class="who">📩 Step 1 — ' + esc(sc.from_name) + ' (' + esc(sc.from_role) + ') writes to you:</div><p>' + esc(sc.setup) + '</p></div>'
         + (sc.pressure ? '<div class="pressure"><span class="plabel">😬 Step 2 — oh no, a problem</span>' + esc(sc.pressure) + '</div>' : '')
         + '<div class="taskbox"><span class="tlabel">✍️ Step 3 — your job</span><p>' + esc(sc.task) + '</p></div>'
+        + '<div class="chatbox"><span class="tlabel">💬 Talk it through — ' + esc(sc.from_name) + ' is live</span>'
+        + '<div class="chatlog hidden" id="chatlog-' + sc.id + '"></div>'
+        + '<button type="button" class="btn ghost small" data-chatstart="' + sc.id + '">💬 Start the conversation with ' + esc(sc.from_name) + '</button>'
+        + '<div class="chatrow hidden" id="chatrow-' + sc.id + '"><input type="text" id="chatin-' + sc.id + '" placeholder="Ask, clarify, push back…" autocomplete="off"><button type="button" class="btn small" data-chatsend="' + sc.id + '">Send</button></div>'
+        + '</div>'
         + '<div class="field"><label for="ta-' + sc.id + '">Write your work here — this is your artifact: ' + esc(sc.artifact) + '</label>'
         + '<textarea id="ta-' + sc.id + '" placeholder="' + esc(sc.answer_hint || 'Write the deliverable here…') + '">' + esc(art ? art.text : '') + '</textarea></div>'
-        + '<div class="rubric"><span class="rlabel">✅ Step 4 — check your work. Be honest. Tick only what is really in your text. All ticked = you win the scene.</span>'
-        + sc.rubric.map(function(r, i){ return '<label><input type="checkbox" data-rubric="' + sc.id + '" value="' + i + '"' + (art && art.rubric_ok ? ' checked' : '') + '> <span>' + esc(r) + '</span></label>'; }).join('')
+        + '<div class="rubric"><span class="rlabel">✅ Step 4 — the standard. ' + esc(sc.from_name) + ' reviews your artifact against every line below — all lines true = you win the scene. Use the boxes as your own self-check before you submit.</span>'
+        + sc.rubric.map(function(r, i){ var chk = art && art.grade_rubric ? art.grade_rubric[i] : (art && art.rubric_ok); return '<label><input type="checkbox" data-rubric="' + sc.id + '" value="' + i + '"' + (chk ? ' checked' : '') + '> <span>' + esc(r) + '</span></label>'; }).join('')
         + '</div>'
-        + '<div class="sactions"><button type="button" class="btn small" data-save="' + sc.id + '">Save my work 💾</button>'
+        + '<div class="sactions"><button type="button" class="btn small" data-grade="' + sc.id + '">Submit for review 📩</button>'
+        + (ps[sc.id] ? '' : '<button type="button" class="btn ghost small" data-save="' + sc.id + '">Save draft 💾</button>')
         + '<span class="note" data-msg="' + sc.id + '"></span></div>'
+        + '<div class="feedback" id="fb-' + sc.id + '"></div>'
         + '</article>';
     });
     $('scenes').innerHTML = html;
     var btns = document.querySelectorAll('[data-save]');
     for (var i = 0; i < btns.length; i++) btns[i].addEventListener('click', function(){ saveScene(this.getAttribute('data-save')); });
+    var gbtns = document.querySelectorAll('[data-grade]');
+    for (var g = 0; g < gbtns.length; g++) gbtns[g].addEventListener('click', function(){ submitGrade(this.getAttribute('data-grade')); });
+    var csbtns = document.querySelectorAll('[data-chatstart]');
+    for (var c = 0; c < csbtns.length; c++) csbtns[c].addEventListener('click', function(){ startChat(this.getAttribute('data-chatstart')); });
+    var snbtns = document.querySelectorAll('[data-chatsend]');
+    for (var s2 = 0; s2 < snbtns.length; s2++) snbtns[s2].addEventListener('click', function(){ sendChat(this.getAttribute('data-chatsend')); });
+    var cinps = document.querySelectorAll('input[id^="chatin-"]');
+    for (var e2 = 0; e2 < cinps.length; e2++) cinps[e2].addEventListener('keydown', function(ev){ if (ev.key === 'Enter') { ev.preventDefault(); sendChat(this.id.slice(7)); } });
+    scenes.forEach(function(sc){
+      if ((state.chats[sc.id] || []).length) renderChat(sc.id);
+      var a2 = (state.cycle.artifacts || {})[sc.id];
+      if (a2 && a2.grade_feedback) renderGrade(sc.id, { verdict: a2.rubric_ok ? 'pass' : 'needs_work', per_rubric: a2.grade_rubric || [], feedback: a2.grade_feedback, artifact_summary: a2.grade_summary || '' }, !!a2.rubric_ok);
+    });
     var tas = document.querySelectorAll('textarea[id^="ta-"]');
     for (var j = 0; j < tas.length; j++) tas[j].addEventListener('focus', function(){
       var sid = this.id.slice(3);
@@ -239,7 +274,10 @@ footer a{color:var(--deep)}
     $('wd-status').textContent = state.watchdog && state.watchdog.linked
       ? 'Watchdog linked · Score ' + state.watchdog.score
       : 'No Watchdog card on this email yet';
-    if (state.leadId && n > 0) {
+    if (state.leadId && state.recordUrl) {
+      $('record-line').classList.remove('hidden');
+      $('record-line').innerHTML = '🎓 Your graduate record is ready: <a href="' + state.recordUrl + '" style="color:var(--deep);font-weight:700">careerglitch.com' + state.recordUrl + '</a> — send it to employers, put it in your résumé.';
+    } else if (state.leadId && n > 0) {
       $('record-line').classList.remove('hidden');
       $('record-line').innerHTML = '🌍 Your public record (portfolio): <a href="/lab/record?id=' + state.leadId + '" style="color:var(--deep);font-weight:700">careerglitch.com/lab/record?id=' + state.leadId.slice(0, 8) + '…</a> — send it to employers, put it in your résumé.';
     } else {
@@ -292,6 +330,7 @@ footer a{color:var(--deep)}
   function saveScene(sceneId){
     var sc = scenes.filter(function(x){ return x.id === sceneId; })[0];
     if (!sc) return;
+    if (passedSet()[sceneId]) { setMsg(sceneId, 'Already passed ✓ — the reviewed artifact on file is your proof.', true); return; }
     var email = ($('f-email').value || '').trim().toLowerCase();
     if (!email) {
       setMsg(sceneId, 'Add your email above first — the artifact is saved under it.', false);
@@ -302,9 +341,7 @@ footer a{color:var(--deep)}
     state.name = ($('f-name').value || '').trim();
     try { localStorage.setItem('lab_email', email); localStorage.setItem('lab_name', state.name); } catch (e) {}
     var text = $('ta-' + sceneId).value;
-    var boxes = document.querySelectorAll('[data-rubric="' + sceneId + '"]');
-    var rubric = [];
-    for (var i = 0; i < boxes.length; i++) rubric.push(boxes[i].checked);
+    var rubric = []; // a draft never passes — passing comes only from the review (Submit for review)
     var btn = document.querySelector('[data-save="' + sceneId + '"]');
     btn.disabled = true;
     var dur = sceneStart[sceneId] ? Math.round((Date.now() - sceneStart[sceneId]) / 1000) : 0;
@@ -323,11 +360,168 @@ footer a{color:var(--deep)}
           setMsg(sceneId, msg, true);
           confetti();
         } else {
-          setMsg(sceneId, 'Saved as a draft. To win the scene: do the work, then tick ALL the check lines that are really in your text.', false);
+          setMsg(sceneId, 'Draft saved. When the work is finished, press “Submit for review” — it is checked against the standard above.', false);
         }
         renderScenes();
       })
       .catch(function(){ btn.disabled = false; setMsg(sceneId, 'That did not save — check your connection and try again.', false); });
+  }
+
+  function api2(body){
+    return fetch('/api/lab-ai', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); });
+  }
+
+  function renderChat(sceneId){
+    var log = $('chatlog-' + sceneId);
+    if (!log) return;
+    var sc = scenes.filter(function(x){ return x.id === sceneId; })[0];
+    var msgs = state.chats[sceneId] || [];
+    log.innerHTML = msgs.map(function(m){
+      return '<div class="msg ' + m.who + '"><span class="who">' + (m.who === 'them' ? esc(sc ? sc.from_name : 'Them') : 'You') + '</span>' + esc(m.text) + '</div>';
+    }).join('');
+    if (msgs.length) {
+      log.classList.remove('hidden');
+      var startBtn = document.querySelector('[data-chatstart="' + sceneId + '"]');
+      if (startBtn) startBtn.classList.add('hidden');
+      var row = $('chatrow-' + sceneId);
+      if (row) row.classList.remove('hidden');
+    }
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function chatBusy(sceneId, busy){
+    var b = document.querySelector('[data-chatsend="' + sceneId + '"]');
+    if (b) b.disabled = busy;
+    var st = document.querySelector('[data-chatstart="' + sceneId + '"]');
+    if (st) st.disabled = busy;
+  }
+
+  function startChat(sceneId){
+    var sc = scenes.filter(function(x){ return x.id === sceneId; })[0];
+    if (!sc) return;
+    if (sc.order > 1) {
+      var email0 = ($('f-email').value || '').trim();
+      if (!email0 && !state.email) {
+        setMsg(sceneId, 'Scene 1 is the free one — for the rest of the month, add your email above first (your progress lives under it).', false);
+        $('f-email').focus();
+        return;
+      }
+    }
+    state.chats[sceneId] = state.chats[sceneId] || [];
+    var log = $('chatlog-' + sceneId);
+    if (log) log.classList.remove('hidden');
+    var startBtn = document.querySelector('[data-chatstart="' + sceneId + '"]');
+    if (startBtn) startBtn.classList.add('hidden');
+    var row = $('chatrow-' + sceneId);
+    if (row) row.classList.remove('hidden');
+    if ((state.chats[sceneId] || []).length) { renderChat(sceneId); return; }
+    if (!sceneStart[sceneId]) sceneStart[sceneId] = Date.now();
+    chatBusy(sceneId, true);
+    state.chats[sceneId].push({ who: 'them', text: '…' });
+    renderChat(sceneId);
+    api2({ action: 'chat', scene_id: sceneId, history: [], kickoff: true })
+      .then(function(r){
+        chatBusy(sceneId, false);
+        state.chats[sceneId].pop();
+        if (r.ok && r.j.ok) state.chats[sceneId].push({ who: 'them', text: r.j.reply });
+        else state.chats[sceneId].push({ who: 'them', text: '(The line glitched — write any word below and press Send to retry.)' });
+        renderChat(sceneId);
+      })
+      .catch(function(){
+        chatBusy(sceneId, false);
+        state.chats[sceneId].pop();
+        state.chats[sceneId].push({ who: 'them', text: '(Connection problem — try again in a moment.)' });
+        renderChat(sceneId);
+      });
+  }
+
+  function sendChat(sceneId){
+    var inp = $('chatin-' + sceneId);
+    if (!inp) return;
+    var text = (inp.value || '').trim();
+    if (!text) return;
+    state.chats[sceneId] = state.chats[sceneId] || [];
+    var history = state.chats[sceneId].filter(function(m){ return m.text !== '…'; }).slice();
+    state.chats[sceneId].push({ who: 'me', text: text });
+    inp.value = '';
+    renderChat(sceneId);
+    chatBusy(sceneId, true);
+    state.chats[sceneId].push({ who: 'them', text: '…' });
+    renderChat(sceneId);
+    api2({ action: 'chat', scene_id: sceneId, history: history, message: text })
+      .then(function(r){
+        chatBusy(sceneId, false);
+        state.chats[sceneId].pop();
+        if (r.ok && r.j.ok) state.chats[sceneId].push({ who: 'them', text: r.j.reply });
+        else state.chats[sceneId].push({ who: 'them', text: '(' + ((r.j && r.j.error) || 'The line glitched — try again.') + ')' });
+        renderChat(sceneId);
+      })
+      .catch(function(){
+        chatBusy(sceneId, false);
+        state.chats[sceneId].pop();
+        state.chats[sceneId].push({ who: 'them', text: '(Connection problem — try again in a moment.)' });
+        renderChat(sceneId);
+      });
+    if (!sceneStart[sceneId]) sceneStart[sceneId] = Date.now();
+  }
+
+  function renderGrade(sceneId, grade, passed){
+    var fb = $('fb-' + sceneId);
+    if (!fb || !grade) return;
+    var sc = scenes.filter(function(x){ return x.id === sceneId; })[0];
+    var lines = (grade.per_rubric || []).map(function(ok, i){
+      return '<li>' + (ok ? '✓' : '✗') + ' ' + esc(sc && sc.rubric[i] ? sc.rubric[i] : '') + '</li>';
+    }).join('');
+    fb.className = 'feedback show ' + (passed ? 'pass' : 'fail');
+    fb.innerHTML = '<strong>' + (passed ? '🏆 Scene won — reviewed and passed.' : '↩️ Not yet — here is exactly what to fix:') + '</strong>'
+      + (lines ? '<ul>' + lines + '</ul>' : '')
+      + '<p style="margin-top:8px">' + esc(grade.feedback || '') + '</p>'
+      + (grade.artifact_summary ? '<p class="note" style="margin-top:6px">On your record as: “' + esc(grade.artifact_summary) + '”</p>' : '');
+  }
+
+  function submitGrade(sceneId){
+    var sc = scenes.filter(function(x){ return x.id === sceneId; })[0];
+    if (!sc) return;
+    if (passedSet()[sceneId]) { setMsg(sceneId, 'Already passed ✓ — the reviewed artifact on file is your proof.', true); return; }
+    var email = ($('f-email').value || '').trim().toLowerCase();
+    if (!email) {
+      setMsg(sceneId, 'Add your email above first — the review and your proof are saved under it.', false);
+      $('f-email').focus();
+      return;
+    }
+    state.email = email;
+    state.name = ($('f-name').value || '').trim();
+    try { localStorage.setItem('lab_email', email); localStorage.setItem('lab_name', state.name); } catch (e) {}
+    var text = $('ta-' + sceneId).value;
+    var btn = document.querySelector('[data-grade="' + sceneId + '"]');
+    btn.disabled = true;
+    btn.textContent = 'Reviewing… ⏳';
+    var dur = sceneStart[sceneId] ? Math.round((Date.now() - sceneStart[sceneId]) / 1000) : 0;
+    api2({ action: 'grade', email: email, name: state.name, scene_id: sceneId, artifact_text: text, duration_sec: dur })
+      .then(function(r){
+        if (!r.ok || !r.j.ok) { btn.disabled = false; btn.textContent = 'Submit for review 📩'; setMsg(sceneId, (r.j && r.j.error) || 'The review did not go through — try again.', false); return; }
+        state.cycle = r.j.cycle;
+        if (r.j.lead_id) state.leadId = r.j.lead_id;
+        state.watchdog = r.j.watchdog || state.watchdog;
+        if (r.j.record_url) state.recordUrl = r.j.record_url;
+        renderScenes();
+        renderGrade(sceneId, r.j.grade, r.j.passed);
+        var nb = document.querySelector('[data-grade="' + sceneId + '"]');
+        if (nb) { nb.disabled = false; nb.textContent = 'Submit for review 📩'; }
+        if (r.j.passed) {
+          var msg = '🎉 You win this scene! +100 XP. Reviewed, passed, saved.';
+          if (r.j.flipped && !r.j.flipped.already) msg += ' Your Watchdog skill flipped to DONE — new Score ' + r.j.flipped.score + '.';
+          else if (r.j.flipped && r.j.flipped.already) msg += ' That Watchdog skill was already done — your proof is now attached to it.';
+          else if (!state.watchdog.linked) msg += ' Tip: get a free Watchdog card with this email and this proof counts there too.';
+          if (r.j.record_ready) msg += ' 🎓 Your graduate record is ready — the link is in your progress card above.';
+          setMsg(sceneId, msg, true);
+          confetti();
+        } else {
+          setMsg(sceneId, 'Reviewed honestly: not yet. The exact fixes are listed under your work — edit and submit again.', false);
+        }
+      })
+      .catch(function(){ btn.disabled = false; btn.textContent = 'Submit for review 📩'; setMsg(sceneId, 'That did not go through — check your connection and try again.', false); });
   }
 
   function loadProgress(){
@@ -340,6 +534,7 @@ footer a{color:var(--deep)}
         state.cycle = r.j.cycle;
         if (r.j.lead_id) state.leadId = r.j.lead_id;
         state.watchdog = r.j.watchdog;
+        if (r.j.record_ready && r.j.lead_id) state.recordUrl = '/lab-record?id=' + r.j.lead_id;
         $('id-note').textContent = state.watchdog.linked
           ? 'Watchdog found on this email — passed scenes flip its checklist automatically.'
           : 'Progress loaded. No Watchdog card on this email yet — passed scenes are saved as proof and connect when you get one.';
