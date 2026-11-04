@@ -12,6 +12,11 @@
 //   current_job   — 'lab-waitlist'
 //   top1_slug     — 'lab'
 //   ua            — 'mobile' | 'desktop'
+//
+// Second action in the same entry: { action: 'record', id } reads back ONE
+// Lab lead's graduate record (recommended[0].record) for the public
+// /lab-record page. The lead id is the credential (unguessable UUID); the
+// response carries only what the record page shows — never the email.
 // ---------------------------------------------------------------------------
 
 const ALLOWED_ORIGINS = new Set([
@@ -53,6 +58,55 @@ module.exports = async (req, res) => {
       try { body = JSON.parse(body); } catch { body = {}; }
     }
     if (!body || typeof body !== 'object') body = {};
+
+    // --- Graduate record read (public page /lab-record?id=<leadId>) -------
+    if (body.action === 'record') {
+      const leadId = clean(body.id, 40);
+      if (!/^[0-9a-f-]{36}$/i.test(leadId)) {
+        return res.status(400).json({ ok: false, error: 'That record id does not look right.' });
+      }
+      const { leadStoreConfig } = await import('./_lib/leads.mjs');
+      const cfgR = leadStoreConfig();
+      if (!cfgR) {
+        return res.status(503).json({ ok: false, error: 'Records are not switched on yet.' });
+      }
+      const r = await fetch(
+        `${cfgR.url}/rest/v1/cg_leads?id=eq.${encodeURIComponent(leadId)}&select=id,name,recommended`,
+        { headers: { apikey: cfgR.key, Authorization: `Bearer ${cfgR.key}` } }
+      );
+      if (!r.ok) {
+        return res.status(500).json({ ok: false, error: 'That record could not be loaded.' });
+      }
+      const found = await r.json();
+      const row = Array.isArray(found) ? found[0] : null;
+      const rec = row && Array.isArray(row.recommended) ? row.recommended[0] : null;
+      if (!row || !rec || rec.product !== 'lab' || !rec.record) {
+        return res.status(404).json({ ok: false, error: 'No Lab record with that id.' });
+      }
+      const R = rec.record;
+      return res.status(200).json({
+        ok: true,
+        record: {
+          id: row.id,
+          junior: clean(R.junior || row.name || '', 80),
+          profession: clean(R.profession || '', 60),
+          cycle: clean(R.cycle || '', 80),
+          completed_at: clean(R.completed_at || '', 20),
+          scenes_done: Number(R.scenes_done) || 0,
+          scenes_total: Number(R.scenes_total) || 0,
+          sample: R.sample === true,
+          debrief: clean(R.debrief || '', 600),
+          skills: (Array.isArray(R.skills) ? R.skills : []).map((s) => ({
+            id: clean(s && s.id, 60),
+            skill: clean(s && s.skill, 300),
+            strand: clean(s && s.strand, 30),
+            scene: clean(s && s.scene, 200),
+            artifact: clean(s && s.artifact, 400),
+            status: s && s.status === 'verified' ? 'verified' : 'in_progress',
+          })),
+        },
+      });
+    }
 
     const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
     if (!EMAIL_RE.test(email) || email.length > 254) {

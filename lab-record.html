@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Career Glitch Lab — Graduate Record</title>
+<meta name="description" content="A verified record of simulated work in Career Glitch Lab: scenes passed, artifacts produced, skills proven against the profession's HR checklist.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/watchdog-radar-180.png">
+<meta name="theme-color" content="#150A20">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Instrument+Sans:wght@400;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#150A20; --ink:#F8F1FA; --ink2:#D9CBE8; --mut:#9A8BAD;
+  --pink:#FF8CBE; --hot:#F92A82; --deep:#FF6FAE; --blush:#2A1636;
+  --soft:#1E1229; --butter:#F0E6CF; --line:#3A2347; --green:#3ED598;
+  --plate:#1B1128;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;color:var(--ink);font-family:'Instrument Sans',system-ui,sans-serif;font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased;background:linear-gradient(180deg,#0D0714 0%,#150A20 46%,#1B0E26 78%,#23082A 100%);background-attachment:fixed}
+h1,h2,h3{font-family:'Outfit',sans-serif}
+.mono{font-family:'DM Mono',monospace}
+.topbar{display:flex;align-items:center;padding:14px 20px;max-width:760px;margin:0 auto}
+.logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.logo span{color:var(--deep)} .logo .heart{color:var(--hot)}
+.logo .by{font-family:'DM Mono',monospace;font-weight:400;font-size:11px;letter-spacing:.14em;color:var(--mut);margin-left:8px;text-transform:uppercase}
+.page{max-width:760px;margin:0 auto;padding:0 16px 64px}
+.sample-tag{display:block;text-align:center;margin:10px auto 0;max-width:520px;background:var(--butter);color:#4a3a10;font-family:'DM Mono',monospace;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:9px 14px}
+.hero{text-align:center;padding:26px 0 4px}
+.hero .dog{width:92px;height:92px;object-fit:contain}
+.kicker{display:inline-block;font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;background:var(--blush);color:var(--pink);border:1px solid var(--line);border-radius:999px;padding:7px 13px;margin-top:14px}
+.hero h1{font-size:clamp(30px,8vw,44px);font-weight:900;line-height:1.05;letter-spacing:-.03em;margin:16px auto 0}
+.hero .prof{font-size:19px;color:var(--deep);font-weight:700;margin-top:6px}
+.hero .sub{color:var(--ink2);max-width:34em;margin:12px auto 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.stat{background:var(--plate);border:1.5px solid var(--line);border-radius:18px;padding:14px 8px;text-align:center}
+.stat .big{font-family:'Outfit',sans-serif;font-weight:900;font-size:21px;color:var(--pink)}
+.stat .cap{font-size:12px;color:var(--mut);margin-top:3px;line-height:1.35}
+.card{background:var(--plate);border:1.5px solid var(--line);border-radius:24px;padding:22px;margin-top:22px}
+.section-label{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);background:var(--soft);border-radius:999px;padding:6px 11px;margin-bottom:12px}
+.card h2{font-size:23px;font-weight:900;line-height:1.12;letter-spacing:-.02em;margin-bottom:10px}
+.card p{color:var(--ink2)}
+.skill{border:1.5px solid var(--line);border-radius:18px;background:var(--soft);padding:16px;margin-top:12px}
+.skill .row1{display:flex;gap:10px;align-items:flex-start;justify-content:space-between}
+.skill h3{font-size:16.5px;font-weight:800;line-height:1.3}
+.badge{flex:none;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:5px 10px;margin-top:2px}
+.badge.ok{background:rgba(62,213,152,.14);color:var(--green);border:1px solid rgba(62,213,152,.4)}
+.badge.wip{background:rgba(240,230,207,.12);color:var(--butter);border:1px solid rgba(240,230,207,.35)}
+.skill .strand{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-top:3px}
+.skill .scene{margin-top:10px;font-size:15px}
+.skill .scene b{color:var(--pink);font-weight:700}
+.skill .art{margin-top:5px;font-size:15px;color:var(--ink2)}
+.skill .art b{color:var(--ink);font-weight:600}
+.note{font-size:14px;color:var(--mut)}
+.err{text-align:center;color:var(--ink2);padding:40px 0}
+footer{margin-top:36px;text-align:center;color:var(--mut);font-size:13.5px;line-height:1.6}
+footer .brand{font-family:'Outfit',sans-serif;font-weight:800;color:var(--ink);font-size:15px}
+footer a{color:var(--deep)}
+</style>
+</head>
+<body>
+<div class="topbar"><a class="logo" href="/">Career<span>Glitch</span> <span class="heart">♥</span><span class="by">Lab · Graduate record</span></a></div>
+<div class="page">
+  <span class="sample-tag" id="r-sample" hidden>Sample record — Lab pilot preview</span>
+
+  <div class="hero">
+    <img class="dog" src="/watchdog-dog.webp" alt="The Lab watchdog">
+    <div><span class="kicker">Career Glitch Lab · Verified record of simulated work</span></div>
+    <h1 id="r-name">Loading the record…</h1>
+    <div class="prof" id="r-prof"></div>
+    <p class="sub" id="r-sub"></p>
+  </div>
+
+  <div class="stats" id="r-stats" hidden>
+    <div class="stat"><div class="big" id="r-scenes">—</div><div class="cap">scenes completed</div></div>
+    <div class="stat"><div class="big" id="r-verified">—</div><div class="cap">skills verified by artifacts</div></div>
+    <div class="stat"><div class="big" id="r-date">—</div><div class="cap">cycle completed</div></div>
+  </div>
+
+  <section class="card" id="r-debrief-card" hidden>
+    <span class="section-label">Honest debrief</span>
+    <h2>Where this junior stands</h2>
+    <p id="r-debrief"></p>
+    <p class="note" style="margin-top:10px">This record verifies simulated work done inside Career Glitch Lab, checked scene by scene against the profession's HR checklist. It is not a diploma and it is not employment history.</p>
+  </section>
+
+  <section class="card" id="r-skills-card" hidden>
+    <span class="section-label">Skills · in checklist order</span>
+    <h2>What was trained and tested</h2>
+    <p>The same top-1% checklist Career Glitch Watchdog tracks for this profession, built from real job postings. A skill is marked <strong>Verified</strong> only when a passed scene's artifact proves it.</p>
+    <div id="r-skills"></div>
+  </section>
+
+  <div class="err" id="r-err" hidden>
+    <p>That record could not be found. Check the link and try again.</p>
+  </div>
+
+  <footer>
+    <div class="brand">Career Glitch Lab — the first rung</div>
+    AI took the first rung of the career ladder. Lab gives it back: real tasks, real artifacts, a record anyone can check.<br>
+    <a href="https://careerglitch.com">careerglitch.com</a>
+    <div class="mono" id="r-id" style="margin-top:8px;font-size:12px"></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]; }); }
+  function $(id){ return document.getElementById(id); }
+  var id = new URLSearchParams(window.location.search).get('id') || '';
+  var STRANDS = { craft:'Craft', experience:'Experience', proof:'Proof', voice:'Voice', niche:'Niche', network:'Network', ai_leverage:'AI leverage' };
+
+  function fail(){
+    $('r-name').textContent = 'Record not found';
+    $('r-sub').textContent = '';
+    $('r-err').hidden = false;
+  }
+
+  if (!id) { fail(); return; }
+
+  fetch('/api/lab-lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'record', id: id }) })
+    .then(function(r){ return r.json(); })
+    .then(function(j){
+      if (!j.ok) { fail(); return; }
+      var rec = j.record;
+      var skills = rec.skills || [];
+      var verified = skills.filter(function(s){ return s.status === 'verified'; }).length;
+
+      if (rec.sample) $('r-sample').hidden = false;
+      $('r-name').textContent = rec.junior || 'Lab graduate';
+      $('r-prof').textContent = rec.profession;
+      $('r-sub').textContent = 'Cycle: ' + rec.cycle + ' — a compressed month of entry-level work in the simulator: real tasks, an AI client and manager pushing back, and an artifact saved from every scene.';
+
+      $('r-scenes').textContent = rec.scenes_done + ' of ' + rec.scenes_total;
+      $('r-verified').textContent = verified + ' of ' + skills.length;
+      var d = rec.completed_at ? new Date(rec.completed_at + 'T12:00:00') : null;
+      $('r-date').textContent = d ? d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—';
+      $('r-stats').hidden = false;
+
+      if (rec.debrief) { $('r-debrief').textContent = rec.debrief; $('r-debrief-card').hidden = false; }
+
+      $('r-skills').innerHTML = skills.map(function(s){
+        var ok = s.status === 'verified';
+        return '<div class="skill"><div class="row1"><div><h3>' + esc(s.skill) + '</h3>' +
+          '<div class="strand">' + esc(STRANDS[s.strand] || s.strand || '') + '</div></div>' +
+          '<span class="badge ' + (ok ? 'ok' : 'wip') + '">' + (ok ? '✓ Verified' : '◐ In progress') + '</span></div>' +
+          '<div class="scene"><b>Scene:</b> ' + esc(s.scene) + '</div>' +
+          '<div class="art"><b>Artifact:</b> ' + esc(s.artifact) + '</div></div>';
+      }).join('');
+      $('r-skills-card').hidden = false;
+
+      $('r-id').textContent = 'Record ID: ' + rec.id;
+      document.title = 'Career Glitch Lab — ' + (rec.junior || 'Graduate') + ', ' + rec.profession;
+    })
+    .catch(function(){ fail(); });
+})();
+</script>
+</body>
+</html>
