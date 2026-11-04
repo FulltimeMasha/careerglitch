@@ -113,6 +113,19 @@ footer a{color:var(--deep)}
     <p class="note">Honest words: this is practice work, not a diploma and not a job promise. It is a record of real tasks, done well, that anyone can check.</p>
   </section>
 
+  <section class="card" id="program">
+    <span class="section-label">The plan — before you start</span>
+    <h2>🎯 What you will learn, and how long it takes</h2>
+    <ul class="steps">
+      <li><span class="n">⏱</span><span><strong>Time:</strong> 10 scenes. One scene = 15–30 minutes of work. The full month = about <strong>3–5 hours</strong> in total. Play it in one day or one scene a day — the game saves where you stopped.</span></li>
+      <li><span class="n">🧰</span><span><strong>You need:</strong> basic bookkeeping words (debit, credit, invoice), a laptop, and your email. No paid software. Every number you need is inside the scene.</span></li>
+      <li><span class="n">🎓</span><span><strong>This is for you if:</strong> you finished a bookkeeping course or diploma — and every job still asks for "experience". This is where the experience comes from.</span></li>
+    </ul>
+    <p style="margin-top:16px"><strong>Skills you will practice and prove</strong> — each one is a line on the Watchdog top-1% checklist, the same list employers ask for:</p>
+    <div class="artlist" id="program-skills"></div>
+    <p class="note" style="margin-top:12px">5 more lines on that checklist — years on the job, a ProAdvisor badge, client reviews, referral partners, community — cannot be faked in a simulator, so the Lab honestly does not sell them. Those come from real work, and your Watchdog keeps track of them.</p>
+  </section>
+
   <section class="card" id="idcard">
     <span class="section-label">Your Lab record</span>
     <div class="rowflex">
@@ -180,7 +193,7 @@ footer a{color:var(--deep)}
       var status = ps[sc.id] ? '<span class="badge pass">Passed ✓</span>' : (art ? '<span class="badge draft">Draft saved</span>' : (sc.order === 1 ? '<span class="badge">Free scene</span>' : '<span class="badge">Scene ' + sc.order + '</span>'));
       html += '<article class="scene" id="' + sc.id + '">'
         + '<div class="shead"><div><h3>' + sc.order + '. ' + esc(sc.title) + '</h3>'
-        + '<div class="skill">🏆 Win this scene → proves: ' + esc(ITEM_LABELS[sc.checklist_id] || sc.checklist_id) + ' · +100 XP</div></div>' + status + '</div>'
+        + '<div class="skill">🏆 Win this scene → proves: ' + esc(ITEM_LABELS[sc.checklist_id] || sc.checklist_id) + ' · +100 XP · ⏱ about 20 min</div></div>' + status + '</div>'
         + '<div class="frombox"><div class="who">📩 Step 1 — ' + esc(sc.from_name) + ' (' + esc(sc.from_role) + ') writes to you:</div><p>' + esc(sc.setup) + '</p></div>'
         + (sc.pressure ? '<div class="pressure"><span class="plabel">😬 Step 2 — oh no, a problem</span>' + esc(sc.pressure) + '</div>' : '')
         + '<div class="taskbox"><span class="tlabel">✍️ Step 3 — your job</span><p>' + esc(sc.task) + '</p></div>'
@@ -320,6 +333,15 @@ footer a{color:var(--deep)}
       }
     });
   }
+
+  (function renderProgram(){
+    var byItem = {};
+    scenes.forEach(function(sc){ (byItem[sc.checklist_id] = byItem[sc.checklist_id] || []).push(sc.order); });
+    $('program-skills').innerHTML = Object.keys(ITEM_LABELS).map(function(k){
+      var orders = byItem[k] || [];
+      return '<div>✅ <strong>' + esc(ITEM_LABELS[k].replace(/\s*\([^)]*\)\s*$/, '')) + '</strong> — scene' + (orders.length > 1 ? 's ' : ' ') + orders.join(' + ') + ' · strand: ' + esc((ITEM_LABELS[k].match(/\(([^)]*)\)/) || [])[1] || '') + '</div>';
+    }).join('');
+  })();
 
   $('btn-load').addEventListener('click', loadProgress);
   try {
