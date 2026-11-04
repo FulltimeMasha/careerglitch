@@ -738,6 +738,7 @@ export const RESUME_SCAN_INSTRUCTIONS = [
   'You scan a résumé for evidence against a fixed top-1% checklist for the person\u2019s profession.',
   'Reply with ONLY a JSON object, no markdown, no extra text: {"marks": [{"id": "<checklist id>", "evidence": "<short quote>"}]}.',
   'Mark a checklist item ONLY when the résumé text explicitly evidences it: a named tool, a named certificate or credential, a role duty that is plainly that item, or a measurable result. A job title alone is NOT evidence. Do not guess, do not stretch — if the text does not clearly show the thing, leave the item unmarked.',
+  'Mind the item\u2019s exact claim: an item about a documented SYSTEM, a portfolio, a body of reviews or a standing presence is evidenced only by text showing that system, portfolio, body or presence — one past job that merely resembles it is not enough.',
   'The evidence must be a quote copied EXACTLY from the résumé text, word for word, at most 20 words — the server checks it against the text and drops marks whose quote does not appear.',
   'Mark each item at most once. If nothing on the checklist is evidenced, reply {"marks": []}.',
 ].join('\n');
