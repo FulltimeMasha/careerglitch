@@ -25,6 +25,13 @@
 //   bonus   = sum of the points of this week's tasks the user marked
 //             done. Doing the work raises the gauge immediately.
 //   score   = clamp(round(base - penalty + bonus), 0, 100)
+//
+// The EFFECTIVE Score (what the user sees — effectiveScore below) adds
+// the weekly news cycle on top of that: the accumulated impact of real
+// profession news applied to this user (state.news.adjustment) plus
+// the points of completed news-derived tasks. Checklist flips and
+// task completions keep changing the computeScore part exactly as
+// before.
 // ---------------------------------------------------------------------------
 
 import { sanitizeUserText } from './engine/llm.mjs';
@@ -178,7 +185,160 @@ export function computeScore(profile) {
   return Math.min(100, Math.max(0, Math.round(base - penalty + bonus)));
 }
 
+// ---------------------------------------------------------------------------
+// Weekly news cycle (2026-11-03). Once a week the rescan (see
+// scripts/watchdog-weekly.mjs) finds REAL, sourced news for a profession
+// and applies it to every existing user of that profession:
+//   state.news.applied    — radar item ids already applied to THIS user
+//   state.news.adjustment — accumulated score impact of those items
+//   state.news.tasks      — tasks derived from those items (with done
+//                           flags the user controls, like weekly tasks)
+//   state.score_history   — [{date, delta, score_after, reason}]
+// Fresh-user rule: a brand-new user starts with applied=[] and
+// adjustment=0. News moves the Score only of people who were already
+// being watched when it landed — nobody inherits a past week's moves
+// on signup.
+// ---------------------------------------------------------------------------
+
+export function emptyNews() {
+  return { applied: [], adjustment: 0, tasks: [] };
+}
+
+// Normalize the news component of a stored state. States saved before
+// the weekly cycle existed have none — they start empty, exactly like
+// a fresh user.
+export function stateNews(state) {
+  const n = state && state.news && typeof state.news === 'object' ? state.news : {};
+  return {
+    applied: Array.isArray(n.applied) ? n.applied.filter((x) => typeof x === 'string') : [],
+    adjustment: typeof n.adjustment === 'number' && Number.isFinite(n.adjustment)
+      ? Math.round(n.adjustment)
+      : 0,
+    tasks: (Array.isArray(n.tasks) ? n.tasks : [])
+      .filter((t) => t && typeof t === 'object' && typeof t.source_item_id === 'string' && t.source_item_id)
+      .map((t) => ({
+        title: typeof t.title === 'string' ? t.title : '',
+        points: Math.min(10, Math.max(1, Math.round(typeof t.points === 'number' && Number.isFinite(t.points) ? t.points : 3))),
+        checklist_id: typeof t.checklist_id === 'string' && t.checklist_id ? t.checklist_id : null,
+        source_item_id: t.source_item_id,
+        done: t.done === true,
+      })),
+  };
+}
+
+function clampScore(n) {
+  return Math.min(100, Math.max(0, Math.round(n)));
+}
+
+// The Score the user sees: the code-computed profile score, plus the
+// accumulated news adjustment, plus the points of completed
+// news-derived tasks (they live outside profile.tasks, so computeScore
+// cannot see them — completing one adds its points exactly like a
+// checklist task does inside computeScore).
+export function effectiveScore(state) {
+  if (!state || !state.profile) return 0;
+  const news = stateNews(state);
+  const newsBonus = news.tasks.reduce((a, t) => a + (t.done ? t.points : 0), 0);
+  return clampScore(computeScore(state.profile) + news.adjustment + newsBonus);
+}
+
+// The This Week list the user sees: the profile's checklist tasks plus
+// the news-derived tasks. The list stays at max 3 OPEN moves: a news
+// task replaces the lowest-priority (last) still-open checklist task.
+// Done tasks always stay visible. The stored profile is NOT changed
+// by this merge — display only (refreshWatchdogState reconciles).
+export function displayTasks(profile, news) {
+  const list = (profile && Array.isArray(profile.tasks) ? profile.tasks : []).map((t) => ({ ...t }));
+  const newsTasks = news && Array.isArray(news.tasks) ? news.tasks : [];
+  for (const nt of newsTasks) {
+    const view = {
+      title: nt.title,
+      points: nt.points,
+      checklist_id: nt.checklist_id || null,
+      source_item_id: nt.source_item_id,
+      done: nt.done === true,
+    };
+    if (list.filter((t) => !t.done).length < 3) { list.push(view); continue; }
+    let idx = -1;
+    for (let i = list.length - 1; i >= 0; i--) {
+      if (!list[i].done && !list[i].source_item_id) { idx = i; break; }
+    }
+    if (idx >= 0) list.splice(idx, 1, view);
+  }
+  return list;
+}
+
+// The state as the client should see it: the effective Score, and the
+// profile carrying the merged display task list (checklist + news).
+export function viewWatchdogState(state) {
+  if (!state || !state.profile) return state;
+  const news = stateNews(state);
+  return {
+    ...state,
+    news,
+    score_history: Array.isArray(state.score_history) ? state.score_history : [],
+    profile: { ...state.profile, tasks: displayTasks(state.profile, news) },
+    score: effectiveScore(state),
+  };
+}
+
+// Apply a set of NEW radar items to one user's stored state.
+// Idempotent: an item whose id is already in news.applied is skipped,
+// so re-running a cycle never moves a Score twice. Each applied item
+// adds its impact to news.adjustment and appends a score_history
+// entry; when the item carries a derived task that still targets a
+// gap in THIS user's checklist (or no checklist item at all), the
+// task is stored in news.tasks for their This Week list.
+// items: [{ id, impact, reason, task?: {title, points, checklist_id} }]
+export function applyNewsToState(state, items, dateStr) {
+  const news = stateNews(state);
+  const history = Array.isArray(state.score_history) ? [...state.score_history] : [];
+  const appliedNow = [];
+  for (const item of Array.isArray(items) ? items : []) {
+    if (!item || typeof item.id !== 'string' || !item.id) continue;
+    if (news.applied.includes(item.id)) continue;
+    const impact = Math.max(-5, Math.min(3, Math.round(
+      typeof item.impact === 'number' && Number.isFinite(item.impact) ? item.impact : 0
+    )));
+    news.applied = [...news.applied, item.id];
+    news.adjustment += impact;
+    if (item.task && typeof item.task.title === 'string' && item.task.title) {
+      const cid = typeof item.task.checklist_id === 'string' && item.task.checklist_id
+        ? item.task.checklist_id
+        : null;
+      const target = cid
+        ? (state.profile.top1_profile || []).find((i) => i.id === cid)
+        : null;
+      const stillGap = !cid || (target && target.user_has !== true);
+      if (stillGap && !news.tasks.some((t) => t.source_item_id === item.id)) {
+        news.tasks = [...news.tasks, {
+          title: item.task.title,
+          points: Math.min(10, Math.max(1, Math.round(
+            typeof item.task.points === 'number' && Number.isFinite(item.task.points) ? item.task.points : 3
+          ))),
+          checklist_id: cid,
+          source_item_id: item.id,
+          done: false,
+        }];
+      }
+    }
+    const arrow = impact < 0 ? '\u2193' : '\u2191';
+    history.push({
+      date: dateStr,
+      delta: impact,
+      score_after: effectiveScore({ ...state, news }),
+      reason: `${arrow}${Math.abs(impact)}: ${typeof item.reason === 'string' ? item.reason : ''}`,
+    });
+    appliedNow.push(item.id);
+  }
+  const next = { ...state, news, score_history: history };
+  next.score = effectiveScore(next);
+  return { state: next, appliedNow };
+}
+
 // Build the full Watchdog state object stored inside the lead row.
+// A fresh state starts with an EMPTY news component: adjustment 0,
+// nothing applied — past weeks' news never leaks into a new signup.
 export function buildWatchdogState(profile, nowIso) {
   return {
     v: 1,
@@ -188,6 +348,8 @@ export function buildWatchdogState(profile, nowIso) {
     radar: matchRadarFeed(profile.profession),
     scan: { mode: 'cached-feed', feed_date: RADAR_FEED_SCANNED_AT, last_checked_at: nowIso },
     baseline: { score: computeScore(profile), at: nowIso },
+    news: emptyNews(),
+    score_history: [],
     trial: null,
     created_at: nowIso,
     updated_at: nowIso,
@@ -197,19 +359,56 @@ export function buildWatchdogState(profile, nowIso) {
 // Recompute + refresh a stored state after a client-side flip update.
 // Radar is re-derived from the sourced feed (never trusted from the
 // client), trial and baseline are preserved from the stored state.
+// The client profile carries the merged DISPLAY task list: news tasks
+// ride along with a source_item_id — they are stripped out here and
+// their done flags are synced into the stored news component instead
+// (done is sticky, exactly like in the UI). A news task may have
+// replaced the lowest-priority checklist task in the display list, so
+// the payload can legitimately miss a stored task: stored tasks the
+// client did not carry are backfilled, never silently dropped.
 export function refreshWatchdogState(stored, clientProfile, nowIso) {
   const storedItems = stored && stored.profile && Array.isArray(stored.profile.top1_profile)
     ? stored.profile.top1_profile
     : [];
   const preserveWeights = new Map(storedItems.map((i) => [i.id, i.weight]));
-  const profile = validateProfile(clientProfile, { preserveWeights });
+  const news = stateNews(stored);
+  const rawTasks = clientProfile && Array.isArray(clientProfile.tasks) ? clientProfile.tasks : [];
+  const cleanTasks = [];
+  for (const t of rawTasks) {
+    if (t && typeof t === 'object' && typeof t.source_item_id === 'string' && t.source_item_id) {
+      if (t.done === true) {
+        news.tasks = news.tasks.map((nt) => (
+          nt.source_item_id === t.source_item_id && !nt.done ? { ...nt, done: true } : nt
+        ));
+      }
+      continue;
+    }
+    cleanTasks.push(t);
+  }
+  const carried = new Set(cleanTasks.map((t) => (
+    t && typeof t.checklist_id === 'string' ? t.checklist_id : ''
+  )));
+  const mergedTasks = [...cleanTasks];
+  const storedTasks = stored && stored.profile && Array.isArray(stored.profile.tasks)
+    ? stored.profile.tasks
+    : [];
+  for (const st of storedTasks) {
+    if (mergedTasks.length >= 4) break;
+    if (st && st.checklist_id && !carried.has(st.checklist_id)) mergedTasks.push(st);
+  }
+  const profile = validateProfile(
+    { ...(clientProfile || {}), tasks: mergedTasks },
+    { preserveWeights }
+  );
   const next = {
     ...stored,
     profile,
-    score: computeScore(profile),
+    news,
+    score_history: Array.isArray(stored && stored.score_history) ? stored.score_history : [],
     radar: matchRadarFeed(profile.profession),
     updated_at: nowIso,
   };
+  next.score = effectiveScore(next);
   return next;
 }
 

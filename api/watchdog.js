@@ -264,10 +264,13 @@ async function sendWatchdogCardEmail(cfg, MAIL, updateLeadFn, leadId, rec, email
   return cardEmail;
 }
 
-// Defensive: the score in a stored state is always recomputed from the
-// stored profile before it is shown or returned.
+// Defensive: what the client is shown is always the VIEW of the stored
+// state — the effective Score (profile score + news adjustment + done
+// news-task points) recomputed from the stored profile, with the
+// merged display task list (checklist tasks + news tasks). The stored
+// state itself keeps the canonical profile; see api/_lib/watchdog.mjs.
 function withFreshScore(WD, state) {
-  try { return { ...state, score: WD.computeScore(state.profile) }; } catch { return state; }
+  try { return WD.viewWatchdogState(state); } catch { return state; }
 }
 
 module.exports = async (req, res) => {
@@ -529,7 +532,7 @@ module.exports = async (req, res) => {
       }
       const okSave = await updateLead(cfg, leadId, { recommended: [{ ...rec, watchdog: next }] });
       if (!okSave) return res.status(404).json({ ok: false, error: 'That Watchdog could not be found.' });
-      return res.status(200).json({ ok: true, watchdog: next });
+      return res.status(200).json({ ok: true, watchdog: withFreshScore(WD, next) });
     }
 
     if (action === 'trial') {
@@ -615,16 +618,18 @@ module.exports = async (req, res) => {
       const next = {
         ...stored,
         profile,
-        score: WD.computeScore(profile),
         score_reason: profile.score_reason,
         radar: WD.matchRadarFeed(profile.profession),
         updated_at: new Date().toISOString(),
       };
+      // The news component survives personalization via the spread of
+      // the stored state; the Score stays the effective one.
+      next.score = WD.effectiveScore(next);
       const okSave = await updateLead(cfg, leadId, { recommended: [{ ...rec, watchdog: next }] });
       if (!okSave) return res.status(404).json({ ok: false, error: 'That Watchdog could not be found.' });
       return res.status(200).json({
         ok: true,
-        watchdog: next,
+        watchdog: withFreshScore(WD, next),
         baseline_score: stored.baseline && typeof stored.baseline.score === 'number' ? stored.baseline.score : null,
       });
     }

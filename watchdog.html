@@ -194,6 +194,11 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
 .taskitem .t{font-size:16.5px}
 .taskitem.done .t{color:var(--mut);text-decoration:line-through}
 .taskitem .pts{margin-left:auto;flex:0 0 auto;font-family:'DM Mono',monospace;font-size:12.5px;color:var(--deep);background:var(--soft);border-radius:999px;padding:4px 9px}
+.newstag{flex:0 0 auto;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.05em;color:var(--deep);background:var(--blush);border-radius:999px;padding:4px 8px;margin-top:3px;white-space:nowrap}
+/* ---------- score-drop alert ---------- */
+.alertbanner{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#ffe9ef;border:1.5px solid #ffb9d0;border-radius:16px;padding:14px 16px;margin-bottom:16px}
+.alertbanner p{font-size:16px;color:#8f103f}
+.alertbanner p strong{font-weight:700}
 /* ---------- radar ---------- */
 .radarcard{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:17px 18px;margin-bottom:12px}
 .radarcard h3{font-size:18.5px;line-height:1.3;margin-bottom:7px}
@@ -385,6 +390,10 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
 
     <section class="card" id="panel-home">
       <span class="section-label">Your Watchdog is on duty</span>
+      <div id="home-alert" class="alertbanner hidden">
+        <p><strong>Your Score dropped this week.</strong> <span id="home-alert-reason"></span></p>
+        <button class="btn ghost small" id="home-alert-btn" type="button">See what changed →</button>
+      </div>
       <p class="lede" id="home-text"></p>
       <div id="home-stats" style="margin-top:16px"></div>
       <div id="home-personal" class="hidden" style="margin-top:16px">
@@ -665,6 +674,29 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
 
   /* ---------------- app ---------------- */
   function deltaInfo(wd){
+    // Real weekly movement first: what the news cycle did to this
+    // Score in the last 7 days (score_history is written server-side
+    // by the weekly rescan — one entry per applied radar item).
+    var hist = (wd.score_history || []).filter(function(e){ return e && typeof e.delta === 'number'; });
+    var now = Date.now();
+    var recent = hist.filter(function(e){
+      var t = new Date(e.date && e.date.length === 10 ? e.date + 'T12:00:00' : e.date).getTime();
+      return !isNaN(t) && (now - t) <= 7 * 24 * 3600 * 1000 && (now - t) > -24 * 3600 * 1000;
+    });
+    if (recent.length){
+      var net = recent.reduce(function(a, e){ return a + e.delta; }, 0);
+      var top = recent[0];
+      recent.forEach(function(e){ if (Math.abs(e.delta) > Math.abs(top.delta)) top = e; });
+      var reason = String(top.reason || '').replace(/^[↑↓]\s*\d+:\s*/, '');
+      if (net !== 0){
+        return {
+          cls: net > 0 ? 'up' : 'down',
+          text: (net > 0 ? '↑ +' + net : '↓ ' + Math.abs(net)) + ' this week: ' + reason,
+          net: net, reason: reason
+        };
+      }
+      return { cls: '', text: 'News touched your profession this week, but your Score held: ' + reason, net: 0, reason: reason };
+    }
     if (wd.baseline && typeof wd.baseline.score === 'number' && wd.baseline.score !== wd.score){
       var d = wd.score - wd.baseline.score;
       return { cls: d > 0 ? 'up' : 'down', text: (d > 0 ? '↑ +' : '↓ ') + d + ' since your first check — your moves are working' };
@@ -685,6 +717,17 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     var deltaEl = $('app-delta');
     deltaEl.className = 'delta ' + d.cls;
     deltaEl.textContent = d.text;
+    // A net-negative week also raises the alert banner on Home: what
+    // changed, and the button takes the user to the Radar behind it.
+    var alertEl = $('home-alert');
+    if (typeof d.net === 'number' && d.net < 0){
+      $('home-alert-reason').textContent = d.reason
+        ? 'Here is what changed: ' + d.reason + ' — and what to do about it.'
+        : 'Here is what changed and what to do about it.';
+      alertEl.classList.remove('hidden');
+    } else {
+      alertEl.classList.add('hidden');
+    }
     var noteEl = $('app-personal-note');
     if (state.justPersonalized) {
       noteEl.textContent = 'Your personal Score: ' + state.justPersonalized.score +
@@ -771,7 +814,9 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     $('week-list').innerHTML = (p.tasks || []).map(function(t, idx){
       return '<div class="taskitem' + (t.done ? ' done' : '') + '">' +
         '<button type="button" class="box" data-task="' + idx + '" aria-label="Mark done">' + (t.done ? '✓' : '') + '</button>' +
-        '<span class="t">' + esc(t.title) + '</span><span class="pts">+' + t.points + ' pts</span></div>';
+        '<span class="t">' + esc(t.title) + '</span>' +
+        (t.source_item_id ? '<span class="newstag">From this week\'s news</span>' : '') +
+        '<span class="pts">+' + t.points + ' pts</span></div>';
     }).join('');
     var boxes = $('week-list').querySelectorAll('[data-task]');
     for (var i = 0; i < boxes.length; i++){
@@ -846,6 +891,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     show('view-app');
   });
   $('home-personal-btn').addEventListener('click', startOnboard);
+  $('home-alert-btn').addEventListener('click', function(){ switchTab('radar'); });
   $('app-checkout').addEventListener('click', function(e){
     e.preventDefault();
     var href = stripeHref(state.leadId, state.email);
