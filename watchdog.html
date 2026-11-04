@@ -7,7 +7,9 @@
 <meta name="description" content="A personal AI agent that watches your profession every day — new AI tools, grants, jobs and rule changes — and tells you each week what to do. Get your AI-Proof Score free.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/watchdog-radar-180.png">
+<link rel="manifest" href="/watchdog.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Watchdog">
 <meta name="theme-color" content="#150A20">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Instrument+Sans:wght@400;600;700&family=Montserrat:wght@700;800;900&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -252,6 +254,14 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
 .newstag{flex:0 0 auto;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.05em;color:var(--deep);background:var(--blush);border-radius:999px;padding:4px 8px;margin-top:3px;white-space:nowrap}
 /* ---------- asleep layer (free / lapsed service) ---------- */
 .asleepblock{text-align:center;background:var(--soft);border:1.5px dashed var(--pink);border-radius:18px;padding:26px 20px}
+.installhint{display:flex;align-items:center;gap:12px;margin-top:34px;background:var(--plate);border:1.5px solid #4A2A56;border-radius:18px;padding:12px 14px;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.installhint .ih-icon{flex:0 0 auto;width:34px;height:34px;border-radius:9px}
+.installhint .ih-text{flex:1;font-size:14.5px;line-height:1.45;color:var(--ink2)}
+.installhint .ih-text strong{color:var(--ink)}
+.installhint .ih-share{display:inline-flex;vertical-align:-3px;color:var(--deep)}
+.installhint .ih-share svg{width:15px;height:15px;display:block}
+.installhint .ih-close{flex:0 0 auto;width:30px;height:30px;border-radius:50%;border:1.5px solid #4A2A56;background:transparent;color:var(--mut);font-size:19px;line-height:1;cursor:pointer;font-family:inherit;padding:0}
+.installhint .ih-close:hover{color:var(--ink);border-color:var(--pink)}
 .asleepblock .asleep-emoji{font-size:34px;line-height:1}
 .asleepblock h3{font-size:21px;margin:10px 0 8px}
 .asleepblock p{color:var(--ink2);font-size:16.5px;margin-bottom:16px}
@@ -512,6 +522,11 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
 
   <!-- ======================= APP ======================= -->
   <div id="view-app" class="hidden">
+    <div class="installhint hidden" id="install-hint" role="note">
+      <img class="ih-icon" src="/icons/watchdog-radar-192.png" alt="" width="34" height="34">
+      <p class="ih-text"><strong>Put Watchdog on your Home Screen</strong> — tap <span class="ih-share"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M7.8 7.2 12 3l4.2 4.2M5 12v8a1.6 1.6 0 0 0 1.6 1.6h10.8A1.6 1.6 0 0 0 19 20v-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Share, then &ldquo;Add to Home Screen&rdquo;. Your Score, one tap away.</p>
+      <button class="ih-close" id="install-hint-close" type="button" aria-label="Dismiss">&times;</button>
+    </div>
     <section class="card" style="margin-top:34px">
       <div class="scorehead">
         <div class="scoreprof" id="app-prof">Your profession</div>
@@ -609,6 +624,7 @@ window.WD_MODE = 'service';
   var LS_KEY = 'cg_watchdog_lead';
   var OB_SKIP_KEY = 'cg_watchdog_ob_skip';
   var GOTO_KEY = 'cg_watchdog_goto';
+  var INSTALL_HINT_KEY = 'cg_watchdog_install_hint';
   var STRIPE_LINK = 'https://buy.stripe.com/3cI14m2690Ip8r6dZ1eEo0v';
   var state = { leadId: null, email: null, wd: null, profession: '', obTranscript: [], obBusy: false, justPersonalized: null, tab: 'home' };
 
@@ -644,10 +660,28 @@ window.WD_MODE = 'service';
       '<p class="formnote" style="margin-top:12px">Free for 30 days, then $9/month. A card is asked at checkout — nothing is charged today. Cancel in one tap.</p></div>';
   }
 
+  // Install hint: a slim banner at the very top of the app view,
+  // SERVICE mode only, inviting the user to put Watchdog on their
+  // Home Screen. Dismissal persists in localStorage (never shown
+  // again for that user), and it never appears when the service
+  // already runs installed (standalone display mode / iOS flag).
+  function isInstalled(){
+    return (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+  }
+  function installHintDismissed(){
+    try { return localStorage.getItem(INSTALL_HINT_KEY) === '1'; } catch (e) { return false; }
+  }
+  function maybeInstallHint(){
+    var el = $('install-hint'); if (!el) return;
+    var showIt = MODE === 'service' && !isInstalled() && !installHintDismissed();
+    el.classList.toggle('hidden', !showIt);
+  }
+
   function $(id){ return document.getElementById(id); }
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
   function show(view){
     ['view-landing','view-signin','view-start','view-onboard','view-result','view-app'].forEach(function(v){ $(v).classList.toggle('hidden', v !== view); });
+    if (view === 'view-app') maybeInstallHint();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function api(body){
@@ -1113,6 +1147,10 @@ window.WD_MODE = 'service';
 
   /* ---------------- wiring ---------------- */
   $('start-btn').addEventListener('click', startEntry);
+  $('install-hint-close').addEventListener('click', function(){
+    try { localStorage.setItem(INSTALL_HINT_KEY, '1'); } catch (e) {}
+    $('install-hint').classList.add('hidden');
+  });
   $('prof-form').addEventListener('submit', function(e){ e.preventDefault(); goStep2(); });
   $('card-form').addEventListener('submit', function(e){ e.preventDefault(); submitCard(); });
   $('res-roadmap').addEventListener('click', function(){
