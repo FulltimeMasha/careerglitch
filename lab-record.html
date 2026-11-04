@@ -31,7 +31,7 @@ h1,h2,h3{font-family:'Outfit',sans-serif}
 .hero .dog{width:92px;height:92px;object-fit:contain}
 .kicker{display:inline-block;font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;background:var(--blush);color:var(--pink);border:1px solid var(--line);border-radius:999px;padding:7px 13px;margin-top:14px}
 .hero h1{font-size:clamp(30px,8vw,44px);font-weight:900;line-height:1.05;letter-spacing:-.03em;margin:16px auto 0}
-.hero .prof{font-size:19px;color:var(--deep);font-weight:700;margin-top:6px}
+.hero .prof{display:inline-block;font-family:'Outfit',sans-serif;font-size:clamp(21px,6vw,27px);font-weight:800;letter-spacing:-.01em;color:#fff;background:var(--hot);border-radius:999px;padding:9px 24px;margin-top:14px;box-shadow:0 6px 22px rgba(249,42,130,.35)}
 .hero .sub{color:var(--ink2);max-width:34em;margin:12px auto 0}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
 .stat{background:var(--plate);border:1.5px solid var(--line);border-radius:18px;padding:14px 8px;text-align:center}
@@ -66,7 +66,7 @@ footer a{color:var(--deep)}
 
   <div class="hero">
     <img class="dog" src="/watchdog-dog.webp" alt="The Lab watchdog">
-    <div><span class="kicker">Career Glitch Lab · Verified record of simulated work</span></div>
+    <div><span class="kicker" id="r-kicker">Career Glitch Lab · Verified record of simulated work</span></div>
     <h1 id="r-name">Loading the record…</h1>
     <div class="prof" id="r-prof"></div>
     <p class="sub" id="r-sub"></p>
@@ -88,7 +88,7 @@ footer a{color:var(--deep)}
   <section class="card" id="r-skills-card" hidden>
     <span class="section-label">Skills · in checklist order</span>
     <h2>What was trained and tested</h2>
-    <p>The same top-1% checklist Career Glitch Watchdog tracks for this profession, built from real job postings. A skill is marked <strong>Verified</strong> only when a passed scene's artifact proves it.</p>
+    <p id="r-skills-intro">The same top-1% checklist Career Glitch Watchdog tracks for this profession, built from real job postings. A skill is marked <strong>Verified</strong> only when a passed scene's artifact proves it.</p>
     <div id="r-skills"></div>
   </section>
 
@@ -130,6 +130,8 @@ footer a{color:var(--deep)}
       if (rec.sample) $('r-sample').hidden = false;
       $('r-name').textContent = rec.junior || 'Lab graduate';
       $('r-prof').textContent = rec.profession;
+      $('r-kicker').textContent = 'Career Glitch Lab · ' + rec.profession + ' · Verified record of simulated work';
+      $('r-skills-intro').innerHTML = 'The same top-1% checklist Career Glitch Watchdog tracks for ' + esc(rec.profession) + ', built from real job postings. A skill is marked <strong>Verified</strong> only when a passed scene\'s artifact proves it.';
       $('r-sub').textContent = 'Cycle: ' + rec.cycle + ' — a compressed month of entry-level work in the simulator: real tasks, an AI client and manager pushing back, and an artifact saved from every scene.';
 
       $('r-scenes').textContent = rec.scenes_done + ' of ' + rec.scenes_total;
