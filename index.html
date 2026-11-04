@@ -50,8 +50,10 @@ h1,h2,h3,.disp{font-family:'Montserrat','Outfit',sans-serif}
 .skyheart{position:absolute;color:var(--pink);opacity:.22;line-height:1}
 .sh1{font-size:110px;top:9%;left:6%}
 .sh2{font-size:64px;top:58%;right:7%}
-.topbar{display:flex;align-items:center;justify-content:flex-start;padding:14px 24px;max-width:1100px;margin:0 auto}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1100px;margin:0 auto}
 .logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.signinlink{font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;color:var(--deep);text-decoration:none;border:1.5px solid #4A2A56;background:var(--plate);border-radius:999px;padding:8px 16px;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.signinlink:hover{border-color:var(--pink)}
 .logo span{color:var(--deep)}
 .logo .heart{color:var(--hot)}
 .page{max-width:760px;margin:0 auto;padding:0 20px 72px}
@@ -248,6 +250,11 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
 .taskitem.done .t{color:var(--mut);text-decoration:line-through}
 .taskitem .pts{margin-left:auto;flex:0 0 auto;font-family:'DM Mono',monospace;font-size:12.5px;color:var(--deep);background:var(--soft);border-radius:999px;padding:4px 9px}
 .newstag{flex:0 0 auto;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.05em;color:var(--deep);background:var(--blush);border-radius:999px;padding:4px 8px;margin-top:3px;white-space:nowrap}
+/* ---------- asleep layer (free / lapsed service) ---------- */
+.asleepblock{text-align:center;background:var(--soft);border:1.5px dashed var(--pink);border-radius:18px;padding:26px 20px}
+.asleepblock .asleep-emoji{font-size:34px;line-height:1}
+.asleepblock h3{font-size:21px;margin:10px 0 8px}
+.asleepblock p{color:var(--ink2);font-size:16.5px;margin-bottom:16px}
 /* ---------- score-drop alert ---------- */
 .alertbanner{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:rgba(249,42,130,.13);border:1.5px solid rgba(249,42,130,.55);border-radius:16px;padding:14px 16px;margin-bottom:16px}
 .alertbanner p{font-size:16px;color:#FFB9D0}
@@ -295,6 +302,15 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
 </style>
 </head>
 <body>
+<!-- =====================================================================
+     WATCHDOG = ONE CODEBASE, TWO FILES (since 2026-11-03):
+       index.html    (/)         = STOREFRONT  (window.WD_MODE = 'storefront')
+       watchdog.html (/watchdog) = THE SERVICE (window.WD_MODE = 'service')
+     The files intentionally diverge ONLY by the WD_MODE flag script
+     right before the main script (and by this comment). Everything
+     else — markup, styles, logic — is shared: edit shared sections
+     in BOTH files, or the two will drift apart.
+     ===================================================================== -->
 <div class="sky" aria-hidden="true">
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
   <div class="skyheart sh1">✦</div><div class="skyheart sh2">✦</div>
@@ -302,6 +318,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
 
 <header class="topbar">
   <a class="logo" href="/">Career <span>Glitch</span></a>
+  <a class="signinlink hidden" id="signin-link" href="/watchdog">Sign in</a>
 </header>
 
 <main class="page">
@@ -373,6 +390,25 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
       <div class="err" id="restore-err"></div>
     </section>
     <p class="landing-foot">Career Glitch Watchdog — insurance for your career in the age of AI.<br><a href="/privacy">Privacy Policy</a></p>
+  </div>
+
+  <!-- ======================= SIGN IN (service home base) ======================= -->
+  <div id="view-signin" class="hidden">
+    <section class="card" style="margin-top:34px;text-align:center">
+      <span class="section-label">Career Glitch Watchdog</span>
+      <h2>Your Watchdog</h2>
+      <p class="lede">Sign in with your email — no password, your email is your key.</p>
+      <form class="formrow" id="signin-form" style="margin-top:18px;text-align:left">
+        <input type="email" id="signin-email" placeholder="you@example.com" autocomplete="email" required>
+        <button class="btn" type="submit" id="signin-btn">Open my Watchdog</button>
+      </form>
+      <div class="err" id="signin-err"></div>
+      <div id="signin-empty" class="hidden" style="margin-top:20px">
+        <p class="lede" style="margin-bottom:14px">No card with this email yet.</p>
+        <a class="btn ghost" href="/" style="width:100%">Get my free card</a>
+      </div>
+      <p class="formnote" style="margin-top:18px">New here? The free check takes under a minute — <a href="/" style="color:var(--deep);font-weight:600">start on the front page</a>.</p>
+    </section>
   </div>
 
   <!-- ======================= START (short entry) ======================= -->
@@ -551,17 +587,28 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     </section>
 
     <p class="foot">Career Glitch Watchdog — Insurance for your career in the age of AI. · <a href="/privacy" style="color:var(--deep);font-weight:600">Privacy Policy</a></p>
+    <p class="foot" style="margin-top:10px">Not you? <a href="#" id="app-switch-email" style="color:var(--deep);font-weight:600">Use another email</a></p>
   </div>
 
 </main>
 <div class="celebrate hidden" id="celebrate"></div>
 
 <script>
+/* MODE FLAG — this file is index.html = THE STOREFRONT (/).
+   Its twin watchdog.html is THE SERVICE (/watchdog) and carries
+   window.WD_MODE = 'service' in this exact spot instead.
+   The two files share one codebase and diverge ONLY by this flag:
+   edit shared sections in BOTH files. */
+window.WD_MODE = 'storefront';
+</script>
+<script>
 (function(){
   'use strict';
+  var MODE = window.WD_MODE === 'storefront' ? 'storefront' : 'service';
   var API = '/api/watchdog';
   var LS_KEY = 'cg_watchdog_lead';
   var OB_SKIP_KEY = 'cg_watchdog_ob_skip';
+  var GOTO_KEY = 'cg_watchdog_goto';
   var STRIPE_LINK = 'https://buy.stripe.com/3cI14m2690Ip8r6dZ1eEo0v';
   var state = { leadId: null, email: null, wd: null, profession: '', obTranscript: [], obBusy: false, justPersonalized: null, tab: 'home' };
 
@@ -574,10 +621,33 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     return STRIPE_LINK + (q.length ? '?' + q.join('&') : '');
   }
 
+  // Access layers, computed from the stored trial record at view
+  // time: a live free month (status 'active', ends_at still ahead)
+  // — or a paid state, if one is ever stored — means the FULL
+  // service. Anything else (no trial yet, trial over) is the FREE /
+  // ASLEEP layer: Score and the Top 1% checklist stay alive, the
+  // weekly watch (tasks + radar) sleeps until the user resumes.
+  function accessFull(){
+    var t = state.wd && state.wd.trial;
+    if (!t) return false;
+    if (t.status === 'paid' || t.status === 'subscribed') return true;
+    if (t.status !== 'active') return false;
+    if (!t.ends_at) return true;
+    var ends = new Date(t.ends_at).getTime();
+    return isNaN(ends) || ends > Date.now();
+  }
+  function asleepHTML(){
+    return '<div class="asleepblock"><div class="asleep-emoji">💤</div>' +
+      '<h3>Your Watchdog is asleep</h3>' +
+      '<p>Your weekly watch is paused. Resume to switch it back on.</p>' +
+      '<a class="btn resume-btn" href="' + stripeHref(state.leadId, state.email) + '" style="width:100%">Resume my Watchdog</a>' +
+      '<p class="formnote" style="margin-top:12px">Free for 30 days, then $9/month. A card is asked at checkout — nothing is charged today. Cancel in one tap.</p></div>';
+  }
+
   function $(id){ return document.getElementById(id); }
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
   function show(view){
-    ['view-landing','view-start','view-onboard','view-result','view-app'].forEach(function(v){ $(v).classList.toggle('hidden', v !== view); });
+    ['view-landing','view-signin','view-start','view-onboard','view-result','view-app'].forEach(function(v){ $(v).classList.toggle('hidden', v !== view); });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function api(body){
@@ -866,6 +936,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
   }
   function renderApp(animateFrom){
     var wd = state.wd, p = wd.profile;
+    state.asleep = !accessFull();
     $('app-prof').textContent = p.profession + (p.location ? ' · ' + p.location : '');
     // Write the Score into the DOM synchronously — the same number the
     // card showed. animateScore only polishes transitions between two
@@ -976,6 +1047,12 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     persistProfile(oldScore);
   }
   function renderWeek(){
+    if (state.asleep){
+      // The weekly watch sleeps in the free layer — the moves come
+      // back the moment the Watchdog is resumed.
+      $('week-list').innerHTML = asleepHTML();
+      return;
+    }
     var p = state.wd.profile;
     $('week-list').innerHTML = (p.tasks || []).map(function(t, idx){
       return '<div class="taskitem' + (t.done ? ' done' : '') + '">' +
@@ -998,6 +1075,13 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     }
   }
   function renderRadar(){
+    if (state.asleep){
+      $('scan-text').textContent = 'Your Watchdog is asleep — the weekly watch is paused.';
+      $('scan-btn').classList.add('hidden');
+      $('radar-list').innerHTML = asleepHTML();
+      return;
+    }
+    $('scan-btn').classList.remove('hidden');
     var wd = state.wd;
     var feedDate = wd.scan && wd.scan.feed_date ? fmtDate(wd.scan.feed_date + 'T12:00:00') : '';
     $('scan-text').textContent = 'Your Watchdog checks every day. Last scan: ' + (feedDate || 'today') + '.';
@@ -1033,7 +1117,14 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
   $('card-form').addEventListener('submit', function(e){ e.preventDefault(); submitCard(); });
   $('res-roadmap').addEventListener('click', function(){
     // The road map is the top-1% checklist with its "Where to get it"
-    // cards — open the app on that panel for the lead just created.
+    // cards. On the STOREFRONT the app no longer opens in place: the
+    // lead is already in this origin's localStorage, so hand over to
+    // the service, which picks the lead up and lands on Top 1%.
+    if (MODE === 'storefront'){
+      try { sessionStorage.setItem(GOTO_KEY, 'top1'); } catch (e) {}
+      window.location.href = '/watchdog#' + state.leadId;
+      return;
+    }
     openApp(state.leadId, state.wd, state.email);
     switchTab('top1');
   });
@@ -1081,8 +1172,64 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     var email = $('restore-email').value.trim();
     api({ action: 'restore', email: email }).then(function(r){
       if (!r.j || !r.j.ok) throw new Error((r.j && r.j.error) || 'Nothing found for that email.');
+      if (MODE === 'storefront'){
+        // The storefront never opens the app in place — the service
+        // at /watchdog picks the lead up from localStorage / the hash.
+        try { localStorage.setItem(LS_KEY, r.j.lead_id); } catch (err) {}
+        window.location.href = '/watchdog#' + r.j.lead_id;
+        return;
+      }
       openApp(r.j.lead_id, r.j.watchdog, r.j.email || email);
     }).catch(function(err){ showErr('restore-err', err.message); });
+  });
+  /* ---------------- service: sign-in ---------------- */
+  $('signin-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    showErr('signin-err', '');
+    $('signin-empty').classList.add('hidden');
+    var email = $('signin-email').value.trim();
+    var btn = $('signin-btn');
+    btn.disabled = true;
+    api({ action: 'restore', email: email }).then(function(r){
+      btn.disabled = false;
+      if (!r.j || !r.j.ok) throw new Error('no-card');
+      openApp(r.j.lead_id, r.j.watchdog, r.j.email || email);
+    }).catch(function(){
+      btn.disabled = false;
+      // No card for that email (or the lookup stumbled) — a friendly
+      // empty state with the way to a free card, never an error wall.
+      $('signin-empty').classList.remove('hidden');
+    });
+  });
+  $('app-switch-email').addEventListener('click', function(e){
+    e.preventDefault();
+    try { localStorage.removeItem(LS_KEY); } catch (err) {}
+    try { sessionStorage.removeItem(OB_SKIP_KEY); } catch (err) {}
+    try { history.replaceState(null, '', location.pathname); } catch (err) {}
+    state.leadId = null; state.email = null; state.wd = null; state.justPersonalized = null;
+    if (MODE === 'service'){
+      $('signin-email').value = '';
+      showErr('signin-err', '');
+      $('signin-empty').classList.add('hidden');
+      show('view-signin');
+    } else {
+      show('view-landing');
+    }
+  });
+  // Resume buttons are rendered dynamically (asleep layer) — one
+  // delegated handler. Same record-then-go mechanics as the other
+  // in-app checkout buttons: record the checkout start on the lead
+  // (that is what switches the free month on), then hand to Stripe.
+  document.addEventListener('click', function(e){
+    var b = e.target && e.target.closest ? e.target.closest('.resume-btn') : null;
+    if (!b) return;
+    e.preventDefault();
+    var href = b.getAttribute('href');
+    api({ action: 'trial', leadId: state.leadId }).then(function(){
+      window.location.href = href;
+    }, function(){
+      window.location.href = href;
+    });
   });
   $('app-tabs').addEventListener('click', function(e){
     var t = e.target.closest ? e.target.closest('[data-tab]') : null;
@@ -1101,14 +1248,37 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     }).catch(function(){ btn.disabled = false; btn.textContent = 'Scan now'; });
   });
 
-  /* ---------------- boot: restore from hash / storage ---------------- */
+  /* ---------------- boot ---------------- */
+  if (MODE === 'storefront'){
+    // The storefront header carries the way into the service.
+    $('signin-link').classList.remove('hidden');
+  }
   (function boot(){
+    if (MODE === 'storefront'){
+      // The storefront never opens the app in place: a stored lead
+      // belongs to the service at /watchdog, which picks it up there.
+      return;
+    }
+    // SERVICE: the sign-in view is home base. A stored lead (hash
+    // from the storefront hand-off, or localStorage from an earlier
+    // visit) skips it straight into the app.
+    show('view-signin');
+    var gotoTop1 = false;
+    try {
+      gotoTop1 = sessionStorage.getItem(GOTO_KEY) === 'top1';
+      if (gotoTop1) sessionStorage.removeItem(GOTO_KEY);
+    } catch (e) {}
     var id = '';
     if (location.hash && location.hash.length > 10) id = location.hash.slice(1);
     if (!id) { try { id = localStorage.getItem(LS_KEY) || ''; } catch (e) {} }
     if (!id || !/^[0-9a-f-]{36}$/i.test(id)) return;
     api({ action: 'get', leadId: id }).then(function(r){
-      if (r.j && r.j.ok) openApp(r.j.lead_id, r.j.watchdog, r.j.email);
+      if (r.j && r.j.ok) {
+        openApp(r.j.lead_id, r.j.watchdog, r.j.email);
+        // The storefront's "See your road map" lands on Top 1% —
+        // unless the onboarding took the screen instead.
+        if (gotoTop1 && !$('view-app').classList.contains('hidden')) switchTab('top1');
+      }
       else { try { localStorage.removeItem(LS_KEY); } catch (e) {} }
     }).catch(function(){});
   })();
