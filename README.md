@@ -1,81 +1,44 @@
-# Career Glitch — Watchdog
+# Career Glitch
 
-**Мы страхуем карьеру в эпоху AI.** Агент каждый день следит за вашей профессией — новые AI-инструменты, сокращения, гранты и изменения правил — и помогает **адаптировать профессию к рынку**: перестроиться внутри неё или вовремя переквалифицироваться, пока это ещё дёшево и спокойно, а не когда уже поздно. Результат — ваш личный **AI-Proof Score**, понятный план адаптации и уверенность в завтрашнем дне.
+**Career Glitch gives every worker an AI-Proof Score — and an agent that raises it.**
 
-Живой продукт: [careerglitch.com](https://careerglitch.com) · Сервис Watchdog: [careerglitch.com/watchdog](https://careerglitch.com/watchdog) · Lab: [careerglitch.com/lab](https://careerglitch.com/lab)
+It is career insurance for the AI era. You check your profession. An agent watches it for you. And juniors get back the first step of the career ladder — the one AI took away.
 
-Проект подан на **Meta Global AI Developer Hackathon** (трек Startup).
+## What you can do today
 
----
+**1. Check a profession — PathCheck.** Free.
+You get a hard yes or no: will this profession survive AI? The answer is built from real labor data — government job statistics (BLS) and live job posts. If the answer is yes, you also get a path to the top 1% in that niche.
+→ https://careerglitch.com/gate
 
-## Какую боль решаем
+**2. Get a Watchdog.** A personal agent that watches your profession every week.
+It gives you an AI-Proof Score from 0 to 100. When real news lands — a new AI tool, layoffs, a new rule — your Score moves, and the agent hands you one clear next task.
+→ https://careerglitch.com/watchdog
 
-Человек годами строил профессию — а AI тихо меняет, за что работодатели готовы платить внутри неё. Цена ошибки — годы и деньги, вложенные не в те навыки. В нашем опросе комментаторов 100% ответили одинаково: «не могу позволить себе выбрать неправильно».
+**3. Practice in the Lab.** The first rung of the ladder, for juniors.
+A simulator of the real job: clients and managers played by live AI, real tasks, your work checked line by line. When you finish, you get a graduate record that any employer can open and check. The first Lab is open now — for Bookkeeper.
+→ https://careerglitch.com/lab/bookkeeper
 
-Мы не просто говорим, какие навыки нужны «чтобы оставаться конкурентным». Мы помогаем человеку **адаптировать свою профессию к рынку**: увидеть, что именно меняется в его работе, перестроиться внутри профессии — ниша, инструменты, доказательства опыта — или переквалифицироваться в соседнюю сильную нишу, пока переход ещё лёгкий.
+## How it works
 
-Watchdog — это не разовый тест и не курс. Это **страхование карьеры**: агент держит руку на пульсе профессии за человека, чтобы тот был уверен в завтрашнем дне — и узнавал о переменах первым, а не последним.
+1. Pick your profession.
+2. Get your card and your AI-Proof Score.
+3. The agent keeps watch every week — and in the Lab, you practice the skills your Score says you need.
 
-## Как это работает
+## Built with
 
-1. **Вход за 10 секунд.** Только профессия и email — без пароля. Сразу открывается персональная карта.
-2. **AI-Proof Score (0–100).** Считается формулой в коде, а не «мнением модели»: базовый профиль профессии (14 пунктов) минус пробелы человека. Персонализация — прямо в приложении: отвечаете на уточняющие вопросы («флипы»), и Score пересчитывается на глазах.
-3. **Чек-лист топ-1%.** 14 пунктов, покрывающих 7 нитей ДНК сильного специалиста: craft, experience, proof, voice, niche, network, ai_leverage. Каждый пробел — с объяснением и следующим шагом.
-4. **Радар и недельный цикл.** Агент сканирует новости профессии: запуски AI-агентов, сокращения, программы и гранты. Проверенный сигнал двигает Score и рождает **одно задание недели** — не ленту контента, а действие.
-5. **Lab — симулятор навыков, не только для джунов.** Джунам он даёт первую ступеньку карьеры, которую забрал AI: компании их не берут — опыт взять негде. Но главное — скорость реакции: **вышел новый инструмент, который меняет профессию, — радар его поймал, и в Lab сразу появляется обучалка и симулятор по нему.** Не «читайте changelog», а практика руками в день выхода: реальные задачи, артефакты на выходе и публичная верифицируемая запись, которую можно прикрепить к LinkedIn (раздел Licenses & Certifications). Опытные специалисты так осваивают новые инструменты раньше коллег — и это видно по их Score.
-6. **Share-карточка.** Кнопка «Share my Score» генерирует персональную карточку прямо в продукте: арт рисует Muse Image, а профессию и Score печатает браузер — цифры всегда точные.
+Meta Muse Spark is the brain of the product: it builds the profession profiles, personalizes your card, and plays the clients and managers in the Lab, including checking your work. Muse Image draws the share cards. The site itself is plain HTML with small serverless functions on Vercel. User data lives in Supabase.
 
-## Модели Meta — только те, что реально работают в продукте
+**Demo video:** https://x.com/careerglitch/status/2118027524470882331
 
-| Модель | Роль | Где в коде |
-|---|---|---|
-| **Muse Spark** (`muse-spark-1.3`) | Диалоговый агент: онбординг, персонализация, разборы | `api/_lib/engine/llm.mjs`, `api/watchdog.js` |
-| **Muse Wonder** (`muse-wonder-1.0`) | Полные отчёты и синтез по профессии | `api/_lib/engine/llm.mjs` (MODELS.report) |
-| **Muse Image** (`muse-image-1.0`) | Share-карточки пользователей, генерируются в продукте по запросу | `api/_lib/engine/image.mjs`, `api/share-card.js` |
+Submitted to the Meta Global AI Developer Hackathon (Startup track).
 
-Никаких других моделей в продукте нет.
+## What is next
 
-## Как устроен радар (честная механика)
+- More Lab professions (Bookkeeper is the pilot).
+- Payments fully wired: card payments already work; automatic trial handling (Stripe webhook) is next.
+- Card emails switched on: the emails are written and queued; they start sending once the sending domain is verified.
 
-- Ежедневный «Радар рынка» собирает сигналы из открытых источников (BLS, ADP, WARN, отраслевая пресса) — каждый с источником и датой; выдуманных новостей в системе нет.
-- `scripts/radar-log-to-findings.mjs` переводит недельный лог сигналов в формат цикла Watchdog.
-- Понедельничный цикл (`scripts/watchdog-weekly.mjs`) применяет проверенные сигналы к пользователям: двигает Score и создаёт задания. Защита от перекоса: сырые сигналы проходят с impact 0, силу влияния выставляет ревью — за один цикл Score не может качнуться от информационного шума.
+## Notes for maintainers
 
-## Стек
-
-- **Фронт:** статические страницы (без фреймворка) + PWA-приложение Watchdog.
-- **Бэк:** Vercel Serverless Functions (Node), API в `api/`.
-- **Данные:** Supabase (Postgres), таблица лидов `cg_leads` — профиль, состояние Watchdog, артефакты Lab.
-- **Платежи:** Stripe — триал 30 дней, далее $9/мес.
-- **Деплой:** push в `main` = автодеплой на Vercel.
-
-Ключевые пути репозитория:
-
-```
-/                 — витрина (PathCheck + Watchdog)
-/watchdog         — сам сервис: вход по email, карта, приложение
-/gate             — ворота PathCheck
-/lab              — Lab: хаб и симуляторы профессий
-/lab/bookkeeper   — пилотный симулятор (10 сцен)
-/lab/record       — публичная запись выпускника
-api/watchdog.js   — агент, Score, персонализация, радар пользователя
-api/lab.js        — прогресс сцен, артефакты, запись выпускника
-api/share-card.js — генерация share-карточек (Muse Image)
-api/_lib/         — движок: LLM, Score, профили профессий, радар-фиды
-scripts/          — недельный цикл, мост «радар → Watchdog», утилиты
-```
-
-## Переменные окружения (имена, без значений)
-
-`META_MODEL_API_KEY` — ключ Meta Model API · `NEXT_PUBLIC_SUPABASE_URL` и `SUPABASE_SERVICE_ROLE_KEY` — доступ к базе · Stripe и Resend настраиваются на стороне сервисов.
-
-## Статус на 4 ноября 2026
-
-- Продукт живой и открыт: [careerglitch.com/watchdog](https://careerglitch.com/watchdog)
-- За первые дни (30 октября — 4 ноября) свою профессию через PathCheck проверили **14 человек**, email оставили 19.
-- Недельный цикл уже применялся к реальным пользователям: 3 ноября новости профессий двинули Score и создали задания.
-- Выручки пока нет — продукт на стадии запуска, триалы активны.
-
-## Автор
-
-**Maryia Rudnik** — основатель и единственный разработчик продукта (с AI-инструментами). Knightdale, North Carolina.
+- Deploy is simple: push to `main`, Vercel ships it. This repo is the only source of truth for the site.
+- The Watchdog weekly cycle is a script: it reads fresh, source-checked news for each profession, moves Scores, and creates the weekly tasks.
