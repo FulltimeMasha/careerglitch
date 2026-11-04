@@ -310,7 +310,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
         <input type="email" id="save-email" placeholder="you@example.com" autocomplete="email" required>
         <button class="btn" type="submit" id="save-btn">Start free month</button>
       </form>
-      <p class="formnote">No card needed today. We save your result and switch your free month on — we will email you before anything is ever charged.</p>
+      <p class="formnote">Free for 30 days, then $9/month. A card is asked at checkout — nothing is charged today. Cancel in one tap.</p>
       <div class="err" id="save-err"></div>
     </section>
   </div>
@@ -325,6 +325,10 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
         <div><span class="delta" id="app-delta"></span></div>
         <p class="scorereason" id="app-reason"></p>
         <p class="formnote" id="app-trial"></p>
+        <div id="app-offer" class="hidden" style="margin-top:14px">
+          <a class="btn" id="app-checkout" href="#">Start free month</a>
+          <p class="formnote" style="margin-top:10px">Free for 30 days, then $9/month. A card is asked at checkout — nothing is charged today. Cancel in one tap.</p>
+        </div>
       </div>
     </section>
 
@@ -377,7 +381,17 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
   'use strict';
   var API = '/api/watchdog';
   var LS_KEY = 'cg_watchdog_lead';
-  var state = { leadId: null, wd: null, transcript: [], busy: false, tab: 'home' };
+  var STRIPE_LINK = 'https://buy.stripe.com/3cI14m2690Ip8r6dZ1eEo0v';
+  var state = { leadId: null, email: null, wd: null, transcript: [], busy: false, tab: 'home' };
+
+  // The payment link carries the lead id + email so every Stripe
+  // checkout can be reconciled back to this exact Watchdog.
+  function stripeHref(leadId, email){
+    var q = [];
+    if (leadId) q.push('client_reference_id=' + encodeURIComponent(leadId));
+    if (email) q.push('prefilled_email=' + encodeURIComponent(email));
+    return STRIPE_LINK + (q.length ? '?' + q.join('&') : '');
+  }
 
   function $(id){ return document.getElementById(id); }
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
@@ -552,9 +566,12 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     deltaEl.className = 'delta ' + d.cls;
     deltaEl.textContent = d.text;
     $('app-reason').textContent = wd.score_reason || p.score_reason || '';
-    $('app-trial').textContent = wd.trial && wd.trial.status === 'active'
+    var trialOn = wd.trial && wd.trial.status === 'active';
+    $('app-trial').textContent = trialOn
       ? 'Your free month is on — until ' + fmtDate(wd.trial.ends_at) + '. Then $9/month, cancel in one tap.'
       : '';
+    $('app-offer').classList.toggle('hidden', trialOn);
+    if (!trialOn) $('app-checkout').setAttribute('href', stripeHref(state.leadId, state.email));
     var have = (p.top1_profile || []).filter(function(i){ return i.user_has; }).length;
     var total = (p.top1_profile || []).length;
     var doneTasks = (p.tasks || []).filter(function(t){ return t.done; }).length;
@@ -658,8 +675,9 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
         '</div></article>';
     }).join('');
   }
-  function openApp(leadId, wd){
+  function openApp(leadId, wd, email){
     state.leadId = leadId;
+    if (email) state.email = email;
     state.wd = wd;
     try { localStorage.setItem(LS_KEY, leadId); } catch (e) {}
     if (location.hash !== '#' + leadId) { try { history.replaceState(null, '', '#' + leadId); } catch (e) {} }
@@ -681,14 +699,34 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     api({ action: 'save', email: email, profile: state.wd.profile }).then(function(r){
       if (!r.j || !r.j.ok) throw new Error((r.j && r.j.error) || 'save failed');
       var leadId = r.j.lead_id;
+      state.leadId = leadId;
+      state.email = email;
       state.wd = r.j.watchdog;
-      return api({ action: 'trial', leadId: leadId }).then(function(r2){
-        if (r2.j && r2.j.ok) state.wd = r2.j.watchdog;
-        openApp(leadId, state.wd);
-      });
+      // Remember this Watchdog on this device before leaving for
+      // Stripe, so coming back lands in the app with progress intact.
+      try { localStorage.setItem(LS_KEY, leadId); } catch (e) {}
+      try { history.replaceState(null, '', '#' + leadId); } catch (e) {}
+      btn.textContent = 'Taking you to secure checkout…';
+      // Record the checkout start on the lead (that is what switches
+      // the free month on), then hand over to Stripe. If recording
+      // fails, go anyway — the checkout URL carries the lead id.
+      var go = function(){ window.location.href = stripeHref(leadId, email); };
+      api({ action: 'trial', leadId: leadId }).then(go, go);
     }).catch(function(err){
       btn.disabled = false; btn.textContent = 'Start free month';
       showErr('save-err', err.message || 'That did not save — try again.');
+    });
+  });
+  $('app-checkout').addEventListener('click', function(e){
+    e.preventDefault();
+    var href = stripeHref(state.leadId, state.email);
+    // Record the checkout start on the lead first (switches the free
+    // month on), then go to Stripe. If recording fails, go anyway —
+    // the checkout URL carries the lead id for reconciliation.
+    api({ action: 'trial', leadId: state.leadId }).then(function(){
+      window.location.href = href;
+    }, function(){
+      window.location.href = href;
     });
   });
   $('restore-form').addEventListener('submit', function(e){
@@ -697,7 +735,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     var email = $('restore-email').value.trim();
     api({ action: 'restore', email: email }).then(function(r){
       if (!r.j || !r.j.ok) throw new Error((r.j && r.j.error) || 'Nothing found for that email.');
-      openApp(r.j.lead_id, r.j.watchdog);
+      openApp(r.j.lead_id, r.j.watchdog, r.j.email || email);
     }).catch(function(err){ showErr('restore-err', err.message); });
   });
   $('app-tabs').addEventListener('click', function(e){
@@ -724,7 +762,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     if (!id) { try { id = localStorage.getItem(LS_KEY) || ''; } catch (e) {} }
     if (!id || !/^[0-9a-f-]{36}$/i.test(id)) return;
     api({ action: 'get', leadId: id }).then(function(r){
-      if (r.j && r.j.ok) openApp(r.j.lead_id, r.j.watchdog);
+      if (r.j && r.j.ok) openApp(r.j.lead_id, r.j.watchdog, r.j.email);
       else { try { localStorage.removeItem(LS_KEY); } catch (e) {} }
     }).catch(function(){});
   })();

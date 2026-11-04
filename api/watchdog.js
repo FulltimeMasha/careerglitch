@@ -24,7 +24,13 @@
 //   { action:'update',  leadId, profile }     -> persists checklist/task
 //                                                flips; score recomputed
 //                                                on the server
-//   { action:'trial',   leadId }              -> starts the free month
+//   { action:'trial',   leadId }              -> records the Stripe
+//                                                checkout start on the
+//                                                lead (checkout_
+//                                                started_at, ends_at,
+//                                                provider 'stripe-link')
+//                                                and switches the free
+//                                                month on
 //   { action:'scan',    leadId }              -> radar re-check; answers
 //                                                honestly from the
 //                                                sourced feed (no live
@@ -262,7 +268,7 @@ module.exports = async (req, res) => {
         return res.status(400).json({ ok: false, error: 'That email does not look right — check it and try again.' });
       }
       const r = await fetch(
-        `${cfg.url}/rest/v1/cg_leads?email=eq.${encodeURIComponent(email)}&order=created_at.desc&limit=10&select=id,recommended,created_at`,
+        `${cfg.url}/rest/v1/cg_leads?email=eq.${encodeURIComponent(email)}&order=created_at.desc&limit=10&select=id,email,recommended,created_at`,
         { headers: { apikey: cfg.key, Authorization: `Bearer ${cfg.key}` } }
       );
       if (!r.ok) return res.status(502).json({ ok: false, error: 'That did not work — try again.' });
@@ -270,7 +276,7 @@ module.exports = async (req, res) => {
       for (const row of Array.isArray(rows) ? rows : []) {
         const rec = watchdogRec(row);
         if (rec) {
-          return res.status(200).json({ ok: true, lead_id: row.id, watchdog: withFreshScore(WD, rec.watchdog) });
+          return res.status(200).json({ ok: true, lead_id: row.id, email: row.email || email, watchdog: withFreshScore(WD, rec.watchdog) });
         }
       }
       return res.status(404).json({ ok: false, error: 'No Watchdog is saved for that email yet — run the free check first.' });
@@ -289,7 +295,7 @@ module.exports = async (req, res) => {
     const stored = rec.watchdog;
 
     if (action === 'get') {
-      return res.status(200).json({ ok: true, lead_id: row.id, watchdog: withFreshScore(WD, stored) });
+      return res.status(200).json({ ok: true, lead_id: row.id, email: row.email || '', watchdog: withFreshScore(WD, stored) });
     }
 
     if (action === 'update') {
@@ -305,6 +311,11 @@ module.exports = async (req, res) => {
     }
 
     if (action === 'trial') {
+      // The user clicked through to the Stripe payment link to start
+      // the free month. Record the checkout start on the lead — this
+      // is what switches trial access on. Payment itself is
+      // reconciled later against the link's client_reference_id
+      // (= this leadId); there is deliberately no webhook yet.
       if (stored.trial && stored.trial.status === 'active') {
         return res.status(200).json({ ok: true, watchdog: withFreshScore(WD, stored) });
       }
@@ -312,7 +323,13 @@ module.exports = async (req, res) => {
       const ends = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
       const next = {
         ...stored,
-        trial: { status: 'active', started_at: now.toISOString(), ends_at: ends.toISOString(), via: 'email' },
+        trial: {
+          status: 'active',
+          started_at: now.toISOString(),
+          checkout_started_at: now.toISOString(),
+          ends_at: ends.toISOString(),
+          provider: 'stripe-link',
+        },
         updated_at: now.toISOString(),
       };
       const okSave = await updateLead(cfg, leadId, { recommended: [{ ...rec, watchdog: next }] });
