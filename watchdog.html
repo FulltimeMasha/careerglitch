@@ -88,6 +88,54 @@ h1,h2,h3,.disp{font-family:'Outfit',sans-serif}
 .btn.small{padding:11px 20px;font-size:15px}
 .hero .btn{width:min(100%,520px);margin-top:30px}
 .under-btn{font-size:15px;color:var(--mut);margin-top:13px}
+/* ---------- hero pieces copied from the main gate (careerglitch.com) ---------- */
+.mascot{position:relative;width:88px;margin:14px auto 6px;animation:floaty 5s ease-in-out infinite;filter:drop-shadow(0 10px 16px rgba(249,42,130,.28))}
+.mascot img{display:block;width:100%;height:auto}
+.lid{position:absolute;border-radius:50%;background:#F6CDB6;box-shadow:inset 0 -1.5px 0 rgba(101,67,44,.55);transform:scaleY(0);transform-origin:50% 0;transition:transform .11s ease-in;pointer-events:none}
+.lid.closed{transform:scaleY(1)}
+.lid-l{left:34.1%;top:32.4%;width:15.2%;height:8.8%}
+.lid-r{left:50.7%;top:32.4%;width:15.2%;height:8.8%}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.bigbtn{
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:570px;margin:30px auto 0;min-height:62px;padding:6px 16px;
+  border:none;border-radius:999px;cursor:pointer;
+  background:linear-gradient(135deg,#F92A82,#FF8CBE);
+  color:#FFFFFF;font-family:'Outfit',sans-serif;
+  box-shadow:0 18px 38px rgba(249,42,130,.38);
+  transition:transform .12s ease,box-shadow .12s ease;
+  animation:breathe 2.8s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
+.bigbtn .t1{display:block;font-weight:800;font-size:clamp(13.5px,4.05vw,19px);line-height:1.2;letter-spacing:-.01em;white-space:nowrap}
+.bigbtn .t1 .ht{color:#FFEEF5}
+.bigbtn .freepill{flex:0 0 auto;background:var(--butter);color:var(--ink);font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(9px,2.5vw,11.5px);letter-spacing:.07em;padding:4px 9px;border-radius:999px;transform:rotate(-5deg);box-shadow:0 3px 8px rgba(23,18,43,.18)}
+.bigbtn:hover{transform:scale(1.015);box-shadow:0 22px 44px rgba(249,42,130,.45)}
+.bigbtn:active{transform:scale(.97);box-shadow:0 8px 20px rgba(249,42,130,.32);animation:none}
+.livedot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#2fbf71;margin-right:8px;vertical-align:1px;box-shadow:0 0 0 0 rgba(47,191,113,.45);animation:pulsedot 2s ease-out infinite}
+@keyframes pulsedot{0%{box-shadow:0 0 0 0 rgba(47,191,113,.45)}70%{box-shadow:0 0 0 8px rgba(47,191,113,0)}100%{box-shadow:0 0 0 0 rgba(47,191,113,0)}}
+/* radar module */
+.radar-mod{max-width:520px;margin:18px auto 0;background:rgba(255,255,255,.62);border:1.5px solid var(--line);border-radius:20px;padding:10px 12px;text-align:left;box-shadow:0 14px 34px rgba(23,18,43,.06)}
+.radar-row{display:flex;gap:12px;align-items:center}
+.radar-scope{position:relative;flex:0 0 auto;width:54px;height:54px;border-radius:50%;border:1.5px solid rgba(194,24,91,.35);background:repeating-radial-gradient(circle at 50% 50%,transparent 0 10px,rgba(194,24,91,.16) 10px 11px,transparent 11px 22px),radial-gradient(circle at 50% 50%,#FFF7FB 0%,var(--soft) 78%);overflow:hidden;box-shadow:inset 0 0 18px rgba(249,42,130,.12)}
+.radar-scope:before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(194,24,91,.18)}
+.radar-scope:after{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:rgba(194,24,91,.18)}
+.sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(249,42,130,.55) 0deg,rgba(249,42,130,.22) 14deg,rgba(249,42,130,0) 64deg);animation:sweep 4s linear infinite}
+@keyframes sweep{to{transform:rotate(360deg)}}
+.blip{position:absolute;width:5px;height:5px;margin:-2.5px;border-radius:50%;background:var(--hot);opacity:.28;animation:blipflash 4s linear infinite}
+@keyframes blipflash{0%{opacity:1;box-shadow:0 0 10px 3px rgba(249,42,130,.55)}18%{opacity:.55;box-shadow:0 0 4px 1px rgba(249,42,130,.3)}45%,100%{opacity:.28;box-shadow:0 0 0 0 rgba(249,42,130,0)}}
+.radar-center{position:absolute;left:50%;top:50%;width:4px;height:4px;margin:-2px;border-radius:50%;background:var(--deep)}
+.radar-side{flex:1;min-width:0}
+.radar-head{font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.12em;color:var(--ink);display:flex;align-items:center}
+.radar-cap{font-size:11.5px;color:var(--mut);margin-top:2px;line-height:1.4}
+.ticker{margin-top:6px}
+.sig{transition:opacity .45s ease,transform .45s ease}
+.sig.out{opacity:0;transform:translateY(7px)}
+.sig-head{font-weight:700;font-size:14px;line-height:1.3;color:var(--ink)}
+.sig-meta{margin-top:3px;font-size:11.5px;color:var(--mut);font-family:'DM Mono',monospace;letter-spacing:.02em;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.sig-meta .tag{color:var(--deep)}
+.tdots{display:flex;gap:5px;flex:0 0 auto;margin-left:auto}
+.tdot{width:7px;height:7px;border-radius:50%;border:none;background:#F3C3D9;cursor:pointer;padding:0}
+.tdot.on{background:var(--hot)}
 section{margin-top:26px}
 .card{
   background:rgba(255,255,255,.85);
@@ -243,11 +291,39 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
   <div id="view-landing">
     <div class="hero">
       <span class="kicker">Career Glitch Watchdog · Career insurance in the age of AI</span>
+      <div class="mascot" role="img" aria-label="Masha">
+        <img src="/masha.webp" alt="" width="640" height="639">
+        <span class="lid lid-l" aria-hidden="true"></span>
+        <span class="lid lid-r" aria-hidden="true"></span>
+      </div>
       <h1>Is your career <span class="hl">safe from AI?</span></h1>
-      <img class="hero-mascot" src="/masha.webp" alt="Masha, the founder of Career Glitch">
-      <p class="sub">Everyone tells you AI is coming for your job. Your Watchdog checks your profession <strong>every day</strong> — new AI tools, grants, jobs and rule changes — so you can do your work in peace. Once a week you get one short briefing: what changed, and what to do about it. Plus one honest number: your AI-Proof Score.</p>
-      <button class="btn" id="start-btn" type="button">Check my career — free</button>
+      <p class="sub">Everyone says AI is coming for your job. Your Watchdog checks your profession every day — new tools, grants, jobs, rule changes — and gives you one honest number: your AI-Proof Score.</p>
+      <button class="bigbtn" id="start-btn" type="button">
+        <span class="t1"><span class="ht">♥︎</span> Pick your job — see what still pays</span><span class="freepill">FREE</span>
+      </button>
       <p class="under-btn">Free · One question and your email · Takes under a minute</p>
+      <div class="radar-mod" id="radarMod" aria-label="AI Radar — how AI is changing jobs this week">
+        <div class="radar-row">
+          <div class="radar-scope" aria-hidden="true">
+            <div class="sweep"></div>
+            <span class="blip" style="left:77.9%;top:30.5%;animation-delay:-3.39s"></span>
+            <span class="blip" style="left:66.7%;top:69.9%;animation-delay:-2.44s"></span>
+            <span class="blip" style="left:28.1%;top:71.9%;animation-delay:-1.5s"></span>
+            <span class="blip" style="left:36.5%;top:33.9%;animation-delay:-.44s"></span>
+            <span class="radar-center"></span>
+          </div>
+          <div class="radar-side">
+            <div class="radar-head"><span class="livedot" aria-hidden="true"></span>AI RADAR LIVE<span class="tdots" id="tdots"></span></div>
+            <div class="radar-cap">You spent years on your job. AI changes what employers ask for in it. We read job posts 24/7 and show what still pays.</div>
+          </div>
+        </div>
+        <div class="ticker">
+          <div class="sig" id="sigBox">
+            <div class="sig-head" id="sigHead"></div>
+            <div class="sig-meta"><span><span id="sigDate"></span> · <span class="tag" id="sigTag"></span></span></div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <section class="card">
@@ -941,6 +1017,82 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
       else { try { localStorage.removeItem(LS_KEY); } catch (e) {} }
     }).catch(function(){});
   })();
+})();
+</script>
+<script>
+/* ===== AI Radar ticker — same signals as the main gate (Radar Issue #1, Oct 2026) ===== */
+var SIGNALS = [
+  {h:'First NextGen bar results: 72.7% pass, 85.2% for first-timers', d:'Sep 25, 2026 · NCBE', tag:'→ your checklist: NextGen prep, not old UBE'},
+  {h:'Class of 2025: record $100K median pay — federal hiring fell 37%', d:'Aug 6, 2026 · NALP', tag:'→ your checklist: the federal fallback got weaker'},
+  {h:'AI isn’t cutting junior legal jobs — it’s repricing them', d:'Oct 26, 2026 · Clio Legal Trends', tag:'→ your checklist: build an AI workflow'},
+  {h:'AI-native firms are now poaching Big Law partners by name', d:'Oct 14, 2026 · Reuters', tag:'→ your checklist: law + AI hybrid'},
+  {h:'Partner pay hit a record $1.55M — a $2B firm voted to dissolve', d:'Oct 29, 2026 · Reuters', tag:'→ your checklist: take your skills with you'},
+  {h:'Job post of the week: Harvey Senior Product Counsel — $251K–$317K', d:'Oct 2026 · 46 job posts', tag:'→ your checklist: Specialty #1 — privacy/AI'}
+];
+var sigIdx = 0, sigTimer = null;
+var sigRM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var tdotsEl = document.getElementById('tdots');
+SIGNALS.forEach(function(_, i){
+  var b = document.createElement('button');
+  b.className = 'tdot' + (i===0 ? ' on' : '');
+  b.setAttribute('aria-label', 'Signal ' + (i+1));
+  b.onclick = function(){ showSignal(i, true); };
+  tdotsEl.appendChild(b);
+});
+function paintSignal(){
+  var s = SIGNALS[sigIdx];
+  document.getElementById('sigHead').textContent = s.h;
+  document.getElementById('sigDate').textContent = s.d;
+  document.getElementById('sigTag').textContent = s.tag;
+  tdotsEl.querySelectorAll('.tdot').forEach(function(dot, i){ dot.classList.toggle('on', i===sigIdx); });
+}
+function showSignal(i, manual){
+  if (i === sigIdx && !manual) return;
+  var box = document.getElementById('sigBox');
+  box.classList.add('out');
+  setTimeout(function(){
+    sigIdx = i;
+    paintSignal();
+    box.classList.remove('out');
+  }, sigRM ? 0 : 240);
+  if (manual) restartSigTimer();
+}
+function nextSignal(){ showSignal((sigIdx + 1) % SIGNALS.length, false); }
+function startSigTimer(){
+  if (sigRM || sigTimer) return;
+  sigTimer = setInterval(nextSignal, 4500);
+}
+function stopSigTimer(){
+  if (sigTimer) { clearInterval(sigTimer); sigTimer = null; }
+}
+function restartSigTimer(){ stopSigTimer(); startSigTimer(); }
+paintSignal();
+startSigTimer();
+var radarMod = document.getElementById('radarMod');
+radarMod.addEventListener('mouseenter', stopSigTimer);
+radarMod.addEventListener('mouseleave', startSigTimer);
+radarMod.addEventListener('touchstart', stopSigTimer, {passive:true});
+radarMod.addEventListener('touchend', function(){ setTimeout(startSigTimer, 1500); }, {passive:true});
+</script>
+<script>
+/* Mascot blink — same as the main gate. */
+(function(){
+  var lids = document.querySelectorAll('.lid');
+  if (!lids.length) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  function setClosed(c){ for (var i=0;i<lids.length;i++) lids[i].classList.toggle('closed', c); }
+  function blinkOnce(done){
+    setClosed(true);
+    setTimeout(function(){ setClosed(false); setTimeout(done, 160); }, 100);
+  }
+  function cycle(){
+    blinkOnce(function(){
+      if (Math.random() < 0.28) setTimeout(function(){ blinkOnce(schedule); }, 200);
+      else schedule();
+    });
+  }
+  function schedule(){ setTimeout(cycle, 3600 + Math.random()*1600); }
+  setTimeout(cycle, 1300);
 })();
 </script>
 </body>
