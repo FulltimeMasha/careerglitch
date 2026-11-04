@@ -3,16 +3,18 @@
 icons/watchdog-radar.svg (kept as the source of truth — this script
 renders the same geometry with PIL at 4x and downscales).
 
-Design: radar scope, deep pink #F92A82 on soft pink paper #FFEEF5.
-Bold shapes only, no text. Outer ring r=178 (512-canvas units),
-inner ring r=94, cross lines, 52-degree sweep wedge upper-right,
-three blips, center dot.
+Design: radar scope, deep pink #F92A82 on the service's dark plum
+#150A20, sweep wedge in the lighter pink #FFB8D9 with a solid
+#F92A82 leading edge. Bold shapes only, no text. Outer ring r=178
+(512-canvas units), inner ring r=94, cross lines, 52-degree sweep
+wedge upper-right, three blips, center dot.
 """
 from PIL import Image, ImageDraw
 import os
 
 PINK = (249, 42, 130)        # #F92A82
-PAPER = (255, 238, 245)      # #FFEEF5
+LIGHT = (255, 184, 217)      # #FFB8D9
+PLUM = (21, 10, 32)          # #150A20
 SS = 4                        # supersample factor
 BASE = 512
 W = BASE * SS
@@ -21,15 +23,15 @@ C = W // 2                    # center, 1024 at SS
 def u(v):                     # 512-canvas units -> supersampled px
     return v * SS
 
-img = Image.new('RGB', (W, W), PAPER)
+img = Image.new('RGB', (W, W), PLUM)
 ov = Image.new('RGBA', (W, W), (0, 0, 0, 0))
 d = ImageDraw.Draw(ov)
 
 R = u(178)
 bbox = [C - R, C - R, C + R, C + R]
 
-# sweep wedge: -90deg (up) to -38deg, 42% opacity
-d.pieslice(bbox, start=-90, end=-38, fill=PINK + (107,))
+# sweep wedge: -90deg (up) to -38deg, solid lighter pink
+d.pieslice(bbox, start=-90, end=-38, fill=LIGHT + (255,))
 # cross lines (chords; the ring stroke covers the ends)
 d.line([C, C - R, C, C + R], fill=PINK + (255,), width=u(13))
 d.line([C - R, C, C + R, C], fill=PINK + (255,), width=u(13))

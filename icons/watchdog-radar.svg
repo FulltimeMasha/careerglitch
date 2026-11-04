@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Career Glitch Watchdog — home-screen app icon.
-     A radar scope in the brand palette: deep pink #F92A82 on the soft
-     pink paper #FFEEF5 (the landing radar card's palette, on paper so
-     the icon reads on any wallpaper). Bold shapes only, no text:
-     outer ring, inner ring, cross lines, a 52-degree sweep wedge in
-     the upper-right, three blips, center dot. PNG renders live next
-     to this file (watchdog-radar-180/192/512.png), produced by
-     scripts/build-watchdog-icon.py — keep the two in sync. -->
+     A radar scope in the brand palette: deep pink #F92A82 on the
+     service's own dark plum #150A20 (the light paper version washed
+     out on home screens; the service itself is dark). Bold shapes
+     only, no text: outer ring, inner ring, cross lines, a 52-degree
+     sweep wedge in the upper-right in the lighter pink #FFB8D9 with
+     a solid #F92A82 leading edge, three blips, center dot. PNG
+     renders live next to this file (watchdog-radar-180/192/512.png),
+     produced by scripts/build-watchdog-icon.py — keep the two in
+     sync. -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" fill="#FFEEF5"/>
+  <rect width="512" height="512" fill="#150A20"/>
   <clipPath id="scope"><circle cx="256" cy="256" r="178"/></clipPath>
   <g clip-path="url(#scope)" stroke="#F92A82" stroke-width="13">
     <line x1="256" y1="58" x2="256" y2="454"/>
     <line x1="58" y1="256" x2="454" y2="256"/>
   </g>
   <!-- sweep wedge: from straight up, 52 degrees clockwise -->
-  <path d="M256 256 L256 78 A178 178 0 0 1 396.3 146.4 Z" fill="#F92A82" opacity="0.42"/>
+  <path d="M256 256 L256 78 A178 178 0 0 1 396.3 146.4 Z" fill="#FFB8D9"/>
   <line x1="256" y1="256" x2="396.3" y2="146.4" stroke="#F92A82" stroke-width="15"/>
   <!-- rings -->
   <circle cx="256" cy="256" r="178" fill="none" stroke="#F92A82" stroke-width="21"/>
