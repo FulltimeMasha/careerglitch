@@ -361,7 +361,7 @@ module.exports = async (req, res) => {
           });
         } else {
           savedToolLeadId = await insertLead(cfg, {
-            name: clean(body.name, 80) || null,
+            name: clean(body.name, 80),
             email,
             self_role: LAB_PROF,
             current_job: 'lab-cycle',
@@ -417,7 +417,7 @@ module.exports = async (req, res) => {
         });
       } else {
         savedLeadId = await insertLead(cfg, {
-          name: clean(body.name, 80) || null,
+          name: clean(body.name, 80),
           email,
           self_role: LAB_PROF,
           current_job: 'lab-cycle',
