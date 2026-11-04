@@ -485,10 +485,6 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
         <p class="scorereason hidden" id="app-personal-note" style="font-weight:700"></p>
         <p class="scorereason" id="app-reason"></p>
         <p class="formnote" id="app-trial"></p>
-        <div id="app-offer" class="hidden" style="margin-top:14px">
-          <a class="btn" id="app-checkout" href="#">Start free month</a>
-          <p class="formnote" style="margin-top:10px">Free for 30 days, then $9/month. A card is asked at checkout — nothing is charged today. Cancel in one tap.</p>
-        </div>
       </div>
     </section>
 
@@ -504,6 +500,14 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
       <div id="home-alert" class="alertbanner hidden">
         <p><strong>Your Score dropped this week.</strong> <span id="home-alert-reason"></span></p>
         <button class="btn ghost small" id="home-alert-btn" type="button">See what changed →</button>
+      </div>
+      <div class="offer first-offer hidden" style="border-radius:18px;padding:20px;margin-bottom:16px">
+        <h2 style="font-size:clamp(21px,4.6vw,27px)">Keep your Watchdog on duty — free for 30 days</h2>
+        <p class="lede">Your Watchdog keeps checking your profession every day, sends you one short briefing a week, and warns you the moment something really affects you.</p>
+        <div style="margin-top:14px">
+          <a class="btn app-checkout-btn" href="#" style="width:100%">Start free month</a>
+        </div>
+        <p class="formnote" style="margin-top:10px">Free for 30 days, then $9/month. A card is asked at checkout — nothing is charged today. Cancel in one tap.</p>
       </div>
       <p class="lede" id="home-text"></p>
       <div id="home-stats" style="margin-top:16px"></div>
@@ -526,6 +530,14 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
       <h2>Three small moves</h2>
       <p class="lede">Each one is tied to a gap in your checklist. Tick it off and your Score rises on the spot.</p>
       <div id="week-list" style="margin-top:16px"></div>
+      <div class="offer first-offer hidden" style="border-radius:18px;padding:20px;margin-top:16px">
+        <h2 style="font-size:clamp(21px,4.6vw,27px)">Keep your Watchdog on duty — free for 30 days</h2>
+        <p class="lede">Your Watchdog keeps checking your profession every day, sends you one short briefing a week, and warns you the moment something really affects you.</p>
+        <div style="margin-top:14px">
+          <a class="btn app-checkout-btn" href="#" style="width:100%">Start free month</a>
+        </div>
+        <p class="formnote" style="margin-top:10px">Free for 30 days, then $9/month. A card is asked at checkout — nothing is charged today. Cancel in one tap.</p>
+      </div>
     </section>
 
     <section class="card hidden" id="panel-radar">
@@ -588,6 +600,10 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
   }
   function animateScore(el, from, to){
     if (!el) return;
+    // The final value must never depend on animation frames actually
+    // running: in a backgrounded or throttled tab rAF stalls and the
+    // placeholder dash would survive. Set it outright in those cases.
+    if (from === to || document.hidden) { el.textContent = to; return; }
     var start = null, dur = 650;
     function step(ts){
       if (!start) start = ts;
@@ -599,7 +615,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
   }
 
   /* ---------------- checklist rendering (shared) ---------------- */
-  var CAT_LABELS = { skill: 'Skills', skills: 'Skills', tool: 'AI tools & tools', tools: 'AI tools & tools', certification: 'Certifications', certifications: 'Certifications', experience: 'Experience', portfolio: 'Portfolio' };
+  var CAT_LABELS = { skill: 'Skills', skills: 'Skills', tool: 'AI tools', tools: 'AI tools', certification: 'Certifications', certifications: 'Certifications', experience: 'Experience', portfolio: 'Portfolio' };
   function catLabel(c){ return CAT_LABELS[String(c || 'skill').toLowerCase()] || (String(c || 'Skill').charAt(0).toUpperCase() + String(c || 'skill').slice(1)); }
   function checklistHTML(profile, interactive){
     var groups = {}, order = [];
@@ -784,6 +800,16 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
   }
 
   /* ---------------- app ---------------- */
+  // ET calendar date (YYYY-MM-DD) of an ISO timestamp — score_history
+  // entry dates are ET dates written by the weekly cycle.
+  function etDateStr(iso){
+    try {
+      var parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date(iso));
+      var g = {};
+      parts.forEach(function(x){ g[x.type] = x.value; });
+      return g.year + '-' + g.month + '-' + g.day;
+    } catch (e) { return ''; }
+  }
   function deltaInfo(wd){
     // Real weekly movement first: what the news cycle did to this
     // Score in the last 7 days (score_history is written server-side
@@ -794,7 +820,25 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
       var t = new Date(e.date && e.date.length === 10 ? e.date + 'T12:00:00' : e.date).getTime();
       return !isNaN(t) && (now - t) <= 7 * 24 * 3600 * 1000 && (now - t) > -24 * 3600 * 1000;
     });
-    if (recent.length){
+    // A news move may only be PRESENTED as "your Score moved" when
+    // the user has a real earlier state to compare it with: either
+    // their profile is already personal (they have been through the
+    // app and seen their own number), or the lead already existed on
+    // an earlier day than the day the news landed. A brand-new user
+    // never sees a drop (or a rise) on first entry — there is nothing
+    // to compare with yet; their baseline simply starts where it is.
+    var createdET = wd.created_at ? etDateStr(wd.created_at) : '';
+    var personalized = !!(wd.profile && wd.profile.personalized);
+    var qualifying = recent.filter(function(e){
+      if (personalized) return true;
+      var d = e.date && e.date.length === 10 ? e.date : etDateStr(e.date);
+      return !!(createdET && d && d > createdET);
+    });
+    if (recent.length && !qualifying.length){
+      return { cls: '', text: 'First week — your baseline is set. Your Watchdog is now watching every day.' };
+    }
+    if (qualifying.length){
+      recent = qualifying;
       var net = recent.reduce(function(a, e){ return a + e.delta; }, 0);
       var top = recent[0];
       recent.forEach(function(e){ if (Math.abs(e.delta) > Math.abs(top.delta)) top = e; });
@@ -823,6 +867,10 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
   function renderApp(animateFrom){
     var wd = state.wd, p = wd.profile;
     $('app-prof').textContent = p.profession + (p.location ? ' · ' + p.location : '');
+    // Write the Score into the DOM synchronously — the same number the
+    // card showed. animateScore only polishes transitions between two
+    // different values; the resting state never waits on a frame.
+    if (typeof animateFrom !== 'number') $('app-score').textContent = wd.score;
     animateScore($('app-score'), typeof animateFrom === 'number' ? animateFrom : wd.score, wd.score);
     var d = deltaInfo(wd);
     var deltaEl = $('app-delta');
@@ -853,8 +901,15 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     $('app-trial').textContent = trialOn
       ? 'Your free month is on — until ' + fmtDate(wd.trial.ends_at) + '. Then $9/month, cancel in one tap.'
       : '';
-    $('app-offer').classList.toggle('hidden', trialOn);
-    if (!trialOn) $('app-checkout').setAttribute('href', stripeHref(state.leadId, state.email));
+    // The trial offer is earned, not ambient: it appears only after
+    // the user completes their first task — a completion that raised
+    // their Score (the display task list includes news-derived
+    // tasks). Before that first completion it is nowhere in the app.
+    var anyTaskDone = (p.tasks || []).some(function(t){ return t.done; });
+    var offerBlocks = document.getElementsByClassName('first-offer');
+    for (var oi = 0; oi < offerBlocks.length; oi++) offerBlocks[oi].classList.toggle('hidden', !anyTaskDone);
+    var checkoutBtns = document.getElementsByClassName('app-checkout-btn');
+    for (var ci = 0; ci < checkoutBtns.length; ci++) checkoutBtns[ci].setAttribute('href', stripeHref(state.leadId, state.email));
     var have = (p.top1_profile || []).filter(function(i){ return i.user_has; }).length;
     var total = (p.top1_profile || []).length;
     var doneTasks = (p.tasks || []).filter(function(t){ return t.done; }).length;
@@ -863,7 +918,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
       '<div class="checkitem"><span class="mark">🧰</span><span>Top-1% kit: <strong>' + have + ' of ' + total + '</strong> already yours</span></div>' +
       '<div class="checkitem"><span class="mark">📅</span><span>This week: <strong>' + doneTasks + ' of ' + (p.tasks || []).length + '</strong> moves done</span></div>' +
       '<div class="checkitem"><span class="mark">🎯</span><span>Your goal: <strong>' + esc(p.goal) + '</strong></span></div>';
-    $('top1-title').textContent = 'What the top 1% ' + p.profession.toLowerCase() + 's has in 2027';
+    $('top1-title').textContent = 'What the top 1% ' + p.profession.toLowerCase() + 's have in 2027';
     $('home-personal').classList.toggle('hidden', !(trialOn && !p.personalized));
     renderTop1();
     renderWeek();
@@ -953,7 +1008,7 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
     }
     $('radar-list').innerHTML = items.map(function(it){
       var imp = typeof it.impact === 'number' ? it.impact : 0;
-      var impHtml = imp === 0 ? '' : '<span class="impact ' + (imp < 0 ? 'neg' : 'pos') + '">' + (imp < 0 ? '↓' : '↑') + ' ' + Math.abs(imp) + ' pressure</span>';
+      var impHtml = imp === 0 ? '' : '<span class="impact ' + (imp < 0 ? 'neg' : 'pos') + '">' + (imp < 0 ? '−' + Math.abs(imp) + ' to your Score' : '+' + imp + ' opportunity') + '</span>';
       return '<article class="radarcard"><h3>' + esc(it.headline) + '</h3><p>' + esc(it.so_what) + '</p>' +
         '<div class="meta">' + impHtml +
         (it.source_url ? '<a href="' + esc(it.source_url) + '" target="_blank" rel="noopener">Read the source</a>' : '') +
@@ -1003,18 +1058,23 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
   });
   $('home-personal-btn').addEventListener('click', startOnboard);
   $('home-alert-btn').addEventListener('click', function(){ switchTab('radar'); });
-  $('app-checkout').addEventListener('click', function(e){
-    e.preventDefault();
-    var href = stripeHref(state.leadId, state.email);
-    // Record the checkout start on the lead first (switches the free
-    // month on), then go to Stripe. If recording fails, go anyway —
-    // the checkout URL carries the lead id for reconciliation.
-    api({ action: 'trial', leadId: state.leadId }).then(function(){
-      window.location.href = href;
-    }, function(){
-      window.location.href = href;
+  var appCheckoutBtns = document.getElementsByClassName('app-checkout-btn');
+  for (var aci = 0; aci < appCheckoutBtns.length; aci++){
+    appCheckoutBtns[aci].addEventListener('click', function(e){
+      e.preventDefault();
+      var href = stripeHref(state.leadId, state.email);
+      // Record the checkout start on the lead first (switches the free
+      // month on), then go to Stripe. If recording fails, go anyway —
+      // the checkout URL carries the lead id for reconciliation. The
+      // trial action is idempotent: an already-active trial stays as
+      // it is.
+      api({ action: 'trial', leadId: state.leadId }).then(function(){
+        window.location.href = href;
+      }, function(){
+        window.location.href = href;
+      });
     });
-  });
+  }
   $('restore-form').addEventListener('submit', function(e){
     e.preventDefault();
     showErr('restore-err', '');

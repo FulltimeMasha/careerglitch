@@ -422,7 +422,12 @@ module.exports = async (req, res) => {
         console.error('watchdog card profile failed:', e && e.message);
         return res.status(502).json({ ok: false, error: 'My nose glitched on that one — try again in a moment.' });
       }
-      const profile = got.profile;
+      // A new card starts from ZERO claimed items: the cached profile
+      // describes a typical practitioner (typical_has), but this
+      // visitor has not claimed any of it yet — every checklist item
+      // starts as a gap and their Score is the honest zero-claimed
+      // baseline from computeScore. They claim items in the app.
+      const profile = WD.freshCardProfile(got.profile);
       const state = WD.buildWatchdogState(profile, new Date().toISOString());
       const uaHeader = typeof req.headers['user-agent'] === 'string' ? req.headers['user-agent'] : '';
       const ua = /Mobi|Android|iPhone|iPad/i.test(uaHeader) ? 'mobile' : 'desktop';
