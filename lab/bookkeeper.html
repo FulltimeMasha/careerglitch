@@ -164,7 +164,7 @@ footer a{color:var(--deep)}
       <div style="flex:1 1 210px"><input type="email" id="f-email" placeholder="Your email" autocomplete="email"></div>
       <button type="button" class="btn small" id="btn-load">Load my progress</button>
     </div>
-    <p class="note" id="id-note">Use the same email as your Watchdog card and passed scenes flip its checklist automatically. Scene 1 is free to try right away — saving asks for the email, nothing else.</p>
+    <p class="note" id="id-note">Use the same email as your Watchdog card and passed scenes flip its checklist automatically. Your scenes, your progress and your record live under your email — add it here and scene 1 opens. Nothing else is asked.</p>
     <div class="progresswrap hidden" id="progress-wrap">
       <div class="rowflex" style="justify-content:space-between"><strong id="progress-text">0 of 10 scenes passed</strong><span class="mono" style="font-size:12.5px;color:var(--mut)" id="wd-status"></span></div>
       <div class="progressbar" style="margin-top:9px"><div id="progress-bar" style="width:0%"></div></div>
@@ -221,11 +221,56 @@ footer a{color:var(--deep)}
   var openScene = null;   // id of the current scene whose full view is expanded
   var reviewOpen = {};    // passed scene id -> its read-only review is open
   var flash = {};         // scene id -> {text, ok} one-shot note rendered with the row
+  var pendingOpen = null; // scene id a guest pressed Start on — opens after the email gate
+  var loadedFor = '';     // email the current progress state was loaded for
+
+  // Registration comes before scene 1: the junior is identified by the
+  // email in the identity card (prefilled from a Watchdog link or from
+  // this browser) or by the email progress was loaded under. Until then
+  // a scene can be looked at on the path, never opened.
+  var EMAIL_OK = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function fieldEmail(){ return ($('f-email').value || '').trim().toLowerCase(); }
+  function identifiedEmail(){
+    var e = fieldEmail();
+    if (e) return EMAIL_OK.test(e) ? e : '';
+    return state.email || '';
+  }
 
   function currentScene(){
     var ps = passedSet();
     for (var i = 0; i < scenes.length; i++) { if (!ps[scenes[i].id]) return scenes[i]; }
     return null;
+  }
+
+  function openCurrentScene(){
+    var cur = currentScene();
+    if (!cur) return;
+    openScene = cur.id;
+    renderScenes();
+    var el = document.getElementById(cur.id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Start on any scene: the email comes first. A guest is taken to the
+  // identity card (Where do we send your progress?); once the email is
+  // in and progress is loaded, the scene they asked for opens.
+  function requestStart(sceneId){
+    var email = identifiedEmail();
+    if (!email) {
+      pendingOpen = sceneId;
+      $('id-note').textContent = fieldEmail()
+        ? 'That email does not look right — check it, then press “Load my progress” and the scene opens.'
+        : 'Where do we send your progress? Add your email — the scene opens right after.';
+      $('idcard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      $('f-email').focus();
+      return;
+    }
+    state.email = email;
+    state.name = ($('f-name').value || '').trim();
+    try { localStorage.setItem('lab_email', email); localStorage.setItem('lab_name', state.name); } catch (e) {}
+    if (loadedFor === email) { openCurrentScene(); return; }
+    pendingOpen = sceneId;
+    loadProgress();
   }
 
   function skillText(sc){ return esc(ITEM_LABELS[sc.checklist_id] || sc.checklist_id); }
@@ -290,13 +335,17 @@ footer a{color:var(--deep)}
         return;
       }
       if (cur && sc.id === cur.id) {
-        var badge = art ? '<span class="badge draft">Draft saved</span>' : (sc.order === 1 ? '<span class="badge">Free scene</span>' : '<span class="badge">Scene ' + sc.order + '</span>');
-        var isOpen = openScene === sc.id;
+        var badge = art ? '<span class="badge draft">Draft saved</span>' : '<span class="badge">Scene ' + sc.order + '</span>';
+        // The full view (brief, chat, artifact) exists in the page ONLY
+        // for an identified junior — a guest's Start goes through the
+        // email gate first, so the brief is never in their DOM.
+        var ident = !!identifiedEmail();
+        var isOpen = ident && openScene === sc.id;
         html += '<article class="scene current" id="' + sc.id + '">'
           + '<div class="shead"><div><h3>' + sc.order + '. ' + esc(sc.title) + '</h3>'
           + '<div class="skill">🏆 Win this scene \u2192 proves: ' + skillText(sc) + ' \u00b7 +100 XP \u00b7 ⏱ about 20 min</div></div>' + badge + '</div>'
           + (isOpen ? '' : '<div class="sactions"><button type="button" class="btn small" data-start="' + sc.id + '">' + ((art || (state.chats[sc.id] || []).length) ? 'Continue \u25b6' : 'Start \u25b6') + '</button></div>')
-          + '<div id="full-' + sc.id + '"' + (isOpen ? '' : ' class="hidden"') + '>' + fullViewHtml(sc) + '</div>'
+          + (ident ? '<div id="full-' + sc.id + '"' + (isOpen ? '' : ' class="hidden"') + '>' + fullViewHtml(sc) + '</div>' : '')
           + '</article>';
         return;
       }
@@ -309,10 +358,7 @@ footer a{color:var(--deep)}
     $('scenes').innerHTML = html;
     var stbtns = document.querySelectorAll('[data-start]');
     for (var st = 0; st < stbtns.length; st++) stbtns[st].addEventListener('click', function(){
-      openScene = this.getAttribute('data-start');
-      renderScenes();
-      var el = document.getElementById(openScene);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      requestStart(this.getAttribute('data-start'));
     });
     var rvbtns = document.querySelectorAll('[data-review]');
     for (var rv = 0; rv < rvbtns.length; rv++) rvbtns[rv].addEventListener('click', function(){
@@ -497,13 +543,11 @@ footer a{color:var(--deep)}
   function startChat(sceneId){
     var sc = scenes.filter(function(x){ return x.id === sceneId; })[0];
     if (!sc) return;
-    if (sc.order > 1) {
-      var email0 = ($('f-email').value || '').trim();
-      if (!email0 && !state.email) {
-        setMsg(sceneId, 'Scene 1 is the free one — for the rest of the month, add your email above first (your progress lives under it).', false);
-        $('f-email').focus();
-        return;
-      }
+    if (!identifiedEmail()) {
+      setMsg(sceneId, 'Add your email above first — every scene, this one included, runs under it.', false);
+      $('idcard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      $('f-email').focus();
+      return;
     }
     state.chats[sceneId] = state.chats[sceneId] || [];
     var log = $('chatlog-' + sceneId);
@@ -517,7 +561,7 @@ footer a{color:var(--deep)}
     chatBusy(sceneId, true);
     state.chats[sceneId].push({ who: 'them', text: '…' });
     renderChat(sceneId);
-    api2({ action: 'chat', scene_id: sceneId, history: [], kickoff: true })
+    api2({ action: 'chat', scene_id: sceneId, email: identifiedEmail(), history: [], kickoff: true })
       .then(function(r){
         chatBusy(sceneId, false);
         state.chats[sceneId].pop();
@@ -546,7 +590,7 @@ footer a{color:var(--deep)}
     chatBusy(sceneId, true);
     state.chats[sceneId].push({ who: 'them', text: '…' });
     renderChat(sceneId);
-    api2({ action: 'chat', scene_id: sceneId, history: history, message: text })
+    api2({ action: 'chat', scene_id: sceneId, email: identifiedEmail(), history: history, message: text })
       .then(function(r){
         chatBusy(sceneId, false);
         state.chats[sceneId].pop();
@@ -632,11 +676,13 @@ footer a{color:var(--deep)}
         state.cycle = r.j.cycle;
         if (r.j.lead_id) state.leadId = r.j.lead_id;
         state.watchdog = r.j.watchdog;
+        loadedFor = email;
         if (r.j.record_ready && r.j.lead_id) state.recordUrl = '/lab-record?id=' + r.j.lead_id;
         $('id-note').textContent = state.watchdog.linked
           ? 'Watchdog found on this email — passed scenes flip its checklist automatically.'
           : 'Progress loaded. No Watchdog card on this email yet — passed scenes are saved as proof and connect when you get one.';
         renderScenes();
+        if (pendingOpen) { pendingOpen = null; openCurrentScene(); }
       } else {
         $('id-note').textContent = (r.j && r.j.error) || 'Could not load — try again.';
       }
@@ -669,6 +715,7 @@ footer a{color:var(--deep)}
   })();
 
   $('btn-load').addEventListener('click', loadProgress);
+  $('f-email').addEventListener('keydown', function(ev){ if (ev.key === 'Enter') { ev.preventDefault(); loadProgress(); } });
   try {
     var savedEmail = localStorage.getItem('lab_email');
     var savedName = localStorage.getItem('lab_name');

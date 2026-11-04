@@ -4,13 +4,18 @@
 // pre-generated once per profession (api/_lib/lab-scenes-bookkeeper.mjs,
 // mirrored from lab-scenes-bookkeeper.js). What is live here:
 //
-//   { action:'chat', scene_id, history:[{who:'them'|'me', text}], message }
+//   { action:'chat', email, scene_id, history:[{who:'them'|'me', text}], message }
 //       -> the scene's client/manager (Muse Spark via the Meta engine)
 //          answers IN CHARACTER. The persona knows the brief's facts and
 //          the scene's scripted complication (the `pressure` twist), which
 //          it introduces as fresh news on the junior's second message.
 //          Chat is stateless — the page carries the transcript — and never
 //          grades: passing is decided only by 'grade'.
+//          Registration comes BEFORE scene 1 (owner decision 04.11.2026,
+//          replacing the old "scene 1 free anonymously" rule): every chat
+//          call, cycle scenes included, must carry the junior's email —
+//          the email IS the identity, exactly as on the tool scenes.
+//          Anonymous chat is refused with 400.
 //
 //   { action:'chat'|'grade', scene_id:'tool-<radar item id>', ... }
 //       -> TOOL SCENES (radar -> Lab pipeline, api/_lib/lab-tools.mjs):
@@ -148,13 +153,18 @@ module.exports = async (req, res) => {
     // CHAT — the client/manager, live, in character. Never grades.
     // ------------------------------------------------------------------
     if (action === 'chat') {
-      if (scene.tool) {
-        // Tool scenes attach to a lead, so they run under an email
-        // from the very first message (the tool page collects it).
-        const chatEmail = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
-        if (!EMAIL_RE.test(chatEmail) || chatEmail.length > 254) {
-          return res.status(400).json({ ok: false, error: 'Tool scenes run under your email — add it on the page first, then start the conversation.' });
-        }
+      // Registration BEFORE scene 1 (owner decision 04.11.2026): ALL
+      // scenes — cycle and tool alike — run under the junior's email
+      // from the very first message, because the work attaches to
+      // their lead. Anonymous chat is refused.
+      const chatEmail = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
+      if (!EMAIL_RE.test(chatEmail) || chatEmail.length > 254) {
+        return res.status(400).json({
+          ok: false,
+          error: scene.tool
+            ? 'Tool scenes run under your email — add it on the page first, then start the conversation.'
+            : 'The Lab runs under your email — add it on the page first, then start the conversation.',
+        });
       }
       const historyIn = Array.isArray(body.history) ? body.history.slice(-16) : [];
       const history = historyIn
