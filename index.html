@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PathCheck — your shortest path to a job and the top 1%</title>
-<meta name="description" content="AI now does part of your job. Pick your profession: we show what still pays and the shortest path to it and to the top 1%, from real job posts. Free.">
+<title>Career Glitch Watchdog — Is your career safe from AI?</title>
+<meta name="description" content="A personal AI agent that watches your profession every day — new AI tools, grants, jobs and rule changes — and tells you each week what to do. Get your AI-Proof Score free.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
@@ -12,57 +12,92 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Instrument+Sans:wght@400;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#FFFCF6; --ink:#17122B; --ink2:#3a2b4d; --mut:#7a7285;
-  --pink:#FF8CBE; --hot:#F92A82; --deep:#c2185b;
-  --blush:#FFD8EA; --soft:#FFEEF5; --butter:#F0E6CF;
-  --line:#eedfe8; --green:#12805f;
+  --paper:#FFFCF6;
+  --ink:#1C1A1F;
+  --ink2:#3a2b4d;
+  --mut:#7a7285;
+  --pink:#FF8CBE;
+  --hot:#F92A82;
+  --deep:#c2185b;
+  --blush:#FFD8EA;
+  --soft:#FFEEF5;
+  --butter:#F0E6CF;
+  --line:#eedfe8;
+  --white:#fff;
+  --green:#1d9e62;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  min-height:100vh;color:var(--ink);
-  font-family:'Instrument Sans',system-ui,sans-serif;font-size:17px;line-height:1.55;
+  min-height:100vh;
+  color:var(--ink);
+  font-family:'Instrument Sans',system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.55;
   -webkit-font-smoothing:antialiased;
   background:linear-gradient(180deg,#FFFCF6 0%,#FFF3F8 46%,#FFEEF5 78%,#FFE3F0 100%);
-  background-attachment:fixed;overflow-x:hidden;
+  background-attachment:fixed;
+  overflow-x:hidden;
 }
 h1,h2,h3,.disp{font-family:'Outfit',sans-serif}
 .mono{font-family:'DM Mono',monospace}
-/* soft drifting sky shapes */
 .sky{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
 .blob{position:absolute;border-radius:50%;filter:blur(58px)}
-.b1{width:340px;height:340px;background:#FFD8EA;opacity:.75;top:-110px;left:-90px;animation:drift1 34s ease-in-out infinite alternate}
-.b2{width:280px;height:280px;background:#FFE9B8;opacity:.5;top:16%;right:-110px;animation:drift2 40s ease-in-out infinite alternate}
-.b3{width:300px;height:300px;background:#FFC7DE;opacity:.55;bottom:-130px;left:22%;animation:drift1 46s ease-in-out infinite alternate-reverse}
-.skyheart{position:absolute;color:var(--pink);opacity:.16;filter:blur(1.5px);line-height:1}
-.sh1{font-size:120px;top:9%;left:6%;animation:drift2 38s ease-in-out infinite alternate}
-.sh2{font-size:64px;top:58%;right:7%;animation:drift1 30s ease-in-out infinite alternate}
-.sh3{font-size:84px;bottom:6%;left:12%;opacity:.1;animation:drift2 44s ease-in-out infinite alternate-reverse}
-@keyframes drift1{from{transform:translate(0,0)}to{transform:translate(46px,26px)}}
-@keyframes drift2{from{transform:translate(0,0)}to{transform:translate(-38px,32px)}}
-/* top bar */
+.b1{width:340px;height:340px;background:#FFD8EA;opacity:.75;top:-110px;left:-90px}
+.b2{width:280px;height:280px;background:#FFE9B8;opacity:.5;top:16%;right:-110px}
+.b3{width:300px;height:300px;background:#FFC7DE;opacity:.55;bottom:-130px;left:22%}
+.skyheart{position:absolute;color:var(--pink);opacity:.14;line-height:1}
+.sh1{font-size:110px;top:9%;left:6%}
+.sh2{font-size:64px;top:58%;right:7%}
 .topbar{display:flex;align-items:center;justify-content:flex-start;padding:14px 24px;max-width:1100px;margin:0 auto}
-.logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--ink)}
+.logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.logo span{color:var(--deep)}
 .logo .heart{color:var(--hot)}
-.logo .by{font-family:'DM Mono',monospace;font-weight:400;font-size:11px;letter-spacing:.14em;color:var(--mut);margin-left:8px;text-transform:uppercase}
-/* hero */
-.stage{max-width:720px;margin:0 auto;padding:0 20px}
-.hero{text-align:center;padding:3.2vh 0 5.5vh;animation:fadein .5s ease}
-.hero.gone{display:none}
-.mascot{position:relative;width:88px;margin:0 auto 6px;animation:floaty 5s ease-in-out infinite;filter:drop-shadow(0 10px 16px rgba(249,42,130,.28))}
+.page{max-width:760px;margin:0 auto;padding:0 20px 72px}
+.hero{text-align:center;padding:30px 0 10px}
+.kicker{
+  display:inline-block;
+  font-family:'DM Mono',monospace;
+  font-size:11.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  background:var(--blush);
+  color:var(--ink);
+  border-radius:999px;
+  padding:7px 13px;
+  transform:rotate(-1.2deg);
+  box-shadow:0 5px 14px rgba(23,18,43,.10);
+}
+.hero h1{font-size:clamp(38px,8vw,60px);font-weight:900;line-height:.98;letter-spacing:-.035em;max-width:660px;margin:26px auto 0}
+.hero h1 .hl{background:linear-gradient(transparent 64%,var(--blush) 64%)}
+.hero .sub{font-size:clamp(17px,2.8vw,20px);color:var(--ink2);max-width:38em;margin:22px auto 0}
+.hero-mascot{width:112px;height:112px;object-fit:cover;border-radius:50%;border:3px solid var(--blush);box-shadow:0 14px 30px rgba(23,18,43,.14);margin-top:26px;background:var(--soft)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;
+  border:none;border-radius:999px;padding:16px 28px;
+  background:linear-gradient(135deg,#F92A82,#FF8CBE);
+  color:#fff;text-decoration:none;cursor:pointer;
+  box-shadow:0 14px 30px rgba(249,42,130,.34);
+  transition:transform .12s ease,box-shadow .12s ease;text-align:center;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 18px 36px rgba(249,42,130,.40)}
+.btn:active{transform:scale(.98);box-shadow:0 7px 18px rgba(249,42,130,.30)}
+.btn:disabled{opacity:.55;cursor:wait;transform:none}
+.btn.ghost{background:#fff;color:var(--deep);border:1.5px solid var(--blush);box-shadow:0 8px 20px rgba(23,18,43,.07)}
+.btn.small{padding:11px 20px;font-size:15px}
+.hero .btn{width:min(100%,520px);margin-top:30px}
+.under-btn{font-size:15px;color:var(--mut);margin-top:13px}
+/* ---------- hero pieces copied from the main gate (careerglitch.com) ---------- */
+.mascot{position:relative;width:88px;margin:14px auto 6px;animation:floaty 5s ease-in-out infinite;filter:drop-shadow(0 10px 16px rgba(249,42,130,.28))}
 .mascot img{display:block;width:100%;height:auto}
 .lid{position:absolute;border-radius:50%;background:#F6CDB6;box-shadow:inset 0 -1.5px 0 rgba(101,67,44,.55);transform:scaleY(0);transform-origin:50% 0;transition:transform .11s ease-in;pointer-events:none}
 .lid.closed{transform:scaleY(1)}
 .lid-l{left:34.1%;top:32.4%;width:15.2%;height:8.8%}
 .lid-r{left:50.7%;top:32.4%;width:15.2%;height:8.8%}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.hero h1{font-size:clamp(30px,6.2vw,44px);font-weight:900;line-height:1.02;letter-spacing:-.02em;max-width:620px;margin:clamp(28px,5vw,44px) auto 0}
-.hero h1 .h1a{display:block}
-.hero h1 .h1c{display:block;margin-top:8px;font-size:.92em}
-.hero h1 .hl{background:linear-gradient(transparent 62%,var(--blush) 62%)}
-.hero .sub{font-size:clamp(17px,2.8vw,20px);color:var(--ink2);max-width:30em;margin:20px auto 0}
 .bigbtn{
-  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:570px;margin:clamp(44px,6vw,60px) auto 0;min-height:62px;padding:6px 16px;
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:570px;margin:30px auto 0;min-height:62px;padding:6px 16px;
   border:none;border-radius:999px;cursor:pointer;
   background:linear-gradient(135deg,#F92A82,#FF8CBE);
   color:#FFFFFF;font-family:'Outfit',sans-serif;
@@ -77,6 +112,7 @@ h1,h2,h3,.disp{font-family:'Outfit',sans-serif}
 .bigbtn:hover{transform:scale(1.015);box-shadow:0 22px 44px rgba(249,42,130,.45)}
 .bigbtn:active{transform:scale(.97);box-shadow:0 8px 20px rgba(249,42,130,.32);animation:none}
 .livedot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#2fbf71;margin-right:8px;vertical-align:1px;box-shadow:0 0 0 0 rgba(47,191,113,.45);animation:pulsedot 2s ease-out infinite}
+@keyframes pulsedot{0%{box-shadow:0 0 0 0 rgba(47,191,113,.45)}70%{box-shadow:0 0 0 8px rgba(47,191,113,0)}100%{box-shadow:0 0 0 0 rgba(47,191,113,0)}}
 /* radar module */
 .radar-mod{max-width:520px;margin:18px auto 0;background:rgba(255,255,255,.62);border:1.5px solid var(--line);border-radius:20px;padding:10px 12px;text-align:left;box-shadow:0 14px 34px rgba(23,18,43,.06)}
 .radar-row{display:flex;gap:12px;align-items:center}
@@ -100,1096 +136,895 @@ h1,h2,h3,.disp{font-family:'Outfit',sans-serif}
 .tdots{display:flex;gap:5px;flex:0 0 auto;margin-left:auto}
 .tdot{width:7px;height:7px;border-radius:50%;border:none;background:#F3C3D9;cursor:pointer;padding:0}
 .tdot.on{background:var(--hot)}
-@keyframes pulsedot{0%{box-shadow:0 0 0 0 rgba(47,191,113,.45)}70%{box-shadow:0 0 0 8px rgba(47,191,113,0)}100%{box-shadow:0 0 0 0 rgba(47,191,113,0)}}
-/* buttons (panel + card) */
-.btn{display:inline-block;font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;border:none;border-radius:999px;padding:14px 26px;background:var(--hot);color:#fff;text-decoration:none;cursor:pointer;box-shadow:0 12px 26px rgba(249,42,130,.32);transition:transform .1s,box-shadow .1s;text-align:center}
-.btn:hover{transform:translateY(-1px)}
-.btn:active{transform:scale(.97);box-shadow:0 5px 14px rgba(249,42,130,.3)}
-.btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);box-shadow:0 8px 20px rgba(23,18,43,.07)}
-.btn.dark{background:var(--ink);color:#fff;box-shadow:0 12px 26px rgba(23,18,43,.28)}
-.btn.butter{background:var(--butter);color:var(--ink);box-shadow:0 10px 22px rgba(23,18,43,.12)}
-/* check panel */
-.panel{display:none;background:#fff;border-radius:28px;box-shadow:0 30px 70px rgba(23,18,43,.13);padding:28px 24px 32px;margin:2vh auto 8vh;animation:slideup .45s cubic-bezier(.2,.9,.3,1)}
-.panel.on{display:block}
-@keyframes slideup{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.panel-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
-.panel-top .t{font-family:'Outfit',sans-serif;font-weight:700;font-size:16.5px}
-.panel-top .t .heart{color:var(--hot)}
-.hearts{font-size:16px;letter-spacing:4px;line-height:1;white-space:nowrap}
-.hearts .on{color:var(--hot)}
-.hearts .off{color:#F6CBDE}
-.screen{display:none}
-.screen.on{display:block;animation:fadein .25s ease}
-.q-kicker{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin-bottom:8px}
-.q-title{font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(23px,4.6vw,30px);line-height:1.15;margin-bottom:18px}
-.opts{display:grid;gap:10px}
-.opt{font-family:'Instrument Sans',sans-serif;font-size:16.5px;font-weight:600;text-align:left;border:1.5px solid var(--line);border-radius:16px;background:var(--paper);padding:16px;min-height:58px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:background .1s,border-color .1s,transform .1s;width:100%;color:var(--ink)}
-.opt:hover{background:var(--soft);border-color:var(--pink)}
-.opt:active{transform:scale(.985)}
-.opt .arr{color:var(--hot);font-weight:900}
-.prof .tx{flex:1;min-width:0}
-.prof .pt{display:block;font-family:'Outfit',sans-serif;font-weight:800;font-size:19.5px;line-height:1.2}
-.prof .ps{display:block;font-size:14px;font-weight:400;color:var(--mut);margin-top:3px;line-height:1.4}
-/* step 0 — type your profession */
-.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:0 6px 14px rgba(249,42,130,.18)}
-.btn:disabled:hover{transform:none}
-.readyline{margin-top:24px}
-.readyline .rl-lab{display:block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:9px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{font-family:'Instrument Sans',sans-serif;font-size:14.5px;font-weight:600;border:1.5px solid var(--line);background:var(--soft);color:var(--ink);border-radius:999px;padding:10px 16px;cursor:pointer;transition:background .1s,border-color .1s,transform .1s}
-.chip:hover{background:#fff;border-color:var(--pink)}
-.chip:active{transform:scale(.97)}
-.wl-lede{color:var(--ink2);line-height:1.55;margin-bottom:6px}
-.wl-lede .q{font-weight:700;color:var(--ink)}
-select.state,input.txt{width:100%;font-family:'Instrument Sans',sans-serif;font-size:16.5px;padding:15px;border:1.5px solid var(--line);border-radius:16px;background:#fff;color:var(--ink)}
-label.fl{display:block;font-weight:600;font-size:14.5px;margin:14px 0 6px}
-.check-nav{display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:12px}
-.backlink{background:none;border:none;font-family:'DM Mono',monospace;font-size:13px;color:var(--mut);cursor:pointer;text-decoration:underline}
-.fineprint{font-size:13px;color:var(--mut);margin-top:14px;line-height:1.5}
-/* verdict card */
-.vcard{background:var(--ink);color:#fff;border-radius:20px;padding:26px 24px;aspect-ratio:4/5;max-width:430px;margin:0 auto;display:flex;flex-direction:column;box-shadow:0 26px 54px rgba(23,18,43,.35)}
-.vcard .vk{font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:var(--pink);text-transform:uppercase}
-.vcard .vpath{font-size:13.5px;color:#cfc8e8;margin-top:6px}
-.vcard h3{font-size:clamp(24px,6vw,30px);font-weight:900;line-height:1.12;margin:16px 0 6px}
-.vcard h3 .pink{color:var(--pink)}
-.vnums{margin-top:14px;display:grid;gap:10px}
-.vnum{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.25);border-radius:12px;padding:11px 13px}
-.vnum .lab{font-size:12.5px;color:#cfc8e8;text-transform:uppercase;letter-spacing:.08em;font-family:'DM Mono',monospace}
-.vnum .val{font-family:'Outfit',sans-serif;font-weight:900;font-size:19px;margin-top:2px}
-.vnum .val .pink{color:var(--pink)}
-.vai{margin-top:14px;font-size:14.5px;color:#efe9ff;line-height:1.5}
-.vfoot{margin-top:auto;padding-top:14px;border-top:1.5px dashed rgba(255,255,255,.3);font-family:'DM Mono',monospace;font-size:11.5px;color:#bdb4dd}
-.under-card{max-width:560px;margin:22px auto 0}
-.withheld{border:2px dashed var(--deep);background:var(--soft);border-radius:16px;padding:14px 16px;font-size:15.5px}
-.actions{display:grid;gap:10px;margin-top:16px}
-.insider-v{font-size:13.5px;font-style:italic;color:var(--deep);line-height:1.45;text-align:center;margin-top:14px}
-.sharebox{display:none;margin-top:14px;border:1.5px solid var(--line);border-radius:16px;background:var(--butter);padding:14px 16px}
-.sharebox.on{display:block}
-.linkrow{display:flex;gap:8px;margin-top:8px}
-.linkrow input{flex:1;font-family:'DM Mono',monospace;font-size:13px;padding:11px;border:1.5px solid var(--line);border-radius:12px;background:#fff;min-width:0}
-.copybtn{font-family:'Outfit',sans-serif;font-weight:700;border:none;background:var(--ink);color:#fff;border-radius:12px;padding:11px 15px;cursor:pointer;white-space:nowrap}
-/* instant result — seat verdict, segmentation grid, email strip */
-.typedline{font-size:14px;color:var(--mut);margin-bottom:12px}
-.typedline b{color:var(--ink)}
-.gridrows{display:grid;gap:9px}
-.grow{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--line);background:var(--paper);border-radius:14px;padding:13px 14px;cursor:pointer;font-family:'Instrument Sans',sans-serif;color:var(--ink);transition:background .1s,border-color .1s}
-.grow:hover{background:var(--soft);border-color:var(--pink)}
-.grow .gv{font-family:'Outfit',sans-serif;font-weight:900;font-size:12px;letter-spacing:.05em;padding:3px 9px;border-radius:999px;white-space:nowrap;margin-top:2px}
-.gv.yes{background:#e0f3ea;color:var(--green)}
-.gv.no{background:#fde3ee;color:var(--deep)}
-.grow .gt{flex:1;min-width:0}
-.grow .gn{display:block;font-weight:700;font-size:16px;line-height:1.3}
-.grow .gd{display:block;font-size:13.5px;font-weight:400;color:var(--mut);margin-top:2px;line-height:1.4}
-.grow .arr{color:var(--hot);font-weight:900;margin-top:2px}
-.corner{border:2px dashed var(--deep);background:var(--soft);border-radius:16px;padding:14px 16px;font-size:15.5px;margin-top:16px;line-height:1.5}
-.strip{margin:18px auto 0;max-width:560px;border:1.5px solid var(--line);background:var(--soft);border-radius:16px;padding:14px 16px}
-.strip .slab{font-weight:700;font-size:15.5px;display:block;margin-bottom:9px}
-.strip .srow{display:flex;gap:8px;flex-wrap:wrap}
-.strip input{flex:1 1 130px;min-width:0;font-family:'Instrument Sans',sans-serif;font-size:15.5px;padding:11px 12px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
-.strip .sok{display:none;font-size:15px;line-height:1.55}
-.strip .sok .ok{color:var(--green);font-weight:700}
-
-/* method v1.1 — hook, confidence, human, quote, cost of error, what's next, personalize */
-.vhook{font-family:'DM Mono',monospace;font-size:12.5px;letter-spacing:.04em;color:var(--blush);margin-top:14px;line-height:1.45}
-.vconf{display:inline-block;background:var(--blush);color:var(--ink);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:999px;margin-top:10px;white-space:nowrap}
-.vhuman{margin-top:12px;font-size:14.5px;color:#efe9ff;line-height:1.55}
-.vhuman b{color:#fff}
-.vquote{margin-top:14px;border-left:3px solid var(--hot);background:rgba(255,255,255,.06);border-radius:0 12px 12px 0;padding:11px 13px;font-size:14px;font-style:italic;color:#f6f0ff;line-height:1.5}
-.vquote .vqby{display:block;margin-top:7px;font-style:normal;font-size:12px;color:#cfc8e8}
-.vquote .vqby a,.gquote .vqby a{color:var(--pink)}
-.vcoe{margin-top:12px;border:1.5px dashed var(--pink);border-radius:12px;padding:10px 12px;font-size:14px;font-weight:600;color:#fff;line-height:1.5}
-.vexp{margin-top:12px;font-size:12.5px;font-style:italic;color:#cfc8e8}
-.vnext{margin-top:10px;font-family:'DM Mono',monospace;font-size:11.5px;color:#bdb4dd;line-height:1.5}
-.vstep{display:none;background:rgba(249,42,130,.18);border:1px solid rgba(255,140,190,.55);border-radius:10px;padding:9px 11px;margin-bottom:10px;font-size:14px;color:#fff}
-.vstate{display:none;font-size:13.5px;color:#cfc8e8;margin-top:9px;line-height:1.5}
-.ghook{font-family:'DM Mono',monospace;font-size:12.5px;letter-spacing:.04em;color:var(--deep);margin-bottom:8px;line-height:1.45}
-.ghuman{color:var(--ink2);margin-bottom:14px;line-height:1.55}
-.gquote{margin-top:16px;border-left:3px solid var(--hot);background:var(--soft);border-radius:0 14px 14px 0;padding:13px 15px;font-size:15px;font-style:italic;color:var(--ink2);line-height:1.55}
-.gquote .vqby{display:block;margin-top:7px;font-style:normal;font-size:12.5px;color:var(--mut)}
-.gnext{margin-top:12px;font-family:'DM Mono',monospace;font-size:11.5px;color:var(--mut);line-height:1.5}
-.trlink{color:var(--deep)}
-.pers{max-width:560px;margin:18px auto 0;border:1.5px solid var(--line);background:#fff;border-radius:16px;padding:16px}
-.pers .slab{font-weight:700;font-size:15.5px;display:block}
-.pers .psub{font-size:13px;color:var(--mut);margin-top:3px;line-height:1.45}
-.plab{font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:13px 0 7px}
-.pchips{display:flex;flex-wrap:wrap;gap:8px}
-.pchip{font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:600;border:1.5px solid var(--line);background:var(--soft);color:var(--ink);border-radius:999px;padding:9px 14px;cursor:pointer;transition:background .1s,color .1s,border-color .1s}
-.pchip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.pers input.txt{padding:12px 14px;font-size:15.5px}
-
-/* footer */
-.mission{text-align:center;max-width:660px;margin:0 auto;padding:68px 24px 0}
-.mission .mheart{display:block;color:var(--hot);font-size:19px;line-height:1;margin-bottom:16px}
-.mission .goal{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(22px,5.2vw,28px);line-height:1.28;color:var(--ink);letter-spacing:-.01em}
-.mission .goal .hl{background:linear-gradient(transparent 62%,var(--blush) 62%)}
-.mission .msub{display:block;font-family:'Instrument Sans',sans-serif;font-weight:400;font-size:16.5px;line-height:1.5;color:var(--ink2);margin-top:14px}
-footer{text-align:center;padding:26px 20px 34px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--mut)}
-footer .heart{color:var(--hot)}
-/* modal */
-.mback{display:none;position:fixed;inset:0;background:rgba(23,18,43,.55);z-index:100;padding:18px;overflow-y:auto}
-.mback.on{display:block}
-.modal{background:var(--paper);border-radius:24px;max-width:560px;margin:5vh auto;padding:28px 26px;box-shadow:0 30px 70px rgba(23,18,43,.35)}
-.modal h3{font-size:23px;font-weight:900;margin-bottom:10px;line-height:1.2}
-.modal p{font-size:15.5px;color:var(--ink2);margin-bottom:12px}
-.modal ul.facts{list-style:none;margin:0 0 14px}
-.modal ul.facts li{font-size:15px;color:var(--ink2);padding:7px 0 7px 24px;position:relative;border-bottom:1.5px dashed var(--line)}
-.modal ul.facts li:last-child{border-bottom:none}
-.modal ul.facts li:before{content:'♥';position:absolute;left:0;color:var(--hot);font-size:13px;top:9px}
-.modal ul.facts b{color:var(--ink)}
-.insider{font-size:13.5px;font-style:italic;color:var(--deep);line-height:1.45;margin:4px 0 12px}
-.letter{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:16px;font-size:14.5px;white-space:pre-wrap;line-height:1.55;max-height:300px;overflow-y:auto}
-.mrow{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-.x{float:right;background:none;border:none;font-size:26px;cursor:pointer;line-height:1;color:var(--mut)}
-@media (prefers-reduced-motion: reduce){
-  *,*:before,*:after{animation:none!important;transition:none!important}
-  html{scroll-behavior:auto}
+section{margin-top:26px}
+.card{
+  background:rgba(255,255,255,.85);
+  border:1.5px solid var(--line);
+  border-radius:26px;
+  padding:clamp(22px,5vw,34px);
+  box-shadow:0 20px 46px rgba(23,18,43,.07);
 }
+.section-label{
+  display:inline-block;font-family:'DM Mono',monospace;font-size:11.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--deep);
+  background:var(--soft);border-radius:999px;padding:6px 11px;margin-bottom:14px;
+}
+h2{font-size:clamp(26px,5.2vw,36px);font-weight:900;line-height:1.08;letter-spacing:-.025em;margin-bottom:14px}
+.lede{font-size:18px;color:var(--ink2)}
+.howlist{display:grid;gap:12px;list-style:none;margin-top:6px}
+.howlist li{display:flex;gap:12px;align-items:flex-start;font-size:17px}
+.howlist .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--blush);color:var(--deep);font-family:'Outfit',sans-serif;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:15px;margin-top:2px}
+input[type="email"],input[type="text"]{
+  width:100%;font-family:'Instrument Sans',sans-serif;font-size:16px;
+  padding:14px 16px;border:1.5px solid var(--line);border-radius:16px;
+  background:#fff;color:var(--ink);outline:none;
+}
+input[type="email"]:focus,input[type="text"]:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,140,190,.18)}
+.formrow{display:flex;gap:10px;flex-wrap:wrap}
+.formrow input{flex:1 1 220px}
+.formnote{font-size:14px;color:var(--mut);margin-top:10px}
+.err{display:none;background:#ffe9ef;border:1.5px solid #ffb9d0;color:#8f103f;border-radius:14px;padding:11px 14px;font-size:15px;margin-top:12px}
+.err.on{display:block}
+/* ---------- chat ---------- */
+.chatlog{display:flex;flex-direction:column;gap:12px;min-height:180px}
+.msg{display:flex;gap:10px;align-items:flex-end;max-width:100%}
+.msg .avatar{flex:0 0 auto;width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--blush);background:var(--soft)}
+.msg .bubble{padding:12px 16px;border-radius:20px;font-size:16.5px;line-height:1.5;max-width:86%}
+.msg.agent .bubble{background:#fff;border:1.5px solid var(--line);border-bottom-left-radius:6px;box-shadow:0 8px 20px rgba(23,18,43,.05)}
+.msg.user{justify-content:flex-end}
+.msg.user .bubble{background:linear-gradient(135deg,#F92A82,#FF8CBE);color:#fff;border-bottom-right-radius:6px}
+.typing{display:inline-flex;gap:5px;padding:4px 2px}
+.typing i{width:8px;height:8px;border-radius:50%;background:var(--pink);display:block;animation:ty 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}
+.typing i:nth-child(3){animation-delay:.3s}
+@keyframes ty{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-5px);opacity:1}}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.chip{
+  font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:600;
+  background:var(--soft);color:var(--deep);border:1.5px solid var(--blush);
+  border-radius:999px;padding:9px 15px;cursor:pointer;transition:transform .1s ease,background .1s ease;
+}
+.chip:hover{background:var(--blush);transform:translateY(-1px)}
+.chatform{display:flex;gap:10px;margin-top:16px}
+.chatform input{flex:1}
+.chatform .btn{padding:13px 22px}
+.sniff{text-align:center;padding:26px 0 8px}
+.sniff img{width:104px;height:104px;border-radius:50%;object-fit:cover;border:3px solid var(--blush);animation:bob 1.1s ease-in-out infinite;background:var(--soft)}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2deg)}}
+.sniff p{font-family:'Outfit',sans-serif;font-weight:800;font-size:20px;margin-top:16px}
+.sniff .sub2{font-family:'Instrument Sans',sans-serif;font-weight:400;font-size:15.5px;color:var(--mut);margin-top:6px}
+/* ---------- score + checklist ---------- */
+.scorehead{text-align:center}
+.scoreprof{font-family:'DM Mono',monospace;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep)}
+.scorebig{font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(72px,18vw,108px);line-height:1;color:var(--ink);margin-top:6px}
+.scorebig small{font-size:.38em;color:var(--mut);font-weight:700}
+.scorereason{font-size:18px;color:var(--ink2);max-width:32em;margin:12px auto 0}
+.delta{display:inline-block;margin-top:14px;font-weight:700;font-size:15.5px;border-radius:999px;padding:7px 14px;background:var(--soft);color:var(--ink2)}
+.delta.up{background:#e2f6ec;color:var(--green)}
+.delta.down{background:#ffe9ef;color:#8f103f}
+.checkgroup{margin-top:18px}
+.checkgroup h3{font-size:15px;font-family:'DM Mono',monospace;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
+.checkitem{
+  display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;
+  background:#fff;border:1.5px solid var(--line);border-radius:16px;
+  padding:13px 15px;margin-bottom:9px;font-size:16.5px;color:var(--ink);
+  font-family:'Instrument Sans',sans-serif;
+}
+button.checkitem{cursor:pointer;transition:border-color .1s ease,transform .1s ease}
+button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
+.checkitem .mark{flex:0 0 auto;font-size:18px;line-height:1.35}
+.checkitem .pts{margin-left:auto;flex:0 0 auto;font-family:'DM Mono',monospace;font-size:12.5px;color:var(--deep);background:var(--soft);border-radius:999px;padding:4px 9px}
+.detail{
+  background:var(--soft);border:1.5px dashed var(--pink);border-radius:18px;
+  padding:18px;margin:4px 0 14px;
+}
+.detail h3{font-size:19px;margin-bottom:8px}
+.detail p{font-size:16px;color:var(--ink2);margin-bottom:8px}
+.detail .free{background:#fff;border-radius:12px;padding:10px 13px;font-size:15.5px}
+.detail .btn{margin-top:12px}
+.sentblock{margin-top:22px;background:var(--soft);border:1.5px dashed var(--pink);border-radius:18px;padding:20px 18px;text-align:center}
+.sentline{font-size:16.5px;color:var(--ink2);margin-bottom:14px}
+/* ---------- offer ---------- */
+.offer{
+  background:linear-gradient(135deg,#fff,#FFF3F8);
+  border:2px solid var(--hot);
+}
+.offer h2{margin-bottom:10px}
+.offer .price{font-family:'Outfit',sans-serif;font-weight:900;font-size:22px;color:var(--deep)}
+/* ---------- tasks ---------- */
+.taskitem{display:flex;gap:13px;align-items:flex-start;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px 15px;margin-bottom:10px}
+.taskitem .box{
+  flex:0 0 auto;width:28px;height:28px;border-radius:9px;border:2px solid var(--pink);
+  background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:17px;color:#fff;margin-top:1px;transition:background .12s ease;
+}
+.taskitem.done .box{background:var(--hot);border-color:var(--hot)}
+.taskitem .t{font-size:16.5px}
+.taskitem.done .t{color:var(--mut);text-decoration:line-through}
+.taskitem .pts{margin-left:auto;flex:0 0 auto;font-family:'DM Mono',monospace;font-size:12.5px;color:var(--deep);background:var(--soft);border-radius:999px;padding:4px 9px}
+.newstag{flex:0 0 auto;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.05em;color:var(--deep);background:var(--blush);border-radius:999px;padding:4px 8px;margin-top:3px;white-space:nowrap}
+/* ---------- score-drop alert ---------- */
+.alertbanner{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#ffe9ef;border:1.5px solid #ffb9d0;border-radius:16px;padding:14px 16px;margin-bottom:16px}
+.alertbanner p{font-size:16px;color:#8f103f}
+.alertbanner p strong{font-weight:700}
+/* ---------- radar ---------- */
+.radarcard{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:17px 18px;margin-bottom:12px}
+.radarcard h3{font-size:18.5px;line-height:1.3;margin-bottom:7px}
+.radarcard p{font-size:16px;color:var(--ink2)}
+.radarcard .meta{display:flex;gap:10px;align-items:center;margin-top:11px;flex-wrap:wrap}
+.impact{font-family:'DM Mono',monospace;font-size:12.5px;border-radius:999px;padding:4px 10px;background:var(--soft);color:var(--deep)}
+.impact.neg{background:#ffe9ef;color:#8f103f}
+.impact.pos{background:#e2f6ec;color:var(--green)}
+.radarcard a{color:var(--deep);font-weight:600;font-size:15px}
+.radarcard .date{font-family:'DM Mono',monospace;font-size:12px;color:var(--mut)}
+.scanline{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:16px}
+.scanline p{font-size:15.5px;color:var(--mut)}
+/* ---------- app tabs ---------- */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 18px}
+.tab{
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:15.5px;
+  border:1.5px solid var(--blush);background:#fff;color:var(--ink2);
+  border-radius:999px;padding:10px 18px;cursor:pointer;
+}
+.tab.on{background:linear-gradient(135deg,#F92A82,#FF8CBE);color:#fff;border-color:transparent;box-shadow:0 10px 22px rgba(249,42,130,.3)}
+.hidden{display:none !important}
+.celebrate{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
+.celebrate span{position:absolute;top:-4vh;font-size:20px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(108vh) rotate(340deg)}}
+.foot{text-align:center;color:var(--mut);font-size:14px;margin-top:34px}
+@media (max-width:560px){ .chatform .btn{padding:13px 16px} .msg .bubble{max-width:88%} }
 </style>
-<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-
 <div class="sky" aria-hidden="true">
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
-  <div class="skyheart sh1">♥</div><div class="skyheart sh2">♥</div><div class="skyheart sh3">♥</div>
+  <div class="skyheart sh1">♥</div><div class="skyheart sh2">♥</div>
 </div>
 
-<div class="topbar">
-  <div class="logo">Path<span style="color:var(--deep)">Check</span> <span class="heart">♥</span><span class="by">by Career Glitch</span></div>
-</div>
+<header class="topbar">
+  <a class="logo" href="/">Career <span>Glitch</span> <span class="heart">♥</span></a>
+</header>
 
-<div class="stage">
+<main class="page">
 
-  <!-- HERO -->
-  <div class="hero" id="heroView">
-    <div class="mascot" role="img" aria-label="Masha">
-      <img src="masha.webp" alt="" width="640" height="639">
-      <span class="lid lid-l" aria-hidden="true"></span>
-      <span class="lid lid-r" aria-hidden="true"></span>
-    </div>
-    <h1><span class="h1a">AI now does part of your job. Which part still pays?</span><span class="h1c">See your shortest path to work and the <span class="hl">top 1%</span>.</span></h1>
-    <button class="bigbtn" onclick="startCheck()">
-      <span class="t1"><span class="ht">♥︎</span> Pick your job — see what still pays</span><span class="freepill">FREE</span>
-    </button>
-    <div id="myPathBar" style="display:none;margin-top:16px">
-      <a class="btn butter" id="myPathLink" href="/app" style="text-decoration:none">♥ Your path is saved — Open my path →</a>
-    </div>
-    <div class="radar-mod" id="radarMod" aria-label="AI Radar — how AI is changing jobs this week">
-      <div class="radar-row">
-        <div class="radar-scope" aria-hidden="true">
-          <div class="sweep"></div>
-          <span class="blip" style="left:77.9%;top:30.5%;animation-delay:-3.39s"></span>
-          <span class="blip" style="left:66.7%;top:69.9%;animation-delay:-2.44s"></span>
-          <span class="blip" style="left:28.1%;top:71.9%;animation-delay:-1.5s"></span>
-          <span class="blip" style="left:36.5%;top:33.9%;animation-delay:-.44s"></span>
-          <span class="radar-center"></span>
-        </div>
-        <div class="radar-side">
-          <div class="radar-head"><span class="livedot" aria-hidden="true"></span>AI RADAR LIVE<span class="tdots" id="tdots"></span></div>
-          <div class="radar-cap">You spent years on your job. AI changes what employers ask for in it. We read job posts 24/7 and show what still pays.</div>
-        </div>
+  <!-- ======================= LANDING ======================= -->
+  <div id="view-landing">
+    <div class="hero">
+      <span class="kicker">Career Glitch Watchdog · Career insurance in the age of AI</span>
+      <div class="mascot" role="img" aria-label="Masha">
+        <img src="/masha.webp" alt="" width="640" height="639">
+        <span class="lid lid-l" aria-hidden="true"></span>
+        <span class="lid lid-r" aria-hidden="true"></span>
       </div>
-      <div class="ticker">
-        <div class="sig" id="sigBox">
-          <div class="sig-head" id="sigHead"></div>
-          <div class="sig-meta"><span><span id="sigDate"></span> · <span class="tag" id="sigTag"></span></span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CHECK PANEL -->
-  <div class="panel" id="checkPanel">
-    <div class="panel-top">
-      <span class="t"><span class="heart">♥</span> <span id="panelTitleText">Your Path Check</span></span>
-      <span class="hearts" id="hearts" aria-hidden="true"></span>
-    </div>
-
-    <!-- STEP 0 — TYPE YOUR PROFESSION -->
-    <div class="screen" id="s0">
-      <div class="q-kicker">Step 0 — your job</div>
-      <div class="q-title">Which job is yours?</div>
-      <label class="fl" for="jobInput" style="margin-top:0">Type your job now, or the one you want</label>
-      <input class="txt" id="jobInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="bookkeeper · paralegal · nurse · welder · teacher…">
-      <div class="check-nav"><button class="backlink" onclick="backHome()">← back</button><button class="btn" id="jobGo" onclick="submitJob()" disabled>Continue →</button></div>
-      <div class="readyline">
-        <span class="rl-lab">Full checks ready now:</span>
-        <div class="chips">
-          <button class="chip" onclick="pickChip('law')">Law</button>
-          <button class="chip" onclick="pickChip('cpa')">Accounting &amp; CPA</button>
-          <button class="chip" onclick="pickChip('nurse')">Nursing</button>
-          <button class="chip" onclick="pickChip('fin')">Finance &amp; FP&amp;A</button>
-          <button class="chip" onclick="pickChip('creator')">Content Creator</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- SEAT RESULT — instant verdict for one sub-niche, no questions -->
-    <div class="screen" id="s8">
-      <div class="q-kicker">Your answer — straight from real job posts</div>
-      <p class="typedline" id="seatTyped"></p>
-      <div class="vcard" id="vcard2"></div>
-      <div class="pers" id="persBlock">
-        <span class="slab">Make my first step fit me</span>
-        <p class="psub">Three quick taps, and your first step fits you.</p>
-        <div class="plab">Where are you on this path?</div>
-        <div class="pchips" id="pStage"></div>
-        <div class="plab">Your state</div>
-        <input class="txt" id="pState" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="FL — or Florida">
-        <div class="plab">Already spent on this path</div>
-        <div class="pchips" id="pInv"></div>
-        <div class="check-nav" style="margin-top:14px"><button class="backlink" onclick="resetPers()">Skip — show the usual first step</button><span></span></div>
-      </div>
-      <div class="strip">
-        <div id="seatForm">
-          <span class="slab">Send me my card + the full-report link</span>
-          <div class="srow">
-            <input id="seatName" type="text" autocomplete="given-name" placeholder="First name">
-            <input id="seatEmail" type="email" autocomplete="email" placeholder="you@example.com">
-            <button class="btn" onclick="saveStrip('seat')">Send ♥</button>
+      <h1>Is your career <span class="hl">safe from AI?</span></h1>
+      <p class="sub">Everyone says AI is coming for your job. Your Watchdog checks your profession every day — new tools, grants, jobs, rule changes — and gives you one honest number: your AI-Proof Score.</p>
+      <button class="bigbtn" id="start-btn" type="button">
+        <span class="t1"><span class="ht">♥︎</span> Pick your job — see what still pays</span><span class="freepill">FREE</span>
+      </button>
+      <p class="under-btn">Free · One question and your email · Takes under a minute</p>
+      <div class="radar-mod" id="radarMod" aria-label="AI Radar — how AI is changing jobs this week">
+        <div class="radar-row">
+          <div class="radar-scope" aria-hidden="true">
+            <div class="sweep"></div>
+            <span class="blip" style="left:77.9%;top:30.5%;animation-delay:-3.39s"></span>
+            <span class="blip" style="left:66.7%;top:69.9%;animation-delay:-2.44s"></span>
+            <span class="blip" style="left:28.1%;top:71.9%;animation-delay:-1.5s"></span>
+            <span class="blip" style="left:36.5%;top:33.9%;animation-delay:-.44s"></span>
+            <span class="radar-center"></span>
           </div>
-          <p class="fineprint" id="seatErr" style="color:var(--deep);display:none">Please add your first name and a valid email.</p>
-          <p class="fineprint">Saved with your verdict — no spam, and we never sell your email.</p>
-        </div>
-        <div class="sok" id="seatOk"></div>
-      </div>
-      <div class="under-card">
-        <div class="withheld" id="withheld2"></div>
-        <div class="actions">
-          <button class="btn dark" onclick="openCheckout()">Get the Full Report — $19</button>
-          <button class="btn butter" onclick="toggleShare('sharebox2')">Get it free — share your link</button>
-          <button class="btn ghost" onclick="openModal('mParents')">Ask your parents</button>
-        </div>
-        <p class="insider-v">We can&rsquo;t give this inside info to everyone. It helps our clients get ahead in the job market. If everyone had it, it wouldn&rsquo;t help anymore.</p>
-        <div class="sharebox" id="sharebox2">
-          <b>Your personal link.</b> Your Full Report unlocks free when <b>1 person completes their own Path Check</b> through it — not a repost, a finished check.
-          <div class="linkrow"><input id="shareLink2" readonly value=""><button class="copybtn" onclick="copyShare('shareLink2',this)">Copy</button></div>
-          <p class="fineprint">Pilot link — it has your name, so finished checks count for you.</p>
-        </div>
-        <div class="check-nav"><button class="backlink" id="seatBack" onclick="restart()">↺ check a different path</button><span></span></div>
-      </div>
-    </div>
-
-    <!-- CLUSTER MAP — the package's segmentation grid -->
-    <div class="screen" id="s9">
-      <div class="q-kicker">Your answer — every job in this field</div>
-      <p class="typedline" id="gridTyped"></p>
-      <p class="ghook" id="gridHook"></p>
-      <div class="q-title" id="gridHead"></div>
-      <p style="color:var(--ink2);margin-bottom:14px" id="gridSub"></p>
-      <p class="ghuman" id="gridHuman"></p>
-      <div class="gridrows" id="gridRows"></div>
-      <p class="fineprint" style="margin-top:10px">Tap a row to see that job: facts, first step, pay.</p>
-      <div class="corner" id="gridCorner"></div>
-      <div class="gquote" id="gridQuote"></div>
-      <p class="gnext" id="gridNext"></p>
-      <div class="strip">
-        <div id="gridForm">
-          <span class="slab">Send me this map + the full-report link</span>
-          <div class="srow">
-            <input id="gridName" type="text" autocomplete="given-name" placeholder="First name">
-            <input id="gridEmail" type="email" autocomplete="email" placeholder="you@example.com">
-            <button class="btn" onclick="saveStrip('grid')">Send ♥</button>
-          </div>
-          <p class="fineprint" id="gridErr" style="color:var(--deep);display:none">Please add your first name and a valid email.</p>
-          <p class="fineprint">Saved with your verdict — no spam, and we never sell your email.</p>
-        </div>
-        <div class="sok" id="gridOk"></div>
-      </div>
-      <div class="under-card">
-        <div class="withheld" id="withheld3"></div>
-        <div class="actions">
-          <button class="btn dark" onclick="openCheckout()">Get the Full Report — $19</button>
-          <button class="btn butter" onclick="toggleShare('sharebox3')">Get it free — share your link</button>
-          <button class="btn ghost" onclick="openModal('mParents')">Ask your parents</button>
-        </div>
-        <p class="insider-v">We can&rsquo;t give this inside info to everyone. It helps our clients get ahead in the job market. If everyone had it, it wouldn&rsquo;t help anymore.</p>
-        <div class="sharebox" id="sharebox3">
-          <b>Your personal link.</b> Your Full Report unlocks free when <b>1 person completes their own Path Check</b> through it — not a repost, a finished check.
-          <div class="linkrow"><input id="shareLink3" readonly value=""><button class="copybtn" onclick="copyShare('shareLink3',this)">Copy</button></div>
-          <p class="fineprint">Pilot link — it has your name, so finished checks count for you.</p>
-        </div>
-        <div class="check-nav"><button class="backlink" onclick="restart()">↺ check a different path</button><span></span></div>
-      </div>
-    </div>
-
-    <!-- WAITLIST — profession not built yet (demand signal, no fake verdict) -->
-    <div class="screen" id="s7">
-      <div id="wlForm">
-        <div class="q-kicker">Your Path Check</div>
-        <div class="q-title">We'll check &ldquo;<span class="wlT"></span>&rdquo; through our 5 filters.</div>
-        <p class="wl-lede">AI is changing what employers ask for in this job. So we read real job posts, official job data (BLS) and hiring reports. We never guess. The most-asked jobs go first, and yours just moved up!</p>
-        <p class="wl-lede"><b>Where do we send your path?</b></p>
-        <label class="fl" for="wlEmail">Email</label>
-        <input class="txt" id="wlEmail" type="email" autocomplete="email" placeholder="you@example.com">
-        <p class="fineprint" id="wlErr" style="color:var(--deep);display:none">Please add a valid email — that's how we reach you when it's ready.</p>
-        <div class="check-nav"><button class="backlink" onclick="show('s0',1)">← back</button><button class="btn" onclick="submitWaitlist()">Start my check ♥</button></div>
-        <p class="fineprint">Your email goes straight to our research queue — that&rsquo;s the only thing we use it for.</p>
-      </div>
-      <div id="wlDone" style="display:none">
-        <div class="q-kicker">Research started</div>
-        <div class="q-title">&ldquo;<span class="wlT"></span>&rdquo; is being checked right now.</div>
-        <p class="wl-lede">We're reading real job posts, official job data (BLS) and hiring reports: all 5 filters. When your path is ready, it lands in your inbox.</p>
-        <p class="wl-lede">Meanwhile, five full checks are ready now:</p>
-        <div class="readyline" style="margin-top:16px">
-          <div class="chips">
-            <button class="chip" onclick="pickChip('law')">Law</button>
-            <button class="chip" onclick="pickChip('cpa')">Accounting &amp; CPA</button>
-            <button class="chip" onclick="pickChip('nurse')">Nursing</button>
-            <button class="chip" onclick="pickChip('fin')">Finance &amp; FP&amp;A</button>
-            <button class="chip" onclick="pickChip('creator')">Content Creator</button>
+          <div class="radar-side">
+            <div class="radar-head"><span class="livedot" aria-hidden="true"></span>AI RADAR LIVE<span class="tdots" id="tdots"></span></div>
+            <div class="radar-cap">You spent years on your job. AI changes what employers ask for in it. We read job posts 24/7 and show what still pays.</div>
           </div>
         </div>
-        <div id="wlPath" style="margin-top:16px"></div>
-        <div class="check-nav"><button class="backlink" onclick="restart()">↺ check another path</button><span></span></div>
+        <div class="ticker">
+          <div class="sig" id="sigBox">
+            <div class="sig-head" id="sigHead"></div>
+            <div class="sig-meta"><span><span id="sigDate"></span> · <span class="tag" id="sigTag"></span></span></div>
+          </div>
+        </div>
       </div>
     </div>
 
+    <section class="card">
+      <span class="section-label">How it works</span>
+      <ul class="howlist">
+        <li><span class="n">1</span><span><strong>One question.</strong> Which profession do you want checked? That is all we ask before your card — plus the email to send it to.</span></li>
+        <li><span class="n">2</span><span><strong>Get your card.</strong> The profession's AI-Proof Score from 0 to 100, its top-1% checklist, and the biggest gaps — shown here and emailed to you.</span></li>
+        <li><span class="n">3</span><span><strong>We watch, you work.</strong> The Watchdog re-checks your profession every day and speaks up when something actually touches you. Inside, your Score becomes personal.</span></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <span class="section-label">Already have a Watchdog?</span>
+      <p class="lede" style="margin-bottom:14px">Enter the email you saved it with, and your Watchdog will come right back.</p>
+      <form class="formrow" id="restore-form">
+        <input type="email" id="restore-email" placeholder="you@example.com" autocomplete="email" required>
+        <button class="btn small" type="submit">Open my Watchdog</button>
+      </form>
+      <div class="err" id="restore-err"></div>
+    </section>
   </div>
-</div>
 
-<div class="mission"><span class="mheart" aria-hidden="true">♥</span><span class="goal">Our goal: help all our clients become the <span class="hl">top 1%</span> of their field — and stay there.</span><span class="msub">With AI you can learn the part that pays in weeks, not years. We keep only the steps employers pay for. You take them.</span><span class="msub"><a class="trlink" href="/track-record">Our forecasts, scored in public — see the track record →</a></span></div>
-<footer>PathCheck <span class="heart">♥</span> by Career Glitch — ready now: law · accounting/CPA · nursing · finance · content creator · <a class="trlink" href="/track-record">Track record</a></footer>
-
-<!-- CHECKOUT MODAL -->
-<div class="mback" id="mCheckout">
-  <div class="modal">
-    <button class="x" onclick="closeModal('mCheckout')">×</button>
-    <h3>Full Report — first test group</h3>
-    <p>PathCheck is brand new, and we're still testing it. You can pay once the first test group starts. Ran the check? Your email and answers are saved. You'll be first in line! No charge today, honest.</p>
-    <p><b>Inside the report</b> — the most important facts from <span id="coCount">46</span> real <span id="coWhat">job posts</span>, made for you:</p>
-    <ul class="facts" id="coFacts">
-      <li><b>Bachelor's degree in 19 of 21</b> senior paralegal job posts. The top pay quietly asks for more than the "typical" degree.</li>
-      <li><b>CIPP in 3 of 3</b> privacy job posts that name a certificate. And privacy jobs paid the most of all ($212K–$319K).</li>
-      <li><b>Named AI tools (Kira, Harvey)</b> already required in top senior-paralegal job posts. The best-paid paralegals run the AI that checks deals.</li>
-    </ul>
-    <p class="insider">We can&rsquo;t give this inside info to everyone. It helps our clients get ahead in the job market. If everyone had it, it wouldn&rsquo;t help anymore.</p>
-    <p><b>Want it free instead?</b> Share your personal link from the verdict card. When 1 person finishes a check through it, your report unlocks.</p>
-    <p><b>No card?</b> Use “Ask your parents” on your card — it sends them your verdict and the payment link.</p>
-    <div class="mrow"><button class="btn" onclick="closeModal('mCheckout')">Got it</button></div>
+  <!-- ======================= START (short entry) ======================= -->
+  <div id="view-start" class="hidden">
+    <section class="card" style="margin-top:34px">
+      <div id="start-steps">
+        <div id="start-step1">
+          <span class="section-label">Step 1 of 2</span>
+          <h2>Which profession do you want checked?</h2>
+          <form class="chatform" id="prof-form" style="margin-top:6px">
+            <input type="text" id="prof-input" placeholder="e.g. Bookkeeper" autocomplete="off">
+            <button class="btn" type="submit">Continue</button>
+          </form>
+          <div class="chips" id="prof-chips"></div>
+          <div class="err" id="prof-err"></div>
+        </div>
+        <div id="start-step2" class="hidden">
+          <span class="section-label">Step 2 of 2</span>
+          <h2>Where do we send your card?</h2>
+          <p class="lede">We will show it right here and email you a copy too.</p>
+          <form class="formrow" id="card-form" style="margin-top:16px">
+            <input type="email" id="card-email" placeholder="you@example.com" autocomplete="email" required>
+            <button class="btn" type="submit" id="card-btn">Get my card — free</button>
+          </form>
+          <p class="formnote">Checking <strong id="card-prof-name"></strong>. No password, nothing to pay. Your card shows on this screen either way.</p>
+          <div class="err" id="card-err"></div>
+        </div>
+      </div>
+      <div id="start-sniff" class="hidden">
+        <div class="sniff">
+          <img src="/masha.webp" alt="">
+          <p>Watchdog is sniffing your career…</p>
+          <p class="sub2">The profession's daily tasks against today's AI tools. Its kit against the top 1%. One moment.</p>
+        </div>
+      </div>
+    </section>
   </div>
-</div>
 
-<!-- PARENTS MODAL -->
-<div class="mback" id="mParents">
-  <div class="modal">
-    <button class="x" onclick="closeModal('mParents')">×</button>
-    <h3>Ask your parents</h3>
-    <p>Copy this letter and send it the way your family usually talks — text, email, messenger. It has your verdict and asks for the payment. Your parents see the plan too. That's the idea!</p>
-    <div class="letter" id="parentLetter"></div>
-    <div class="mrow"><button class="btn" onclick="copyLetter(this)">Copy the letter</button><button class="btn ghost" onclick="closeModal('mParents')">Close</button></div>
+  <!-- ======================= ONBOARDING (post-payment) ======================= -->
+  <div id="view-onboard" class="hidden">
+    <section class="card" style="margin-top:34px">
+      <span class="section-label">Your trial is on</span>
+      <h2>Let's make your Score yours — 4 quick questions.</h2>
+      <div id="ob-main">
+        <div class="chatlog" id="ob-log" aria-live="polite"></div>
+        <div class="chips" id="ob-chips"></div>
+        <form class="chatform" id="ob-form">
+          <input type="text" id="ob-input" placeholder="Type your answer…" autocomplete="off">
+          <button class="btn" type="submit" id="ob-send">Send</button>
+        </form>
+        <p class="formnote" style="margin-top:14px"><a href="#" id="ob-skip" style="color:var(--deep);font-weight:600">Do it later</a> — your Watchdog keeps working with the typical profile meanwhile.</p>
+      </div>
+      <div id="ob-sniff" class="hidden">
+        <div class="sniff">
+          <img src="/masha.webp" alt="">
+          <p>Watchdog is re-checking with your answers…</p>
+          <p class="sub2">Your real tasks and your real tools, against the top 1% checklist. One moment.</p>
+        </div>
+        <div class="err" id="ob-err"></div>
+        <div style="text-align:center;margin-top:14px">
+          <button class="btn ghost small hidden" id="ob-retry" type="button">Try again</button>
+        </div>
+      </div>
+    </section>
   </div>
-</div>
 
-<script src="v11.js"></script>
-<script src="share.js"></script>
+  <!-- ======================= RESULT CARD ======================= -->
+  <div id="view-result" class="hidden">
+    <section class="card" style="margin-top:34px">
+      <div class="scorehead">
+        <div class="scoreprof" id="res-prof">Your profession</div>
+        <div class="scorebig"><span id="res-score">–</span><small>/100</small></div>
+        <div class="mono" style="font-size:12px;letter-spacing:.14em;color:var(--mut)">YOUR AI-PROOF SCORE</div>
+        <p class="scorereason" id="res-reason"></p>
+        <p class="formnote" id="res-typical" style="text-align:center"></p>
+      </div>
+      <div class="sentblock" id="res-sent">
+        <p class="sentline">📬 Your road map has been sent to <strong id="res-sent-email"></strong>.</p>
+        <button class="btn" id="res-roadmap" type="button" style="width:100%">See your road map</button>
+      </div>
+      <div id="res-checklist"></div>
+    </section>
+
+    <section class="card offer">
+      <span class="section-label">Career insurance</span>
+      <h2>Let Watchdog guard your career.</h2>
+      <p class="lede">Your Watchdog keeps checking your profession every day, sends you one short briefing a week, and warns you the moment something really affects you.</p>
+      <p class="price" style="margin-top:12px">Try everything free for 1 month. Don't love it? Cancel in one tap. Then $9/month.</p>
+      <div style="margin-top:18px">
+        <a class="btn" id="res-checkout" href="#" style="width:100%">Start free month</a>
+      </div>
+      <p class="formnote">Free for 30 days, then $9/month. A card is asked at checkout — nothing is charged today. Cancel in one tap.</p>
+    </section>
+  </div>
+
+  <!-- ======================= APP ======================= -->
+  <div id="view-app" class="hidden">
+    <section class="card" style="margin-top:34px">
+      <div class="scorehead">
+        <div class="scoreprof" id="app-prof">Your profession</div>
+        <div class="scorebig"><span id="app-score">–</span><small>/100</small></div>
+        <div class="mono" style="font-size:12px;letter-spacing:.14em;color:var(--mut)">YOUR AI-PROOF SCORE</div>
+        <div><span class="delta" id="app-delta"></span></div>
+        <p class="scorereason hidden" id="app-personal-note" style="font-weight:700"></p>
+        <p class="scorereason" id="app-reason"></p>
+        <p class="formnote" id="app-trial"></p>
+        <div id="app-offer" class="hidden" style="margin-top:14px">
+          <a class="btn" id="app-checkout" href="#">Start free month</a>
+          <p class="formnote" style="margin-top:10px">Free for 30 days, then $9/month. A card is asked at checkout — nothing is charged today. Cancel in one tap.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="tabs" id="app-tabs">
+      <button class="tab on" data-tab="home" type="button">Home</button>
+      <button class="tab" data-tab="top1" type="button">Top 1%</button>
+      <button class="tab" data-tab="week" type="button">This week</button>
+      <button class="tab" data-tab="radar" type="button">Radar</button>
+    </nav>
+
+    <section class="card" id="panel-home">
+      <span class="section-label">Your Watchdog is on duty</span>
+      <div id="home-alert" class="alertbanner hidden">
+        <p><strong>Your Score dropped this week.</strong> <span id="home-alert-reason"></span></p>
+        <button class="btn ghost small" id="home-alert-btn" type="button">See what changed →</button>
+      </div>
+      <p class="lede" id="home-text"></p>
+      <div id="home-stats" style="margin-top:16px"></div>
+      <div id="home-personal" class="hidden" style="margin-top:16px">
+        <button class="btn" id="home-personal-btn" type="button" style="width:100%">Make my Score personal</button>
+        <p class="formnote" style="margin-top:10px">Four quick questions about your real work — your Score stops being the typical one and becomes yours.</p>
+      </div>
+    </section>
+
+    <section class="card hidden" id="panel-top1">
+      <span class="section-label">Top 1% checklist</span>
+      <h2 id="top1-title">What the top 1% has in 2027</h2>
+      <p class="lede">Tap any ❗ to see where to get it — and how many points it adds to your Score.</p>
+      <div id="top1-detail"></div>
+      <div id="top1-list"></div>
+    </section>
+
+    <section class="card hidden" id="panel-week">
+      <span class="section-label">This week</span>
+      <h2>Three small moves</h2>
+      <p class="lede">Each one is tied to a gap in your checklist. Tick it off and your Score rises on the spot.</p>
+      <div id="week-list" style="margin-top:16px"></div>
+    </section>
+
+    <section class="card hidden" id="panel-radar">
+      <span class="section-label">Radar</span>
+      <h2>What changed in your profession</h2>
+      <div class="scanline">
+        <p id="scan-text"></p>
+        <button class="btn ghost small" id="scan-btn" type="button">Scan now</button>
+      </div>
+      <div id="radar-list"></div>
+    </section>
+
+    <p class="foot">Career Glitch Watchdog ♥ Insurance for your career in the age of AI.</p>
+  </div>
+
+</main>
+<div class="celebrate hidden" id="celebrate"></div>
+
 <script>
-var S = {prof:'law', typed:'', mode:'', seat:'', name:'', email:''};
+(function(){
+  'use strict';
+  var API = '/api/watchdog';
+  var LS_KEY = 'cg_watchdog_lead';
+  var OB_SKIP_KEY = 'cg_watchdog_ob_skip';
+  var STRIPE_LINK = 'https://buy.stripe.com/3cI14m2690Ip8r6dZ1eEo0v';
+  var state = { leadId: null, email: null, wd: null, profession: '', obTranscript: [], obBusy: false, justPersonalized: null, tab: 'home' };
 
-function setHearts(filled){
-  var h = '';
-  for (var i=1;i<=5;i++) h += '<span class="'+(i<=filled?'on':'off')+'">♥</span>';
-  document.getElementById('hearts').innerHTML = h;
-}
-function show(id, filled){
-  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('on'); });
-  document.getElementById(id).classList.add('on');
-  setHearts(filled);
-  document.getElementById('checkPanel').scrollIntoView({behavior:'smooth', block:'start'});
-}
-function esc(t){ return t.replace(/</g,'&lt;'); }
-function slug(){ return (S.name || '').toLowerCase().replace(/[^a-z0-9]+/g,'').slice(0,20) || 'you'; }
-
-/* Profession registry. Code words (VERDICT / LEDGER / PULSE / MODEL) — founder-pending. */
-var PROFS = {
-  law:   {title:'Your Path Check — Legal',            kick:'Legal',            count:46, code:'VERDICT', tail:'PATHCHECK — KNOW BEFORE YOU PAY TUITION'},
-  cpa:   {title:'Your Path Check — Accounting / CPA', kick:'Accounting / CPA', count:54, code:'LEDGER',  tail:'PATHCHECK — KNOW BEFORE YOU PAY TUITION'},
-  nurse: {title:'Your Path Check — Nursing',          kick:'Nursing',          count:42, code:'PULSE',   tail:'PATHCHECK — KNOW BEFORE YOU PAY TUITION'},
-  fin:   {title:'Your Path Check — Finance / FP&A',   kick:'Finance / FP&A',   count:40, code:'MODEL',   tail:'PATHCHECK — KNOW BEFORE YOU PAY FOR THE CERTIFICATE'},
-  creator:{title:'Your Path Check — Content Creator', kick:'Content Creator', count:'21,000+', srcWhat:'brand collaborations', srcLine:'real brand collaborations and the platforms’ own entry rules', code:'UPLOAD', tail:'PATHCHECK — KNOW BEFORE YOU QUIT YOUR JOB'}
-};
-
-var COFACTS = {
-law: [
-  '<b>Bachelor’s degree in 19 of 21</b> senior paralegal job posts. Top pay quietly asks for more than the “typical” degree.',
-  '<b>CIPP in 3 of 3</b> privacy job posts that name a certificate. Privacy also paid the most ($212K–$319K).',
-  '<b>Named AI tools (Kira, Harvey)</b> already asked for in top paralegal job posts. The best-paid paralegal runs the AI.'
-],
-cpa: [
-  '<b>CPA required in 8 of 10</b> tax-manager job posts, and in 6 of 6 SEC-reporting ones. The license opens the door; it is not a raise.',
-  '<b>Transaction advisory (FDD) paid up to $225K</b>, the top pay in our 54 job posts.',
-  '<b>32 states now license at 120 credits</b> + 2 years of work. Your state decides if you need a fifth year (150 credits).'
-],
-nurse: [
-  '<b>DNP required in 0 of 16</b> top NP-level job posts this week. DNP programs charge $73K–$195K.',
-  '<b>Psych NP job posts at $200K–$257K.</b> The specialty pays more, not the doctorate.',
-  '<b>27 full-practice states</b> CA, TX and FL are not among them. Your state changes your pay.'
-],
-fin: [
-  '<b>SQL in 31 of 40</b> top-paying analyst job posts (78%). Most wanted first: SQL → platform → BI (dashboards).',
-  '<b>A required CFA in 0 of 40</b> top-paying job posts. Starting with a certificate is a detour.',
-  '<b>Beginner analyst job posts down 21%</b>. Firms hire 3 experienced people per beginner. Get in with proof of real work, not a pile of applications.'
-],
-creator: [
-  '<b>48.7% of US creators earn under $10,000 a year</b> — and the median payment to a creator is $3,000 (CreatorIQ).',
-  '<b>UGC went from 15% to 35%</b> of brand campaigns in one year — the average paid job is $154 (Collabstr, 21,000+ collaborations).',
-  '<b>On 1 February 2027 the YouTube entry bar doubles</b> — 8,000 watch hours or 20M Shorts views; creators already inside keep the old bar.'
-]};
-
-/* ===== Seat verdicts — copy & numbers from each pilot package's sample verdict card (Oct 30, 2026 scans). Do not invent numbers. ===== */
-var SEATS = {
-/* ——— LAW ——— */
-specialist: {prof:'law', label:'Specialist paralegal — privacy / diligence / healthcare',
-  head:'SPECIALIST PARALEGAL — <span class="pink">YES</span>. THE TOP PAY IN LEGAL SUPPORT.',
-  facts:[
-    ['Top pay in our 46 job posts','Privacy &amp; AI-rules job posts <span class="pink">$212K–$319K</span>'],
-    ['Senior specialist job posts','Real pay <span class="pink">$135K–$200K</span> (Cooley · Gibson Dunn)'],
-    ['What the top jobs ask for','Bachelor’s in <span class="pink">19 of 21</span> senior job posts · 5–10+ yrs in ONE practice area']
-  ],
-  door:'The best-paid paralegal job post we found ($150K–$200K) has the paralegal <b>running the AI tools Kira &amp; Harvey</b> to check deals. Your shortcut: pick ONE specialty (privacy &amp; AI rules, checking deals, health-care rules) and learn its AI tools. That puts you ahead fast.',
-  short:'the specialist paralegal jobs are the yes in legal support — privacy & AI-governance postings ran $212K–$319K in our 46-posting scan, while the generalist job has 0% growth'},
-paralegal: {prof:'law', label:'Paralegal (generalist)',
-  head:'GENERALIST PARALEGAL — <span class="pink">NO</span> AS YOUR FINAL STOP.',
-  facts:[
-    ['Stay a generalist','Median <span class="pink">$62,890</span> · field growth <span class="pink">0%</span> (BLS 2025–35)'],
-    ['Where the money actually is','Specialist job posts up to <span class="pink">$150K–$200K</span> (Gibson Dunn)'],
-    ['The job AI eats first','Document review is AI’s #1 legal use case — <span class="pink">77%</span> of legal orgs']
-  ],
-  door:'What to do instead: don’t stay a helper for everything. Move into one specialty (privacy &amp; AI rules, checking deals, health-care rules). Learn to run its AI tools, don’t race them. A J.D. pays only when aimed the same way.',
-  short:'the generalist paralegal job is a no — median $62,890 with 0% growth — while specialist jobs post up to $150K–$200K and privacy / AI governance to $319K'},
-docreview: {prof:'law', label:'Document review',
-  head:'DOCUMENT REVIEW — <span class="pink">NO</span> AS A CAREER.',
-  facts:[
-    ['AI exposure','Doc review is AI’s <span class="pink">#1 use case</span> in law firms — 77% of legal orgs use AI for it'],
-    ['The wider blast radius','<span class="pink">44%</span> of legal tasks can be automated (Goldman Sachs)'],
-    ['The job underneath it','Generalist paralegal median <span class="pink">$62,890</span> · 0% growth']
-  ],
-  door:'What to do instead: treat review as paid training. Then move up to the specialist who <b>runs</b> the review AI (that job post paid $150K–$200K, with Kira &amp; Harvey). Or aim a J.D. at a YES specialty.',
-  short:'document review as a career is a no — it is the #1 job AI does in law firms, and the money moved to the specialists who run the AI'},
-lawstudent: {prof:'law', label:'Law student / law school',
-  head:'LAW SCHOOL — <span class="pink">YES</span>, IF YOU PICK YOUR SPECIALTY FIRST. “IN GENERAL” IS A <span class="pink">NO</span>.',
-  facts:[
-    ['If you don’t aim','Median first salary <span class="pink">$100,000</span> vs. median J.D. debt <span class="pink">$112,500</span> (median debt at the median school)'],
-    ['The profession’s center','Attorney median <span class="pink">$159,670</span> · top 10% $351,600+'],
-    ['The aimed specialty','Privacy &amp; AI-rules job posts <span class="pink">$212K–$319K</span> — top pay in our job posts']
-  ],
-  door:'What to do instead of “law school in general”: pick the specialty before the debt (privacy &amp; AI rules, checking deals, health-care rules). From year one, build your record toward it: clinics, certificates, tools. That saves years.',
-  short:'law school only pays aimed at a top niche — with no aim, the middle outcome is a $100,000 first salary against $112,500 of median debt at the median school, while aimed specialties post $212K–$319K'},
-/* ——— CPA ——— */
-bookkeeper: {prof:'cpa', label:'Bookkeeper',
-  head:'BOOKKEEPER — <span class="pink">NO</span> AS YOUR FINAL STOP.',
-  facts:[
-    ['The occupation, per BLS','Bookkeeping clerks <span class="pink">−6%</span> · accountants &amp; auditors <span class="pink">+5%</span>'],
-    ['Your pay ceiling today','Median <span class="pink">$50,670</span> · staff job posts $50–80K, flat'],
-    ['Eaten from two sides','Bookkeeping is an AI use case at <span class="pink">60%</span> of tax firms · <span class="pink">29%</span> of firms offshore it (~$8/hr)']
-  ],
-  door:'What to do instead: use this job as a first step. Move to staff accountant. Then aim at a job where you sign: <b>controller who runs the ERP, the finance software ($130–200K + bonus)</b> or <b>special tax work ($125–200K)</b>. A CPA pays only when aimed at one niche.',
-  short:'bookkeeping as your final job is a no — the occupation shrinks −6% while accountants grow +5%, AI takes the routine work and 29% of firms offshore it; the way out is staff accountant → controller ($130–200K + bonus) or specialized tax ($125–200K)'},
-tax: {prof:'cpa', label:'Tax — preparer / professional',
-  head:'GENERALIST TAX PREP — <span class="pink">NO</span>. SPECIALIZED TAX — <span class="pink">YES</span>.',
-  facts:[
-    ['The job AI hits','Generalist prep is the job AI is eating first in the building — tax research leads firm AI use at <span class="pink">69%</span>'],
-    ['The aimed specialty','Specialized tax (pass-through / HNW) <span class="pink">$125–200K</span>'],
-    ['What managers ask for','CPA required in <span class="pink">8 of 10</span> tax-manager job posts']
-  ],
-  door:'What to do instead: don’t sell hours of prep. AI does prep for almost nothing. Specialize (pass-through firms, very rich clients). Get the license 8 of 10 manager job posts ask for. Your signature protects your pay.',
-  short:'generalist tax prep is a no — it’s the job AI is eating first in accounting — while specialized tax posts $125–200K with the CPA required in 8 of 10 manager postings'},
-staff: {prof:'cpa', label:'Staff accountant (generalist)',
-  head:'GENERALIST STAFF ACCOUNTANT — <span class="pink">NO</span> AS YOUR FINAL STOP.',
-  facts:[
-    ['The flat line','Staff job posts pay <span class="pink">$50–80K</span> — and 2 years from now they pay $50–80K'],
-    ['The license at this level','CPA mentioned in <span class="pink">0 of 8</span> staff job posts — this job doesn’t pay for it'],
-    ['Where it leads, if aimed','Specialized tax <span class="pink">$125–200K</span> · transaction advisory up to <span class="pink">$225K</span>']
-  ],
-  door:'What to do instead: pick the niche first, then the exam. Special tax, technical accounting / SEC reporting, or transaction advisory. A license aimed at “accounting in general” puts you back in the work AI is taking.',
-  short:'the generalist staff job is a no as your final stop — postings sit at $50–80K flat — while an aimed CPA opens specialized tax ($125–200K) and transaction advisory (up to $225K)'},
-audit: {prof:'cpa', label:'Audit',
-  head:'GENERALIST AUDIT — <span class="pink">NO</span> AS YOUR FINAL STOP. <span class="pink">YES</span> AS A BRIDGE.',
-  facts:[
-    ['As your final stop','~<span class="pink">$150K</span> top pay · the worst hours · AI does the prep work now'],
-    ['As a bridge','Transaction advisory (FDD) — the dataset’s top money — up to <span class="pink">$225K</span>'],
-    ['What the bridge costs','FDD pays for an audit background + modeling — the license there is merely “preferred”']
-  ],
-  door:'What to do instead: take your audit experience and move on. Learn modeling (an AI tutor makes it faster). Then cross to FDD / transaction advisory or technical accounting, before AI takes the prep work you do now.',
-  short:'generalist audit is a no as your final stop ($150K top pay, AI does the prep work) but a yes as a bridge — transaction advisory posts up to $225K and pays for the audit background'},
-technical: {prof:'cpa', label:'Technical accounting / SEC reporting',
-  head:'TECHNICAL ACCOUNTING / SEC REPORTING — <span class="pink">YES</span>.',
-  facts:[
-    ['The rule is absolute','Active CPA required in <span class="pink">6 of 6</span> job posts'],
-    ['The pay','<span class="pink">$120–184K</span> in job posts'],
-    ['Why it holds','The law reserves the SEC signature to licensed CPAs — judgment and liability, not routine tasks']
-  ],
-  door:'What to do: this is already a YES job. Grow what protects you: SEC reporting skill and tools like Workiva. Charge for your signature. The Full Report shows the way from a staff job and your state’s exam rule.',
-  short:'technical accounting / SEC reporting is a yes — $120–184K posted, with an active CPA required in 6 of 6 postings; the law reserves the signature to licensed CPAs'},
-fdd: {prof:'cpa', label:'Transaction advisory (FDD) / forensic',
-  head:'TRANSACTION ADVISORY &amp; FORENSIC — <span class="pink">YES</span>. THE TOP MONEY IN THE SCAN.',
-  facts:[
-    ['FDD pay','Up to <span class="pink">$225K</span> — the ceiling of our 54 job posts'],
-    ['Forensic pay','<span class="pink">$143–162K</span> — court-facing; can’t be offshored'],
-    ['What it pays for','Audit pedigree + modeling — advisory job posts mentioned the CPA itself in <span class="pink">0 of 9</span>']
-  ],
-  door:'What to do instead of collecting certificates: this job pays for judgment on deals. The way in is audit experience plus modeling practice. The Full Report shows that route from your job now.',
-  short:'transaction advisory and forensic are the yes specialties of accounting — FDD posts up to $225K and forensic $143–162K, paying for an audit background and modeling rather than the license itself'},
-controller: {prof:'cpa', label:'Controller',
-  head:'CONTROLLER — <span class="pink">YES</span>, IF YOU OWN THE SYSTEMS.',
-  facts:[
-    ['The pay','<span class="pink">$130–200K + bonus</span> (CPA + systems job posts)'],
-    ['The systems signal','NetSuite appears in <span class="pink">18 of 52</span> job posts — and in <span class="pink">10 of 10</span> senior industry roles'],
-    ['The dividing line','Run the systems — don’t be run by them']
-  ],
-  door:'What to do instead of closing books forever: run the ERP (finance software) and the whole month-end close. Then this job grows toward CFO. The Full Report shows the system skills HR checks at this pay.',
-  short:'the controller job is a yes at $130–200K + bonus when it owns the systems — NetSuite shows up in 10 of 10 senior industry postings in our scan'},
-/* ——— NURSING ——— */
-medsurg: {prof:'nurse', label:'Med-surg nurse',
-  head:'MED-SURG BEDSIDE — <span class="pink">NO</span> AS YOUR FINAL STOP.',
-  facts:[
-    ['Your job today','RN median <span class="pink">$97,550</span> — med-surg is the field’s turnover trap'],
-    ['Turnover signal','Med-surg / telemetry turnover runs <span class="pink">above</span> the 17.6% hospital average (NSI)'],
-    ['The specialty contrast','ICU job posts at <span class="pink">$50–$75/hr</span> (CA)']
-  ],
-  door:'What to do instead: take the med-surg job as a first step, not a home. Move into a specialty (ICU / ER / OR) in year one or two. That opens travel pay, the CRNA path and the NP paths that pay well.',
-  short:'med-surg bedside as your final stop is a no — it’s the field’s turnover trap — while specialty jobs post $50–$75/hr and unlock the travel and CRNA money'},
-specialty: {prof:'nurse', label:'Specialty RN (ICU / ER / OR)',
-  head:'SPECIALTY RN (ICU / ER / OR) — <span class="pink">YES</span>.',
-  facts:[
-    ['Pay in job posts','ICU in CA <span class="pink">$50–$75/hr</span> · RN median $97,550'],
-    ['What it unlocks at 2 years','Travel RN · CRNA eligibility · the NP paths that pay'],
-    ['The ceiling beyond','CRNA median <span class="pink">$236,590</span> · job posts up to $400K base']
-  ],
-  door:'What to do: this is a YES job. Go deeper in your specialty. Then pick your next step by real pay numbers: travel money, the CRNA path or a specialty NP. The Full Report puts the steps in order.',
-  short:'the specialty RN job is a yes — ICU postings run $50–$75/hr, and two years of specialty unlock travel pay and the CRNA path (median $236,590)'},
-travel: {prof:'nurse', label:'Travel nurse',
-  head:'TRAVEL RN — <span class="pink">YES</span>, AFTER 2 YEARS OF SPECIALTY.',
-  facts:[
-    ['The pay','Travel RN median <span class="pink">$2,134/wk</span> — Dec 2025 snapshot, and compressing'],
-    ['The entry rule','Contracts gate on ~<span class="pink">2 years</span> of specialty experience'],
-    ['The window','<span class="pink">70.7%</span> of hospitals plan to cut agency use — the window is closing, and it is not a forever job']
-  ],
-  door:'What to do instead: build the specialty first (ICU / ER / OR). Then take the travel money while it lasts. Save it toward the NP or CRNA step instead of spending it.',
-  short:'travel nursing is a yes after two years of specialty — median $2,134 a week (Dec 2025 snapshot, and shrinking) — but 70.7% of hospitals plan to cut agency use, so it’s a window, not a final stop'},
-nstudent: {prof:'nurse', label:'Nursing student',
-  head:'NURSING IS A <span class="pink">YES</span>. THE MOST EXPENSIVE WAY IN IS A <span class="pink">NO</span>.',
-  facts:[
-    ['The cheapest legal way in','ADN total tuition <span class="pink">$5,472</span> (Wake Tech) — the same NCLEX as the BSN'],
-    ['The fork, priced','RN median <span class="pink">$97,550</span> → NP median <span class="pink">$132,300</span>'],
-    ['The tuition trap','DNP required in <span class="pink">0 of 16</span> top job posts · programs charge $73K–$195K']
-  ],
-  door:'What to do instead of buying the longest degree first: get licensed cheap (ADN). Take a specialty first job. Let your employer pay for RN-to-BSN while you earn. Pick NP later, by specialty, not because everyone does.',
-  short:'nursing is a yes but the most expensive way in is a no — an ADN licenses you for $5,472 total with the same NCLEX, while DNP programs charging $73K–$195K were required in 0 of 16 top postings'},
-np: {prof:'nurse', label:'Nurse practitioner (NP)',
-  head:'NP — <span class="pink">YES</span>, IF YOU PICK A SPECIALTY. GENERALIST FNP — <span class="pink">NO</span> IN BIG CITIES AND RESTRICTED STATES, WHERE TOO MANY PEOPLE ALREADY DO IT. IT STILL WORKS WHERE NURSES ARE SCARCE AND IN FULL-PRACTICE STATES.',
-  facts:[
-    ['The center','NP median <span class="pink">$132,300</span> (RN median $97,550)'],
-    ['The specialty premium','Psych NP (PMHNP) job posts <span class="pink">$200K–$257K</span>'],
-    ['Two traps, priced','DNP required in <span class="pink">0 of 16</span> top job posts · CA, TX, FL are <span class="pink">Restricted</span>-practice states (27 are full-practice)']
-  ],
-  door:'What to do instead of “FNP because everyone does FNP”: pick the specialty that pays more (psych leads now). Check what your state lets an NP do before paying for school. The same license pays differently across a state line.',
-  short:'the NP path pays by specialty, not by crowd — psych NP postings run $200K–$257K — while generalist FNP is a no in big cities and restricted states, where too many people already do it (it still works where nurses are scarce and in full-practice states), and a $73K–$195K DNP is the other trap (DNP required in 0 of 16 top postings)'},
-crna: {prof:'nurse', label:'CRNA (nurse anesthetist)',
-  head:'CRNA — <span class="pink">YES</span>. THE HARDEST GATE, THE BIGGEST MONEY.',
-  facts:[
-    ['The ceiling','CRNA median <span class="pink">$236,590</span> — nursing’s top pay'],
-    ['In job posts','Up to <span class="pink">$400K base</span> + signing bonuses in this week’s job posts'],
-    ['The way in','The doctorate here IS the license — ICU experience is the entry ticket']
-  ],
-  door:'What to do: build your ICU years on purpose. They are your real application. Here the expensive degree is not a trap, because the degree IS the license.',
-  short:'CRNA is nursing’s top pay — median $236,590, postings up to $400K base — and the one specialty where the doctorate is the license itself, not a trap'},
-lpn: {prof:'nurse', label:'LPN / LVN',
-  head:'STARTING AS AN LPN — <span class="pink">NO</span>.',
-  facts:[
-    ['The outlook','LPN growth just <span class="pink">+3%</span> (BLS) — the shallow end of the field'],
-    ['Where the jobs aren’t','Only <span class="pink">16%</span> of LPNs work in hospitals — the money and the ladders sit elsewhere'],
-    ['The better way in','The ADN licenses you as an RN for <span class="pink">$5,472</span> total (Wake Tech) — same NCLEX as a BSN']
-  ],
-  door:'What to do instead: skip the LPN detour and become an RN through the ADN. Already an LPN? Price the LPN-to-RN bridge. Don’t spend years under a low pay ceiling.',
-  short:'starting as an LPN is a no — +3% growth and only 16% work in hospitals — while the ADN licenses you as an RN for $5,472 total'},
-/* ——— FINANCE ——— */
-reporting: {prof:'fin', label:'Generalist reporting analyst',
-  head:'GENERALIST REPORTING ANALYST — <span class="pink">NO</span>.',
-  facts:[
-    ['The job today','Report assembly, variance decks, month-end packs — median <span class="pink">$103,570</span>'],
-    ['The squeeze','AI does the draft · offshore does it cheaper · junior job posts <span class="pink">down 21%</span>'],
-    ['The trap, in one line','Thinking it’s a ladder. It’s a <span class="pink">treadmill</span>']
-  ],
-  door:'What to do instead: move one job over. <b>FP&amp;A business partner</b> (paid up to $276,250) or the <b>BI / analytics hybrid</b> (fastest way in, $138K–$180,600). Job posts list the skills: SQL → platform → BI. With an AI tutor, SQL takes weeks, not years.',
-  short:'the generalist reporting job is a no — median $103,570, junior postings down 21%, and AI drafts the reports now; the money is in FP&A partnering and the analytics hybrid'},
-fpa: {prof:'fin', label:'FP&A analyst / business partner',
-  head:'FP&amp;A BUSINESS PARTNER — <span class="pink">YES</span>.',
-  facts:[
-    ['Top pay in job posts','Up to <span class="pink">$231,940–$276,250</span> (Roblox, senior manager)'],
-    ['Why this job survives','Only <span class="pink">5%</span> of CFOs trust AI with a board report unchecked — the human who owns the number is the job'],
-    ['The demanded stack','SQL in <span class="pink">31 of 40</span> top-money job posts · a required CFA in <span class="pink">0 of 40</span>']
-  ],
-  door:'What to do instead of building reports: own a P&amp;L (a team’s money plan) next to one business team. They pay for judgment and trust, not slides. The Full Report compares your skills (SQL → platform → BI) with what’s missing.',
-  short:'the FP&A partner job is a yes — posted up to $276,250 — because only 5% of CFOs trust AI with a board report unchecked; the job is owning the number, not assembling it'},
-strategic: {prof:'fin', label:'Strategic finance',
-  head:'STRATEGIC FINANCE — <span class="pink">YES</span>.',
-  facts:[
-    ['Pay at analyst level','Google <span class="pink">$113K–$167K</span>'],
-    ['What they ask','SQL — <span class="pink">not a CFA</span> (required in 0 of 40 top-money job posts)'],
-    ['The work','Pricing, unit economics, investment cases — judgment AI can draft but not own']
-  ],
-  door:'What to do instead of a certificate first: build real SQL, then sample work on pricing and unit economics (profit per customer). The Full Report picks your first projects and their order.',
-  short:'strategic finance is a yes — Google posts $113K–$167K at analyst level and asks for SQL, not a CFA (required in 0 of 40 top-money postings)'},
-hybrid: {prof:'fin', label:'BI / analytics hybrid',
-  head:'BI / ANALYTICS HYBRID — <span class="pink">YES</span>, THE FASTEST WAY IN.',
-  facts:[
-    ['In job posts','Snowflake <span class="pink">$138K–$180,600</span> — “AI-first” finance analyst, 1–3 yrs in'],
-    ['Why it’s fast','Finance brain + data hands — AI drafts the model; the hybrid owns the data under it and the story on top'],
-    ['The credential myth','CFA required in <span class="pink">0 of 40</span> top-money job posts · SQL in <span class="pink">31 of 40</span>']
-  ],
-  door:'What to do instead: if you like data, this way in skips the line. A hybrid job with 1–3 years pays above typical analyst pay ($103,570). The Full Report puts the skills in order from your job now.',
-  short:'the analytics hybrid is the fastest way in in finance — Snowflake posts $138K–$180,600 at 1–3 years for an “AI-first” analyst, and 0 of 40 top-money postings required a CFA'},
-corpdev: {prof:'fin', label:'Corporate development',
-  head:'CORPORATE DEVELOPMENT — <span class="pink">YES</span>, BUT THE WAY IN IS EARLY AND NARROW.',
-  facts:[
-    ['The pay','To <span class="pink">$184K</span> (Equinix senior analyst $122K–$184K)'],
-    ['The entry rule','Entry runs through an investment-banking / consulting background'],
-    ['The clock','Miss the first ~2 years and this way in mostly closes']
-  ],
-  door:'What to do instead: still early, or can you get banking / consulting experience? Move now. If that window has closed, FP&amp;A partner and hybrid jobs pay about the same without it.',
-  short:'corporate development is a yes with a narrow early window — pay to $184K, but entry runs through a banking/consulting background and mostly closes after the first two years'},
-/* ——— CREATOR ——— */
-faceless: {prof:'creator', label:'Faceless / AI-mass channel',
-  head:'FACELESS &amp; AI-MASS CHANNELS — <span class="pink">NO</span>.',
-  facts:[
-    ['The rule','YouTube pays <span class="pink">$0</span> for content that is “mass-produced, generic, repetitive” — template AI is named in the policy'],
-    ['The sweep','In January 2026, <span class="pink">16 slop channels</span> were terminated — <span class="pink">35M subscribers</span>, <span class="pink">4.7 billion views</span>'],
-    ['The music test','AI tracks are <span class="pink">over half</span> of new uploads on Deezer — and earn <span class="pink">1–3%</span> of streams']
-  ],
-  door:'The door, if you love this format: make <b>directed</b> work — your face or your voice inside it, choices a prompt cannot make. The creator quote below is from a man who watched his faceless competitors lose everything.',
-  short:'faceless and AI-mass channels are a no — YouTube pays $0 for template content, and in January 2026 it deleted 16 slop channels with 4.7 billion views'},
-streamer: {prof:'creator', label:'Streamer',
-  head:'STREAMER — <span class="pink">NO</span>.',
-  facts:[
-    ['The wall','Twitch Partner needs <span class="pink">75 average viewers</span> at once, plus a human review. The Affiliate tier below it — 3 average viewers — pays in cents'],
-    ['The odds','About <span class="pink">5%</span> of Affiliates ever reach Partner — the other 95% stream to almost nobody, for years'],
-    ['The clock','About <span class="pink">1,000 hours a year</span> of streaming buys an audience you can count on one hand']
-  ],
-  door:'The door: stream as the <b>shop window</b>, not the shop. A small live audience that trusts you is a buyer file — clips become UGC, the audience becomes a list, the list buys products. That version is the creator-with-a-business seat. This seat, alone, is a NO.',
-  short:'streaming is a no — Partner needs 75 average viewers, about 95% of streamers never get there, and the tier below pays in cents'},
-personality: {prof:'creator', label:'Personality creator — ads &amp; brand deals only',
-  head:'ADS &amp; DEALS ALONE — <span class="pink">NO AS A PLAN. YES AS A DOOR</span>.',
-  facts:[
-    ['The median','The median payment to a creator is <span class="pink">$3,000</span> — and the top 10% took <span class="pink">62%</span> of all payments (CreatorIQ)'],
-    ['The survey','<span class="pink">48.7%</span> of US creators earn under <span class="pink">$10,000 a year</span> from creating (IMF survey, February 2026)'],
-    ['The mix','Brand deals are about <span class="pink">70%</span> of creator revenue — one buyer type, one algorithm, zero assets you own']
-  ],
-  door:'The door: keep the deals — and <b>bolt a business onto them</b>. A product or affiliate line you control. An email list you own. Deals are how the audience arrives; the business is how the money stays. That seat — creator with a business — is a YES.',
-  short:'ads and deals alone are a no as a plan — the median creator payment is $3,000 a year; deals are a door, and the living is the business you bolt onto them'},
-ugc: {prof:'creator', label:'UGC creator',
-  head:'UGC CREATOR — <span class="pink">YES</span>. A TRADE, NOT A LOTTERY TICKET.',
-  facts:[
-    ['The growth','UGC went from <span class="pink">15% to 35%</span> of brand campaigns in one year (Collabstr, 21,000+ collaborations)'],
-    ['The price','The average paid UGC job is <span class="pink">$154</span> — proven performers get <span class="pink">$500+</span>; asking prices fell 44%'],
-    ['The screen','Buyers check your <span class="pink">reputation (58%)</span> and <span class="pink">audience fit (56%)</span> first — a media kit and two finished deliveries pass both']
-  ],
-  door:'What to do: build the <b>buyer file</b> — a one-page media kit, one sentence for the problem your audience buys, two paid deliveries. Then raise the rate toward $500 as results stack. UGC is a trade: the money is real, and it is earned per video.',
-  short:'UGC creating is a yes — brands moved it from 15% to 35% of campaigns in one year; the average job pays $154 and proven performers get $500+'},
-educator: {prof:'creator', label:'Educator / expert creator',
-  head:'EDUCATOR &amp; EXPERT CREATOR — <span class="pink">YES</span>.',
-  facts:[
-    ['The ban that helps you','<span class="pink">AI personas are banned</span> from expert and sensitive topics on YouTube — a real expert on camera is the allowed version'],
-    ['The employee proof','The employee versions of this work pay real medians: PR specialist <span class="pink">$74,750</span>, writer <span class="pink">$76,910</span>, producer/director <span class="pink">$90,360</span> (BLS)'],
-    ['The buyer','Brands use AI for editing (<span class="pink">49%</span>), not for the expert — <span class="pink">95%</span> of buyers worry about AI content; their top worry is losing the human connection']
-  ],
-  door:'What to do: sell <b>proof of expertise</b>, not content volume. One problem your audience pays to solve, taught by a face they can check. Then add the business layer — a course or product under your own name — and this becomes the strongest seat in the cluster.',
-  short:'educator and expert creating is a yes — AI personas are banned from expert topics, so a real expert on camera is the version the platforms still pay for'},
-creatorbiz: {prof:'creator', label:'Creator with a business',
-  head:'CREATOR WITH A BUSINESS — <span class="pink">YES</span>. THE TOP MONEY IN THIS CLUSTER.',
-  facts:[
-    ['The share','Products and affiliate income are <span class="pink">21.2%</span> of all creator income — the only share that grows every year (Goldman Sachs)'],
-    ['The market','US brands spent <span class="pink">$37B</span> on creators in 2025, up 26% — the 2026 projection is <span class="pink">$43.9B</span> (IAB)'],
-    ['The shield','This income is <span class="pink">100% demonetization-proof</span> — no platform decision can switch off a product your own list buys']
-  ],
-  door:'What to do: run it like the owner you are. Every 3 months check three numbers — <b>RPM, deal rate, and the share of income you own</b>. If one platform still controls most of your money, that is the next fix. The Full Report builds your 18-month version.',
-  short:'a creator with a business is a yes — products are 21.2% of creator income and the only share no platform can switch off; this is where the top money sits'}
-};
-
-/* ===== Cluster maps — each package's segmentation grid (YES/NO per sub-niche) ===== */
-var GRIDS = {
-law: {head:'LAW IS A YES — IN A SPECIALTY. THE MOST COMMON WAY IN IS A NO.',
-  sub:'“Law” is seven different jobs wearing one title. Here is the verdict for each:',
-  corner:'Privacy &amp; AI rules — the top pay in our 46 job posts ($212K–$319K), with the CIPP named in 3 of 3 privacy job posts that name a certification. The trap, priced: median debt at the median school, $112,500, vs. a $100,000 median first salary.',
-  short:'“law” breaks into very different jobs — privacy & AI governance, corporate diligence and healthcare regulatory are yes (postings to $319K); the generalist paralegal job and law school with no aim are no',
-  rows:[
-    ['Privacy & AI rules','YES','job posts $212K–$319K','specialist'],
-    ['Corporate diligence specialist','YES','senior pay $135K–$200K','specialist'],
-    ['Healthcare regulatory','YES','a YES specialty in our job posts','specialist'],
-    ['Law school aimed at a YES specialty','YES','the median outcome beats the debt','lawstudent'],
-    ['Generalist paralegal','NO','median $62,890 · 0% growth','paralegal'],
-    ['Document review as a career','NO','AI’s #1 legal use case','docreview'],
-    ['Law school “in general”','NO','$100K first salary vs. $112.5K median-school debt','lawstudent']
-  ]},
-cpa: {head:'ACCOUNTING IS A YES — IN A SPECIALTY. THE MOST COMMON SEATS ARE A NO.',
-  sub:'“Accountant” is nine different jobs. The verdict changes with the job:',
-  corner:'Transaction advisory (FDD) — up to $225K, the top money in our 54 job posts. And the exam is real: FAR, the hardest CPA section, passes at 42%. Aim first, then sit. Pay priced on 2026 scarcity — re-check 2028.',
-  short:'“accountant” is nine jobs — the generalist jobs (bookkeeping, prep, audit as a final stop) are no, and the aimed specialties (specialized tax, SEC reporting, FDD, forensic, controller) post $120K–$225K',
-  rows:[
-    ['Bookkeeping / generalist staff','NO','the occupation shrinks −6%','bookkeeper'],
-    ['Generalist tax prep','NO','the job AI is eating first in the building','tax'],
-    ['Generalist audit as your final stop','NO','$150K top pay · worst hours','audit'],
-    ['Specialized tax (pass-through / HNW)','YES','$125–200K · license required in 8 of 10','tax'],
-    ['Technical accounting / SEC reporting','YES','$120–184K · CPA required in 6 of 6','technical'],
-    ['Transaction advisory (FDD)','YES','up to $225K — the top money','fdd'],
-    ['Forensic accounting','YES','$143–162K · court-facing','fdd'],
-    ['Controller (CPA + systems)','YES','$130–200K + bonus','controller']
-  ]},
-nurse: {head:'NURSING IS A YES. THE MOST COMMON WAY IN IS A NO.',
-  sub:'Your path, part by part:',
-  corner:'CRNA (median $236,590) and psych NP ($200K–$257K posted). The trap: DNP schools charging $73K–$195K for a degree required in 0 of 16 top job posts.',
-  short:'nursing breaks into very different jobs — specialty RN, psych NP, CRNA and travel are yes; med-surg as a final stop and starting as an LPN are no, and generalist FNP is no in big cities where too many people already do it',
-  rows:[
-    ['ICU / ER / OR specialty RN','YES','$50–$75/hr posted (ICU, CA)','specialty'],
-    ['Psych NP (PMHNP)','YES','job posts $200K–$257K','np'],
-    ['CRNA','YES','median $236,590 · the hardest gate, the biggest money','crna'],
-    ['Travel RN, after 2 years of specialty','YES','median $2,134/wk · Dec 2025 snapshot — and shrinking','travel'],
-    ['Med-surg bedside as your final stop','NO','the field’s turnover trap','medsurg'],
-    ['Generalist FNP because “everyone does FNP”','NO','no in big cities &amp; restricted states, where too many do it — it works where nurses are scarce &amp; full-practice markets','np'],
-    ['Starting as an LPN','NO','+3% growth · only 16% in hospitals','lpn']
-  ]},
-fin: {head:'“FINANCIAL ANALYST” IS FIVE JOBS. THREE ARE GROWING. ONE IS A TRAP. ONE HAS A LOCKED DOOR.',
-  sub:'Each job gets its own answer:',
-  corner:'SQL sits in 31 of 40 top-money job posts; a required CFA in 0 of 40; seniors are hired 3-to-1 over juniors. The certificate-first plan is the detour.',
-  short:'“financial analyst” is five jobs — the generalist reporting one is a trap (median $103,570, juniors down 21%), and FP&A partnering, strategic finance and the analytics hybrid post up to $276,250',
-  rows:[
-    ['Generalist reporting analyst','NO','median $103,570 · junior job posts down 21%','reporting'],
-    ['FP&A business partner','YES','posted to $231,940–$276,250','fpa'],
-    ['Strategic finance','YES','Google $113K–$167K at analyst level','strategic'],
-    ['BI / analytics hybrid','YES','Snowflake $138K–$180,600 · the fastest way in','hybrid'],
-    ['Corporate development','YES · NARROW','to $184K · banking background entry, early window','corpdev']
-  ]},
-creator: {head:'CONTENT CREATOR IS A NO. A CREATOR WITH A BUSINESS IS A YES.',
-  sub:'The word “creator” covers six different jobs. They do not share a verdict:',
-  corner:'Creator with a business — products and affiliate income are 21.2% of all creator income, the only share that grows every year, and the only money no platform can switch off. The trap, priced: quit a $74,750-median job for the $3,000 median creator payment, and the mistake costs ≈$71,750 a year.',
-  short:'“creator” is six different jobs — faceless channels and streaming are no, ads and deals alone are no as a plan, and UGC, teaching your expertise, and above all a creator with a business are yes',
-  rows:[
-    ['Faceless / AI-mass channels','NO','YouTube pays $0 for template content · 16 slop channels deleted','faceless'],
-    ['Streamer','NO','Partner needs 75 average viewers · ~5% ever get there','streamer'],
-    ['Personality creator — ads &amp; deals alone','NO · DOOR','median creator payment $3,000 · a door, not a living','personality'],
-    ['UGC creator','YES','35% of brand campaigns · average paid job $154','ugc'],
-    ['Educator / expert creator','YES','AI personas are banned from expert topics — you are the allowed version','educator'],
-    ['Creator with a business','YES','products are 21.2% of creator income · 100% demonetization-proof','creatorbiz']
-  ]}
-};
-
-
-/* ===== Matcher — sub-niche seats first (specific beats generic), then clusters.
-   Short tokens (≤3 chars) match on word boundaries so "np" ≠ "input". ===== */
-var SEAT_RULES = [
-  [['document review','doc review','e-discovery','ediscovery'],'docreview'],
-  [['privacy','ai governance','corporate diligence','healthcare regulatory','senior paralegal','specialized paralegal','specialist paralegal','cipp'],'specialist'],
-  [['law student','law school','pre-law','prelaw','juris doctor','jd'],'lawstudent'],
-  [['paralegal'],'paralegal'],
-  [['bookkeep','accounts payable','accounts receivable','ap clerk','ar clerk','payroll clerk'],'bookkeeper'],
-  [['tax preparer','tax preparation','tax accountant','tax manager','tax professional','tax associate','enrolled agent'],'tax'],
-  [['staff accountant','junior accountant'],'staff'],
-  [['sec reporting','technical accounting'],'technical'],
-  [['fdd','transaction advisory','forensic','deal advisory'],'fdd'],
-  [['controller'],'controller'],
-  [['auditor','audit'],'audit'],
-  [['med-surg','medsurg','med surg','medical-surgical','medical surgical','telemetry'],'medsurg'],
-  [['travel nurse','travel rn','travel nursing'],'travel'],
-  [['icu','critical care','intensive care','operating room','nicu','picu','er nurse'],'specialty'],
-  [['nursing student','nursing school','adn','bsn'],'nstudent'],
-  [['nurse practitioner','pmhnp','fnp','aprn','psych np','np student','dnp','np'],'np'],
-  [['crna','nurse anesthetist'],'crna'],
-  [['lpn','lvn'],'lpn'],
-  [['reporting analyst','financial reporting analyst'],'reporting'],
-  [['fp&a','financial planning & analysis','financial planning and analysis','fpa'],'fpa'],
-  [['strategic finance'],'strategic'],
-  [['bi analyst','business intelligence','finance analytics','financial analytics'],'hybrid'],
-  [['corporate development','corp dev','investment banking','m&a'],'corpdev'],
-  [['faceless','ai slop','slop channel','automation channel','ai channel'],'faceless'],
-  [['streamer','streaming','twitch','live streamer'],'streamer'],
-  [['ugc'],'ugc'],
-  [['educator creator','expert creator','educational creator','course creator','online educator'],'educator'],
-  [['personality creator'],'personality'],
-  [['creator with a business','business creator','creator business'],'creatorbiz']
-];
-var CLUSTER_RULES = [
-  [['lawyer','attorney','legal','law'],'law'],
-  [['accountant','accounting','cpa','tax','payroll'],'cpa'],
-  [['nurse','nursing','midwife','rn'],'nurse'],
-  [['analyst','finance','financial','data analyst','business analyst','banker'],'fin'],
-  [['content creator','creator','influencer','youtuber','youtube','tiktoker','tiktok','blogger','vlogger','video creator','social media influencer'],'creator']
-];
-function kwHit(t, kw){
-  if (kw.length <= 3) {
-    var re = new RegExp('\\b' + kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b');
-    return re.test(t);
+  // The payment link carries the lead id + email so every Stripe
+  // checkout can be reconciled back to this exact Watchdog.
+  function stripeHref(leadId, email){
+    var q = [];
+    if (leadId) q.push('client_reference_id=' + encodeURIComponent(leadId));
+    if (email) q.push('prefilled_email=' + encodeURIComponent(email));
+    return STRIPE_LINK + (q.length ? '?' + q.join('&') : '');
   }
-  return t.indexOf(kw) !== -1;
-}
-function matchJob(raw){
-  var t = raw.toLowerCase().replace(/\s+/g,' ').trim();
-  var i, j;
-  for (i=0;i<SEAT_RULES.length;i++)
-    for (j=0;j<SEAT_RULES[i][0].length;j++)
-      if (kwHit(t, SEAT_RULES[i][0][j])) return {type:'seat', seat:SEAT_RULES[i][1], prof:SEATS[SEAT_RULES[i][1]].prof};
-  for (i=0;i<CLUSTER_RULES.length;i++)
-    for (j=0;j<CLUSTER_RULES[i][0].length;j++)
-      if (kwHit(t, CLUSTER_RULES[i][0][j])) return {type:'grid', prof:CLUSTER_RULES[i][1]};
-  return null;
-}
-function submitJob(){
-  var raw = document.getElementById('jobInput').value.trim();
-  if (!raw) return;
-  S.typed = raw;
-  var m = matchJob(raw);
-  if (m && m.type === 'seat') { showSeat(m.prof, m.seat, false); return; }
-  if (m && m.type === 'grid') { showGrid(m.prof); return; }
-  document.querySelectorAll('.wlT').forEach(function(el){ el.textContent = raw; });
-  document.getElementById('wlForm').style.display = 'block';
-  document.getElementById('wlDone').style.display = 'none';
-  document.getElementById('wlErr').style.display = 'none';
-  var wlBtn = document.querySelector('#wlForm button.btn');
-  if (wlBtn) { wlBtn.disabled = false; wlBtn.textContent = 'Start my check \u2665'; }
-  show('s7', 5);
-}
-function pickChip(prof){ S.typed = ''; showGrid(prof); }
-/* ===== Lead capture — server first: leads land in cg_leads via the CG
-   writer endpoint; localStorage remains as a silent backup copy.
-   UI success reflects the SERVER result, never the local copy. ===== */
-var LEAD_API = 'https://careerglitch.com/api/pathcheck-lead';
-function uaKind(){ return /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'mobile' : 'desktop'; }
-function backupLead(rec){
-  try {
-    var leads = JSON.parse(localStorage.getItem('pathcheck_leads') || '[]');
-    leads.push(rec);
-    localStorage.setItem('pathcheck_leads', JSON.stringify(leads));
-  } catch(e){}
-}
-function postLead(payload){
-  return fetch(LEAD_API, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)})
-    .then(function(r){
-      return r.json().catch(function(){ return {}; }).then(function(j){
-        if (!r.ok || !j.ok) throw new Error((j && j.error) || 'save failed');
-        return j;
-      });
+
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function show(view){
+    ['view-landing','view-start','view-onboard','view-result','view-app'].forEach(function(v){ $(v).classList.toggle('hidden', v !== view); });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function api(body){
+    return fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function(r){ return r.json().then(function(j){ return { status: r.status, j: j }; }); });
+  }
+  function showErr(id, msg){ var e = $(id); if (!e) return; e.textContent = msg || ''; e.classList.toggle('on', !!msg); }
+  function celebrate(){
+    var box = $('celebrate'); box.innerHTML = ''; box.classList.remove('hidden');
+    var glyphs = ['♥','★','◆','♥','●'];
+    for (var i = 0; i < 26; i++){
+      var s = document.createElement('span');
+      s.textContent = glyphs[i % glyphs.length];
+      s.style.left = (Math.random() * 98) + 'vw';
+      s.style.color = ['#F92A82','#FF8CBE','#c2185b','#FFB8D9'][i % 4];
+      s.style.animationDuration = (1.1 + Math.random() * 0.9) + 's';
+      box.appendChild(s);
+    }
+    setTimeout(function(){ box.classList.add('hidden'); box.innerHTML = ''; }, 2300);
+  }
+  function animateScore(el, from, to){
+    if (!el) return;
+    var start = null, dur = 650;
+    function step(ts){
+      if (!start) start = ts;
+      var p = Math.min(1, (ts - start) / dur);
+      el.textContent = Math.round(from + (to - from) * p);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ---------------- checklist rendering (shared) ---------------- */
+  var CAT_LABELS = { skill: 'Skills', skills: 'Skills', tool: 'AI tools & tools', tools: 'AI tools & tools', certification: 'Certifications', certifications: 'Certifications', experience: 'Experience', portfolio: 'Portfolio' };
+  function catLabel(c){ return CAT_LABELS[String(c || 'skill').toLowerCase()] || (String(c || 'Skill').charAt(0).toUpperCase() + String(c || 'skill').slice(1)); }
+  function checklistHTML(profile, interactive){
+    var groups = {}, order = [];
+    (profile.top1_profile || []).forEach(function(it){
+      var label = catLabel(it.category);
+      if (!groups[label]) { groups[label] = []; order.push(label); }
+      groups[label].push(it);
     });
-}
-function pathBtn(j){
-  var id = j && j.lead_id;
-  if (!id) return '';
-  try { localStorage.setItem('pathcheck_lead_id', id); } catch(e){}
-  return '<div style="margin-top:14px"><a class="btn" href="/app#' + id + '" style="text-decoration:none">Open my path \u2192</a><p class="fineprint" style="margin-top:8px">Your verdict comes with the path: the step-by-step track, your streak, and the weekly radar for your profession.</p></div>';
-}
-function persPayload(){
-  if (S.mode !== 'seat' || typeof PERS === 'undefined') return null;
-  var stage = null, inv = null;
-  STAGES.forEach(function(x){ if (x[0] === PERS.stage) stage = x[1]; });
-  INVS.forEach(function(x){ if (x[0] === PERS.inv) inv = x[1]; });
-  var p = {stage:stage, state:(PERS.stateName || null), invested:inv};
-  return (p.stage || p.state || p.invested) ? p : null;
-}
-function submitWaitlist(){
-  var email = document.getElementById('wlEmail').value.trim();
-  var err = document.getElementById('wlErr');
-  var btn = document.querySelector('#wlForm button.btn');
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = 'Please add a valid email — that\u2019s how we reach you when it\u2019s live.'; err.style.display='block'; return; }
-  err.style.display='none';
-  backupLead({prof:'waitlist', typed:S.typed, email:email, ts:new Date().toISOString()});
-  if (btn) { btn.disabled = true; btn.textContent = 'Saving\u2026'; }
-  postLead({name:'', email:email, prof:'waitlist', typed:S.typed, seat:null, kind:'waitlist', ua:uaKind()})
-    .then(function(j){
-      document.getElementById('wlForm').style.display = 'none';
-      document.getElementById('wlDone').style.display = 'block';
-      var wid = j && j.lead_id;
-      if (wid) {
-        try { localStorage.setItem('pathcheck_lead_id', wid); } catch(e){}
-        var wp = document.getElementById('wlPath');
-        if (wp) wp.innerHTML = '<a class="btn" href="/app#' + wid + '" style="text-decoration:none">Track the research \u2192</a><p class="fineprint" style="margin-top:8px">Your dashboard watches this profession while we research it \u2014 and opens your track the moment the verdict lands.</p>';
+    return order.map(function(label){
+      var rows = groups[label].map(function(it){
+        var pts = it.user_has ? '' : '<span class="pts">+' + it.weight + ' pts</span>';
+        var inner = '<span class="mark">' + (it.user_has ? '✅' : '❗') + '</span><span>' + esc(it.item) + '</span>' + pts;
+        if (interactive && !it.user_has) return '<button type="button" class="checkitem" data-item="' + esc(it.id) + '">' + inner + '</button>';
+        return '<div class="checkitem">' + inner + '</div>';
+      }).join('');
+      return '<div class="checkgroup"><h3>' + esc(label) + '</h3>' + rows + '</div>';
+    }).join('');
+  }
+
+  /* ---------------- short entry: profession + email -> card ---------------- */
+  var PROF_CHIPS = ['Bookkeeper', 'Realtor', 'Graphic Designer', 'Nurse', 'Data Analyst'];
+  function renderProfChips(){
+    var box = $('prof-chips'); box.innerHTML = '';
+    PROF_CHIPS.forEach(function(c){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'chip'; b.textContent = c;
+      b.addEventListener('click', function(){ $('prof-input').value = c; goStep2(); });
+      box.appendChild(b);
+    });
+  }
+  function startEntry(){
+    $('start-steps').classList.remove('hidden');
+    $('start-sniff').classList.add('hidden');
+    $('start-step1').classList.remove('hidden');
+    $('start-step2').classList.add('hidden');
+    showErr('prof-err', ''); showErr('card-err', '');
+    renderProfChips();
+    show('view-start');
+    setTimeout(function(){ $('prof-input').focus(); }, 350);
+  }
+  function goStep2(){
+    var prof = $('prof-input').value.trim();
+    if (prof.length < 2) { showErr('prof-err', 'Type the profession you want checked — or tap one below.'); return; }
+    showErr('prof-err', '');
+    state.profession = prof;
+    $('card-prof-name').textContent = prof;
+    $('start-step1').classList.add('hidden');
+    $('start-step2').classList.remove('hidden');
+    setTimeout(function(){ $('card-email').focus(); }, 200);
+  }
+  function submitCard(){
+    var email = $('card-email').value.trim();
+    showErr('card-err', '');
+    $('start-steps').classList.add('hidden');
+    $('start-sniff').classList.remove('hidden');
+    api({ action: 'card', profession: state.profession, email: email }).then(function(r){
+      if (!r.j || !r.j.ok) throw new Error((r.j && r.j.error) || 'card failed');
+      state.leadId = r.j.lead_id;
+      state.email = email;
+      state.wd = r.j.watchdog;
+      try { localStorage.setItem(LS_KEY, state.leadId); } catch (e) {}
+      try { history.replaceState(null, '', '#' + state.leadId); } catch (e) {}
+      renderResult();
+      show('view-result');
+    }).catch(function(){
+      $('start-steps').classList.remove('hidden');
+      $('start-sniff').classList.add('hidden');
+      showErr('card-err', 'My nose glitched on that one — tap "Get my card" once more.');
+    });
+  }
+
+  /* ---------------- post-payment onboarding chat ---------------- */
+  function obAddMsg(role, text){
+    var log = $('ob-log');
+    var row = document.createElement('div');
+    row.className = 'msg ' + role;
+    if (role === 'agent'){
+      row.innerHTML = '<img class="avatar" src="/masha.webp" alt=""><div class="bubble">' + esc(text) + '</div>';
+    } else {
+      row.innerHTML = '<div class="bubble">' + esc(text) + '</div>';
+    }
+    log.appendChild(row);
+    row.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    return row;
+  }
+  function obAddTyping(){
+    var row = document.createElement('div');
+    row.className = 'msg agent'; row.id = 'ob-typing-row';
+    row.innerHTML = '<img class="avatar" src="/masha.webp" alt=""><div class="bubble"><span class="typing"><i></i><i></i><i></i></span></div>';
+    $('ob-log').appendChild(row);
+    row.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }
+  function obRemoveTyping(){ var t = $('ob-typing-row'); if (t) t.remove(); }
+  function obRenderChips(chips){
+    var box = $('ob-chips'); box.innerHTML = '';
+    (chips || []).forEach(function(c){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'chip'; b.textContent = c;
+      b.addEventListener('click', function(){ obSendUser(c); });
+      box.appendChild(b);
+    });
+  }
+  function obSetBusy(b){
+    state.obBusy = b;
+    $('ob-send').disabled = b;
+    $('ob-input').disabled = b;
+  }
+  function obAgentTurn(){
+    obSetBusy(true); obAddTyping();
+    api({ action: 'chat', mode: 'personalize', profession: state.wd ? state.wd.profile.profession : '', messages: state.obTranscript }).then(function(r){
+      obRemoveTyping(); obSetBusy(false);
+      if (!r.j || !r.j.ok) { obAddMsg('agent', 'My nose glitched for a second — say that once more?'); return; }
+      obAddMsg('agent', r.j.say);
+      state.obTranscript.push({ role: 'agent', text: r.j.say });
+      obRenderChips(r.j.chips || []);
+      if (r.j.done) obBuild();
+    }).catch(function(){
+      obRemoveTyping(); obSetBusy(false);
+      obAddMsg('agent', 'My nose glitched for a second — say that once more?');
+    });
+  }
+  function obSendUser(text){
+    text = String(text || '').trim();
+    if (!text || state.obBusy) return;
+    obAddMsg('user', text);
+    state.obTranscript.push({ role: 'user', text: text });
+    $('ob-input').value = '';
+    obRenderChips([]);
+    obAgentTurn();
+  }
+  function startOnboard(){
+    state.obTranscript = [];
+    $('ob-log').innerHTML = '';
+    $('ob-main').classList.remove('hidden');
+    $('ob-sniff').classList.add('hidden');
+    showErr('ob-err', '');
+    $('ob-retry').classList.add('hidden');
+    show('view-onboard');
+    obAgentTurn();
+    setTimeout(function(){ $('ob-input').focus(); }, 350);
+  }
+  function obBuild(){
+    $('ob-main').classList.add('hidden');
+    $('ob-sniff').classList.remove('hidden');
+    showErr('ob-err', '');
+    $('ob-retry').classList.add('hidden');
+    api({ action: 'personalize-build', leadId: state.leadId, messages: state.obTranscript }).then(function(r){
+      if (!r.j || !r.j.ok) throw new Error((r.j && r.j.error) || 'personalize failed');
+      var base = typeof r.j.baseline_score === 'number' ? r.j.baseline_score : (state.wd && state.wd.baseline ? state.wd.baseline.score : null);
+      state.wd = r.j.watchdog;
+      state.justPersonalized = { score: r.j.watchdog.score, baseline: base };
+      openApp(state.leadId, state.wd, state.email);
+    }).catch(function(){
+      showErr('ob-err', 'My nose glitched on that one — tap Try again.');
+      $('ob-retry').classList.remove('hidden');
+    });
+  }
+  // The deep onboarding is the FIRST app screen for a trial user whose
+  // profile is still the profession baseline — until they finish it or
+  // park it with "Do it later" for this session.
+  function maybeOnboard(){
+    var wd = state.wd;
+    if (!wd || !wd.trial || wd.trial.status !== 'active') return false;
+    if (wd.profile && wd.profile.personalized) return false;
+    var skipped = false;
+    try { skipped = sessionStorage.getItem(OB_SKIP_KEY) === state.leadId; } catch (e) {}
+    if (skipped) return false;
+    startOnboard();
+    return true;
+  }
+
+  /* ---------------- result ---------------- */
+  function renderResult(){
+    var wd = state.wd, p = wd.profile;
+    $('res-prof').textContent = p.profession + ' · AI-Proof Score';
+    $('res-score').textContent = wd.score;
+    $('res-reason').textContent = wd.score_reason || p.score_reason || '';
+    $('res-typical').textContent = 'This is the score for a typical ' + p.profession + ' today. Inside, you make it yours.';
+    $('res-sent-email').textContent = state.email || '';
+    $('res-checkout').setAttribute('href', stripeHref(state.leadId, state.email));
+    $('res-checklist').innerHTML = checklistHTML(p, false);
+  }
+
+  /* ---------------- app ---------------- */
+  function deltaInfo(wd){
+    // Real weekly movement first: what the news cycle did to this
+    // Score in the last 7 days (score_history is written server-side
+    // by the weekly rescan — one entry per applied radar item).
+    var hist = (wd.score_history || []).filter(function(e){ return e && typeof e.delta === 'number'; });
+    var now = Date.now();
+    var recent = hist.filter(function(e){
+      var t = new Date(e.date && e.date.length === 10 ? e.date + 'T12:00:00' : e.date).getTime();
+      return !isNaN(t) && (now - t) <= 7 * 24 * 3600 * 1000 && (now - t) > -24 * 3600 * 1000;
+    });
+    if (recent.length){
+      var net = recent.reduce(function(a, e){ return a + e.delta; }, 0);
+      var top = recent[0];
+      recent.forEach(function(e){ if (Math.abs(e.delta) > Math.abs(top.delta)) top = e; });
+      var reason = String(top.reason || '').replace(/^[↑↓]\s*\d+:\s*/, '');
+      if (net !== 0){
+        return {
+          cls: net > 0 ? 'up' : 'down',
+          text: (net > 0 ? '↑ +' + net : '↓ ' + Math.abs(net)) + ' this week: ' + reason,
+          net: net, reason: reason
+        };
       }
-      setHearts(5);
-      document.getElementById('checkPanel').scrollIntoView({behavior:'smooth', block:'start'});
-    })
-    .catch(function(){
-      if (btn) { btn.disabled = false; btn.textContent = 'Start my check \u2665'; }
-      err.textContent = 'That didn\u2019t save — check the email and try again.';
-      err.style.display='block';
+      return { cls: '', text: 'News touched your profession this week, but your Score held: ' + reason, net: 0, reason: reason };
+    }
+    if (wd.baseline && typeof wd.baseline.score === 'number' && wd.baseline.score !== wd.score){
+      var d = wd.score - wd.baseline.score;
+      return { cls: d > 0 ? 'up' : 'down', text: (d > 0 ? '↑ +' : '↓ ') + d + ' since your first check — your moves are working' };
+    }
+    return { cls: '', text: 'First week — your baseline is set. Your Watchdog is now watching every day.' };
+  }
+  function fmtDate(iso){
+    if (!iso) return '';
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return '';
+    return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  }
+  function renderApp(animateFrom){
+    var wd = state.wd, p = wd.profile;
+    $('app-prof').textContent = p.profession + (p.location ? ' · ' + p.location : '');
+    animateScore($('app-score'), typeof animateFrom === 'number' ? animateFrom : wd.score, wd.score);
+    var d = deltaInfo(wd);
+    var deltaEl = $('app-delta');
+    deltaEl.className = 'delta ' + d.cls;
+    deltaEl.textContent = d.text;
+    // A net-negative week also raises the alert banner on Home: what
+    // changed, and the button takes the user to the Radar behind it.
+    var alertEl = $('home-alert');
+    if (typeof d.net === 'number' && d.net < 0){
+      $('home-alert-reason').textContent = d.reason
+        ? 'Here is what changed: ' + d.reason + ' — and what to do about it.'
+        : 'Here is what changed and what to do about it.';
+      alertEl.classList.remove('hidden');
+    } else {
+      alertEl.classList.add('hidden');
+    }
+    var noteEl = $('app-personal-note');
+    if (state.justPersonalized) {
+      noteEl.textContent = 'Your personal Score: ' + state.justPersonalized.score +
+        (typeof state.justPersonalized.baseline === 'number' ? ' — the profession baseline was ' + state.justPersonalized.baseline + '.' : '.');
+      noteEl.classList.remove('hidden');
+    } else {
+      noteEl.classList.add('hidden');
+      noteEl.textContent = '';
+    }
+    $('app-reason').textContent = wd.score_reason || p.score_reason || '';
+    var trialOn = wd.trial && wd.trial.status === 'active';
+    $('app-trial').textContent = trialOn
+      ? 'Your free month is on — until ' + fmtDate(wd.trial.ends_at) + '. Then $9/month, cancel in one tap.'
+      : '';
+    $('app-offer').classList.toggle('hidden', trialOn);
+    if (!trialOn) $('app-checkout').setAttribute('href', stripeHref(state.leadId, state.email));
+    var have = (p.top1_profile || []).filter(function(i){ return i.user_has; }).length;
+    var total = (p.top1_profile || []).length;
+    var doneTasks = (p.tasks || []).filter(function(t){ return t.done; }).length;
+    $('home-text').textContent = 'You do your work — your Watchdog watches the profession. It checks for new AI tools, grants, jobs and rule changes every day, and speaks up when something actually touches ' + p.profession.toLowerCase() + 's like you.';
+    $('home-stats').innerHTML =
+      '<div class="checkitem"><span class="mark">🧰</span><span>Top-1% kit: <strong>' + have + ' of ' + total + '</strong> already yours</span></div>' +
+      '<div class="checkitem"><span class="mark">📅</span><span>This week: <strong>' + doneTasks + ' of ' + (p.tasks || []).length + '</strong> moves done</span></div>' +
+      '<div class="checkitem"><span class="mark">🎯</span><span>Your goal: <strong>' + esc(p.goal) + '</strong></span></div>';
+    $('top1-title').textContent = 'What the top 1% ' + p.profession.toLowerCase() + 's has in 2027';
+    $('home-personal').classList.toggle('hidden', !(trialOn && !p.personalized));
+    renderTop1();
+    renderWeek();
+    renderRadar();
+  }
+  function switchTab(tab){
+    state.tab = tab;
+    var tabs = $('app-tabs').querySelectorAll('.tab');
+    for (var i = 0; i < tabs.length; i++) tabs[i].classList.toggle('on', tabs[i].getAttribute('data-tab') === tab);
+    ['home','top1','week','radar'].forEach(function(t){ $('panel-' + t).classList.toggle('hidden', t !== tab); });
+  }
+  function renderTop1(){
+    var p = state.wd.profile;
+    $('top1-list').innerHTML = checklistHTML(p, true);
+    var btns = $('top1-list').querySelectorAll('[data-item]');
+    for (var i = 0; i < btns.length; i++){
+      btns[i].addEventListener('click', function(){ showDetail(this.getAttribute('data-item')); });
+    }
+  }
+  function showDetail(id){
+    var p = state.wd.profile;
+    var it = null;
+    (p.top1_profile || []).forEach(function(x){ if (x.id === id) it = x; });
+    if (!it) return;
+    var box = $('top1-detail');
+    box.innerHTML =
+      '<div class="detail"><span class="section-label">Where to get it</span>' +
+      '<h3>' + esc(it.item) + ' <span class="pts" style="font-family:\'DM Mono\',monospace;font-size:12.5px;color:var(--deep)">+' + it.weight + ' pts</span></h3>' +
+      (it.how_to_get ? '<p>' + esc(it.how_to_get) + '</p>' : '') +
+      (it.free_option ? '<p class="free"><strong>Free way in:</strong> ' + esc(it.free_option) + '</p>' : '') +
+      '<button type="button" class="btn small" id="detail-have">I have this now ✓</button></div>';
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    $('detail-have').addEventListener('click', function(){ flipItem(id); });
+  }
+  function persistProfile(oldScore){
+    api({ action: 'update', leadId: state.leadId, profile: state.wd.profile }).then(function(r){
+      if (!r.j || !r.j.ok) throw new Error('update failed');
+      var changed = r.j.watchdog.score !== oldScore;
+      state.wd = r.j.watchdog;
+      renderApp(changed ? oldScore : null);
+      if (changed) celebrate();
+    }).catch(function(){
+      addMsgSafe('That did not save — check your connection and tap it once more.');
     });
-}
-var jobInp = document.getElementById('jobInput');
-var jobGo = document.getElementById('jobGo');
-jobInp.addEventListener('input', function(){ jobGo.disabled = !jobInp.value.trim(); });
-jobInp.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); submitJob(); } });
-document.getElementById('wlEmail').addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); submitWaitlist(); } });
+  }
+  function addMsgSafe(msg){
+    var el = $('app-trial');
+    if (el) { el.textContent = msg; }
+  }
+  function flipItem(id){
+    var oldScore = state.wd.score;
+    (state.wd.profile.top1_profile || []).forEach(function(x){ if (x.id === id) x.user_has = true; });
+    $('top1-detail').innerHTML = '';
+    renderTop1();
+    persistProfile(oldScore);
+  }
+  function renderWeek(){
+    var p = state.wd.profile;
+    $('week-list').innerHTML = (p.tasks || []).map(function(t, idx){
+      return '<div class="taskitem' + (t.done ? ' done' : '') + '">' +
+        '<button type="button" class="box" data-task="' + idx + '" aria-label="Mark done">' + (t.done ? '✓' : '') + '</button>' +
+        '<span class="t">' + esc(t.title) + '</span>' +
+        (t.source_item_id ? '<span class="newstag">From this week\'s news</span>' : '') +
+        '<span class="pts">+' + t.points + ' pts</span></div>';
+    }).join('');
+    var boxes = $('week-list').querySelectorAll('[data-task]');
+    for (var i = 0; i < boxes.length; i++){
+      boxes[i].addEventListener('click', function(){
+        var idx = Number(this.getAttribute('data-task'));
+        var task = state.wd.profile.tasks[idx];
+        if (!task || task.done) return;
+        var oldScore = state.wd.score;
+        task.done = true;
+        renderWeek();
+        persistProfile(oldScore);
+      });
+    }
+  }
+  function renderRadar(){
+    var wd = state.wd;
+    var feedDate = wd.scan && wd.scan.feed_date ? fmtDate(wd.scan.feed_date + 'T12:00:00') : '';
+    $('scan-text').textContent = 'Your Watchdog checks every day. Last scan: ' + (feedDate || 'today') + '.';
+    var items = wd.radar || [];
+    if (!items.length){
+      $('radar-list').innerHTML = '<p class="lede">Your first scan is being prepared. The Watchdog checks every day — your first briefing for this profession lands this week, and anything urgent reaches you the day it lands.</p>';
+      return;
+    }
+    $('radar-list').innerHTML = items.map(function(it){
+      var imp = typeof it.impact === 'number' ? it.impact : 0;
+      var impHtml = imp === 0 ? '' : '<span class="impact ' + (imp < 0 ? 'neg' : 'pos') + '">' + (imp < 0 ? '↓' : '↑') + ' ' + Math.abs(imp) + ' pressure</span>';
+      return '<article class="radarcard"><h3>' + esc(it.headline) + '</h3><p>' + esc(it.so_what) + '</p>' +
+        '<div class="meta">' + impHtml +
+        (it.source_url ? '<a href="' + esc(it.source_url) + '" target="_blank" rel="noopener">Read the source</a>' : '') +
+        (it.date ? '<span class="date">' + esc(fmtDate(it.date + 'T12:00:00')) + '</span>' : '') +
+        '</div></article>';
+    }).join('');
+  }
+  function openApp(leadId, wd, email){
+    state.leadId = leadId;
+    if (email) state.email = email;
+    state.wd = wd;
+    try { localStorage.setItem(LS_KEY, leadId); } catch (e) {}
+    if (location.hash !== '#' + leadId) { try { history.replaceState(null, '', '#' + leadId); } catch (e) {} }
+    renderApp(null);
+    switchTab('home');
+    if (!maybeOnboard()) show('view-app');
+  }
 
-function startCheck(){
-  document.getElementById('heroView').classList.add('gone');
-  document.getElementById('checkPanel').classList.add('on');
-  show('s0', 1);
-}
-function backHome(){
-  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('on'); });
-  document.getElementById('checkPanel').classList.remove('on');
-  document.getElementById('heroView').classList.remove('gone');
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-function restart(){ show('s0', 1); }
-
-/* ===== Result rendering ===== */
-function withheldHTML(P){
-  return '<b>What this doesn’t show:</b> what you still lack for this job, and your step-by-step plan for the next 12 months. That’s the Full Report: the same ' + P.count + ' ' + (P.srcWhat || 'job posts') + ', applied to you.';
-}
-function humanLine(short){
-  if (!short) return '';
-  var t = short.charAt(0).toUpperCase() + short.slice(1);
-  return t + (t.slice(-1) === '.' ? '' : '.');
-}
-function cardHTML(P, pathLine, st){
-  var v = V11[S.seat] || {};
-  var Q = QUOTES[S.prof];
-  var nums = st.facts.map(function(n){
-    return '<div class="vnum"><div class="lab">'+n[0]+'</div><div class="val">'+n[1]+'</div></div>';
-  }).join('');
-  var human = humanLine(st.short);
-  return '<div class="vk">PathCheck · ' + P.kick + '</div>' +
-    '<div class="vpath">' + pathLine + '</div>' +
-    (v.hook ? '<div class="vhook">' + v.hook + '</div>' : '') +
-    '<h3>' + st.head + '</h3>' +
-    (v.conf ? '<div><span class="vconf">Confidence: ' + v.conf + '</span></div>' : '') +
-    (human ? '<p class="vhuman"><b>In plain words:</b> ' + human + '</p>' : '') +
-    '<div class="vnums">' + nums + '</div>' +
-    (Q ? '<div class="vquote">&ldquo;' + Q.q + '&rdquo;<span class="vqby">— ' + Q.by + ' · <a href="' + Q.url + '" target="_blank" rel="noopener">source</a></span></div>' : '') +
-    (v.coe ? '<div class="vcoe">' + v.coe + '</div>' : '') +
-    '<p class="vai"><span class="vstep" id="doorStep"></span>' + st.door + '</p>' +
-    '<p class="vstate" id="doorState"></p>' +
-    (v.expiry ? '<div class="vexp">' + v.expiry + '</div>' : '') +
-    (v.next ? '<div class="vnext">' + v.next + '</div>' : '') +
-    '<div class="vfoot">FULL REPORT: $19 — OR FREE WHEN 1 PERSON COMPLETES A CHECK VIA YOUR LINK · ROADMAP → COMMENT OR DM “' + P.code + '” · ' + P.tail + '</div>';
-}
-function resetStrip(pre){
-  document.getElementById(pre+'Form').style.display = 'block';
-  var ok = document.getElementById(pre+'Ok');
-  ok.style.display = 'none'; ok.innerHTML = '';
-  document.getElementById(pre+'Err').style.display = 'none';
-  var sbtn = document.querySelector('#' + pre + 'Form .btn');
-  if (sbtn) { sbtn.disabled = false; sbtn.textContent = 'Send \u2665'; }
-  var n = document.getElementById(pre+'Name'), e = document.getElementById(pre+'Email');
-  if (S.name) n.value = S.name;
-  if (S.email) e.value = S.email;
-}
-function showSeat(prof, seatKey, fromGrid){
-  S.prof = prof; S.seat = seatKey; S.mode = 'seat';
-  var P = PROFS[prof], st = SEATS[seatKey];
-  document.getElementById('panelTitleText').textContent = P.title;
-  document.getElementById('seatTyped').innerHTML = (S.typed && !fromGrid)
-    ? 'You typed: “<b>' + esc(S.typed) + '</b>” — no questions. Here is the verdict for your job.'
-    : 'From the ' + P.kick + ' map — this job, in full.';
-  var pathLine = esc(st.label) + (S.typed && !fromGrid ? ' · you typed “' + esc(S.typed) + '”' : '');
-  document.getElementById('vcard2').innerHTML = cardHTML(P, pathLine, st);
-  document.getElementById('withheld2').innerHTML = withheldHTML(P);
-  var b = document.getElementById('seatBack');
-  if (fromGrid) { b.textContent = '← back to the ' + P.kick + ' map'; b.onclick = function(){ showGrid(prof); }; }
-  else { b.textContent = '↺ check a different path'; b.onclick = restart; }
-  resetStrip('seat');
-  renderPers();
-  document.getElementById('shareLink2').value = location.origin + '/r/' + slug();
-  document.getElementById('sharebox2').classList.remove('on');
-  buildLetter();
-  show('s8', 5);
-}
-function showGrid(prof){
-  S.prof = prof; S.seat = 'grid'; S.mode = 'grid';
-  var P = PROFS[prof], G = GRIDS[prof];
-  document.getElementById('panelTitleText').textContent = P.title;
-  document.getElementById('gridTyped').innerHTML = S.typed
-    ? 'You typed: “<b>' + esc(S.typed) + '</b>” — that’s not one seat, it’s a whole map. Every part, priced:'
-    : 'Every part of ' + P.kick + ', priced:';
-  document.getElementById('gridHook').textContent = GV11[prof].hook;
-  document.getElementById('gridHead').innerHTML = G.head + ' <span class="vconf">Confidence: High</span>';
-  document.getElementById('gridSub').textContent = G.sub;
-  document.getElementById('gridHuman').textContent = 'In plain words: ' + humanLine(G.short);
-  document.getElementById('gridRows').innerHTML = G.rows.map(function(r){
-    var cls = (r[1].indexOf('YES') === 0) ? 'yes' : 'no';
-    return '<button class="grow" onclick="showSeat(\'' + prof + '\',\'' + r[3] + '\',true)">' +
-      '<span class="gv ' + cls + '">' + r[1] + '</span>' +
-      '<span class="gt"><span class="gn">' + r[0] + '</span>' + (r[2] ? '<span class="gd">' + r[2] + '</span>' : '') + '</span>' +
-      '<span class="arr">→</span></button>';
-  }).join('');
-  document.getElementById('gridCorner').innerHTML = '<b>Where the money is:</b> ' + G.corner;
-  var GQ = QUOTES[prof];
-  document.getElementById('gridQuote').innerHTML = '&ldquo;' + GQ.q + '&rdquo;<span class="vqby">— ' + GQ.by + ' · <a href="' + GQ.url + '" target="_blank" rel="noopener">source</a></span>';
-  document.getElementById('gridNext').textContent = GV11[prof].next;
-  document.getElementById('withheld3').innerHTML = withheldHTML(P);
-  resetStrip('grid');
-  document.getElementById('shareLink3').value = location.origin + '/r/' + slug();
-  document.getElementById('sharebox3').classList.remove('on');
-  buildLetter();
-  show('s9', 5);
-}
-function saveStrip(pre){
-  var name = document.getElementById(pre+'Name').value.trim();
-  var email = document.getElementById(pre+'Email').value.trim();
-  var err = document.getElementById(pre+'Err');
-  if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = 'Please add your first name and a valid email.'; err.style.display='block'; return; }
-  err.style.display='none';
-  S.name = name; S.email = email;
-  backupLead({name:S.name, email:S.email, prof:S.prof, typed:S.typed, seat:(S.mode === 'seat' ? S.seat : 'grid'), ts:new Date().toISOString()});
-  var btn = document.querySelector('#' + pre + 'Form .btn');
-  if (btn) { btn.disabled = true; btn.textContent = 'Saving\u2026'; }
-  postLead({name:S.name, email:S.email, prof:S.prof, typed:S.typed, seat:(S.mode === 'seat' ? S.seat : null), kind:S.mode, personalize:persPayload(), ua:uaKind()})
-    .then(function(j){
-  document.getElementById(pre+'Form').style.display = 'none';
-  var ok = document.getElementById(pre+'Ok');
-  ok.innerHTML = '<span class="ok">You’re in ✓</span> — your card + the full-report link are saved for <b>' + esc(email) + '</b>; they land in that inbox when the pilot cohort opens. Your personal link below already works for the free unlock.' + pathBtn(j);
-  ok.style.display = 'block';
-  document.getElementById('shareLink2').value = location.origin + '/r/' + slug();
-  document.getElementById('shareLink3').value = location.origin + '/r/' + slug();
-  buildLetter();
-    })
-    .catch(function(){
-      if (btn) { btn.disabled = false; btn.textContent = 'Send \u2665'; }
-      err.textContent = 'That didn\u2019t save — check the email and try again.';
-      err.style.display = 'block';
+  /* ---------------- wiring ---------------- */
+  $('start-btn').addEventListener('click', startEntry);
+  $('prof-form').addEventListener('submit', function(e){ e.preventDefault(); goStep2(); });
+  $('card-form').addEventListener('submit', function(e){ e.preventDefault(); submitCard(); });
+  $('res-roadmap').addEventListener('click', function(){
+    // The road map is the top-1% checklist with its "Where to get it"
+    // cards — open the app on that panel for the lead just created.
+    openApp(state.leadId, state.wd, state.email);
+    switchTab('top1');
+  });
+  $('res-checkout').addEventListener('click', function(e){
+    e.preventDefault();
+    var href = stripeHref(state.leadId, state.email);
+    // Record the checkout start on the lead (that is what switches
+    // the free month on), then hand over to Stripe. If recording
+    // fails, go anyway — the checkout URL carries the lead id.
+    api({ action: 'trial', leadId: state.leadId }).then(function(){
+      window.location.href = href;
+    }, function(){
+      window.location.href = href;
     });
-}
+  });
+  $('ob-form').addEventListener('submit', function(e){ e.preventDefault(); obSendUser($('ob-input').value); });
+  $('ob-retry').addEventListener('click', obBuild);
+  $('ob-skip').addEventListener('click', function(e){
+    e.preventDefault();
+    try { sessionStorage.setItem(OB_SKIP_KEY, state.leadId); } catch (err) {}
+    show('view-app');
+  });
+  $('home-personal-btn').addEventListener('click', startOnboard);
+  $('home-alert-btn').addEventListener('click', function(){ switchTab('radar'); });
+  $('app-checkout').addEventListener('click', function(e){
+    e.preventDefault();
+    var href = stripeHref(state.leadId, state.email);
+    // Record the checkout start on the lead first (switches the free
+    // month on), then go to Stripe. If recording fails, go anyway —
+    // the checkout URL carries the lead id for reconciliation.
+    api({ action: 'trial', leadId: state.leadId }).then(function(){
+      window.location.href = href;
+    }, function(){
+      window.location.href = href;
+    });
+  });
+  $('restore-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    showErr('restore-err', '');
+    var email = $('restore-email').value.trim();
+    api({ action: 'restore', email: email }).then(function(r){
+      if (!r.j || !r.j.ok) throw new Error((r.j && r.j.error) || 'Nothing found for that email.');
+      openApp(r.j.lead_id, r.j.watchdog, r.j.email || email);
+    }).catch(function(err){ showErr('restore-err', err.message); });
+  });
+  $('app-tabs').addEventListener('click', function(e){
+    var t = e.target.closest ? e.target.closest('[data-tab]') : null;
+    if (t) switchTab(t.getAttribute('data-tab'));
+  });
+  $('scan-btn').addEventListener('click', function(){
+    var btn = $('scan-btn');
+    btn.disabled = true; btn.textContent = 'Scanning…';
+    api({ action: 'scan', leadId: state.leadId }).then(function(r){
+      btn.disabled = false; btn.textContent = 'Scan now';
+      if (r.j && r.j.ok) {
+        state.wd = r.j.watchdog;
+        renderRadar();
+        $('scan-text').textContent = 'Checked just now — this is the latest scan (' + fmtDate((r.j.last_scanned || '') + 'T12:00:00') + '). Nothing new for your profession since then.';
+      }
+    }).catch(function(){ btn.disabled = false; btn.textContent = 'Scan now'; });
+  });
 
-/* ===== Modals, letter, copy ===== */
-function openCheckout(){
-  var P = PROFS[S.prof];
-  document.getElementById('coCount').textContent = P.count;
-  document.getElementById('coWhat').textContent = P.srcWhat || 'job posts';
-  document.getElementById('coFacts').innerHTML = COFACTS[S.prof].map(function(f){ return '<li>' + f + '</li>'; }).join('');
-  openModal('mCheckout');
-}
-function buildLetter(){
-  var P = PROFS[S.prof] || PROFS.law;
-  var label, short;
-  if (S.mode === 'seat' && SEATS[S.seat]) { label = SEATS[S.seat].label; short = SEATS[S.seat].short; }
-  else { label = P.kick + ' — the whole map'; short = GRIDS[S.prof].short; }
-  var link = location.origin + '/r/' + slug();
-  var txt =
-'Hi Mom and Dad —\n\n' +
-'I just ran a free PathCheck on the career path I\u2019m planning (' + label + ' — ' + P.kick + '). The verdict: ' + short + '.\n\n' +
-'There\u2019s a Full Report with the exact plan — the specialty to aim at, my gaps against what top-paying employers actually require (it\u2019s built from ' + (P.srcLine || 'real job posts') + ', not generic advice), and a 12-month sequence. It costs $19, and there\u2019s a $9/month follow-up that tracks changes in the profession every week so my plan doesn\u2019t go stale while I\u2019m on it.\n\n' +
-'I don\u2019t have a card I can use for this — could you cover it? You\u2019ll see my verdict and the plan too, and the weekly updates, so you can see I\u2019m actually on track.\n\n' +
-'My verdict and the payment link: ' + link + '\n\n' +
-'\u2014 ' + (S.name || 'your kid');
-  document.getElementById('parentLetter').textContent = txt;
-}
-function copyText(t, btn){
-  function done(){ var o=btn.textContent; btn.textContent='Copied ✓'; setTimeout(function(){ btn.textContent=o; },1600); }
-  if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t).then(done).catch(function(){ fallback(); }); }
-  else fallback();
-  function fallback(){ var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); }catch(e){} document.body.removeChild(ta); done(); }
-}
-function copyShare(inputId, btn){ copyText(document.getElementById(inputId).value, btn); }
-function copyLetter(btn){ copyText(document.getElementById('parentLetter').textContent, btn); }
-function toggleShare(id){ var b=document.getElementById(id); b.classList.toggle('on'); if(b.classList.contains('on')) b.scrollIntoView({behavior:'smooth', block:'center'}); }
-function openModal(id){ document.getElementById(id).classList.add('on'); }
-function closeModal(id){ document.getElementById(id).classList.remove('on'); }
-document.querySelectorAll('.mback').forEach(function(m){ m.addEventListener('click', function(e){ if(e.target===m) m.classList.remove('on'); }); });
-document.addEventListener('keydown', function(e){ if(e.key==='Escape') document.querySelectorAll('.mback').forEach(function(m){ m.classList.remove('on'); }); });
-
-/* ===== AI Radar ticker — real signals, Radar Issue #1 (Oct 2026) ===== */
+  /* ---------------- boot: restore from hash / storage ---------------- */
+  (function boot(){
+    var id = '';
+    if (location.hash && location.hash.length > 10) id = location.hash.slice(1);
+    if (!id) { try { id = localStorage.getItem(LS_KEY) || ''; } catch (e) {} }
+    if (!id || !/^[0-9a-f-]{36}$/i.test(id)) return;
+    api({ action: 'get', leadId: id }).then(function(r){
+      if (r.j && r.j.ok) openApp(r.j.lead_id, r.j.watchdog, r.j.email);
+      else { try { localStorage.removeItem(LS_KEY); } catch (e) {} }
+    }).catch(function(){});
+  })();
+})();
+</script>
+<script>
+/* ===== AI Radar ticker — same signals as the main gate (Radar Issue #1, Oct 2026) ===== */
 var SIGNALS = [
   {h:'First NextGen bar results: 72.7% pass, 85.2% for first-timers', d:'Sep 25, 2026 · NCBE', tag:'→ your checklist: NextGen prep, not old UBE'},
   {h:'Class of 2025: record $100K median pay — federal hiring fell 37%', d:'Aug 6, 2026 · NALP', tag:'→ your checklist: the federal fallback got weaker'},
-  {h:'AI isn\u2019t cutting junior legal jobs — it\u2019s repricing them', d:'Oct 26, 2026 · Clio Legal Trends', tag:'→ your checklist: build an AI workflow'},
+  {h:'AI isn’t cutting junior legal jobs — it’s repricing them', d:'Oct 26, 2026 · Clio Legal Trends', tag:'→ your checklist: build an AI workflow'},
   {h:'AI-native firms are now poaching Big Law partners by name', d:'Oct 14, 2026 · Reuters', tag:'→ your checklist: law + AI hybrid'},
   {h:'Partner pay hit a record $1.55M — a $2B firm voted to dissolve', d:'Oct 29, 2026 · Reuters', tag:'→ your checklist: take your skills with you'},
   {h:'Job post of the week: Harvey Senior Product Counsel — $251K–$317K', d:'Oct 2026 · 46 job posts', tag:'→ your checklist: Specialty #1 — privacy/AI'}
@@ -1239,8 +1074,8 @@ radarMod.addEventListener('mouseleave', startSigTimer);
 radarMod.addEventListener('touchstart', stopSigTimer, {passive:true});
 radarMod.addEventListener('touchend', function(){ setTimeout(startSigTimer, 1500); }, {passive:true});
 </script>
-
 <script>
+/* Mascot blink — same as the main gate. */
 (function(){
   var lids = document.querySelectorAll('.lid');
   if (!lids.length) return;
@@ -1258,19 +1093,6 @@ radarMod.addEventListener('touchend', function(){ setTimeout(startSigTimer, 1500
   }
   function schedule(){ setTimeout(cycle, 3600 + Math.random()*1600); }
   setTimeout(cycle, 1300);
-})();
-</script>
-<script>
-/* Returning visitor with a saved path: surface the dashboard entry. */
-(function(){
-  try {
-    var id = localStorage.getItem('pathcheck_lead_id');
-    if (id && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)) {
-      var bar = document.getElementById('myPathBar');
-      var link = document.getElementById('myPathLink');
-      if (bar && link) { link.href = '/app#' + id; bar.style.display = 'block'; }
-    }
-  } catch(e){}
 })();
 </script>
 </body>
