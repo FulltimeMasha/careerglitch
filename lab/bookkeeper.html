@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Career Glitch Lab — Bookkeeper: one month in the job</title>
+<meta name="description" content="The Lab bookkeeper simulator: 10 real first-month scenes, real artifacts, and proof that flips your Watchdog checklist.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<meta name="theme-color" content="#FFEEF5">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Instrument+Sans:wght@400;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFCF6; --ink:#1C1A1F; --ink2:#3a2b4d; --mut:#7a7285;
+  --pink:#FF8CBE; --hot:#F92A82; --deep:#c2185b; --blush:#FFD8EA;
+  --soft:#FFEEF5; --butter:#F0E6CF; --line:#eedfe8; --white:#fff;
+  --green:#1d7a4f;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{min-height:100vh;color:var(--ink);font-family:'Instrument Sans',system-ui,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;background:linear-gradient(180deg,#FFFCF6 0%,#FFF3F8 46%,#FFEEF5 78%,#FFE3F0 100%);background-attachment:fixed;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Outfit',sans-serif}
+.mono{font-family:'DM Mono',monospace}
+.sky{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(58px)}
+.b1{width:340px;height:340px;background:#FFD8EA;opacity:.75;top:-110px;left:-90px}
+.b2{width:280px;height:280px;background:#FFE9B8;opacity:.5;top:16%;right:-110px}
+.b3{width:300px;height:300px;background:#FFC7DE;opacity:.55;bottom:-130px;left:22%}
+.topbar{display:flex;align-items:center;justify-content:flex-start;padding:14px 24px;max-width:1100px;margin:0 auto}
+.logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.logo span{color:var(--deep)} .logo .heart{color:var(--hot)}
+.logo .by{font-family:'DM Mono',monospace;font-weight:400;font-size:11px;letter-spacing:.14em;color:var(--mut);margin-left:8px;text-transform:uppercase}
+.page{max-width:760px;margin:0 auto;padding:0 20px 72px}
+.hero{text-align:center;padding:38px 0 10px}
+.kicker{display:inline-block;font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;background:var(--blush);color:var(--ink);border-radius:999px;padding:7px 13px;transform:rotate(-1.2deg);box-shadow:0 5px 14px rgba(23,18,43,.10)}
+.hero h1{font-size:clamp(38px,8vw,60px);font-weight:900;line-height:.98;letter-spacing:-.035em;max-width:680px;margin:28px auto 0}
+.hero h1 .hl{background:linear-gradient(transparent 64%,var(--blush) 64%)}
+.hero .sub{font-size:clamp(17px,2.8vw,20px);color:var(--ink2);max-width:38em;margin:22px auto 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;border:none;border-radius:999px;padding:14px 24px;background:linear-gradient(135deg,#F92A82,#FF8CBE);color:#fff;text-decoration:none;cursor:pointer;box-shadow:0 14px 30px rgba(249,42,130,.34);transition:transform .12s ease,box-shadow .12s ease;text-align:center}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.55;cursor:wait;transform:none}
+.btn.ghost{background:#fff;color:var(--deep);border:1.5px solid var(--blush);box-shadow:none}
+.btn.small{padding:10px 18px;font-size:14.5px}
+section{margin-top:30px}
+.card{background:rgba(255,255,255,.85);border:1.5px solid var(--line);border-radius:26px;padding:clamp(22px,5vw,34px);box-shadow:0 20px 46px rgba(23,18,43,.07)}
+.section-label{display:inline-block;font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);background:var(--soft);border-radius:999px;padding:6px 11px;margin-bottom:14px}
+h2{font-size:clamp(26px,5.4vw,36px);font-weight:900;line-height:1.08;letter-spacing:-.025em;margin-bottom:14px}
+.lede{font-size:18px;color:var(--ink2)}
+.steps{display:grid;gap:11px;list-style:none;counter-reset:step}
+.steps li{display:flex;gap:12px;align-items:flex-start}
+.steps .n{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--hot);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.field{margin-top:14px}
+.field label{display:block;font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:7px}
+input[type=email],input[type=text]{width:100%;font-size:16px;font-family:'Instrument Sans',sans-serif;padding:13px 15px;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink)}
+textarea{width:100%;font-size:16px;font-family:'Instrument Sans',sans-serif;padding:13px 15px;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);min-height:170px;resize:vertical;line-height:1.5}
+input:focus,textarea:focus{outline:2px solid var(--pink);outline-offset:1px}
+.rowflex{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.note{font-size:14.5px;color:var(--mut);margin-top:10px}
+.okline{font-size:15px;color:var(--green);font-weight:600;margin-top:10px}
+.errline{font-size:15px;color:var(--deep);font-weight:600;margin-top:10px}
+.scene{border:1.5px solid var(--line);border-radius:22px;background:rgba(255,255,255,.9);padding:clamp(20px,4.5vw,30px);margin-top:18px;box-shadow:0 14px 34px rgba(23,18,43,.06)}
+.scene .shead{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
+.scene h3{font-size:21px;font-weight:800;letter-spacing:-.01em}
+.badge{flex:0 0 auto;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:5px 10px;background:var(--soft);color:var(--deep)}
+.badge.pass{background:#e3f4ea;color:var(--green)}
+.badge.draft{background:var(--butter);color:#7a5b12}
+.skill{font-family:'DM Mono',monospace;font-size:12px;color:var(--mut);margin-top:5px}
+.frombox{background:var(--soft);border-radius:16px;padding:15px 17px;margin-top:15px}
+.frombox .who{font-family:'Outfit',sans-serif;font-weight:700;font-size:15px}
+.frombox p{margin-top:6px;white-space:pre-wrap}
+.pressure{background:#fff7e8;border:1.5px solid #f0dfae;border-radius:16px;padding:13px 16px;margin-top:12px;font-size:15.5px}
+.pressure .plabel{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7a5b12;display:block;margin-bottom:5px}
+.taskbox{margin-top:14px}
+.taskbox .tlabel{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--deep);display:block;margin-bottom:6px}
+.rubric{margin-top:14px;border-top:1.5px dashed var(--line);padding-top:13px}
+.rubric .rlabel{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:8px}
+.rubric label{display:flex;gap:9px;align-items:flex-start;font-size:15.5px;padding:5px 0;cursor:pointer}
+.rubric input{width:19px;height:19px;margin-top:2px;accent-color:var(--hot);flex:0 0 auto}
+.sactions{margin-top:15px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.hidden{display:none}
+.progresswrap{margin-top:16px}
+.progressbar{height:12px;border-radius:99px;background:var(--soft);overflow:hidden}
+.progressbar div{height:100%;background:linear-gradient(90deg,#F92A82,#FF8CBE);border-radius:99px;transition:width .4s ease}
+.artlist{margin-top:10px;display:grid;gap:7px}
+.artlist div{font-size:15px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:9px 13px}
+footer{margin-top:44px;text-align:center;color:var(--mut);font-size:13.5px}
+footer a{color:var(--deep)}
+</style>
+</head>
+<body>
+<div class="sky"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="topbar">
+  <a class="logo" href="/">Career<span>Glitch</span> <span class="heart">♥</span><span class="by">Lab</span></a>
+</div>
+<div class="page">
+
+  <div class="hero">
+    <span class="kicker">Career Glitch Lab · Bookkeeper</span>
+    <h1>One month in the job. <span class="hl">Real proof.</span></h1>
+    <p class="sub">No experience? No problem. You do real bookkeeping tasks here — like a game. You win scenes. You collect proof. Employers can check it.</p>
+  </div>
+
+  <section class="card">
+    <span class="section-label">How it works — super simple</span>
+    <ul class="steps">
+      <li><span class="n">1</span><span><strong>📩 You get a task.</strong> A client writes to you. Real numbers. Real mess.</span></li>
+      <li><span class="n">2</span><span><strong>✍️ You do the work.</strong> You write the answer right here. That answer is your artifact — your proof of work.</span></li>
+      <li><span class="n">3</span><span><strong>✅ You check your work.</strong> A short list tells you what a good answer must have. Tick what is really in yours. All ticked = scene won.</span></li>
+      <li><span class="n">4</span><span><strong>🏆 You earn XP and proof.</strong> A won scene flips the same skill on your Watchdog card — done, with your artifact as the proof.</span></li>
+    </ul>
+    <p class="note">Honest words: this is practice work, not a diploma and not a job promise. It is a record of real tasks, done well, that anyone can check.</p>
+  </section>
+
+  <section class="card" id="idcard">
+    <span class="section-label">Your Lab record</span>
+    <div class="rowflex">
+      <div style="flex:1 1 210px"><input type="text" id="f-name" placeholder="Your name" autocomplete="name"></div>
+      <div style="flex:1 1 210px"><input type="email" id="f-email" placeholder="Your email" autocomplete="email"></div>
+      <button type="button" class="btn small" id="btn-load">Load my progress</button>
+    </div>
+    <p class="note" id="id-note">Use the same email as your Watchdog card and passed scenes flip its checklist automatically. Scene 1 is free to try right away — saving asks for the email, nothing else.</p>
+    <div class="progresswrap hidden" id="progress-wrap">
+      <div class="rowflex" style="justify-content:space-between"><strong id="progress-text">0 of 10 scenes passed</strong><span class="mono" style="font-size:12.5px;color:var(--mut)" id="wd-status"></span></div>
+      <div class="progressbar" style="margin-top:9px"><div id="progress-bar" style="width:0%"></div></div>
+      <div class="rowflex" style="justify-content:space-between;margin-top:10px"><span id="xp-text" style="font-family:'Outfit',sans-serif;font-weight:800;color:var(--deep)">⭐ 0 XP</span><span id="rank-text" style="font-family:'DM Mono',monospace;font-size:12.5px;color:var(--mut)">Rank: Newcomer</span></div>
+      <div id="map-dots" style="display:flex;gap:6px;margin-top:11px;flex-wrap:wrap"></div>
+    </div>
+  </section>
+
+  <section id="scenes-wrap">
+    <h2 style="margin-top:34px">🎮 The month: 10 scenes</h2>
+    <p class="lede">Play them in order — 1, 2, 3… Like levels in a game. Each level is one real task from a bookkeeper's desk.</p>
+    <div id="scenes"></div>
+  </section>
+
+  <section class="card hidden" id="debrief">
+    <span class="section-label">Your trophy shelf</span>
+    <h2>🏆 What you have proved so far</h2>
+    <div id="debrief-body"></div>
+  </section>
+
+  <footer>
+    Career Glitch Lab — a verified record of simulated work. <a href="/watchdog">Open your Watchdog</a> · <a href="/lab">All Lab tracks</a> · <a href="/privacy">Privacy</a>
+  </footer>
+</div>
+
+<script src="/lab-scenes-bookkeeper.js"></script>
+<script>
+(function(){
+  var ITEM_LABELS = {
+    month_end_mastery: 'Month-end close mastery (Craft)',
+    qbo_xero_proficiency: 'QuickBooks / Xero daily proficiency (Craft)',
+    payroll_tax_basics: 'Payroll, sales tax & 1099 basics (Craft)',
+    ai_reconciliation_workflow: 'AI-assisted reconciliation workflow (AI leverage)',
+    cleanup_sop_system: 'Cleanup & catch-up system (Craft)',
+    monthly_reporting_portfolio: 'Reporting portfolio (Proof)',
+    advisory_kpi_package: 'Advisory KPI package (Niche)',
+    niche_ecommerce: 'E-commerce niche (Niche)',
+    linkedin_visibility: 'Expert visibility (Voice)'
+  };
+  var scenes = (window.LAB_SCENES_BOOKKEEPER || []).slice().sort(function(a,b){ return a.order - b.order; });
+  var state = { email: '', name: '', cycle: { passed: [], artifacts: {} }, watchdog: { linked: false } };
+
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]; }); }
+  function $(id){ return document.getElementById(id); }
+  function passedSet(){ var s = {}; (state.cycle.passed || []).forEach(function(x){ s[x] = true; }); return s; }
+
+  function api(body){
+    return fetch('/api/lab', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); });
+  }
+
+  function renderScenes(){
+    var ps = passedSet();
+    var html = '';
+    scenes.forEach(function(sc){
+      var art = (state.cycle.artifacts || {})[sc.id];
+      var status = ps[sc.id] ? '<span class="badge pass">Passed ✓</span>' : (art ? '<span class="badge draft">Draft saved</span>' : (sc.order === 1 ? '<span class="badge">Free scene</span>' : '<span class="badge">Scene ' + sc.order + '</span>'));
+      html += '<article class="scene" id="' + sc.id + '">'
+        + '<div class="shead"><div><h3>' + sc.order + '. ' + esc(sc.title) + '</h3>'
+        + '<div class="skill">🏆 Win this scene → proves: ' + esc(ITEM_LABELS[sc.checklist_id] || sc.checklist_id) + ' · +100 XP</div></div>' + status + '</div>'
+        + '<div class="frombox"><div class="who">📩 Step 1 — ' + esc(sc.from_name) + ' (' + esc(sc.from_role) + ') writes to you:</div><p>' + esc(sc.setup) + '</p></div>'
+        + (sc.pressure ? '<div class="pressure"><span class="plabel">😬 Step 2 — oh no, a problem</span>' + esc(sc.pressure) + '</div>' : '')
+        + '<div class="taskbox"><span class="tlabel">✍️ Step 3 — your job</span><p>' + esc(sc.task) + '</p></div>'
+        + '<div class="field"><label for="ta-' + sc.id + '">Write your work here — this is your artifact: ' + esc(sc.artifact) + '</label>'
+        + '<textarea id="ta-' + sc.id + '" placeholder="' + esc(sc.answer_hint || 'Write the deliverable here…') + '">' + esc(art ? art.text : '') + '</textarea></div>'
+        + '<div class="rubric"><span class="rlabel">✅ Step 4 — check your work. Be honest. Tick only what is really in your text. All ticked = you win the scene.</span>'
+        + sc.rubric.map(function(r, i){ return '<label><input type="checkbox" data-rubric="' + sc.id + '" value="' + i + '"' + (art && art.rubric_ok ? ' checked' : '') + '> <span>' + esc(r) + '</span></label>'; }).join('')
+        + '</div>'
+        + '<div class="sactions"><button type="button" class="btn small" data-save="' + sc.id + '">Save my work 💾</button>'
+        + '<span class="note" data-msg="' + sc.id + '"></span></div>'
+        + '</article>';
+    });
+    $('scenes').innerHTML = html;
+    var btns = document.querySelectorAll('[data-save]');
+    for (var i = 0; i < btns.length; i++) btns[i].addEventListener('click', function(){ saveScene(this.getAttribute('data-save')); });
+    renderProgress();
+  }
+
+  function renderProgress(){
+    var total = scenes.length;
+    var n = (state.cycle.passed || []).length;
+    if (!state.email) { $('progress-wrap').classList.add('hidden'); $('debrief').classList.add('hidden'); return; }
+    $('progress-wrap').classList.remove('hidden');
+    $('progress-text').textContent = n + ' of ' + total + ' scenes passed';
+    $('progress-bar').style.width = (total ? Math.round(n / total * 100) : 0) + '%';
+    var xp = n * 100;
+    $('xp-text').textContent = '⭐ ' + xp + ' XP';
+    var rank = xp >= 1000 ? '🏆 Month complete — Lab Bookkeeper' : xp >= 800 ? '🔥 Almost a pro' : xp >= 500 ? '💪 Bookkeeper in training' : xp >= 200 ? '🙌 Junior hands' : '🌱 Newcomer';
+    $('rank-text').textContent = 'Rank: ' + rank;
+    var ps2 = passedSet();
+    $('map-dots').innerHTML = scenes.map(function(sc){
+      var done = ps2[sc.id];
+      var has = (state.cycle.artifacts || {})[sc.id];
+      return '<a href="#' + sc.id + '" title="Scene ' + sc.order + ': ' + esc(sc.title) + '" style="text-decoration:none;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-family:\'DM Mono\',monospace;background:' + (done ? 'var(--hot)' : has ? 'var(--butter)' : 'var(--soft)') + ';color:' + (done ? '#fff' : 'var(--ink)') + ';border:1.5px solid var(--line)">' + (done ? '✓' : sc.order) + '</a>';
+    }).join('');
+    $('wd-status').textContent = state.watchdog && state.watchdog.linked
+      ? 'Watchdog linked · Score ' + state.watchdog.score
+      : 'No Watchdog card on this email yet';
+    var arts = state.cycle.artifacts || {};
+    var ids = Object.keys(arts);
+    if (!ids.length) { $('debrief').classList.add('hidden'); return; }
+    var ps = passedSet();
+    var provenItems = {};
+    scenes.forEach(function(sc){ if (ps[sc.id]) provenItems[sc.checklist_id] = true; });
+    var html = '<div class="artlist">' + scenes.filter(function(sc){ return arts[sc.id]; }).map(function(sc){
+      return '<div>' + (ps[sc.id] ? '✓ ' : '◐ ') + '<strong>' + esc(arts[sc.id].name) + '</strong> — scene ' + sc.order + (ps[sc.id] ? ' · proves ' + esc(ITEM_LABELS[sc.checklist_id] || sc.checklist_id) : ' · draft, rubric not fully confirmed') + '</div>';
+    }).join('') + '</div>';
+    var gaps = Object.keys(ITEM_LABELS).filter(function(k){ return !provenItems[k]; });
+    html += '<p class="note" style="margin-top:14px">' + (gaps.length
+      ? 'Still to prove in this cycle: ' + gaps.map(function(k){ return ITEM_LABELS[k]; }).join('; ') + '.'
+      : 'Every simulator-provable item on the bookkeeper checklist is now backed by an artifact.') + '</p>';
+    if (state.watchdog && state.watchdog.linked) {
+      html += '<p class="okline">Your Watchdog shows Score ' + state.watchdog.score + ' with these artifacts as evidence. <a href="/watchdog" style="color:var(--deep)">Open it</a></p>';
+    } else {
+      html += '<p class="note">Want these artifacts to count on a career card too? <a href="/watchdog" style="color:var(--deep)">Get your free Watchdog card</a> with this same email — the proof connects itself.</p>';
+    }
+    $('debrief-body').innerHTML = html;
+    $('debrief').classList.remove('hidden');
+  }
+
+  function confetti(){
+    var colors = ['#F92A82','#FF8CBE','#FFD8EA','#F0E6CF','#FFB8D9'];
+    for (var i = 0; i < 42; i++) {
+      var el = document.createElement('div');
+      var size = 6 + Math.random() * 7;
+      el.style.cssText = 'position:fixed;top:-16px;left:' + (Math.random() * 100) + 'vw;width:' + size + 'px;height:' + size + 'px;background:' + colors[i % colors.length] + ';z-index:999;border-radius:' + (Math.random() > .5 ? '50%' : '2px') + ';pointer-events:none;transition:transform 1.15s ease-in,opacity 1.15s ease-in;transform:rotate(0deg)';
+      document.body.appendChild(el);
+      (function(node){
+        requestAnimationFrame(function(){
+          node.style.transform = 'translateY(105vh) rotate(' + (Math.random() * 540 - 270) + 'deg)';
+          node.style.opacity = '0.15';
+        });
+        setTimeout(function(){ node.remove(); }, 1300);
+      })(el);
+    }
+  }
+
+  function setMsg(sceneId, text, ok){
+    var el = document.querySelector('[data-msg="' + sceneId + '"]');
+    if (el) { el.textContent = text; el.style.color = ok ? 'var(--green)' : 'var(--deep)'; el.style.fontWeight = '600'; }
+  }
+
+  function saveScene(sceneId){
+    var sc = scenes.filter(function(x){ return x.id === sceneId; })[0];
+    if (!sc) return;
+    var email = ($('f-email').value || '').trim().toLowerCase();
+    if (!email) {
+      setMsg(sceneId, 'Add your email above first — the artifact is saved under it.', false);
+      $('f-email').focus();
+      return;
+    }
+    state.email = email;
+    state.name = ($('f-name').value || '').trim();
+    try { localStorage.setItem('lab_email', email); localStorage.setItem('lab_name', state.name); } catch (e) {}
+    var text = $('ta-' + sceneId).value;
+    var boxes = document.querySelectorAll('[data-rubric="' + sceneId + '"]');
+    var rubric = [];
+    for (var i = 0; i < boxes.length; i++) rubric.push(boxes[i].checked);
+    var btn = document.querySelector('[data-save="' + sceneId + '"]');
+    btn.disabled = true;
+    api({ action: 'scene', email: email, name: state.name, scene_id: sceneId, artifact_name: sc.artifact, artifact_text: text, rubric: rubric })
+      .then(function(r){
+        btn.disabled = false;
+        if (!r.ok || !r.j.ok) { setMsg(sceneId, (r.j && r.j.error) || 'That did not save — try again.', false); return; }
+        state.cycle = r.j.cycle;
+        state.watchdog = r.j.watchdog || state.watchdog;
+        if (r.j.passed) {
+          var msg = '🎉 You win this scene! +100 XP. Your work is saved.';
+          if (r.j.flipped && !r.j.flipped.already) msg += ' Your Watchdog skill flipped to DONE — new Score ' + r.j.flipped.score + '.';
+          else if (r.j.flipped && r.j.flipped.already) msg += ' That Watchdog skill was already done — your proof is now attached to it.';
+          else if (!state.watchdog.linked) msg += ' Tip: get a free Watchdog card with this email and this proof counts there too.';
+          setMsg(sceneId, msg, true);
+          confetti();
+        } else {
+          setMsg(sceneId, 'Saved as a draft. To win the scene: do the work, then tick ALL the check lines that are really in your text.', false);
+        }
+        renderScenes();
+      })
+      .catch(function(){ btn.disabled = false; setMsg(sceneId, 'That did not save — check your connection and try again.', false); });
+  }
+
+  function loadProgress(){
+    var email = ($('f-email').value || '').trim().toLowerCase();
+    if (!email) { $('id-note').textContent = 'Type the email your progress and Watchdog live under.'; return; }
+    state.email = email;
+    try { localStorage.setItem('lab_email', email); } catch (e) {}
+    api({ action: 'progress', email: email }).then(function(r){
+      if (r.ok && r.j.ok) {
+        state.cycle = r.j.cycle;
+        state.watchdog = r.j.watchdog;
+        $('id-note').textContent = state.watchdog.linked
+          ? 'Watchdog found on this email — passed scenes flip its checklist automatically.'
+          : 'Progress loaded. No Watchdog card on this email yet — passed scenes are saved as proof and connect when you get one.';
+        renderScenes();
+      } else {
+        $('id-note').textContent = (r.j && r.j.error) || 'Could not load — try again.';
+      }
+    });
+  }
+
+  $('btn-load').addEventListener('click', loadProgress);
+  try {
+    var savedEmail = localStorage.getItem('lab_email');
+    var savedName = localStorage.getItem('lab_name');
+    if (savedEmail) { $('f-email').value = savedEmail; }
+    if (savedName) { $('f-name').value = savedName; }
+    var q = new URLSearchParams(window.location.search);
+    if (q.get('email')) $('f-email').value = q.get('email');
+  } catch (e) {}
+  renderScenes();
+  if ($('f-email').value) loadProgress();
+})();
+</script>
+</body>
+</html>

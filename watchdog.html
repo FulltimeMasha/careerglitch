@@ -581,6 +581,10 @@ button.checkitem:hover{border-color:var(--pink);transform:translateY(-1px)}
         <button class="btn" id="home-personal-btn" type="button" style="width:100%">Make my Score personal</button>
         <p class="formnote" style="margin-top:10px">Four quick questions about your real work — your Score stops being the typical one and becomes yours.</p>
       </div>
+      <div id="home-lab" class="hidden" style="margin-top:16px">
+        <a class="btn" href="/lab/bookkeeper" style="width:100%">No experience yet? Get it in the Lab →</a>
+        <p class="formnote" style="margin-top:10px">The Lab simulator: 10 real bookkeeping scenes. Every passed scene leaves you an artifact — and flips the matching item on your checklist here, with that artifact as proof.</p>
+      </div>
     </section>
 
     <section class="card hidden" id="panel-top1">
@@ -1115,6 +1119,9 @@ window.WD_MODE = 'service';
       '<div class="checkitem"><span class="mark">🎯</span><span>Your goal: <strong>' + esc(p.goal) + '</strong></span></div>';
     $('top1-title').textContent = 'What the top 1% ' + p.profession.toLowerCase() + 's have in 2027';
     $('home-personal').classList.toggle('hidden', !(trialOn && !p.personalized));
+    var isBookkeeper = String(p.profession || '').toLowerCase().indexOf('book') >= 0;
+    var trackItem = (p.top1_profile || []).filter(function(i){ return i.id === 'multi_client_track_record'; })[0];
+    $('home-lab').classList.toggle('hidden', !(isBookkeeper && !(trackItem && trackItem.user_has)));
     renderTop1();
     renderWeek();
     renderRadar();
@@ -1139,15 +1146,25 @@ window.WD_MODE = 'service';
       btns[i].addEventListener('click', function(){ showDetail(this.getAttribute('data-item')); });
     }
   }
+  var LAB_SCENE_BY_ITEM = {
+    cleanup_sop_system: 'scene-1', qbo_xero_proficiency: 'scene-2',
+    month_end_mastery: 'scene-3', payroll_tax_basics: 'scene-4',
+    niche_ecommerce: 'scene-5', ai_reconciliation_workflow: 'scene-6',
+    monthly_reporting_portfolio: 'scene-8', advisory_kpi_package: 'scene-9',
+    linkedin_visibility: 'scene-10'
+  };
   function showDetail(id){
     var p = state.wd.profile;
     var it = null;
     (p.top1_profile || []).forEach(function(x){ if (x.id === id) it = x; });
     if (!it) return;
+    var isBookkeeper = String(p.profession || '').toLowerCase().indexOf('book') >= 0;
+    var labScene = isBookkeeper ? LAB_SCENE_BY_ITEM[id] : null;
     var box = $('top1-detail');
     box.innerHTML =
       '<div class="detail"><span class="section-label">Where to get it</span>' +
       '<h3>' + esc(it.item) + ' <span class="pts" style="font-family:\'DM Mono\',monospace;font-size:12.5px;color:var(--deep)">+' + it.weight + ' pts</span></h3>' +
+      (labScene ? '<p><a class="btn small" href="/lab/bookkeeper#' + labScene + '" style="text-decoration:none">Train and prove it in the Lab →</a></p><p class="free">The Lab simulator has a scene for exactly this skill — pass it and the artifact flips this item here, as proof.</p>' : '') +
       (it.how_to_get ? '<p>' + esc(it.how_to_get) + '</p>' : '') +
       (it.free_option ? '<p class="free"><strong>Free way in:</strong> ' + esc(it.free_option) + '</p>' : '') +
       '<button type="button" class="btn small" id="detail-have">I have this now ✓</button></div>';
