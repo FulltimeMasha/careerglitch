@@ -1,0 +1,131 @@
+{
+  "cycle_date": "2026-11-04",
+  "source": "radar-log-to-findings (daily Market Radar log)",
+  "professions": [
+    {
+      "slug": "graphic-designer",
+      "items": [
+        {
+          "id": "radar-2026-10-28-graphic-designer-1bqnwg",
+          "date": "2026-10-28",
+          "headline": "Сокращения одного дня в tech: Dropbox −9% штата и Amazon Devices −~250",
+          "so_what": "Dropbox сокращает около 9% глобального штата (2 113 сотрудников на 31.12 — порядка 190 человек), расходы $27–33 млн, CTO Ali Dasdan уходит 18.11; цель — align investments с топ-приоритетами. Amazon в тот же день убрал не более 250 ролей в Devices and Services, в основном software development; формулировка — operate more efficiently / align with product roadmap. Ранее в октябре Amazon уже резал ~1 000 в core retail.",
+          "source_url": "",
+          "impact": 0,
+          "reason": "риск растёт · Reuters, 28.10.2026 (Dropbox — filing 8-K; Amazon — подтверждение компании после запроса Reuters)",
+          "task": null
+        },
+        {
+          "id": "radar-2026-10-29-graphic-designer-wrh948",
+          "date": "2026-10-29",
+          "headline": "People Inc. — 195 увольнений (~6%), второй раунд за год: режут print и legacy web, вкладывают в social video",
+          "so_what": "195 человек, ~6% штата, в основном HQ в Нью-Йорке и удалённая база, также Des Moines, Birmingham AL, Seattle, Los Angeles, Bangalore. По мемо, подавляющее большинство затронутых — print и legacy web; одновременно компания наняла 320 человек в 2026 и инвестирует в новые проекты, включая social-first видео (шаблон — InStyle The Intern). Предыдущий раунд: 226 мест в октябре 2025.",
+          "source_url": "",
+          "impact": 0,
+          "reason": "риск растёт / сдвиг формата · ADWEEK, 29.10.2026 (мемо CEO Neil Vogel); Des Moines Register, 29.10.2026",
+          "task": null
+        },
+        {
+          "id": "radar-2026-11-02-graphic-designer-15va2da",
+          "date": "2026-11-02",
+          "headline": "Squarespace — минус 19% штата (~300 человек), режут product и engineering",
+          "so_what": "реструктуризация «simplify how we operate» у флагмана no-code конструкторов сайтов (~1 800 сотрудников до сокращения). Компания прямо заявила, что НЕ связывает сокращения с планами наращивать инвестиции в AI-инфраструктуру; контекст рынка — AI-конструкторы сайтов и собственный AI-native продукт Forma (waitlist) и Blueprint AI (2024). Причину «AI» приписывать компании нельзя — фиксирую только факт и контекст.",
+          "source_url": "",
+          "impact": 0,
+          "reason": "риск растёт · TechCrunch, 02.11.2026 (подтверждение представителя компании Джеффа Сидмана; первым сообщил The Verge); Neowin, 03.11.2026 (мемо CEO Энтони Казалены: большинство сокращений — product и engineering, минимум 16 недель severance, бенефиты до мая 2027)",
+          "task": null
+        },
+        {
+          "id": "radar-2026-11-03-graphic-designer-8zrviw",
+          "date": "2026-11-03",
+          "headline": "Canva — реструктуризация затронет 1 271 человека (22% штата), Product/Growth/Platform сливают в одну организацию",
+          "so_what": "1 271 человек — это увольнения + смены ролей + релокации в центральные хабы (сколько именно увольнений, компания не назвала); Сидней становится главной базой продуктовых команд, с января гибрид — 2–3 дня в офисе. Рост замедлился впервые за десятилетие; прогноз роста выручки на 2026 снижен с 30% до 20% в августе из-за стоимости обслуживания AI-функций. Компания ПРЯМО заявляет: это НЕ замена людей AI. Уходящим — минимум 6 мес. зарплаты и гранты $10 000 (по Reuters).",
+          "source_url": "",
+          "impact": 0,
+          "reason": "риск растёт · Reuters, 03.11.2026; The Tech Portal, 04.11.2026; BusinessWorld (Bloomberg), 04.11.2026",
+          "task": null
+        }
+      ]
+    },
+    {
+      "slug": "product-manager",
+      "items": [
+        {
+          "id": "radar-2026-10-28-product-manager-1bqnwg",
+          "date": "2026-10-28",
+          "headline": "Сокращения одного дня в tech: Dropbox −9% штата и Amazon Devices −~250",
+          "so_what": "Dropbox сокращает около 9% глобального штата (2 113 сотрудников на 31.12 — порядка 190 человек), расходы $27–33 млн, CTO Ali Dasdan уходит 18.11; цель — align investments с топ-приоритетами. Amazon в тот же день убрал не более 250 ролей в Devices and Services, в основном software development; формулировка — operate more efficiently / align with product roadmap. Ранее в октябре Amazon уже резал ~1 000 в core retail.",
+          "source_url": "",
+          "impact": 0,
+          "reason": "риск растёт · Reuters, 28.10.2026 (Dropbox — filing 8-K; Amazon — подтверждение компании после запроса Reuters)",
+          "task": null
+        },
+        {
+          "id": "radar-2026-10-30-product-manager-118zbwa",
+          "date": "2026-10-30",
+          "headline": "Comcast — реструктуризация расширилась до ~994 мест в 4 штатах (вчера в логе был только WA 159)",
+          "so_what": "634 места в штаб-квартире в Филадельфии + 119 NJ + 159 WA + 82 CA = ~994. Роли в Филадельфии (по Philadelphia Inquirer через Technical.ly): engineers, product managers, business analysts, IT leaders; в других штатах также executive assistants, social media analysts, construction specialists. Одновременно компания открывает 1 100+ новых позиций (500+ в Филадельфии) — это перестройка, а не чистый минус. Контекст: потеря 144 000 broadband-клиентов в Q3, готовящееся разделение с NBCUniversal/Sky.",
+          "source_url": "",
+          "impact": 0,
+          "reason": "риск растёт · Technical.ly, 30.10.2026 (PA WARN, 634 места в HQ Филадельфии, разделения с 31.12.2026); PhillyVoice, 30.10.2026; ad-hoc-news, 30–31.10.2026 (NJ 119, WA 159, CA 82)",
+          "task": null
+        },
+        {
+          "id": "radar-2026-11-02-product-manager-15va2da",
+          "date": "2026-11-02",
+          "headline": "Squarespace — минус 19% штата (~300 человек), режут product и engineering",
+          "so_what": "реструктуризация «simplify how we operate» у флагмана no-code конструкторов сайтов (~1 800 сотрудников до сокращения). Компания прямо заявила, что НЕ связывает сокращения с планами наращивать инвестиции в AI-инфраструктуру; контекст рынка — AI-конструкторы сайтов и собственный AI-native продукт Forma (waitlist) и Blueprint AI (2024). Причину «AI» приписывать компании нельзя — фиксирую только факт и контекст.",
+          "source_url": "",
+          "impact": 0,
+          "reason": "риск растёт · TechCrunch, 02.11.2026 (подтверждение представителя компании Джеффа Сидмана; первым сообщил The Verge); Neowin, 03.11.2026 (мемо CEO Энтони Казалены: большинство сокращений — product и engineering, минимум 16 недель severance, бенефиты до мая 2027)",
+          "task": null
+        },
+        {
+          "id": "radar-2026-11-03-product-manager-8zrviw",
+          "date": "2026-11-03",
+          "headline": "Canva — реструктуризация затронет 1 271 человека (22% штата), Product/Growth/Platform сливают в одну организацию",
+          "so_what": "1 271 человек — это увольнения + смены ролей + релокации в центральные хабы (сколько именно увольнений, компания не назвала); Сидней становится главной базой продуктовых команд, с января гибрид — 2–3 дня в офисе. Рост замедлился впервые за десятилетие; прогноз роста выручки на 2026 снижен с 30% до 20% в августе из-за стоимости обслуживания AI-функций. Компания ПРЯМО заявляет: это НЕ замена людей AI. Уходящим — минимум 6 мес. зарплаты и гранты $10 000 (по Reuters).",
+          "source_url": "",
+          "impact": 0,
+          "reason": "риск растёт · Reuters, 03.11.2026; The Tech Portal, 04.11.2026; BusinessWorld (Bloomberg), 04.11.2026",
+          "task": null
+        }
+      ]
+    },
+    {
+      "slug": "bookkeeper",
+      "items": [
+        {
+          "id": "radar-2026-10-29-bookkeeper-41jeiw",
+          "date": "2026-10-29",
+          "headline": "Thrive Holdings (OpenAI-backed) покупает ADT за $15,3 млрд — AI-инвесторы скупают сами сервисные бизнесы",
+          "so_what": "Thrive Holdings уже владеет 75+ бизнесами; его бухгалтерская платформа Current скупила 48 локальных фирм и гоняет tax-return агента на OpenAI Codex. ADT: 6,1 млн подписчиков, ~4 000 customer care staff, уже решает 90%+ технических обращений удалённо и использует AI virtual agents в колл-центрах. Параллельно: Long Lake (General Catalyst) — 40 покупок, платформа Nexus режет 65+ часов в месяц у HOA-менеджеров и +30% capacity у payroll processors; Lightspeed поднял $750 млн+ на покупку 8–10 бизнесов в financial services, healthcare, engineering. Тезис покупателей по PYMNTS: сначала двигается маржа",
+          "source_url": "",
+          "impact": 0,
+          "reason": "риск растёт / возможность для внедренцев · PYMNTS, 30.10.2026 (со ссылкой на ADT filing в SEC и TechCrunch)",
+          "task": null
+        },
+        {
+          "id": "radar-2026-11-02-bookkeeper-1dloh2v",
+          "date": "2026-11-02",
+          "headline": "Clark — «AI-сотрудники» для аудита в CPA-фирмах: $11 млн seed, 35+ фирм уже на платформе",
+          "so_what": "продукт Clerks — автономные AI-«сотрудники», которых назначают на аудиторский engagement как staff auditor: ведут участки аудита от начала до конца на ОС Material Intelligence. По заявлению Clark, технологией пользуются 35+ CPA-фирм, названы CliftonLarsonAllen, Aprio, Kreischer Miller, Sensiba; заявлены 100% accuracy guarantee и peer review guarantee (заявления компании, не аудит). Подпись и профессиональное суждение остаются за licensed CPA. Раунд $11 млн (Touring Capital), суммарно $16 млн; деньги — на расширение в новые типы engagements, включая government audit. Мишень автоматизации — имен",
+          "source_url": "",
+          "impact": 0,
+          "reason": "риск растёт (вход в профессию) · Unite.AI, 02.11.2026 (по релизу Clark на PR Newswire)",
+          "task": null
+        },
+        {
+          "id": "radar-2026-11-02-bookkeeper-1tum7s9",
+          "date": "2026-11-02",
+          "headline": "Aion — AI-агент рутинных бизнес-финансов: счета, инвойсы, закрытие месяца",
+          "so_what": "Aion Agent встроен в финансовую платформу (банкинг, платежи, карты, кредит): оплачивает счета, ведёт follow-up по инвойсам, готовит отчёты к закрытию месяца, отвечает на вопросы по данным в Claude/ChatGPT; двусторонняя синхронизация с QuickBooks, Xero, NetSuite. Каждое действие агента ждёт одобрения человеком. Доступен всем клиентам Aion с дня запуска; цифр внедрения нет — это запуск продукта, не измеренный эффект.",
+          "source_url": "",
+          "impact": 0,
+          "reason": "риск растёт / возможность для внедренцев · CPA Practice Advisor, 02.11.2026",
+          "task": null
+        }
+      ]
+    }
+  ]
+}
