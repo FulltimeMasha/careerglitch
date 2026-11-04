@@ -127,12 +127,13 @@ module.exports = async (req, res) => {
       return { prof: LAB_PROF, passed: [], artifacts: {} };
     }
 
-    async function watchdogView() {
+    async function watchdogView(stateOverride) {
       if (!wdRow) return { linked: false };
       const WD = await import('./_lib/watchdog.mjs');
-      const state = recOf(wdRow).watchdog;
+      const state = stateOverride || recOf(wdRow).watchdog;
+      const ev = state.lab_evidence || {};
       const proven = (state.profile.top1_profile || [])
-        .filter((it) => it.user_has && it.lab_evidence)
+        .filter((it) => it.user_has && (ev[it.id] || it.lab_evidence))
         .map((it) => it.id);
       return { linked: true, score: WD.effectiveScore(state), proven };
     }
@@ -191,27 +192,30 @@ module.exports = async (req, res) => {
       // 2) A passed scene flips the mapped Watchdog checklist item with
       //    the artifact as evidence — same refresh path as 'update'.
       let flipped = null;
+      let flippedState = null;
       if (passed && wdRow) {
         const WD = await import('./_lib/watchdog.mjs');
         const rec = recOf(wdRow);
         const stored = rec.watchdog;
         const profile = JSON.parse(JSON.stringify(stored.profile));
         let changed = false;
+        const storedEv = stored.lab_evidence || {};
         (profile.top1_profile || []).forEach((it) => {
           if (it.id === checklistId && !it.user_has) {
             it.user_has = true;
-            it.lab_evidence = { scene: sceneId, at: nowIso };
-            changed = true;
-          } else if (it.id === checklistId && it.user_has && !it.lab_evidence) {
-            it.lab_evidence = { scene: sceneId, at: nowIso };
             changed = true;
           }
         });
+        if (!storedEv[checklistId]) changed = true;
         if (changed) {
           const next = WD.refreshWatchdogState(stored, profile, nowIso);
+          // refreshWatchdogState normalizes the profile and drops unknown
+          // per-item fields, so Lab evidence lives at state level.
+          next.lab_evidence = { ...storedEv, [checklistId]: { scene: sceneId, at: nowIso } };
           const okSave = await updateLead(cfg, wdRow.id, { recommended: [{ ...rec, watchdog: next }] });
           if (okSave) {
             flipped = { checklist_id: checklistId, score: WD.effectiveScore(next) };
+            flippedState = next;
           }
         } else {
           flipped = { checklist_id: checklistId, score: WD.effectiveScore(stored), already: true };
@@ -223,7 +227,7 @@ module.exports = async (req, res) => {
         passed,
         cycle: { passed: cycle.passed, artifacts: cycle.artifacts },
         flipped,
-        watchdog: await watchdogView(),
+        watchdog: await watchdogView(flippedState || undefined),
       });
     }
 
