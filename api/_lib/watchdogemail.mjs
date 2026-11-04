@@ -1,11 +1,13 @@
 // api/_lib/watchdogemail.mjs — the Watchdog card email.
 // ---------------------------------------------------------------------------
-// After the short entry flow saves a Watchdog lead, the visitor gets a
-// copy of their card by email: profession, AI-Proof Score, the one-line
-// reason, and the top 3 missing top-1% items with a one-line
-// "where to get it" each, plus the link back to their Watchdog.
-// Rendered from the VALIDATED profile + code-computed score only — the
-// same numbers the page showed, never re-typed or model-invented.
+// After the short entry flow saves a Watchdog lead, the visitor gets
+// their full road map by email: profession, AI-Proof Score, the
+// one-line reason, and the COMPLETE top-1% checklist — every item with
+// its ✅/❗ status and, for the missing ones, a one-line
+// "where to get it" plus the free option when there is one — and the
+// link back to their Watchdog. Rendered from the VALIDATED profile +
+// code-computed score only — the same numbers the page showed, never
+// re-typed or model-invented.
 //
 // renderWatchdogCardEmail({ profession, score, scoreReason, profile,
 //                            subjectPrefix })
@@ -37,19 +39,29 @@ function oneLine(s, max = 150) {
   return (sp > 40 ? cut.slice(0, sp) : cut).trim() + '…';
 }
 
+export function checklistItems(profile) {
+  return profile && Array.isArray(profile.top1_profile) ? profile.top1_profile : [];
+}
+
 export function topMissingItems(profile, n = 3) {
-  const items = profile && Array.isArray(profile.top1_profile) ? profile.top1_profile : [];
-  return items.filter((i) => !i.user_has).slice(0, n);
+  return checklistItems(profile).filter((i) => !i.user_has).slice(0, n);
 }
 
 export function renderWatchdogCardEmail({ profession, score, scoreReason, profile, subjectPrefix = '' }) {
   const prof = String(profession || 'Your profession');
-  const missing = topMissingItems(profile, 3);
+  const items = checklistItems(profile);
   const subject = `${subjectPrefix}Your ${prof} card — AI-Proof Score ${score}/100`;
 
-  const missingText = missing.length
-    ? missing.map((i, n) => `${n + 1}. ❗ ${i.item}\n   Where to get it: ${oneLine(i.how_to_get)}`).join('\n')
-    : 'Nothing missing on the basics — your kit already covers the typical gaps.';
+  // ---- plain text: the full road map, every item ---------------------
+  const roadmapText = items.length
+    ? items.map((i, n) => {
+        if (i.user_has) return `${n + 1}. ✅ ${i.item}`;
+        let line = `${n + 1}. ❗ ${i.item} (+${i.weight} pts)`;
+        if (i.how_to_get) line += `\n   Where to get it: ${oneLine(i.how_to_get)}`;
+        if (i.free_option) line += `\n   Free way in: ${oneLine(i.free_option)}`;
+        return line;
+      }).join('\n')
+    : 'Your checklist is on its way — open your Watchdog to see it.';
   const text = [
     `Hi — your Watchdog checked ${prof}.`,
     '',
@@ -58,8 +70,8 @@ export function renderWatchdogCardEmail({ profession, score, scoreReason, profil
     '',
     'This is the score for a typical ' + prof + ' today. Inside your Watchdog, you make it yours.',
     '',
-    'The biggest gaps for a typical ' + prof + ' right now:',
-    missingText,
+    'Your full road map — what the top 1% ' + prof + ' has in 2027:',
+    roadmapText,
     '',
     'Open your Watchdog any time with this email:',
     WATCHDOG_URL,
@@ -70,13 +82,23 @@ export function renderWatchdogCardEmail({ profession, score, scoreReason, profil
     'Insurance for your career in the age of AI.',
   ].join('\n');
 
-  const missingHtml = missing.length
-    ? missing.map((i) => `
+  // ---- HTML: the full road map, every item ---------------------------
+  const roadmapHtml = items.length
+    ? items.map((i) => {
+        if (i.user_has) {
+          return `
+      <tr><td style="padding:10px 0;border-bottom:1px solid #eedfe8">
+        <div style="font-size:16px;color:${INK}">✅ <strong>${esc(i.item)}</strong></div>
+      </td></tr>`;
+        }
+        return `
       <tr><td style="padding:10px 0;border-bottom:1px solid #eedfe8">
         <div style="font-size:16px;color:${INK}">❗ <strong>${esc(i.item)}</strong> <span style="color:${DEEP};font-size:13px">+${i.weight} pts</span></div>
-        <div style="font-size:14.5px;color:${INK2};margin-top:3px">Where to get it: ${esc(oneLine(i.how_to_get))}</div>
-      </td></tr>`).join('')
-    : `<tr><td style="padding:10px 0;font-size:15.5px;color:${INK2}">Nothing missing on the basics — your kit already covers the typical gaps.</td></tr>`;
+        ${i.how_to_get ? `<div style="font-size:14.5px;color:${INK2};margin-top:3px">Where to get it: ${esc(oneLine(i.how_to_get))}</div>` : ''}
+        ${i.free_option ? `<div style="font-size:14.5px;color:${INK2};margin-top:3px">Free way in: ${esc(oneLine(i.free_option))}</div>` : ''}
+      </td></tr>`;
+      }).join('')
+    : `<tr><td style="padding:10px 0;font-size:15.5px;color:${INK2}">Your checklist is on its way — open your Watchdog to see it.</td></tr>`;
 
   const html = `<!DOCTYPE html>
 <html><body style="margin:0;padding:0;background:${PAPER}">
@@ -93,8 +115,8 @@ export function renderWatchdogCardEmail({ profession, score, scoreReason, profil
   <p style="font-size:14px;color:${MUT};margin:10px auto 0">This is the score for a typical ${esc(prof)} today. Inside your Watchdog, you make it yours.</p>
 </td></tr>
 <tr><td style="padding:14px 30px 4px">
-  <div style="font-family:monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:${DEEP};background:${SOFT};display:inline-block;border-radius:999px;padding:6px 11px">The biggest gaps right now</div>
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${missingHtml}</table>
+  <div style="font-family:monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:${DEEP};background:${SOFT};display:inline-block;border-radius:999px;padding:6px 11px">Your full road map</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${roadmapHtml}</table>
 </td></tr>
 <tr><td style="padding:20px 30px 30px;text-align:center">
   <a href="${WATCHDOG_URL}" style="display:inline-block;background:${PINK};color:#ffffff;font-size:16.5px;font-weight:700;text-decoration:none;border-radius:999px;padding:14px 26px">Open my Watchdog ♥</a>
