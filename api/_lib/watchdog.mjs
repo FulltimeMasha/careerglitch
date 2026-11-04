@@ -559,24 +559,6 @@ export function professionRawToBaseline(raw) {
   return { ...raw, top1_profile: items, personalized: false };
 }
 
-// The profile a NEW card is built from (short entry flow). The
-// profession baseline describes what a TYPICAL practitioner has
-// (typical_has) — but a brand-new visitor has claimed nothing yet, so
-// their own checklist starts with every item as a gap: user_has false
-// across the board, the honest zero-claimed starting point for
-// computeScore. They raise their Score by marking "I have this" in
-// the app (and later by personalizing). typical_has is preserved on
-// every item — personalization and the cache keep using it.
-export function freshCardProfile(profile) {
-  if (!profile || typeof profile !== 'object') return profile;
-  return {
-    ...profile,
-    top1_profile: (Array.isArray(profile.top1_profile) ? profile.top1_profile : []).map((i) => (
-      i && typeof i === 'object' ? { ...i, user_has: false } : i
-    )),
-  };
-}
-
 // ---------------------------------------------------------------------------
 // Post-payment personalization. After the trial starts, the user answers
 // four quick questions (experience+location, their own daily tasks, their
