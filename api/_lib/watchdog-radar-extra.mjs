@@ -46,5 +46,119 @@ export const RADAR_EXTRA_ITEMS = [
     "source_url": "https://cxotoday.com/media-coverage/adobe-launches-adobe-for-startups-free-12-month-creative-and-productivity-suite-for-early-stage-founders/",
     "impact": 1,
     "date": "2026-11-03"
+  },
+  {
+    "id": "radar-2026-11-02-bookkeeper-1dloh2v",
+    "match": [
+      "bookkeeper",
+      "bookkeeping",
+      "accountant",
+      "accounting"
+    ],
+    "headline": "Clark — «AI-сотрудники» для аудита в CPA-фирмах: $11 млн seed, 35+ фирм уже на платформе",
+    "so_what": "продукт Clerks — автономные AI-«сотрудники», которых назначают на аудиторский engagement как staff auditor: ведут участки аудита от начала до конца на ОС Material Intelligence. По заявлению Clark, технологией пользуются 35+ CPA-фирм, названы CliftonLarsonAllen, Aprio, Kreischer Miller, Sensiba; заявлены 100% accuracy guarantee и peer review guarantee (заявления компании, не аудит). Подпись и профессиональное суждение остаются за licensed CPA. Раунд $11 млн (Touring Capital), суммарно $16 млн; деньги — на расширение в новые типы engagements, включая government audit. Мишень автоматизации — имен",
+    "source_url": "",
+    "impact": -1,
+    "date": "2026-11-02"
+  },
+  {
+    "id": "radar-2026-11-02-bookkeeper-1tum7s9",
+    "match": [
+      "bookkeeper",
+      "bookkeeping",
+      "accountant",
+      "accounting"
+    ],
+    "headline": "Aion — AI-агент рутинных бизнес-финансов: счета, инвойсы, закрытие месяца",
+    "so_what": "Aion Agent встроен в финансовую платформу (банкинг, платежи, карты, кредит): оплачивает счета, ведёт follow-up по инвойсам, готовит отчёты к закрытию месяца, отвечает на вопросы по данным в Claude/ChatGPT; двусторонняя синхронизация с QuickBooks, Xero, NetSuite. Каждое действие агента ждёт одобрения человеком. Доступен всем клиентам Aion с дня запуска; цифр внедрения нет — это запуск продукта, не измеренный эффект.",
+    "source_url": "",
+    "impact": 0,
+    "date": "2026-11-02"
+  },
+  {
+    "id": "radar-2026-11-02-graphic-designer-15va2da",
+    "match": [
+      "graphic designer",
+      "designer",
+      "design"
+    ],
+    "headline": "Squarespace — минус 19% штата (~300 человек), режут product и engineering",
+    "so_what": "реструктуризация «simplify how we operate» у флагмана no-code конструкторов сайтов (~1 800 сотрудников до сокращения). Компания прямо заявила, что НЕ связывает сокращения с планами наращивать инвестиции в AI-инфраструктуру; контекст рынка — AI-конструкторы сайтов и собственный AI-native продукт Forma (waitlist) и Blueprint AI (2024). Причину «AI» приписывать компании нельзя — фиксирую только факт и контекст.",
+    "source_url": "",
+    "impact": 0,
+    "date": "2026-11-02"
+  },
+  {
+    "id": "radar-2026-11-03-graphic-designer-8zrviw",
+    "match": [
+      "graphic designer",
+      "designer",
+      "design"
+    ],
+    "headline": "Canva — реструктуризация затронет 1 271 человека (22% штата), Product/Growth/Platform сливают в одну организацию",
+    "so_what": "1 271 человек — это увольнения + смены ролей + релокации в центральные хабы (сколько именно увольнений, компания не назвала); Сидней становится главной базой продуктовых команд, с января гибрид — 2–3 дня в офисе. Рост замедлился впервые за десятилетие; прогноз роста выручки на 2026 снижен с 30% до 20% в августе из-за стоимости обслуживания AI-функций. Компания ПРЯМО заявляет: это НЕ замена людей AI. Уходящим — минимум 6 мес. зарплаты и гранты $10 000 (по Reuters).",
+    "source_url": "",
+    "impact": -1,
+    "date": "2026-11-03"
+  },
+  {
+    "id": "adobe-firefly-video-editor-2026-11-05",
+    "match": [
+      "graphic designer",
+      "designer",
+      "design"
+    ],
+    "headline": "Adobe Firefly improves AI video creation with new tools, new models and unlimited generations",
+    "so_what": "Adobe launched the full public beta of the Firefly video editor — a browser-based, multi-track editor where generated clips, music and your own footage become finished videos, with Prompt to Edit (fix a clip with a text instruction instead of regenerating it), camera-motion reference and Topaz Astra upscaling. Video assembly and first-pass editing — paid designer work — is moving into a prompt-driven tool inside the subscription clients already have. The defensible skill is directing, finishing and brand judgment.",
+    "source_url": "https://creativecow.net/adobe-firefly-improves-ai-video-creation-with-new-tools-new-models-and-unlimited-generations/",
+    "impact": -1,
+    "date": "2026-11-05",
+    "kind": "tool"
+  },
+  {
+    "id": "radar-2026-11-02-product-manager-15va2da",
+    "match": [
+      "product manager"
+    ],
+    "headline": "Squarespace — минус 19% штата (~300 человек), режут product и engineering",
+    "so_what": "реструктуризация «simplify how we operate» у флагмана no-code конструкторов сайтов (~1 800 сотрудников до сокращения). Компания прямо заявила, что НЕ связывает сокращения с планами наращивать инвестиции в AI-инфраструктуру; контекст рынка — AI-конструкторы сайтов и собственный AI-native продукт Forma (waitlist) и Blueprint AI (2024). Причину «AI» приписывать компании нельзя — фиксирую только факт и контекст.",
+    "source_url": "",
+    "impact": -1,
+    "date": "2026-11-02"
+  },
+  {
+    "id": "radar-2026-11-03-product-manager-8zrviw",
+    "match": [
+      "product manager"
+    ],
+    "headline": "Canva — реструктуризация затронет 1 271 человека (22% штата), Product/Growth/Platform сливают в одну организацию",
+    "so_what": "1 271 человек — это увольнения + смены ролей + релокации в центральные хабы (сколько именно увольнений, компания не назвала); Сидней становится главной базой продуктовых команд, с января гибрид — 2–3 дня в офисе. Рост замедлился впервые за десятилетие; прогноз роста выручки на 2026 снижен с 30% до 20% в августе из-за стоимости обслуживания AI-функций. Компания ПРЯМО заявляет: это НЕ замена людей AI. Уходящим — минимум 6 мес. зарплаты и гранты $10 000 (по Reuters).",
+    "source_url": "",
+    "impact": 0,
+    "date": "2026-11-03"
+  },
+  {
+    "id": "siemens-product-manager-agent-2026-11-05",
+    "match": [
+      "product manager"
+    ],
+    "headline": "Siemens introduces AI agent for product managers",
+    "so_what": "Siemens announced an AI Product Manager Agent for Teamcenter that synthesizes voice-of-customer feedback, competitive intelligence and product data into positioning, pricing and portfolio recommendations for consumer products. It is in early access, with broader availability planned for the first half of 2027 — the synthesis layer of product management is being productized, while decisions and accountability stay with the human PM.",
+    "source_url": "https://news.siemens.com/en-us/siemens-introduces-ai-powered-product-manager-agent-to-transform-how-consumer-products-are-brought-to-market/",
+    "impact": 0,
+    "date": "2026-11-05",
+    "kind": "tool"
+  },
+  {
+    "id": "seed-code-pro-2026-11-09",
+    "match": [
+      "software developer"
+    ],
+    "headline": "ByteDance Seed releases Seed Code Pro, an AI coding model that edges out Claude Sonnet",
+    "so_what": "ByteDance’s Seed team made Seed Code Pro generally available on Volcano Engine on Nov 9, priced at $1.60 per million input tokens and $8.00 per million output tokens — well under Claude Sonnet pricing. ByteDance reports 67.7% on SWE-bench Verified (vendor-reported, not independently audited). Capable coding models keep getting cheaper: routine implementation work is priced down, while system design, review and verification carry the value.",
+    "source_url": "https://pandaily.com/p/byte-dance-seed-releases-seed-code-pro-an-ai-coding-model-that-edges-out-claude-sonnet",
+    "impact": -1,
+    "date": "2026-11-09",
+    "kind": "tool"
   }
 ];
