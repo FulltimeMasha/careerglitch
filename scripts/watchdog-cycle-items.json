@@ -182,39 +182,280 @@
     "task": null
   },
   {
-    "slug": "product-manager",
-    "id": "siemens-product-manager-agent-2026-11-05",
+    "slug": "realtor",
+    "id": "realtymark-aimee-platform-2026-11-06",
     "match": [
-      "product manager"
+      "realtor",
+      "real estate agent",
+      "real estate"
     ],
-    "headline": "Siemens introduces AI agent for product managers",
-    "so_what": "Siemens announced an AI Product Manager Agent for Teamcenter that synthesizes voice-of-customer feedback, competitive intelligence and product data into positioning, pricing and portfolio recommendations for consumer products. It is in early access, with broader availability planned for the first half of 2027 — the synthesis layer of product management is being productized, while decisions and accountability stay with the human PM.",
-    "source_url": "https://news.siemens.com/en-us/siemens-introduces-ai-powered-product-manager-agent-to-transform-how-consumer-products-are-brought-to-market/",
-    "impact": 0,
+    "headline": "RealtyMark Launches AI-Powered Company Platform for Over 2,000 Agents — Every Agent Live on Day One",
+    "so_what": "RealtyMark, an independent brokerage with 2,000+ agents across eight states, put every agent on an AI platform whose AI teammate AImee answers website chat and phone 24/7 in 25+ languages, routes and follows up leads, and briefs each agent every morning. When a 2,000-agent brokerage makes AI first-response the default, the unaided agent competes against peers whose leads are answered at 10 p.m. Negotiation, pricing judgment and local trust stay human.",
+    "source_url": "https://tpp.einnews.com/pr_news/954905587/realtymark-launches-ai-powered-company-platform-for-over-2-000-agents-every-agent-live-on-day-one",
+    "impact": -1,
+    "date": "2026-11-06",
+    "kind": "tool",
+    "reason": "a 2,000-agent brokerage just made an AI teammate the default first response — unaided agents now compete against 24/7 AI follow-up",
+    "task": {
+      "title": "Time your own first response to the last five inquiries you received, then set up one automated first-response or follow-up routine so no lead waits overnight",
+      "points": 3,
+      "checklist_id": null
+    }
+  },
+  {
+    "slug": "registered-nurse",
+    "id": "cms-nln-nursing-home-campaign-2026-11-04",
+    "match": [
+      "registered nurse"
+    ],
+    "headline": "NLN Selected as a Partner in Centers for Medicare & Medicaid Services Nurses for Nursing Homes Campaign",
+    "so_what": "CMS picked the National League for Nursing as one of two partners for a three-year Nursing Home Staffing Campaign: NLN aims to recruit 3,000 nurses (4,000 total) who commit at least three years to nursing homes, with student-loan repayment and stipends for RNs and LPN/LVNs, backed by $4.4M in CMS/HHS funding. That is a funded, concrete demand channel for nurses outside hospitals.",
+    "source_url": "https://www.nln.org/detail-pages/news/2026/11/04/nln-selected-as-a-partner-in-centers-for-medicare---medicaid-services-nurses-for-nursing-homes-campaign",
+    "impact": 1,
+    "date": "2026-11-04",
+    "reason": "CMS is funding loan repayment and stipends for 4,000 nurses who commit to nursing homes — a paid demand channel outside hospitals",
+    "task": {
+      "title": "Check the CMS Nursing Home Staffing Campaign terms (loan repayment and stipends) and note whether a nursing-home commitment fits your license and plans",
+      "points": 3,
+      "checklist_id": null
+    }
+  },
+  {
+    "slug": "nurse",
+    "id": "cms-nln-nursing-home-campaign-nurse-2026-11-04",
+    "match": [
+      "nurse"
+    ],
+    "headline": "NLN Selected as a Partner in Centers for Medicare & Medicaid Services Nurses for Nursing Homes Campaign",
+    "so_what": "CMS picked the National League for Nursing as one of two partners for a three-year Nursing Home Staffing Campaign: 4,000 nurses to be recruited into nursing homes, with student-loan repayment and stipends for RNs and LPN/LVNs who commit for three years, backed by $4.4M in CMS/HHS funding. A funded demand channel for licensed nurses outside hospitals.",
+    "source_url": "https://www.nln.org/detail-pages/news/2026/11/04/nln-selected-as-a-partner-in-centers-for-medicare---medicaid-services-nurses-for-nursing-homes-campaign",
+    "impact": 1,
+    "date": "2026-11-04",
+    "reason": "CMS is funding loan repayment and stipends for 4,000 nurses who commit to nursing homes — a paid demand channel outside hospitals",
+    "task": {
+      "title": "Check the CMS Nursing Home Staffing Campaign terms (loan repayment and stipends) and note whether a nursing-home commitment fits your license and plans",
+      "points": 3,
+      "checklist_id": null
+    }
+  },
+  {
+    "slug": "pharmacist",
+    "id": "walgreens-allentown-micro-fulfillment-2026-11-06",
+    "match": [
+      "pharmacist"
+    ],
+    "headline": "Automated Hub Shifts Allentown Prescription Work",
+    "so_what": "Walgreens opened a robotic micro-fulfillment center in Allentown, PA, projected to support ~650 stores and ~29M prescriptions a year; its network now counts 15 centers supporting 5,500+ stores and 18M prescriptions a month. Picking and packing move from stores to automated hubs, a hybrid pharmacist role (store + centralized) is rolling out in six states, and human pharmacists still handle controlled substances and time-sensitive fills. Store-level dispensing volume is being centralized — verification, clinical work and hub roles are where pharmacist hours move.",
+    "source_url": "https://wearemainstreet.org/world/us/pa/allentown/2026/11/06/walgreens-allentown-prescription-micro-fulfillment",
+    "impact": -1,
+    "date": "2026-11-06",
+    "reason": "Walgreens is moving prescription filling into robotic hubs — store dispensing volume shrinks; verification and clinical work stay human",
+    "task": {
+      "title": "List the tasks in your current role that a central fill hub could absorb, and the two clinical or verification skills you are deepening that it cannot",
+      "points": 3,
+      "checklist_id": null
+    }
+  },
+  {
+    "slug": "sonographer",
+    "id": "ge-vscan-air-lung-guidance-autoas-2026-11-03",
+    "match": [
+      "sonographer"
+    ],
+    "headline": "GE HealthCare reinforces leadership in AI with Lung Guidance and AutoAS on Vscan Air for point of care ultrasound assessments",
+    "so_what": "GE HealthCare launched two FDA-cleared AI tools for its Vscan Air handheld ultrasound: Lung Guidance, which walks a clinician through the 8-zone lung protocol and auto-captures diagnostic clips, and AutoAS, which estimates moderate-to-severe aortic stenosis from standard 2D views. In GE validation, non-expert users reached 95.2% diagnostic-quality success vs 96.8% for experts. Point-of-care scanning is being opened to non-specialists — the sonographer’s defensible ground is complex studies, quality assurance and training others.",
+    "source_url": "https://www.gehealthcare.com/en-us/about/newsroom/press-releases/ge-healthcare-reinforces-leadership-in-ai-with-lung-guidance-and-autoas-on-vscan-airtm-for-point-of-care-ultrasound-assessments",
+    "impact": -1,
+    "date": "2026-11-03",
+    "kind": "tool",
+    "reason": "FDA-cleared AI now guides non-experts to diagnostic-quality scans — routine point-of-care scanning is no longer specialist-only",
+    "task": {
+      "title": "Pick one study type that point-of-care AI now handles and write down what you offer beyond it: the complex cases, the QA, the second opinion",
+      "points": 3,
+      "checklist_id": null
+    }
+  },
+  {
+    "slug": "radiographer",
+    "id": "jpu-air-grow-your-own-imaging-2026-11-05",
+    "match": [
+      "radiographer"
+    ],
+    "headline": "John Patrick University and Advanced Imaging Review Launch “Grow Your Own” Program to Build Healthcare Imaging Talent",
+    "so_what": "John Patrick University and Advanced Imaging Review launched “Grow Your Own”: hospitals upskill existing staff — patient transport, front desk, admin — into radiologic technologists, move limited-scope techs toward broader radiography qualifications, and help qualified techs add modalities, while keeping their jobs. Employers are building an internal pipeline because imaging staff are scarce — qualified radiographers who can mentor and cover multiple modalities become harder to replace.",
+    "source_url": "https://www.globenewswire.com/news-release/2026/11/05/3396490/0/en/john-patrick-university-and-advanced-imaging-review-launch-grow-your-own-program-to-build-healthcare-imaging-talent.html",
+    "impact": 1,
+    "date": "2026-11-05",
+    "reason": "hospitals are paying to grow their own imaging staff — qualified radiographers who mentor and cover more modalities gain leverage",
+    "task": {
+      "title": "Note one additional modality or mentoring role you could credibly add this quarter, and ask your employer whether they sponsor Grow-Your-Own-style pathways",
+      "points": 3,
+      "checklist_id": null
+    }
+  },
+  {
+    "slug": "data-engineer",
+    "id": "snowflake-autonomous-data-engineering-2026-11-03",
+    "match": [
+      "data engineer"
+    ],
+    "headline": "Autonomous Data Engineering for the Agentic Enterprise",
+    "so_what": "At Snowflake Expedition 2026, Snowflake announced CoCo Cloud Agents and CoCo Automations: AI agents that run scheduled pipeline-health checks, trace likely failure causes and propose fixes, while data engineers set guardrails and decide what reaches production. The recurring keep-it-running layer of data engineering is being automated inside the platform; design, governance and approval are the human remainder.",
+    "source_url": "https://www.snowflake.com/en/news/press-releases/expedition-2026-autonomous-data-engineering/",
+    "impact": -1,
+    "date": "2026-11-03",
+    "kind": "tool",
+    "reason": "Snowflake agents now check pipeline health and propose fixes on a schedule — routine pipeline babysitting is automated; guardrails and approvals stay yours",
+    "task": {
+      "title": "Take one recurring pipeline check you do by hand and spec it as an agent automation: trigger, guardrails, and what still needs your approval",
+      "points": 3,
+      "checklist_id": null
+    }
+  },
+  {
+    "slug": "soc-analyst",
+    "id": "gartner-ai-soc-roles-2026-11-03",
+    "match": [
+      "soc analyst"
+    ],
+    "headline": "Gartner report outlines evolving roles in AI-enabled security operations centers",
+    "so_what": "A 2026 Gartner report (analyst Pete Shoard), covered by SC Media, describes AI agents taking over alert triage and investigation in SOCs and predicts that by 2028 engineering staff will outnumber traditional analysts. Analyst work shifts to end-to-end case ownership, validating AI conclusions, and detection engineering expanded to prompt design, workflow testing and AI-output validation — while the junior training path built on high-volume alert handling breaks.",
+    "source_url": "https://www.scworld.com/brief/gartner-report-outlines-evolving-roles-in-ai-enabled-security-operations-centers",
+    "impact": -1,
+    "date": "2026-11-03",
+    "reason": "Gartner: AI agents are taking SOC triage and investigation; the analyst job is becoming case ownership and validation of AI output",
+    "task": {
+      "title": "Take one closed case and write the validation checklist you would run against an AI agent’s conclusion before trusting it in production",
+      "points": 3,
+      "checklist_id": null
+    }
+  },
+  {
+    "slug": "penetration-tester",
+    "id": "arnica-agentic-pen-testing-2026-11-05",
+    "match": [
+      "penetration tester"
+    ],
+    "headline": "Arnica Launches Agentic Penetration Testing to Detect and Verify Real Security Flaws and Fix Them Automatically",
+    "so_what": "Arnica launched Agentic Pen Testing (controlled rollout, Nov 5): agents test live applications, prove which scanner findings are actually exploitable, create fix pull requests and retest after changes — explicitly replacing periodic manual testing with continuous agent testing that scales with AI-generated code. The manual validation layer of pentesting is being productized; scoping, novel attack paths and judgment calls remain human.",
+    "source_url": "https://theconsumernewsnetwork.com/article/954572341-arnica-launches-agentic-penetration-testing-to-detect-and-verify-real-security-flaws-and-fix-them-automatically",
+    "impact": -1,
     "date": "2026-11-05",
     "kind": "tool",
-    "reason": "Siemens is productizing the synthesis layer of product management — VoC, competitive intel and pricing drafts; early access now, broader release in H1 2027",
+    "reason": "agents now validate exploitable flaws and draft fixes continuously — the manual validation layer of pentesting is being automated",
     "task": {
-      "title": "Take one product brief you own and mark which sections an agent could draft from your data — and which decisions you would never delegate",
+      "title": "Take one past finding and write how you would scope an agent to re-validate it continuously — and what you would still test by hand",
+      "points": 3,
+      "checklist_id": null
+    }
+  },
+  {
+    "slug": "ai-engineer",
+    "id": "oumi-frontier-ai-engineer-2026-11-04",
+    "match": [
+      "ai engineer"
+    ],
+    "headline": "Oumi’s Frontier AI Engineer now builds AI agents and retrains the models behind them",
+    "so_what": "Oumi extended its Frontier AI Engineer so a team can describe an agent in plain language and the system defines its tools and environments, designs evaluations, and retrains the underlying model — turning production failures into new eval sets and training data, with DPO added and GRPO in private preview. Work that required frontier-lab skills (eval design, training runs, failure-driven retraining) is being packaged into an agent; directing it and judging its trade-offs become the engineer’s value.",
+    "source_url": "https://siliconangle.com/2026/11/04/oumis-frontier-ai-engineer-now-builds-ai-agents-and-retrains-the-models-behind-them/",
+    "impact": -1,
+    "date": "2026-11-04",
+    "kind": "tool",
+    "reason": "an agent now designs evals and retrains models from production failures — parts of the AI-engineering loop itself are being automated",
+    "task": {
+      "title": "Take one failing agent behavior you know and write the eval set you would build from it — the exact artifact an automated trainer would need from you",
+      "points": 3,
+      "checklist_id": null
+    }
+  },
+  {
+    "slug": "electrician",
+    "id": "data-centers-electrician-shortage-2026-11-04",
+    "match": [
+      "electrician"
+    ],
+    "headline": "Data Centers Crowd Out Ordinary Work – The Impact of Labor Shortage",
+    "so_what": "Electrical Trends’ field research: data-center builds are absorbing scarce electricians — electrical work is 45–70% of a typical data-center construction budget (IBEW) and the hardest trade to staff; training programs produce about 55 workers per 100 needed, construction wages are rising ~5–5.5% a year, and ordinary projects in Texas and Virginia are slowing because crews are tied up on data centers. Demand and pricing power sit with licensed electricians who can staff or lead these crews.",
+    "source_url": "https://electricaltrends.com/2026/11/03/data-centers-crowd-out-ordinary-work-the-impact-of-labor-shortage/",
+    "impact": 1,
+    "date": "2026-11-04",
+    "reason": "data centers are absorbing electricians faster than training replaces them — wages and pricing power are rising for licensed crews",
+    "task": {
+      "title": "Check two live data-center or hyperscale job postings in your state and note the license, per-diem and pay terms against your current rate",
+      "points": 3,
+      "checklist_id": null
+    }
+  },
+  {
+    "slug": "quantity-surveyor",
+    "id": "rics-q3-2026-qs-shortage-2026-11-06",
+    "match": [
+      "quantity surveyor"
+    ],
+    "headline": "Surveyors ‘more optimistic’ despite Q3 fall in workloads",
+    "so_what": "The RICS Construction Monitor for Q3 2026 (Scotland report): workloads fell (net balance −9%), yet 49% of respondents reported a shortage of quantity surveyors — the profession stays in short supply even as work softens — and forward workload expectations improved to +17%. Scarce QS capacity keeps its pricing power through a soft patch; margin pressure, not headcount, is the near-term risk.",
+    "source_url": "https://www.scottishconstructionnow.com/articles/surveyors-more-optimistic-despite-q3-fall-in-workloads",
+    "impact": 1,
+    "date": "2026-11-06",
+    "reason": "RICS Q3: half of firms report a quantity-surveyor shortage even as workloads dip — scarce QSs keep pricing power",
+    "task": {
+      "title": "Benchmark your current rate against two live QS postings this week and note where the shortage is being advertised",
+      "points": 3,
+      "checklist_id": null
+    }
+  },
+  {
+    "slug": "asset-management",
+    "id": "wealthsimple-penny-ai-assistant-2026-11-06",
+    "match": [
+      "asset management"
+    ],
+    "headline": "Wealthsimple launches AI banking assistant that can help move money, place trades",
+    "so_what": "Wealthsimple (4M+ clients) launched Penny, an AI assistant that cues up e-transfers, pays invoices, flags duplicate charges, gives contribution insights and helps self-directed investors buy and sell stocks and ETFs — nothing executes without client confirmation — and by early 2027 clients will be able to connect accounts to ChatGPT and Claude with permissioned access. The client-facing servicing layer of wealth management is being automated at platform scale; advice, trust and accountability remain the human product.",
+    "source_url": "https://www.moneysense.ca/news/wealthsimple-ai-assistant/",
+    "impact": -1,
+    "date": "2026-11-06",
+    "kind": "tool",
+    "reason": "a 4M-client platform just automated money-movement prep and trade cueing — routine client servicing is becoming an AI feature",
+    "task": {
+      "title": "List the client-service requests you handle weekly that an assistant could prepare end-to-end, and the one conversation type you will always take yourself",
+      "points": 3,
+      "checklist_id": null
+    }
+  },
+  {
+    "slug": "digital-marketer",
+    "id": "unbounce-ai-landing-page-builder-2026-11-05",
+    "match": [
+      "digital marketer"
+    ],
+    "headline": "Unbounce launches new AI-powered landing page builder built on 2.5 billion conversions",
+    "so_what": "Unbounce launched an AI landing-page builder trained on its dataset of 2.5 billion conversions: prompt a page (audience, offer, goal) and get an editable draft, with forms, A/B testing and GA4/GTM built in, plus free AI credits for existing customers. Its cited research: 86% of marketers use AI in paid media but only 19% for landing-page creation — page production is the next core task being automated. Strategy, offer design and conversion judgment stay human.",
+    "source_url": "https://unbounce.medium.com/unbounce-launches-new-ai-powered-landing-page-builder-built-on-2-5-billion-conversions-79f3fef85cb6",
+    "impact": -1,
+    "date": "2026-11-05",
+    "kind": "tool",
+    "reason": "landing-page production just became a prompt inside a mainstream tool — marketers get paid for offer strategy and conversion judgment, not page assembly",
+    "task": {
+      "title": "Rebuild one of your existing landing pages with an AI builder and compare its draft against your version: note what the AI got wrong about the offer",
       "points": 3,
       "checklist_id": null
     }
   },
   {
     "slug": "software-developer",
-    "id": "seed-code-pro-2026-11-09",
+    "id": "nice-500-cuts-ai-productivity-2026-11-04",
     "match": [
       "software developer"
     ],
-    "headline": "ByteDance Seed releases Seed Code Pro, an AI coding model that edges out Claude Sonnet",
-    "so_what": "ByteDance’s Seed team made Seed Code Pro generally available on Volcano Engine on Nov 9, priced at $1.60 per million input tokens and $8.00 per million output tokens — well under Claude Sonnet pricing. ByteDance reports 67.7% on SWE-bench Verified (vendor-reported, not independently audited). Capable coding models keep getting cheaper: routine implementation work is priced down, while system design, review and verification carry the value.",
-    "source_url": "https://pandaily.com/p/byte-dance-seed-releases-seed-code-pro-an-ai-coding-model-that-edges-out-claude-sonnet",
+    "headline": "Nice CEO links 500 job cuts to AI productivity gains, including in R&D",
+    "so_what": "NiCE will cut ~500 jobs (~5% of ~10,000), concentrated primarily in product development plus go-to-market, support and services. On the Q3 earnings call, CEO Scott Russell said this includes R&D, where “our teams are leveraging AI tools to increase productivity materially,” alongside removing management layers. A named employer is now publicly tying developer headcount to AI productivity — output per developer, not hours, is becoming the metric.",
+    "source_url": "https://www.calcalistech.com/ctechnews/article/ygubfbd9r",
     "impact": -1,
-    "date": "2026-11-09",
-    "kind": "tool",
-    "reason": "a capable coding model just launched at a fraction of Claude Sonnet’s price — routine coding is being priced down; review and design are the defensible skills",
+    "date": "2026-11-04",
+    "reason": "NiCE’s CEO explicitly tied ~500 cuts, concentrated in product development, to AI productivity gains in R&D",
     "task": {
-      "title": "Run Seed Code Pro on one real task from your backlog next to your current model and log every place its code needed your correction",
+      "title": "Write down which parts of your weekly output AI tools already made measurably faster — and the one engineering skill you are deepening that they do not replace",
       "points": 3,
       "checklist_id": null
     }
